@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -1230,17 +1230,19 @@ async function syncToSirhc(){
   }
 
   try{
-    const gistId=localStorage.getItem('tgr_gist_id');
-    const payload={description:'Sirhc Cockpit Snapshot',public:false,files:{'sirhc-snapshot.txt':{content}}};
-    let res,data;
-    if(gistId){
-      res=await fetch(`https://api.github.com/gists/${gistId}`,{method:'PATCH',headers:{'Authorization':`token ${token}`,'Content-Type':'application/json'},body:JSON.stringify(payload)});
-    } else {
-      res=await fetch('https://api.github.com/gists',{method:'POST',headers:{'Authorization':`token ${token}`,'Content-Type':'application/json'},body:JSON.stringify(payload)});
-    }
-    data=await res.json();
-    if(data.id){
-      localStorage.setItem('tgr_gist_id',data.id);
+    // Get current file SHA (required for updates)
+    const headers={'Authorization':`token ${token}`,'Content-Type':'application/json'};
+    const getRes=await fetch('https://api.github.com/repos/ThatGardeningRealtor/cockpit/contents/sirhc-snapshot.txt',{headers});
+    const getData=await getRes.json();
+    const sha=getData.sha||null;
+
+    const payload={message:'Sync snapshot',content:btoa(unescape(encodeURIComponent(content)))};
+    if(sha)payload.sha=sha;
+
+    const putRes=await fetch('https://api.github.com/repos/ThatGardeningRealtor/cockpit/contents/sirhc-snapshot.txt',{method:'PUT',headers,body:JSON.stringify(payload)});
+    const putData=await putRes.json();
+
+    if(putData.content){
       btn.textContent='Synced to Sirhc ✅';btn.style.background='var(--moss)';btn.style.color='#fff';
       setTimeout(()=>{btn.textContent='🌿 Sync to Sirhc';btn.style.background='';btn.style.color='';},4000);
     } else {
