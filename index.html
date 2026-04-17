@@ -353,7 +353,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
   <div class="st"><div class="cc"><button class="cb" onclick="adjC(-1)">−</button><div class="cn" id="cCnt">0</div><button class="cb" onclick="adjC(1)">+</button></div><div class="cg">goal: 5 calls</div><div class="cprog"><div class="cfill" id="cFill" style="width:0%"></div></div></div>
 </div>
 <!-- TABS -->
-<div id="t-cock" class="tab on"><div id="alert-bar"></div><div class="sec"><div class="sec-t">Today's 3 Priorities</div><div id="pri-list"></div><div class="sec-t" style="margin-top:20px">Pipeline Snapshot</div><div id="pipe-snap"></div><div class="sec-t" style="margin-top:20px">Today's Calendar <span style="font-size:10px;font-weight:400;opacity:.6">· tap event to open card</span></div><div id="gcal-strip"></div><div class="sec-t" style="margin-top:20px">Weekly Rhythm <span style="font-size:10px;font-weight:400;opacity:.6">· tap to edit</span></div><div id="week-grid" class="rg"></div><div class="qc"><div class="qt">"Plant the seed. Water it daily. Trust the season."</div><div class="qa">— Sirhc</div></div><div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;"><button onclick="showBriefing(true)" style="padding:7px 14px;border-radius:20px;border:1.5px solid rgba(0,255,100,.35);background:rgba(0,255,100,.06);color:#2a7a4a;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit">🕵️ Mission Briefing</button><button onclick="syncToSirhc()" style="padding:7px 14px;border-radius:20px;border:1.5px solid var(--moss);background:rgba(46,74,48,.08);color:var(--moss);font-size:11px;font-weight:700;cursor:pointer;font-family:inherit">🌿 Sync to Sirhc</button></div></div><div class="spacer"></div></div>
+<div id="t-cock" class="tab on"><div id="alert-bar"></div><div class="sec"><div class="sec-t">Today's 3 Priorities</div><div id="pri-list"></div><div class="sec-t" style="margin-top:20px">Pipeline Snapshot</div><div id="pipe-snap"></div><div class="sec-t" style="margin-top:20px">Today's Calendar <span style="font-size:10px;font-weight:400;opacity:.6">· tap event to open card</span></div><div id="gcal-strip"></div><div class="sec-t" style="margin-top:20px">Weekly Rhythm <span style="font-size:10px;font-weight:400;opacity:.6">· tap to edit</span></div><div id="week-grid" class="rg"></div><div class="qc"><div class="qt">"Plant the seed. Water it daily. Trust the season."</div><div class="qa">— Sirhc</div></div><div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;"><button onclick="showBriefing(true)" style="padding:7px 14px;border-radius:20px;border:1.5px solid rgba(0,255,100,.35);background:rgba(0,255,100,.06);color:#2a7a4a;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit">🕵️ Mission Briefing</button><button id="sync-btn-cock" onclick="syncToSirhc(this)" style="padding:7px 14px;border-radius:20px;border:1.5px solid var(--moss);background:rgba(46,74,48,.08);color:var(--moss);font-size:11px;font-weight:700;cursor:pointer;font-family:inherit">🌿 Sync to Sirhc</button></div></div><div class="spacer"></div></div>
 
 
 <div id="t-deals" class="tab"><div class="sec"><div class="sec-t">Active Listings & Deals</div><div id="deal-list"></div></div><div class="spacer"></div></div>
@@ -386,6 +386,10 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
 <!-- MODALS -->
 <div class="m-ov" id="mOv" onclick="closeModal()"></div>
 <div class="modal" id="mModal"><div class="m-hnd"><div class="m-bar"></div><button class="m-x" onclick="closeModal()">✕</button></div><div class="m-body" id="mBody"></div></div>
+
+<!-- TOKEN MODAL -->
+<div class="m-ov" id="tokenOv" style="z-index:520"></div>
+<div class="modal" id="tokenModal" style="z-index:530"><div class="m-hnd"><div class="m-bar"></div><button class="m-x" onclick="closeTokenModal()">✕</button></div><div class="m-body"><div class="m-title">GitHub Token</div><div class="m-type"><span>🔑</span>One-time setup</div><p style="font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:16px">Enter your GitHub Personal Access Token to enable Sync to Sirhc. It's stored only on this device and never sent anywhere except GitHub.</p><div class="fg"><label class="fl">Token</label><input class="fi" id="token-input" type="password" placeholder="ghp_xxxxxxxxxxxxx" autocomplete="off"></div><button class="m-save-btn" onclick="submitToken()">Save &amp; Sync</button></div></div>
 
 
 <div class="m-ov" id="cOv" onclick="closeCmd()" style="z-index:550"></div>
@@ -882,10 +886,11 @@ function showCT(tab){
 
 function populateDealSelect(){
   const sel=document.getElementById('r-deal');
+  if(!sel)return; // panel not in DOM yet — bail safely
   const cur=sel.value;
   sel.innerHTML='<option value="">Select...</option>';
-  deals.forEach(d=>{const label=d.address||d.title||'Unknown Deal';const opt=document.createElement('option');opt.value=label;opt.textContent=label;sel.appendChild(opt);});
-  leads.forEach(l=>{const label=l.title||l.name||'Unknown Lead';const opt=document.createElement('option');opt.value=label;opt.textContent=label;sel.appendChild(opt);});
+  (deals||[]).forEach(d=>{const label=d.address||d.title||'Unknown Deal';const opt=document.createElement('option');opt.value=label;opt.textContent=label;sel.appendChild(opt);});
+  (leads||[]).forEach(l=>{const label=l.title||l.name||'Unknown Lead';const opt=document.createElement('option');opt.value=label;opt.textContent=label;sel.appendChild(opt);});
   const other=document.createElement('option');other.value='Other / New';other.textContent='Other / New';sel.appendChild(other);
   if(cur)sel.value=cur;
 }
@@ -1181,7 +1186,71 @@ function exportData(){
   a.click();URL.revokeObjectURL(url);
 }
 
-async function syncToSirhc(){
+// Token modal helpers
+let _syncCallerBtn=null;
+let _syncSnapshotContent=null;
+function openTokenModal(btn,content){
+  _syncCallerBtn=btn;
+  _syncSnapshotContent=content;
+  document.getElementById('tokenOv').classList.add('open');
+  document.getElementById('tokenModal').classList.add('open');
+  const inp=document.getElementById('token-input');
+  inp.value='';
+  setTimeout(()=>inp.focus(),350);
+}
+function closeTokenModal(){
+  document.getElementById('tokenOv').classList.remove('open');
+  document.getElementById('tokenModal').classList.remove('open');
+  if(_syncCallerBtn){
+    _syncCallerBtn.textContent='🌿 Sync to Sirhc';
+    _syncCallerBtn.style.background='';_syncCallerBtn.style.color='';
+  }
+  _syncCallerBtn=null;_syncSnapshotContent=null;
+}
+async function submitToken(){
+  const inp=document.getElementById('token-input');
+  const token=inp.value.trim();
+  if(!token){inp.style.borderColor='var(--rust)';return;}
+  localStorage.setItem('tgr_gh_token',token);
+  document.getElementById('tokenOv').classList.remove('open');
+  document.getElementById('tokenModal').classList.remove('open');
+  await _doGitHubPush(_syncCallerBtn,_syncSnapshotContent,token);
+  _syncCallerBtn=null;_syncSnapshotContent=null;
+}
+
+async function _doGitHubPush(btn,content,token){
+  try{
+    btn.textContent='Syncing...';btn.style.background='var(--gold)';btn.style.color='#fff';
+    const headers={'Authorization':`token ${token}`,'Content-Type':'application/json'};
+    const getRes=await fetch('https://api.github.com/repos/ThatGardeningRealtor/cockpit/contents/sirhc-snapshot.txt',{headers});
+    const getData=await getRes.json();
+    const sha=getData.sha||null;
+    const payload={message:'Sync snapshot',content:btoa(unescape(encodeURIComponent(content)))};
+    if(sha)payload.sha=sha;
+    const putRes=await fetch('https://api.github.com/repos/ThatGardeningRealtor/cockpit/contents/sirhc-snapshot.txt',{method:'PUT',headers,body:JSON.stringify(payload)});
+    const putData=await putRes.json();
+    if(putData.content){
+      btn.textContent='Synced ✅';btn.style.background='var(--moss)';btn.style.color='#fff';
+      setTimeout(()=>{btn.textContent='🌿 Sync to Sirhc';btn.style.background='';btn.style.color='';},4000);
+    } else {
+      throw new Error(putData.message||'bad response');
+    }
+  } catch(e){
+    localStorage.removeItem('tgr_gh_token');
+    btn.textContent='Token error — tap to retry';btn.style.background='var(--rust)';btn.style.color='#fff';
+    setTimeout(()=>{btn.textContent='🌿 Sync to Sirhc';btn.style.background='';btn.style.color='';},5000);
+  }
+}
+
+async function syncToSirhc(callerBtn){
+  // callerBtn is the button element that was clicked
+  const btn=callerBtn||document.getElementById('sync-btn-cock')||document.getElementById('sync-btn');
+  if(!btn){console.warn('syncToSirhc: no button reference found');return;}
+
+  // Show immediate feedback
+  const origText=btn.textContent;
+  btn.textContent='Building snapshot...';btn.style.background='var(--gold)';btn.style.color='#fff';
+
   const now=new Date();
   const dateStr=now.toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
   const timeStr=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
@@ -1198,86 +1267,68 @@ async function syncToSirhc(){
 
   // Priorities
   lines.push(`--- PRIORITIES ---`);
-  priorities.forEach(p=>{
-    lines.push(`[${p.done?'DONE':'    '}] ${p.title}${p.notes?' — '+p.notes:''}`);
+  (priorities||[]).forEach(p=>{
+    lines.push(`[${p.done?'DONE':'    '}] ${p.title||''}${p.notes?' — '+p.notes:''}`);
   });
+  if(!(priorities||[]).length) lines.push('(none)');
   lines.push(``);
 
   // Deals
   lines.push(`--- ACTIVE DEALS ---`);
-  deals.filter(d=>!d.cls).forEach(d=>{
-    lines.push(`${d.title} | ${d.status||'—'} | ${d.stage||'—'}${d.notes?' | '+d.notes:''}`);
-    if(d.logs&&d.logs.length){d.logs.slice(0,3).forEach(lg=>lines.push(`  Log (${lg.t}): ${lg.m}`));}
+  const activeDeals=(deals||[]).filter(d=>!d.cls);
+  activeDeals.forEach(d=>{
+    lines.push(`${d.title||d.address||'Unknown'} | ${d.status||'—'} | Stage: ${d.stage!==undefined?d.stage:'—'}${d.notes?' | '+d.notes:''}`);
+    if(d.logs&&d.logs.length){d.logs.slice(0,3).forEach(lg=>lines.push(`  Log (${lg.t||'?'}): ${lg.m||''}`));}
   });
-  if(!deals.filter(d=>!d.cls).length) lines.push('(none)');
+  if(!activeDeals.length) lines.push('(none)');
   lines.push(``);
 
   // Leads
   lines.push(`--- LEADS ---`);
-  leads.filter(l=>!l.cls).forEach(l=>{
-    const temp=l.temp||'—';
+  const activeLeads=(leads||[]).filter(l=>!l.cls);
+  activeLeads.forEach(l=>{
+    const name=l.title||l.name||'Unknown';
+    const temp=l.temp||l.type||'—';
     const stage=l.stage||'—';
     const last=l.lastContact||'—';
-    lines.push(`${l.title||l.name||'Unknown'} | ${temp} | Stage: ${stage} | Last Contact: ${last}${l.notes?' | '+l.notes:''}`);
-    if(l.logs&&l.logs.length){l.logs.slice(0,3).forEach(lg=>lines.push(`  Log (${lg.t}): ${lg.m}`));}
+    const next=l.next||l.detail||'';
+    lines.push(`${name} | ${temp} | Stage: ${stage} | Last Contact: ${last}${next?' | Next: '+next:''}`);
+    if(l.logs&&l.logs.length){l.logs.slice(0,3).forEach(lg=>lines.push(`  Log (${lg.t||'?'}): ${lg.m||''}`));}
   });
-  if(!leads.filter(l=>!l.cls).length) lines.push('(none)');
+  if(!activeLeads.length) lines.push('(none)');
   lines.push(``);
 
   // Tasks
   lines.push(`--- TASKS ---`);
-  tasks.forEach(t=>{
-    lines.push(`[${t.done?'DONE':'    '}] ${t.title}${t.tag?' ['+t.tag+']':''}${t.notes?' — '+t.notes:''}`);
-    if(t.logs&&t.logs.length){t.logs.slice(0,2).forEach(lg=>lines.push(`       Log (${lg.t}): ${lg.m}`));}
+  (tasks||[]).forEach(t=>{
+    lines.push(`[${t.done?'DONE':'    '}] ${t.title||''}${t.tag?' ['+t.tag+']':''}${t.notes?' — '+t.notes:''}`);
+    if(t.logs&&t.logs.length){t.logs.slice(0,2).forEach(lg=>lines.push(`       Log (${lg.t||'?'}): ${lg.m||''}`));}
   });
-  if(!tasks.length) lines.push('(none)');
+  if(!(tasks||[]).length) lines.push('(none)');
   lines.push(``);
 
   // Content pipeline — non-posted items
-  const activeContent=contentPipeline.filter(c=>c.status!=='Posted');
+  const activeContent=(contentPipeline||[]).filter(c=>c.status!=='Posted');
   if(activeContent.length){
     lines.push(`--- CONTENT PIPELINE ---`);
     activeContent.forEach(c=>{
-      lines.push(`[${c.status}] ${c.title} | ${(c.platforms||[]).join(', ')}${c.notes?' — '+c.notes:''}`);
+      lines.push(`[${c.status||'?'}] ${c.title||''} | ${(c.platforms||[]).join(', ')}${c.notes?' — '+c.notes:''}`);
     });
     lines.push(``);
   }
 
   const content=lines.join('\n');
-  const btn=document.getElementById('sync-btn');
-  btn.textContent='Syncing...';btn.style.background='var(--gold)';btn.style.color='#fff';
 
+  // Check for token
   let token=localStorage.getItem('tgr_gh_token');
   if(!token){
-    token=prompt('Enter your GitHub token to enable auto-sync.\nThis is stored only on this device.');
-    if(!token){btn.textContent='🌿 Sync to Sirhc';btn.style.background='';btn.style.color='';return;}
-    localStorage.setItem('tgr_gh_token',token);
+    // Restore button to neutral while modal is open
+    btn.textContent='🔑 Enter token...';btn.style.background='var(--gold)';btn.style.color='#fff';
+    openTokenModal(btn,content);
+    return;
   }
 
-  try{
-    // Get current file SHA (required for updates)
-    const headers={'Authorization':`token ${token}`,'Content-Type':'application/json'};
-    const getRes=await fetch('https://api.github.com/repos/ThatGardeningRealtor/cockpit/contents/sirhc-snapshot.txt',{headers});
-    const getData=await getRes.json();
-    const sha=getData.sha||null;
-
-    const payload={message:'Sync snapshot',content:btoa(unescape(encodeURIComponent(content)))};
-    if(sha)payload.sha=sha;
-
-    const putRes=await fetch('https://api.github.com/repos/ThatGardeningRealtor/cockpit/contents/sirhc-snapshot.txt',{method:'PUT',headers,body:JSON.stringify(payload)});
-    const putData=await putRes.json();
-
-    if(putData.content){
-      btn.textContent='Synced to Sirhc ✅';btn.style.background='var(--moss)';btn.style.color='#fff';
-      setTimeout(()=>{btn.textContent='🌿 Sync to Sirhc';btn.style.background='';btn.style.color='';},4000);
-    } else {
-      throw new Error('bad response');
-    }
-  } catch(e){
-    localStorage.removeItem('tgr_gh_token');
-    btn.textContent='Token error — tap to retry';btn.style.background='var(--rust)';btn.style.color='#fff';
-    setTimeout(()=>{btn.textContent='🌿 Sync to Sirhc';btn.style.background='';btn.style.color='';},4000);
-  }
+  await _doGitHubPush(btn,content,token);
 }
 
 function importData(){
