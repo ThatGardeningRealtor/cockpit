@@ -360,7 +360,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
 <div id="t-leads" class="tab"><div class="sec"><div id="lead-list"></div></div><div class="spacer"></div></div>
 <div id="t-tasks" class="tab"><div id="alert-bar-tasks"></div><div class="sec"><div class="sec-t">Today's Tasks</div><div id="task-list"></div></div><div class="spacer"></div></div>
 <div id="t-content" class="tab"><div class="sec"><div class="sec-t">Content Pipeline</div><div id="content-list"></div></div><div class="spacer"></div></div>
-<div id="t-vendors" class="tab"><div class="sec"><div class="sec-t">Contractors</div><div id="vend-contractors" class="v-grid"></div><div class="sec-t">Title & Lenders</div><div id="vend-lenders" class="v-grid"></div><div class="sec-t">Team</div><div id="vend-team" class="v-grid"></div><div class="sec-t">Loan Programs</div><div id="loan-list"></div><div class="mb"><div class="mb-t">VA Rate Buy-Down — The Math</div><div class="mb-r"><span>Nothing down @ 6.5%</span><span>$1,814/mo</span></div><div class="mb-r"><span>3% down @ 6.5%</span><span>$1,766/mo</span></div><div class="mb-r w"><span>$0 down + $7.5K buy-down @ 5.5%</span><span>$1,650/mo ✅</span></div><div class="mb-tip">Always buy the rate down, not the down payment.</div></div></div><div class="foot">Built by <span>Sirhc</span> · That Gardening Realtor AI Team<br><span style="opacity:.6;font-size:9px">Data auto-saves to this device</span><br><button id="install-btn" onclick="installApp()" style="display:none;margin-top:8px;margin-right:6px;padding:6px 14px;border-radius:20px;border:1.5px solid var(--sky);background:rgba(74,138,181,.08);color:var(--sky);font-size:10px;font-weight:700;cursor:pointer;font-family:inherit">📲 Install App</button><button onclick="localStorage.removeItem('tgr_brief_date');showBriefing();" style="margin-top:8px;margin-right:6px;padding:6px 14px;border-radius:20px;border:1.5px solid rgba(0,255,100,.4);background:rgba(0,255,100,.06);color:#2a7a4a;font-size:10px;font-weight:700;cursor:pointer;font-family:inherit">🕵️ Preview Briefing</button><button id="sync-btn" onclick="syncToSirhc()" style="margin-top:8px;margin-right:6px;padding:6px 14px;border-radius:20px;border:1.5px solid var(--moss);background:rgba(46,74,48,.08);color:var(--moss);font-size:10px;font-weight:700;cursor:pointer;font-family:inherit">🌿 Sync to Sirhc</button><button onclick="exportData()" style="margin-top:8px;margin-right:6px;padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--muted);font-size:10px;cursor:pointer;font-family:inherit">⬇ Export Backup</button><button onclick="importData()" style="margin-top:8px;margin-right:6px;padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--muted);font-size:10px;cursor:pointer;font-family:inherit">⬆ Import Backup</button><button onclick="resetToDefaults()" style="margin-top:8px;padding:5px 12px;border-radius:20px;border:1px solid #fde8e8;background:var(--card);color:var(--rust);font-size:10px;cursor:pointer;font-family:inherit">↺ Reset</button></div><div class="spacer"></div></div>
+<div id="t-vendors" class="tab"><div class="sec"><div class="sec-t">Contractors</div><div id="vend-contractors" class="v-grid"></div><div class="sec-t">Title & Lenders</div><div id="vend-lenders" class="v-grid"></div><div class="sec-t">Team</div><div id="vend-team" class="v-grid"></div><div class="sec-t">Loan Programs</div><div id="loan-list"></div><div class="mb"><div class="mb-t">VA Rate Buy-Down — The Math</div><div class="mb-r"><span>Nothing down @ 6.5%</span><span>$1,814/mo</span></div><div class="mb-r"><span>3% down @ 6.5%</span><span>$1,766/mo</span></div><div class="mb-r w"><span>$0 down + $7.5K buy-down @ 5.5%</span><span>$1,650/mo ✅</span></div><div class="mb-tip">Always buy the rate down, not the down payment.</div></div></div><div class="foot">Built by <span>Sirhc</span> · That Gardening Realtor AI Team<br><span style="opacity:.6;font-size:9px">Data auto-saves to this device</span><br><button id="install-btn" onclick="installApp()" style="display:none;margin-top:8px;margin-right:6px;padding:6px 14px;border-radius:20px;border:1.5px solid var(--sky);background:rgba(74,138,181,.08);color:var(--sky);font-size:10px;font-weight:700;cursor:pointer;font-family:inherit">📲 Install App</button><button onclick="localStorage.removeItem('tgr_brief_date');showBriefing(true);" style="margin-top:8px;margin-right:6px;padding:6px 14px;border-radius:20px;border:1.5px solid rgba(0,255,100,.4);background:rgba(0,255,100,.06);color:#2a7a4a;font-size:10px;font-weight:700;cursor:pointer;font-family:inherit">🕵️ Preview Briefing</button><button id="sync-btn" onclick="syncToSirhc()" style="margin-top:8px;margin-right:6px;padding:6px 14px;border-radius:20px;border:1.5px solid var(--moss);background:rgba(46,74,48,.08);color:var(--moss);font-size:10px;font-weight:700;cursor:pointer;font-family:inherit">🌿 Sync to Sirhc</button><button onclick="exportData()" style="margin-top:8px;margin-right:6px;padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--muted);font-size:10px;cursor:pointer;font-family:inherit">⬇ Export Backup</button><button onclick="importData()" style="margin-top:8px;margin-right:6px;padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--muted);font-size:10px;cursor:pointer;font-family:inherit">⬆ Import Backup</button><button onclick="resetToDefaults()" style="margin-top:8px;padding:5px 12px;border-radius:20px;border:1px solid #fde8e8;background:var(--card);color:var(--rust);font-size:10px;cursor:pointer;font-family:inherit">↺ Reset</button></div><div class="spacer"></div></div>
 
 
 <!-- ACTION STRIP -->
@@ -1267,10 +1267,10 @@ function resetToDefaults(){
 
 if('serviceWorker' in navigator){navigator.serviceWorker.register('/cockpit/sw.js').catch(()=>{});}
 
-function showBriefing(){
+function showBriefing(preview){
   const today=new Date().toDateString();
   const last=localStorage.getItem('tgr_brief_date');
-  if(last===today)return;
+  if(!preview&&last===today)return;
   const ov=document.getElementById('brief-ov');
   if(!ov)return;
 
@@ -1291,8 +1291,14 @@ function showBriefing(){
     }),500);
   }),900);
 
-  // Hot leads
-  const hotLeads=leads.filter(l=>!l.cls&&(l.temp==='Hot'||l.temp==='🔥 Hot'));
+  // Hot leads — use mock data in preview if none exist
+  const realHot=leads.filter(l=>!l.cls&&(l.temp==='Hot'||l.temp==='🔥 Hot'));
+  const mockLeads=[
+    {name:'Pamela Moore',stage:'Nurturing',lastContact:'Apr 13'},
+    {name:'James Drause',stage:'Contacted',lastContact:'Apr 10'},
+    {name:'Mike & Alice Howell',stage:'Active Client',lastContact:'Apr 16'},
+  ];
+  const hotLeads=preview&&!realHot.length?mockLeads:realHot;
   const bl=document.getElementById('brief-leads');
   if(hotLeads.length){
     bl.innerHTML=hotLeads.map(l=>`<div class="brief-item"><div class="brief-dot hot"></div><div><div class="brief-item-text">${l.name}</div><div class="brief-item-sub">${l.stage||''}${l.lastContact?' · Last contact: '+l.lastContact:''}</div></div></div>`).join('');
@@ -1300,9 +1306,15 @@ function showBriefing(){
     bl.innerHTML=`<div class="brief-item"><div class="brief-dot"></div><div class="brief-item-text" style="color:rgba(255,255,255,.4)">No hot leads — time to plant some seeds.</div></div>`;
   }
 
-  // Priorities
+  // Priorities — use mock data in preview if none exist
+  const realPri=priorities.filter(p=>!p.done).slice(0,3);
+  const mockPri=[
+    {title:'5 outbound calls — Borregas prospects first'},
+    {title:'Follow up with Pamela Moore — VA lender intro'},
+    {title:'Check Bold Trail · update pipeline'},
+  ];
+  const activePri=preview&&!realPri.length?mockPri:realPri;
   const bp=document.getElementById('brief-priorities');
-  const activePri=priorities.filter(p=>!p.done).slice(0,3);
   if(activePri.length){
     bp.innerHTML=activePri.map(p=>`<div class="brief-mission-item">${p.title}</div>`).join('');
   } else {
