@@ -1230,9 +1230,8 @@ async function syncToSirhc(){
   } else {
     // Fall back to clipboard
     navigator.clipboard.writeText(content).catch(()=>{});
-    btn.textContent='Copied — paste to Claude ✅';
-    setTimeout(()=>{btn.textContent='🌿 Sync to Sirhc';},3000);
-    alert('Inbox save needs folder access.\n\nTap again and select your TGR-AI-Team folder when prompted.\n\nSnapshot copied to clipboard for now.');
+    btn.textContent='Copied ✅ Paste to Claude';
+    setTimeout(()=>{btn.textContent='🌿 Sync to Sirhc';},4000);
   }
 }
 
