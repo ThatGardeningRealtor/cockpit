@@ -867,6 +867,7 @@ function copyToClipboard(text){
 let _inboxHandle=null;
 
 async function saveToInbox(filename,content){
+  if(!window.showDirectoryPicker)return false;
   try{
     if(!_inboxHandle){
       const root=await window.showDirectoryPicker({mode:'readwrite'});
