@@ -272,12 +272,12 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
 @keyframes db{0%,80%,100%{opacity:.3;transform:scale(.8)}40%{opacity:1;transform:scale(1.1)}}
 
 /* ── Agent Briefing ── */
-.brief-ov{position:fixed;inset:0;z-index:900;background:#000;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+.brief-ov{position:fixed;inset:0;z-index:900;background:#000;display:flex;flex-direction:column;justify-content:flex-start;overflow-y:auto;overflow-x:hidden}
 .brief-ov.hidden{display:none}
 .brief-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,rgba(46,74,48,.35) 0%,#000 70%);z-index:0}
 .brief-scan{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,255,100,.015) 2px,rgba(0,255,100,.015) 4px);z-index:1;pointer-events:none;animation:scan 8s linear infinite}
 @keyframes scan{0%{background-position:0 0}100%{background-position:0 100px}}
-.brief-content{position:relative;z-index:2;padding:32px 24px 48px;display:flex;flex-direction:column;gap:0}
+.brief-content{position:relative;z-index:2;padding:56px 24px 48px;display:flex;flex-direction:column;gap:0;min-height:100%}
 .brief-classified{font-size:9px;font-weight:700;letter-spacing:4px;color:rgba(0,255,100,.5);text-transform:uppercase;margin-bottom:24px;display:flex;align-items:center;gap:8px}
 .brief-classified::before,.brief-classified::after{content:'';flex:1;height:1px;background:rgba(0,255,100,.2)}
 .brief-codename{font-family:'Playfair Display',serif;font-size:11px;color:rgba(0,255,100,.6);letter-spacing:3px;text-transform:uppercase;margin-bottom:4px}
@@ -299,6 +299,8 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
 .brief-mission-item::before{content:'▸';color:rgba(0,255,100,.5);flex-shrink:0}
 .brief-accept{width:100%;padding:16px;border:none;border-radius:14px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;background:linear-gradient(135deg,rgba(0,255,100,.15),rgba(0,255,100,.25));color:#00ff64;border:1.5px solid rgba(0,255,100,.4);box-shadow:0 0 30px rgba(0,255,100,.15);transition:all .3s}
 .brief-accept:active{transform:scale(.97);box-shadow:0 0 50px rgba(0,255,100,.3)}
+.brief-cursor{display:inline-block;width:2px;height:1em;background:rgba(0,255,100,.8);vertical-align:text-bottom;animation:blink .7s step-end infinite;margin-left:2px}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
 .brief-date{font-size:11px;color:rgba(255,255,255,.3);letter-spacing:1px;margin-bottom:28px}
 @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 .brief-content>*{animation:fadeInUp .6s ease both}
@@ -324,7 +326,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
     <div class="brief-codename">Agent Codename</div>
     <div class="brief-name">Sirhc</div>
     <div class="brief-title">That Gardening Realtor · Field Operations</div>
-    <div class="brief-date" id="brief-date"></div>
+    <div class="brief-date" id="brief-date"></div><span class="brief-cursor" id="brief-cursor"></span>
     <div class="brief-divider"></div>
     <div class="brief-section">
       <div class="brief-label">🔥 Hot Leads — Contact Today</div>
@@ -1273,7 +1275,11 @@ function showBriefing(){
   const sched=getSched();
   const dayType=(sched[now.getDay()]||'rest').toUpperCase();
   const dateStr=now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
-  document.getElementById('brief-date').textContent=`${dateStr}  ·  ${dayType} DAY`;
+  const briefDateEl=document.getElementById('brief-date');
+  setTimeout(()=>typeWriter(briefDateEl,`${dateStr}  ·  ${dayType} DAY`,28,()=>{
+    const cur=document.getElementById('brief-cursor');
+    if(cur)setTimeout(()=>cur.style.display='none',1200);
+  }),900);
 
   // Hot leads
   const hotLeads=leads.filter(l=>!l.cls&&(l.temp==='Hot'||l.temp==='🔥 Hot'));
@@ -1294,6 +1300,12 @@ function showBriefing(){
   }
 
   ov.classList.remove('hidden');
+}
+
+function typeWriter(el,text,speed,callback){
+  el.textContent='';let i=0;
+  function tick(){if(i<text.length){el.textContent+=text[i++];setTimeout(tick,speed);}else if(callback)callback();}
+  tick();
 }
 
 function acceptBriefing(){
