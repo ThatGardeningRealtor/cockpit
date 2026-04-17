@@ -1,5 +1,5 @@
 [SIRHC — APP SNAPSHOT]
-Date: Friday, April 17, 2026 at 2:55 AM
+Date: Friday, April 17, 2026 at 1:59 PM
 Day Type: ON
 Calls Made: 0 / 5
 
@@ -9,13 +9,17 @@ Calls Made: 0 / 5
 [    ] Call Gilberto — 340 Sollock seller finance
 
 --- ACTIVE DEALS ---
-Borregas Property | — | — | Outreach needed to past and recent prospects
+Borregas Property | — | Stage: 0 | Outreach needed to past and recent prospects
 
 --- LEADS ---
-undefined | — | Stage: — | Last Contact: —
-undefined | — | Stage: — | Last Contact: —
-undefined | — | Stage: — | Last Contact: —
-undefined | — | Stage: — | Last Contact: —
+James Drause (Rhett) | INVESTOR LEAD | Stage: — | Last Contact: — | Next: Pull contact from Bold Trail · first call · understand buy box
+Sallie Mae F. | COMMUNITY | Stage: — | Last Contact: — | Next: Follow up this week · get her to next plant share · offer 3 starter plants · ask permission for her story
+  Log (Apr 15): New message — wants to create memory garden for her daughter she lost
+  Log (Apr 14): Connected on Nextdoor — very warm, shared garden share info
+Colton Brown | SELLER LEAD | Stage: — | Last Contact: — | Next: Reach out · confirm they want to list · get property details · check if Moore TX needs referral agent
+  Log (Apr 15): Connected via Cynthia Dominguez — divorce, need to sell Moore TX home
+Kurt — 9815 Conbes | NEIGHBOR PROSPECT | Stage: — | Last Contact: — | Next: Follow up with listing agent on 9815 Conbes · report back to Kurt · determine if buyer or seller
+  Log (Apr 15): Spoke with Kurt — interested in nearby listing details at $275K
 
 --- TASKS ---
 [    ] Call lien holder — Coughran Rd [Urgent]
@@ -31,6 +35,9 @@ undefined | — | Stage: — | Last Contact: —
 [    ] Essie shout out — video post [Team]
 [    ] Pull James Drause from Bold Trail [Investor]
 [    ] Gather tax info for wife [Urgent]
+
+--- MESSAGE FOR SIRHC ---
+I would like to add a contact his name's Isaac, and he's actually a whole seller that reached out to me about a couple of our properties come to find out. He wants to partner together and send me all of his referrals. That don't make sense for wholesaling. But would work as a typical resale? We're meeting on Monday so that we can meet his church friends to discuss listing and selling their house and I will be sending him any off market properties or the like that he can use on his side of the business. So that we can sell some of these properties without even half the time to list.. i'd like to import his contact information from my phone and just give me an update on where we're at once. You build the profile or any notes on how we should do this better to make it work.Thank you
 
 --- CONTENT PIPELINE ---
 [Idea] What is a Garden Share Group? | Facebook, Nextdoor — Explainer post — from Sallie Mae conversation. Make it inviting for total beginners.
