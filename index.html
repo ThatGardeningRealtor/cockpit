@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -1220,10 +1220,37 @@ async function syncToSirhc(){
 
   const content=lines.join('\n');
   const btn=document.getElementById('sync-btn');
-  try{await navigator.clipboard.writeText(content);}catch(e){copyToClipboard(content);}
-  btn.textContent='Copied ✅ Paste to Claude';
-  btn.style.background='var(--moss)';btn.style.color='#fff';
-  setTimeout(()=>{btn.textContent='🌿 Sync to Sirhc';btn.style.background='';btn.style.color='';},4000);
+  btn.textContent='Syncing...';btn.style.background='var(--gold)';btn.style.color='#fff';
+
+  let token=localStorage.getItem('tgr_gh_token');
+  if(!token){
+    token=prompt('Enter your GitHub token to enable auto-sync.\nThis is stored only on this device.');
+    if(!token){btn.textContent='🌿 Sync to Sirhc';btn.style.background='';btn.style.color='';return;}
+    localStorage.setItem('tgr_gh_token',token);
+  }
+
+  try{
+    const gistId=localStorage.getItem('tgr_gist_id');
+    const payload={description:'Sirhc Cockpit Snapshot',public:false,files:{'sirhc-snapshot.txt':{content}}};
+    let res,data;
+    if(gistId){
+      res=await fetch(`https://api.github.com/gists/${gistId}`,{method:'PATCH',headers:{'Authorization':`token ${token}`,'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    } else {
+      res=await fetch('https://api.github.com/gists',{method:'POST',headers:{'Authorization':`token ${token}`,'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    }
+    data=await res.json();
+    if(data.id){
+      localStorage.setItem('tgr_gist_id',data.id);
+      btn.textContent='Synced to Sirhc ✅';btn.style.background='var(--moss)';btn.style.color='#fff';
+      setTimeout(()=>{btn.textContent='🌿 Sync to Sirhc';btn.style.background='';btn.style.color='';},4000);
+    } else {
+      throw new Error('bad response');
+    }
+  } catch(e){
+    localStorage.removeItem('tgr_gh_token');
+    btn.textContent='Token error — tap to retry';btn.style.background='var(--rust)';btn.style.color='#fff';
+    setTimeout(()=>{btn.textContent='🌿 Sync to Sirhc';btn.style.background='';btn.style.color='';},4000);
+  }
 }
 
 function importData(){
