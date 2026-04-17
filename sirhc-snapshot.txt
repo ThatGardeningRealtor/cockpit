@@ -1,5 +1,5 @@
 [SIRHC — APP SNAPSHOT]
-Date: Friday, April 17, 2026 at 2:01 PM
+Date: Friday, April 17, 2026 at 2:41 PM
 Day Type: ON
 Calls Made: 0 / 5
 
@@ -37,8 +37,7 @@ Kurt — 9815 Conbes | NEIGHBOR PROSPECT | Stage: — | Last Contact: — | Next
 [    ] Gather tax info for wife [Urgent]
 
 --- MESSAGE FOR SIRHC ---
-Here's a follow-up to the last message with Isaac's information name. Notes and phone number.
-Let me know in our brief. What you think about how I input this into the app if it worked or not and troubleshoot to let me know what the best way of doing this? Most efficiently is while keeping it all in the app. Because I'm not sure if you can take these messages from the app to apply to our command center in order to make these changes. I just need a little clarification on how you went through this process and how we can do it better next time or what we need to do to critique this.Now for it to work
+Testing message sirhc
 
 --- CONTENT PIPELINE ---
 [Idea] What is a Garden Share Group? | Facebook, Nextdoor — Explainer post — from Sallie Mae conversation. Make it inviting for total beginners.
