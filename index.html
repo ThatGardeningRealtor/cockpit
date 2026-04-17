@@ -57,6 +57,8 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
 .alert{background:linear-gradient(90deg,var(--alert-bg),#4A1A1A);color:#FFB8B8;padding:12px 16px;font-size:12px;font-weight:500;display:flex;align-items:center;gap:10px;line-height:1.4;border-bottom:2px solid var(--rust)}
 .pd{width:8px;height:8px;border-radius:50%;background:#ff6b6b;animation:pls 1.8s ease-in-out infinite;flex-shrink:0}
 @keyframes pls{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(255,107,107,.5)}50%{opacity:.6;box-shadow:0 0 0 6px rgba(255,107,107,0)}}
+.has-updates{box-shadow:0 0 8px rgba(0,255,100,.4);animation:pulse-green 2s infinite}
+@keyframes pulse-green{0%,100%{box-shadow:0 0 8px rgba(0,255,100,.4)}50%{box-shadow:0 0 14px rgba(0,255,100,.7)}}
 
 
 .sec{padding:20px 16px 0}
@@ -353,14 +355,14 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
   <div class="st"><div class="cc"><button class="cb" onclick="adjC(-1)">−</button><div class="cn" id="cCnt">0</div><button class="cb" onclick="adjC(1)">+</button></div><div class="cg">goal: 5 calls</div><div class="cprog"><div class="cfill" id="cFill" style="width:0%"></div></div></div>
 </div>
 <!-- TABS -->
-<div id="t-cock" class="tab on"><div id="alert-bar"></div><div class="sec"><div class="sec-t">Today's 3 Priorities</div><div id="pri-list"></div><div class="sec-t" style="margin-top:20px">Pipeline Snapshot</div><div id="pipe-snap"></div><div class="sec-t" style="margin-top:20px">Today's Calendar <span style="font-size:10px;font-weight:400;opacity:.6">· tap event to open card</span></div><div id="gcal-strip"></div><div class="sec-t" style="margin-top:20px">Weekly Rhythm <span style="font-size:10px;font-weight:400;opacity:.6">· tap to edit</span></div><div id="week-grid" class="rg"></div><div class="qc"><div class="qt">"Plant the seed. Water it daily. Trust the season."</div><div class="qa">— Sirhc</div></div><div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;"><button onclick="showBriefing(true)" style="padding:7px 14px;border-radius:20px;border:1.5px solid rgba(0,255,100,.35);background:rgba(0,255,100,.06);color:#2a7a4a;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit">🕵️ Mission Briefing</button><button id="sync-btn-cock" onclick="syncToSirhc(this)" style="padding:7px 14px;border-radius:20px;border:1.5px solid var(--moss);background:rgba(46,74,48,.08);color:var(--moss);font-size:11px;font-weight:700;cursor:pointer;font-family:inherit">🌿 Sync to Sirhc</button></div><div style="margin-top:16px;"><div style="font-size:10px;font-weight:700;letter-spacing:.06em;color:var(--muted);text-transform:uppercase;margin-bottom:6px;">Message Sirhc</div><textarea id="sirhc-msg-input" rows="3" placeholder="Notes, questions, or updates for next session..." style="width:100%;box-sizing:border-box;background:var(--card);border:1.5px solid var(--border);border-radius:10px;color:var(--text);font-size:12px;font-family:inherit;padding:8px 10px;resize:vertical;outline:none;"></textarea><div style="display:flex;align-items:center;gap:10px;margin-top:6px;"><button onclick="saveSirhcMsg()" style="padding:6px 14px;border-radius:20px;border:1.5px solid var(--border);background:var(--card);color:var(--muted);font-size:11px;font-weight:700;cursor:pointer;font-family:inherit;">Save Note</button><div id="sirhc-msg-saved" style="font-size:10px;color:var(--muted);font-style:italic;"></div></div></div></div><div class="spacer"></div></div>
+<div id="t-cock" class="tab on"><div id="alert-bar"></div><div class="sec"><div class="sec-t">Today's 3 Priorities</div><div id="pri-list"></div><div class="sec-t" style="margin-top:20px">Pipeline Snapshot</div><div id="pipe-snap"></div><div class="sec-t" style="margin-top:20px">Today's Calendar <span style="font-size:10px;font-weight:400;opacity:.6">· tap event to open card</span></div><div id="gcal-strip"></div><div class="sec-t" style="margin-top:20px">Weekly Rhythm <span style="font-size:10px;font-weight:400;opacity:.6">· tap to edit</span></div><div id="week-grid" class="rg"></div><div class="qc"><div class="qt">"Plant the seed. Water it daily. Trust the season."</div><div class="qa">— Sirhc</div></div><div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;"><button onclick="showBriefing(true)" style="padding:7px 14px;border-radius:20px;border:1.5px solid rgba(0,255,100,.35);background:rgba(0,255,100,.06);color:#2a7a4a;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit">🕵️ Mission Briefing</button><button id="sync-btn-cock" onclick="syncToSirhc(this)" style="padding:7px 14px;border-radius:20px;border:1.5px solid var(--moss);background:rgba(46,74,48,.08);color:var(--moss);font-size:11px;font-weight:700;cursor:pointer;font-family:inherit">🌿 Sync to Sirhc</button></div><div style="margin-top:16px;"><div style="font-size:10px;font-weight:700;letter-spacing:.06em;color:var(--muted);text-transform:uppercase;margin-bottom:6px;">Message Sirhc</div><textarea id="sirhc-msg-input" rows="3" placeholder="Notes, questions, or updates for next session..." style="width:100%;box-sizing:border-box;background:var(--card);border:1.5px solid var(--border);border-radius:10px;color:var(--text);font-size:12px;font-family:inherit;padding:8px 10px;resize:vertical;outline:none;"></textarea><div style="display:flex;align-items:center;gap:10px;margin-top:6px;"><button onclick="saveSirhcMsg()" style="padding:6px 14px;border-radius:20px;border:1.5px solid var(--border);background:var(--card);color:var(--muted);font-size:11px;font-weight:700;cursor:pointer;font-family:inherit;">Save Note</button><div id="sirhc-msg-saved" style="font-size:10px;color:var(--muted);font-style:italic;"></div></div></div><div id="last-synced-display" style="font-size:10px;color:var(--muted);font-style:italic;margin-top:10px;">Last synced: never</div></div></div><div class="spacer"></div></div>
 
 
 <div id="t-deals" class="tab"><div class="sec"><div class="sec-t">Active Listings & Deals</div><div id="deal-list"></div></div><div class="spacer"></div></div>
 <div id="t-leads" class="tab"><div class="sec"><div id="lead-list"></div></div><div class="spacer"></div></div>
 <div id="t-tasks" class="tab"><div id="alert-bar-tasks"></div><div class="sec"><div class="sec-t">Today's Tasks</div><div id="task-list"></div></div><div class="spacer"></div></div>
 <div id="t-content" class="tab"><div class="sec"><div class="sec-t">Content Pipeline</div><div id="content-list"></div></div><div class="spacer"></div></div>
-<div id="t-vendors" class="tab"><div class="sec"><div class="sec-t">Contractors</div><div id="vend-contractors" class="v-grid"></div><div class="sec-t">Title & Lenders</div><div id="vend-lenders" class="v-grid"></div><div class="sec-t">Team</div><div id="vend-team" class="v-grid"></div><div class="sec-t">Loan Programs</div><div id="loan-list"></div><div class="mb"><div class="mb-t">VA Rate Buy-Down — The Math</div><div class="mb-r"><span>Nothing down @ 6.5%</span><span>$1,814/mo</span></div><div class="mb-r"><span>3% down @ 6.5%</span><span>$1,766/mo</span></div><div class="mb-r w"><span>$0 down + $7.5K buy-down @ 5.5%</span><span>$1,650/mo ✅</span></div><div class="mb-tip">Always buy the rate down, not the down payment.</div></div></div><div class="foot">Built by <span>Sirhc</span> · That Gardening Realtor AI Team<br><span style="opacity:.6;font-size:9px">Data auto-saves to this device</span><br><button id="install-btn" onclick="installApp()" style="display:none;margin-top:8px;margin-right:6px;padding:6px 14px;border-radius:20px;border:1.5px solid var(--sky);background:rgba(74,138,181,.08);color:var(--sky);font-size:10px;font-weight:700;cursor:pointer;font-family:inherit">📲 Install App</button><button onclick="exportData()" style="margin-top:8px;margin-right:6px;padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--muted);font-size:10px;cursor:pointer;font-family:inherit">⬇ Export Backup</button><button onclick="importData()" style="margin-top:8px;margin-right:6px;padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--muted);font-size:10px;cursor:pointer;font-family:inherit">⬆ Import Backup</button><button onclick="resetToDefaults()" style="margin-top:8px;padding:5px 12px;border-radius:20px;border:1px solid #fde8e8;background:var(--card);color:var(--rust);font-size:10px;cursor:pointer;font-family:inherit">↺ Reset</button></div><div class="spacer"></div></div>
+<div id="t-vendors" class="tab"><div class="sec"><div class="sec-t">Contractors</div><div id="vend-contractors" class="v-grid"></div><div class="sec-t">Title & Lenders</div><div id="vend-lenders" class="v-grid"></div><div class="sec-t">Team</div><div id="vend-team" class="v-grid"></div><div class="sec-t">Loan Programs</div><div id="loan-list"></div><div class="mb"><div class="mb-t">VA Rate Buy-Down — The Math</div><div class="mb-r"><span>Nothing down @ 6.5%</span><span>$1,814/mo</span></div><div class="mb-r"><span>3% down @ 6.5%</span><span>$1,766/mo</span></div><div class="mb-r w"><span>$0 down + $7.5K buy-down @ 5.5%</span><span>$1,650/mo ✅</span></div><div class="mb-tip">Always buy the rate down, not the down payment.</div></div></div><div class="foot">Built by <span>Sirhc</span> · v0.6 · Apr 18 · That Gardening Realtor AI Team<br><span style="opacity:.6;font-size:9px">Data auto-saves to this device</span><br><button id="install-btn" onclick="installApp()" style="display:none;margin-top:8px;margin-right:6px;padding:6px 14px;border-radius:20px;border:1.5px solid var(--sky);background:rgba(74,138,181,.08);color:var(--sky);font-size:10px;font-weight:700;cursor:pointer;font-family:inherit">📲 Install App</button><button onclick="exportData()" style="margin-top:8px;margin-right:6px;padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--muted);font-size:10px;cursor:pointer;font-family:inherit">⬇ Export Backup</button><button onclick="importData()" style="margin-top:8px;margin-right:6px;padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--muted);font-size:10px;cursor:pointer;font-family:inherit">⬆ Import Backup</button><button onclick="resetToDefaults()" style="margin-top:8px;padding:5px 12px;border-radius:20px;border:1px solid #fde8e8;background:var(--card);color:var(--rust);font-size:10px;cursor:pointer;font-family:inherit">↺ Reset</button></div><div class="spacer"></div></div>
 
 
 <!-- ACTION STRIP -->
@@ -470,6 +472,9 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
 
 
 <script>
+// ← bump version here on every update
+const APP_VERSION = 'v0.6 · Apr 18';
+
 const STAGES=['Pre-List','Listed','Offer','Under Contract','Title Clear','Closing','Closed'];
 const CONTENT_STATUS=['Idea','Drafting','Ready','Posted'];
 
@@ -1007,6 +1012,7 @@ function subSirhc(){
     if(!hit)hit=leads.find(l=>(l.title||l.name||'').toLowerCase().includes(needle)||needle.includes((l.title||l.name||'').toLowerCase().slice(0,6)));
     if(hit){if(!hit.logs)hit.logs=[];hit.logs.unshift(entry);saveData();}
   }
+  flagUnsyncedChanges();
   submitToTeam('r-rb','r-resp','Sirhc','update',content);
 }
 
@@ -1235,6 +1241,12 @@ async function _doGitHubPush(btn,content,token){
       localStorage.removeItem('tgr_sirhc_msg');
       const _savedEl=document.getElementById('sirhc-msg-saved');
       if(_savedEl)_savedEl.textContent='(sent with last sync)';
+      // Save last-synced timestamp and update display
+      const _syncTime=new Date().toLocaleString();
+      localStorage.setItem('tgr_last_sync',_syncTime);
+      const _syncDisp=document.getElementById('last-synced-display');
+      if(_syncDisp)_syncDisp.textContent='Last synced: '+_syncTime;
+      clearUnsyncedFlag();
       setTimeout(()=>{btn.textContent='🌿 Sync to Sirhc';btn.style.background='';btn.style.color='';},4000);
     } else {
       throw new Error(putData.message||'bad response');
@@ -1474,6 +1486,7 @@ function saveSirhcMsg(){
   localStorage.setItem('tgr_sirhc_msg',JSON.stringify({msg:text,ts:ts.toISOString()}));
   saved.textContent=`Saved ${timeStr} — syncs with next 🌿`;
   inp.value='';
+  flagUnsyncedChanges();
 }
 
 function loadSirhcMsg(){
@@ -1488,8 +1501,29 @@ function loadSirhcMsg(){
       const timeStr=ts.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
       const dateStr=ts.toLocaleDateString('en-US',{month:'short',day:'numeric'});
       saved.textContent=`Queued ${dateStr} ${timeStr}: "${obj.msg.length>60?obj.msg.slice(0,57)+'…':obj.msg}"`;
+      flagUnsyncedChanges();
     }
   }catch(e){}
+  // Populate last-synced-display
+  try{
+    const lastSync=localStorage.getItem('tgr_last_sync');
+    const disp=document.getElementById('last-synced-display');
+    if(disp&&lastSync)disp.textContent='Last synced: '+lastSync;
+  }catch(e){}
+}
+
+function flagUnsyncedChanges(){
+  ['sync-btn-cock','sync-btn'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el)el.classList.add('has-updates');
+  });
+}
+
+function clearUnsyncedFlag(){
+  ['sync-btn-cock','sync-btn'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el)el.classList.remove('has-updates');
+  });
 }
 
 function init(){
