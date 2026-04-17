@@ -935,8 +935,10 @@ function copyToClipboard(text){
 
 let _inboxHandle=null;
 
+const _isMobile=/Android|iPhone|iPad/i.test(navigator.userAgent);
+
 async function saveToInbox(filename,content){
-  if(!window.showDirectoryPicker)return false;
+  if(!window.showDirectoryPicker||_isMobile)return false;
   try{
     if(!_inboxHandle){
       const root=await window.showDirectoryPicker({mode:'readwrite'});
