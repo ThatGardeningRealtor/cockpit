@@ -353,14 +353,14 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
   <div class="st"><div class="cc"><button class="cb" onclick="adjC(-1)">−</button><div class="cn" id="cCnt">0</div><button class="cb" onclick="adjC(1)">+</button></div><div class="cg">goal: 5 calls</div><div class="cprog"><div class="cfill" id="cFill" style="width:0%"></div></div></div>
 </div>
 <!-- TABS -->
-<div id="t-cock" class="tab on"><div id="alert-bar"></div><div class="sec"><div class="sec-t">Today's 3 Priorities</div><div id="pri-list"></div><div class="sec-t" style="margin-top:20px">Pipeline Snapshot</div><div id="pipe-snap"></div><div class="sec-t" style="margin-top:20px">Today's Calendar <span style="font-size:10px;font-weight:400;opacity:.6">· tap event to open card</span></div><div id="gcal-strip"></div><div class="sec-t" style="margin-top:20px">Weekly Rhythm <span style="font-size:10px;font-weight:400;opacity:.6">· tap to edit</span></div><div id="week-grid" class="rg"></div><div class="qc"><div class="qt">"Plant the seed. Water it daily. Trust the season."</div><div class="qa">— Sirhc</div></div></div><div class="spacer"></div></div>
+<div id="t-cock" class="tab on"><div id="alert-bar"></div><div class="sec"><div class="sec-t">Today's 3 Priorities</div><div id="pri-list"></div><div class="sec-t" style="margin-top:20px">Pipeline Snapshot</div><div id="pipe-snap"></div><div class="sec-t" style="margin-top:20px">Today's Calendar <span style="font-size:10px;font-weight:400;opacity:.6">· tap event to open card</span></div><div id="gcal-strip"></div><div class="sec-t" style="margin-top:20px">Weekly Rhythm <span style="font-size:10px;font-weight:400;opacity:.6">· tap to edit</span></div><div id="week-grid" class="rg"></div><div class="qc"><div class="qt">"Plant the seed. Water it daily. Trust the season."</div><div class="qa">— Sirhc</div></div><div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;"><button onclick="showBriefing(true)" style="padding:7px 14px;border-radius:20px;border:1.5px solid rgba(0,255,100,.35);background:rgba(0,255,100,.06);color:#2a7a4a;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit">🕵️ Mission Briefing</button><button onclick="syncToSirhc()" style="padding:7px 14px;border-radius:20px;border:1.5px solid var(--moss);background:rgba(46,74,48,.08);color:var(--moss);font-size:11px;font-weight:700;cursor:pointer;font-family:inherit">🌿 Sync to Sirhc</button></div></div><div class="spacer"></div></div>
 
 
 <div id="t-deals" class="tab"><div class="sec"><div class="sec-t">Active Listings & Deals</div><div id="deal-list"></div></div><div class="spacer"></div></div>
 <div id="t-leads" class="tab"><div class="sec"><div id="lead-list"></div></div><div class="spacer"></div></div>
 <div id="t-tasks" class="tab"><div id="alert-bar-tasks"></div><div class="sec"><div class="sec-t">Today's Tasks</div><div id="task-list"></div></div><div class="spacer"></div></div>
 <div id="t-content" class="tab"><div class="sec"><div class="sec-t">Content Pipeline</div><div id="content-list"></div></div><div class="spacer"></div></div>
-<div id="t-vendors" class="tab"><div class="sec"><div class="sec-t">Contractors</div><div id="vend-contractors" class="v-grid"></div><div class="sec-t">Title & Lenders</div><div id="vend-lenders" class="v-grid"></div><div class="sec-t">Team</div><div id="vend-team" class="v-grid"></div><div class="sec-t">Loan Programs</div><div id="loan-list"></div><div class="mb"><div class="mb-t">VA Rate Buy-Down — The Math</div><div class="mb-r"><span>Nothing down @ 6.5%</span><span>$1,814/mo</span></div><div class="mb-r"><span>3% down @ 6.5%</span><span>$1,766/mo</span></div><div class="mb-r w"><span>$0 down + $7.5K buy-down @ 5.5%</span><span>$1,650/mo ✅</span></div><div class="mb-tip">Always buy the rate down, not the down payment.</div></div></div><div class="foot">Built by <span>Sirhc</span> · That Gardening Realtor AI Team<br><span style="opacity:.6;font-size:9px">Data auto-saves to this device</span><br><button id="install-btn" onclick="installApp()" style="display:none;margin-top:8px;margin-right:6px;padding:6px 14px;border-radius:20px;border:1.5px solid var(--sky);background:rgba(74,138,181,.08);color:var(--sky);font-size:10px;font-weight:700;cursor:pointer;font-family:inherit">📲 Install App</button><button onclick="showBriefing(true);" style="margin-top:8px;margin-right:6px;padding:6px 14px;border-radius:20px;border:1.5px solid rgba(0,255,100,.4);background:rgba(0,255,100,.06);color:#2a7a4a;font-size:10px;font-weight:700;cursor:pointer;font-family:inherit">🕵️ Mission Briefing</button><button id="sync-btn" onclick="syncToSirhc()" style="margin-top:8px;margin-right:6px;padding:6px 14px;border-radius:20px;border:1.5px solid var(--moss);background:rgba(46,74,48,.08);color:var(--moss);font-size:10px;font-weight:700;cursor:pointer;font-family:inherit">🌿 Sync to Sirhc</button><button onclick="exportData()" style="margin-top:8px;margin-right:6px;padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--muted);font-size:10px;cursor:pointer;font-family:inherit">⬇ Export Backup</button><button onclick="importData()" style="margin-top:8px;margin-right:6px;padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--muted);font-size:10px;cursor:pointer;font-family:inherit">⬆ Import Backup</button><button onclick="resetToDefaults()" style="margin-top:8px;padding:5px 12px;border-radius:20px;border:1px solid #fde8e8;background:var(--card);color:var(--rust);font-size:10px;cursor:pointer;font-family:inherit">↺ Reset</button></div><div class="spacer"></div></div>
+<div id="t-vendors" class="tab"><div class="sec"><div class="sec-t">Contractors</div><div id="vend-contractors" class="v-grid"></div><div class="sec-t">Title & Lenders</div><div id="vend-lenders" class="v-grid"></div><div class="sec-t">Team</div><div id="vend-team" class="v-grid"></div><div class="sec-t">Loan Programs</div><div id="loan-list"></div><div class="mb"><div class="mb-t">VA Rate Buy-Down — The Math</div><div class="mb-r"><span>Nothing down @ 6.5%</span><span>$1,814/mo</span></div><div class="mb-r"><span>3% down @ 6.5%</span><span>$1,766/mo</span></div><div class="mb-r w"><span>$0 down + $7.5K buy-down @ 5.5%</span><span>$1,650/mo ✅</span></div><div class="mb-tip">Always buy the rate down, not the down payment.</div></div></div><div class="foot">Built by <span>Sirhc</span> · That Gardening Realtor AI Team<br><span style="opacity:.6;font-size:9px">Data auto-saves to this device</span><br><button id="install-btn" onclick="installApp()" style="display:none;margin-top:8px;margin-right:6px;padding:6px 14px;border-radius:20px;border:1.5px solid var(--sky);background:rgba(74,138,181,.08);color:var(--sky);font-size:10px;font-weight:700;cursor:pointer;font-family:inherit">📲 Install App</button><button onclick="exportData()" style="margin-top:8px;margin-right:6px;padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--muted);font-size:10px;cursor:pointer;font-family:inherit">⬇ Export Backup</button><button onclick="importData()" style="margin-top:8px;margin-right:6px;padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--muted);font-size:10px;cursor:pointer;font-family:inherit">⬆ Import Backup</button><button onclick="resetToDefaults()" style="margin-top:8px;padding:5px 12px;border-radius:20px;border:1px solid #fde8e8;background:var(--card);color:var(--rust);font-size:10px;cursor:pointer;font-family:inherit">↺ Reset</button></div><div class="spacer"></div></div>
 
 
 <!-- ACTION STRIP -->
@@ -412,7 +412,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
   <!-- SIRHC -->
   <div class="cp-form" id="f-sirhc">
     <div class="cp-ft">Log Update</div><div class="cp-fs">Sirhc logs it, confirms changes, and gives the next move.</div>
-    <div class="fg"><label class="fl">Which deal or lead?</label><select class="fsel" id="r-deal"><option value="">Select...</option><option>Coughran Rd</option><option>181 CR 7751</option><option>340 Sollock Dr</option><option>Tilden 20ac</option><option>Borregas</option><option>Pamela M.</option><option>Mike & Alice Howell</option><option>James Drause</option><option>Sallie Mae F.</option><option>Other / New</option></select></div>
+    <div class="fg"><label class="fl">Which deal or lead?</label><select class="fsel" id="r-deal"><option value="">Select...</option></select></div>
     <div class="fg"><label class="fl">What happened?</label><textarea class="fta" id="r-upd" placeholder="Called lien holder, they said... / Got a quote back from..."></textarea></div>
     <div class="fg"><label class="fl">Status Change</label><div class="chp" id="r-st"><div class="cho" onclick="tCh(this,'r')">No change</div><div class="cho" onclick="tCh(this,'r')">Moving forward</div><div class="cho" onclick="tCh(this,'r')">Blocked</div><div class="cho" onclick="tCh(this,'r')">Dead</div></div></div>
     <button class="sbtn sb-r" onclick="subSirhc()">🔄 Log with Sirhc</button>
@@ -877,6 +877,17 @@ function showCT(tab){
   const cls={sage:'a-s',sirhc:'a-r',violet:'a-v',lauren:'a-l'}[tab]||'a-s';
   document.getElementById('ct-'+tab).classList.add(cls);
   if(tab==='lauren')renderLauren();
+  if(tab==='sirhc')populateDealSelect();
+}
+
+function populateDealSelect(){
+  const sel=document.getElementById('r-deal');
+  const cur=sel.value;
+  sel.innerHTML='<option value="">Select...</option>';
+  deals.forEach(d=>{const label=d.address||d.title||'Unknown Deal';const opt=document.createElement('option');opt.value=label;opt.textContent=label;sel.appendChild(opt);});
+  leads.forEach(l=>{const label=l.title||l.name||'Unknown Lead';const opt=document.createElement('option');opt.value=label;opt.textContent=label;sel.appendChild(opt);});
+  const other=document.createElement('option');other.value='Other / New';other.textContent='Other / New';sel.appendChild(other);
+  if(cur)sel.value=cur;
 }
 
 function renderLauren(){
@@ -978,7 +989,19 @@ function subSage(){
 
 function subSirhc(){
   const upd=document.getElementById('r-upd').value.trim();if(!upd){alert('Tell me what happened.');return}
-  const content=`[SIRHC — LOG UPDATE]\nDeal: ${document.getElementById('r-deal').value||'n/a'}\nUpdate: ${upd}\nStatus: ${gCh('r-st')||'n/a'}`;
+  const dealName=document.getElementById('r-deal').value||'n/a';
+  const status=gCh('r-st')||'n/a';
+  const content=`[SIRHC — LOG UPDATE]\nDeal: ${dealName}\nUpdate: ${upd}\nStatus: ${status}`;
+  // Persist log to matching deal or lead in localStorage
+  if(dealName&&dealName!=='n/a'&&dealName!=='Other / New'){
+    const now=new Date();
+    const ts=now.toLocaleDateString('en-US',{month:'short',day:'numeric'})+' '+String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
+    const entry={t:ts,m:upd+(status&&status!=='n/a'?' ['+status+']':'')};
+    const needle=dealName.toLowerCase();
+    let hit=deals.find(d=>(d.address||d.title||'').toLowerCase().includes(needle)||needle.includes((d.address||d.title||'').toLowerCase().slice(0,6)));
+    if(!hit)hit=leads.find(l=>(l.title||l.name||'').toLowerCase().includes(needle)||needle.includes((l.title||l.name||'').toLowerCase().slice(0,6)));
+    if(hit){if(!hit.logs)hit.logs=[];hit.logs.unshift(entry);saveData();}
+  }
   submitToTeam('r-rb','r-resp','Sirhc','update',content);
 }
 
@@ -1184,6 +1207,7 @@ async function syncToSirhc(){
   lines.push(`--- ACTIVE DEALS ---`);
   deals.filter(d=>!d.cls).forEach(d=>{
     lines.push(`${d.title} | ${d.status||'—'} | ${d.stage||'—'}${d.notes?' | '+d.notes:''}`);
+    if(d.logs&&d.logs.length){d.logs.slice(0,3).forEach(lg=>lines.push(`  Log (${lg.t}): ${lg.m}`));}
   });
   if(!deals.filter(d=>!d.cls).length) lines.push('(none)');
   lines.push(``);
@@ -1194,7 +1218,8 @@ async function syncToSirhc(){
     const temp=l.temp||'—';
     const stage=l.stage||'—';
     const last=l.lastContact||'—';
-    lines.push(`${l.name} | ${temp} | Stage: ${stage} | Last Contact: ${last}${l.notes?' | '+l.notes:''}`);
+    lines.push(`${l.title||l.name||'Unknown'} | ${temp} | Stage: ${stage} | Last Contact: ${last}${l.notes?' | '+l.notes:''}`);
+    if(l.logs&&l.logs.length){l.logs.slice(0,3).forEach(lg=>lines.push(`  Log (${lg.t}): ${lg.m}`));}
   });
   if(!leads.filter(l=>!l.cls).length) lines.push('(none)');
   lines.push(``);
@@ -1316,7 +1341,7 @@ function showBriefing(preview){
   const hotLeads=leads.filter(l=>!l.cls&&(l.temp==='Hot'||l.temp==='🔥 Hot'));
   const bl=document.getElementById('brief-leads');
   if(hotLeads.length){
-    bl.innerHTML=hotLeads.map(l=>`<div class="brief-item"><div class="brief-dot hot"></div><div><div class="brief-item-text">${l.name}</div><div class="brief-item-sub">${l.stage||''}${l.lastContact?' · Last contact: '+l.lastContact:''}</div></div></div>`).join('');
+    bl.innerHTML=hotLeads.map(l=>`<div class="brief-item"><div class="brief-dot hot"></div><div><div class="brief-item-text">${l.title||l.name}</div><div class="brief-item-sub">${l.stage||''}${l.lastContact?' · Last contact: '+l.lastContact:''}</div></div></div>`).join('');
   } else {
     bl.innerHTML=`<div class="brief-item"><div class="brief-dot"></div><div class="brief-item-text" style="color:rgba(255,255,255,.4)">No hot leads — time to plant some seeds.</div></div>`;
   }
