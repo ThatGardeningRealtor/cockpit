@@ -1219,20 +1219,11 @@ async function syncToSirhc(){
   }
 
   const content=lines.join('\n');
-  const d2=now;
-  const filename=`update_snapshot_${d2.getFullYear()}-${String(d2.getMonth()+1).padStart(2,'0')}-${String(d2.getDate()).padStart(2,'0')}.txt`;
-  const saved=await saveToInbox(filename,content);
-
   const btn=document.getElementById('sync-btn');
-  if(saved){
-    btn.textContent='Synced ✅';btn.style.background='var(--moss)';btn.style.color='#fff';
-    setTimeout(()=>{btn.textContent='🌿 Sync to Sirhc';btn.style.background='';btn.style.color='';},3000);
-  } else {
-    // Fall back to clipboard
-    navigator.clipboard.writeText(content).catch(()=>{});
-    btn.textContent='Copied ✅ Paste to Claude';
-    setTimeout(()=>{btn.textContent='🌿 Sync to Sirhc';},4000);
-  }
+  try{await navigator.clipboard.writeText(content);}catch(e){copyToClipboard(content);}
+  btn.textContent='Copied ✅ Paste to Claude';
+  btn.style.background='var(--moss)';btn.style.color='#fff';
+  setTimeout(()=>{btn.textContent='🌿 Sync to Sirhc';btn.style.background='';btn.style.color='';},4000);
 }
 
 function importData(){
