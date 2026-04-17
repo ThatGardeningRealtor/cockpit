@@ -353,7 +353,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
   <div class="st"><div class="cc"><button class="cb" onclick="adjC(-1)">−</button><div class="cn" id="cCnt">0</div><button class="cb" onclick="adjC(1)">+</button></div><div class="cg">goal: 5 calls</div><div class="cprog"><div class="cfill" id="cFill" style="width:0%"></div></div></div>
 </div>
 <!-- TABS -->
-<div id="t-cock" class="tab on"><div id="alert-bar"></div><div class="sec"><div class="sec-t">Today's 3 Priorities</div><div id="pri-list"></div><div class="sec-t" style="margin-top:20px">Pipeline Snapshot</div><div id="pipe-snap"></div><div class="sec-t" style="margin-top:20px">Today's Calendar <span style="font-size:10px;font-weight:400;opacity:.6">· tap event to open card</span></div><div id="gcal-strip"></div><div class="sec-t" style="margin-top:20px">Weekly Rhythm <span style="font-size:10px;font-weight:400;opacity:.6">· tap to edit</span></div><div id="week-grid" class="rg"></div><div class="qc"><div class="qt">"Plant the seed. Water it daily. Trust the season."</div><div class="qa">— Sirhc</div></div><div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;"><button onclick="showBriefing(true)" style="padding:7px 14px;border-radius:20px;border:1.5px solid rgba(0,255,100,.35);background:rgba(0,255,100,.06);color:#2a7a4a;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit">🕵️ Mission Briefing</button><button id="sync-btn-cock" onclick="syncToSirhc(this)" style="padding:7px 14px;border-radius:20px;border:1.5px solid var(--moss);background:rgba(46,74,48,.08);color:var(--moss);font-size:11px;font-weight:700;cursor:pointer;font-family:inherit">🌿 Sync to Sirhc</button></div></div><div class="spacer"></div></div>
+<div id="t-cock" class="tab on"><div id="alert-bar"></div><div class="sec"><div class="sec-t">Today's 3 Priorities</div><div id="pri-list"></div><div class="sec-t" style="margin-top:20px">Pipeline Snapshot</div><div id="pipe-snap"></div><div class="sec-t" style="margin-top:20px">Today's Calendar <span style="font-size:10px;font-weight:400;opacity:.6">· tap event to open card</span></div><div id="gcal-strip"></div><div class="sec-t" style="margin-top:20px">Weekly Rhythm <span style="font-size:10px;font-weight:400;opacity:.6">· tap to edit</span></div><div id="week-grid" class="rg"></div><div class="qc"><div class="qt">"Plant the seed. Water it daily. Trust the season."</div><div class="qa">— Sirhc</div></div><div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;"><button onclick="showBriefing(true)" style="padding:7px 14px;border-radius:20px;border:1.5px solid rgba(0,255,100,.35);background:rgba(0,255,100,.06);color:#2a7a4a;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit">🕵️ Mission Briefing</button><button id="sync-btn-cock" onclick="syncToSirhc(this)" style="padding:7px 14px;border-radius:20px;border:1.5px solid var(--moss);background:rgba(46,74,48,.08);color:var(--moss);font-size:11px;font-weight:700;cursor:pointer;font-family:inherit">🌿 Sync to Sirhc</button></div><div style="margin-top:16px;"><div style="font-size:10px;font-weight:700;letter-spacing:.06em;color:var(--muted);text-transform:uppercase;margin-bottom:6px;">Message Sirhc</div><textarea id="sirhc-msg-input" rows="3" placeholder="Notes, questions, or updates for next session..." style="width:100%;box-sizing:border-box;background:var(--card);border:1.5px solid var(--border);border-radius:10px;color:var(--text);font-size:12px;font-family:inherit;padding:8px 10px;resize:vertical;outline:none;"></textarea><div style="display:flex;align-items:center;gap:10px;margin-top:6px;"><button onclick="saveSirhcMsg()" style="padding:6px 14px;border-radius:20px;border:1.5px solid var(--border);background:var(--card);color:var(--muted);font-size:11px;font-weight:700;cursor:pointer;font-family:inherit;">Save Note</button><div id="sirhc-msg-saved" style="font-size:10px;color:var(--muted);font-style:italic;"></div></div></div></div><div class="spacer"></div></div>
 
 
 <div id="t-deals" class="tab"><div class="sec"><div class="sec-t">Active Listings & Deals</div><div id="deal-list"></div></div><div class="spacer"></div></div>
@@ -1231,6 +1231,10 @@ async function _doGitHubPush(btn,content,token){
     const putData=await putRes.json();
     if(putData.content){
       btn.textContent='Synced ✅';btn.style.background='var(--moss)';btn.style.color='#fff';
+      // Clear queued Sirhc message after successful push
+      localStorage.removeItem('tgr_sirhc_msg');
+      const _savedEl=document.getElementById('sirhc-msg-saved');
+      if(_savedEl)_savedEl.textContent='(sent with last sync)';
       setTimeout(()=>{btn.textContent='🌿 Sync to Sirhc';btn.style.background='';btn.style.color='';},4000);
     } else {
       throw new Error(putData.message||'bad response');
@@ -1305,6 +1309,15 @@ async function syncToSirhc(callerBtn){
     if(t.logs&&t.logs.length){t.logs.slice(0,2).forEach(lg=>lines.push(`       Log (${lg.t||'?'}): ${lg.m||''}`));}
   });
   if(!(tasks||[]).length) lines.push('(none)');
+  lines.push(``);
+
+  // Message for Sirhc
+  lines.push(`--- MESSAGE FOR SIRHC ---`);
+  try{
+    const _sm=localStorage.getItem('tgr_sirhc_msg');
+    const _smObj=_sm?JSON.parse(_sm):null;
+    lines.push(_smObj&&_smObj.msg?_smObj.msg:'(none)');
+  }catch(e){lines.push('(none)');}
   lines.push(``);
 
   // Content pipeline — non-posted items
@@ -1451,8 +1464,37 @@ function installApp(){
   if(_installPrompt){_installPrompt.prompt();_installPrompt.userChoice.then(()=>{_installPrompt=null;});}
 }
 
+function saveSirhcMsg(){
+  const inp=document.getElementById('sirhc-msg-input');
+  const saved=document.getElementById('sirhc-msg-saved');
+  const text=(inp.value||'').trim();
+  if(!text){inp.focus();return;}
+  const ts=new Date();
+  const timeStr=ts.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
+  localStorage.setItem('tgr_sirhc_msg',JSON.stringify({msg:text,ts:ts.toISOString()}));
+  saved.textContent=`Saved ${timeStr} — syncs with next 🌿`;
+  inp.value='';
+}
+
+function loadSirhcMsg(){
+  const saved=document.getElementById('sirhc-msg-saved');
+  if(!saved)return;
+  try{
+    const raw=localStorage.getItem('tgr_sirhc_msg');
+    if(!raw)return;
+    const obj=JSON.parse(raw);
+    if(obj&&obj.msg){
+      const ts=new Date(obj.ts);
+      const timeStr=ts.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
+      const dateStr=ts.toLocaleDateString('en-US',{month:'short',day:'numeric'});
+      saved.textContent=`Queued ${dateStr} ${timeStr}: "${obj.msg.length>60?obj.msg.slice(0,57)+'…':obj.msg}"`;
+    }
+  }catch(e){}
+}
+
 function init(){
   loadData();
+  loadSirhcMsg();
   const h=new Date().getHours();
   document.getElementById('greet').textContent=h<5?"Burning midnight oil, Chris.":h<12?"Good morning, Chris. Let's grow.":h<17?"Good afternoon, Chris.":h<21?"Good evening, Chris.":"Late night hustle, Chris.";
   renderDayBadge();
