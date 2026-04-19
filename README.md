@@ -1,4 +1,3 @@
-[README.md](https://github.com/user-attachments/files/26864379/README.md)
 # Sirhc Cockpit
 **That Gardening Realtor AI Team — Internal Ops App**
 *Built by Sirhc for Chris Drawdy · eXp Realty · San Antonio TX*
