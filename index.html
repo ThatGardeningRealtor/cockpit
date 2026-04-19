@@ -355,14 +355,14 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
   <div class="st"><div class="cc"><button class="cb" onclick="adjC(-1)">−</button><div class="cn" id="cCnt">0</div><button class="cb" onclick="adjC(1)">+</button></div><div class="cg">goal: 5 calls</div><div class="cprog"><div class="cfill" id="cFill" style="width:0%"></div></div></div>
 </div>
 <!-- TABS -->
-<div id="t-cock" class="tab on"><div id="alert-bar"></div><div class="sec"><div class="sec-t">Today's 3 Priorities</div><div id="pri-list"></div><div class="sec-t" style="margin-top:20px">Pipeline Snapshot</div><div id="pipe-snap"></div><div class="sec-t" style="margin-top:20px">Today's Calendar <span style="font-size:10px;font-weight:400;opacity:.6">· tap event to open card</span></div><div id="gcal-strip"></div><div class="sec-t" style="margin-top:20px">Weekly Rhythm <span style="font-size:10px;font-weight:400;opacity:.6">· tap to edit</span></div><div id="week-grid" class="rg"></div><div class="qc"><div class="qt">"Plant the seed. Water it daily. Trust the season."</div><div class="qa">— Sirhc</div></div><div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;"><button onclick="showBriefing(true)" style="padding:7px 14px;border-radius:20px;border:1.5px solid rgba(0,255,100,.35);background:rgba(0,255,100,.06);color:#2a7a4a;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit">🕵️ Mission Briefing</button><button id="sync-btn-cock" onclick="syncToSirhc(this)" style="padding:7px 14px;border-radius:20px;border:1.5px solid var(--moss);background:rgba(46,74,48,.08);color:var(--moss);font-size:11px;font-weight:700;cursor:pointer;font-family:inherit">🌿 Sync to Sirhc</button></div><div style="margin-top:16px;"><div style="font-size:10px;font-weight:700;letter-spacing:.06em;color:var(--muted);text-transform:uppercase;margin-bottom:6px;">Message Sirhc</div><textarea id="sirhc-msg-input" rows="3" placeholder="Notes, questions, or updates for next session..." style="width:100%;box-sizing:border-box;background:var(--card);border:1.5px solid var(--border);border-radius:10px;color:var(--text);font-size:12px;font-family:inherit;padding:8px 10px;resize:vertical;outline:none;"></textarea><div style="display:flex;align-items:center;gap:10px;margin-top:6px;"><button onclick="saveSirhcMsg()" style="padding:6px 14px;border-radius:20px;border:1.5px solid var(--border);background:var(--card);color:var(--muted);font-size:11px;font-weight:700;cursor:pointer;font-family:inherit;">Save Note</button><div id="sirhc-msg-saved" style="font-size:10px;color:var(--muted);font-style:italic;"></div></div></div><div id="last-synced-display" style="font-size:11px;color:var(--muted);margin-top:8px;font-style:italic;">Not yet synced this session</div></div></div><div class="spacer"></div></div>
+<div id="t-cock" class="tab on"><div id="alert-bar"></div><div class="sec"><div class="sec-t">Today's 3 Priorities</div><div id="pri-list"></div><div class="sec-t" style="margin-top:20px">Pipeline Snapshot</div><div id="pipe-snap"></div><div class="sec-t" style="margin-top:20px">Today's Calendar <span style="font-size:10px;font-weight:400;opacity:.6">· tap event to open card</span></div><div id="gcal-strip"></div><div class="sec-t" style="margin-top:20px">Weekly Rhythm <span style="font-size:10px;font-weight:400;opacity:.6">· tap to edit</span></div><div id="week-grid" class="rg"></div><div class="qc"><div class="qt">"Plant the seed. Water it daily. Trust the season."</div><div class="qa">— Sirhc</div></div><div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;"><button onclick="showBriefing(true)" style="padding:7px 14px;border-radius:20px;border:1.5px solid rgba(0,255,100,.35);background:rgba(0,255,100,.06);color:#2a7a4a;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit">🕵️ Mission Briefing</button><button id="sync-btn-cock" onclick="syncToSirhc(this)" style="padding:7px 14px;border-radius:20px;border:1.5px solid var(--moss);background:rgba(46,74,48,.08);color:var(--moss);font-size:11px;font-weight:700;cursor:pointer;font-family:inherit">🌿 Sync to Sirhc</button><button onclick="openExpenseLog()" style="padding:7px 14px;border-radius:20px;border:1.5px solid #b8972a;background:rgba(184,151,42,.08);color:#b8972a;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit">💰 Log Miles / Expense</button></div><div id="exp-summary" style="font-size:11px;color:var(--muted);margin-top:6px;font-style:italic">Loading...</div><div style="margin-top:16px;"><div style="font-size:10px;font-weight:700;letter-spacing:.06em;color:var(--muted);text-transform:uppercase;margin-bottom:6px;">Message Sirhc</div><textarea id="sirhc-msg-input" rows="3" placeholder="Notes, questions, or updates for next session..." style="width:100%;box-sizing:border-box;background:var(--card);border:1.5px solid var(--border);border-radius:10px;color:var(--text);font-size:12px;font-family:inherit;padding:8px 10px;resize:vertical;outline:none;"></textarea><div style="display:flex;align-items:center;gap:10px;margin-top:6px;"><button onclick="saveSirhcMsg()" style="padding:6px 14px;border-radius:20px;border:1.5px solid var(--border);background:var(--card);color:var(--muted);font-size:11px;font-weight:700;cursor:pointer;font-family:inherit;">Save Note</button><div id="sirhc-msg-saved" style="font-size:10px;color:var(--muted);font-style:italic;"></div></div></div><div id="last-synced-display" style="font-size:11px;color:var(--muted);margin-top:8px;font-style:italic;">Not yet synced this session</div></div></div><div class="spacer"></div></div>
 
 
 <div id="t-deals" class="tab"><div class="sec"><div class="sec-t">Active Listings & Deals</div><div id="deal-list"></div></div><div class="spacer"></div></div>
 <div id="t-leads" class="tab"><div class="sec"><div id="lead-list"></div></div><div class="spacer"></div></div>
 <div id="t-tasks" class="tab"><div id="alert-bar-tasks"></div><div class="sec"><div class="sec-t">Today's Tasks</div><div id="task-list"></div></div><div class="spacer"></div></div>
 <div id="t-content" class="tab"><div class="sec"><div class="sec-t">Content Pipeline</div><div id="content-list"></div></div><div class="spacer"></div></div>
-<div id="t-vendors" class="tab"><div class="sec"><div class="sec-t">Contractors</div><div id="vend-contractors" class="v-grid"></div><div class="sec-t">Title & Lenders</div><div id="vend-lenders" class="v-grid"></div><div class="sec-t">Team</div><div id="vend-team" class="v-grid"></div><div class="sec-t">Loan Programs</div><div id="loan-list"></div><div class="mb"><div class="mb-t">VA Rate Buy-Down — The Math</div><div class="mb-r"><span>Nothing down @ 6.5%</span><span>$1,814/mo</span></div><div class="mb-r"><span>3% down @ 6.5%</span><span>$1,766/mo</span></div><div class="mb-r w"><span>$0 down + $7.5K buy-down @ 5.5%</span><span>$1,650/mo ✅</span></div><div class="mb-tip">Always buy the rate down, not the down payment.</div></div></div><div class="foot">Built by <span>Sirhc</span> · v0.6 · Apr 18 · That Gardening Realtor AI Team<br><span style="opacity:.6;font-size:9px">Data auto-saves to this device</span><br><button id="install-btn" onclick="installApp()" style="display:none;margin-top:8px;margin-right:6px;padding:6px 14px;border-radius:20px;border:1.5px solid var(--sky);background:rgba(74,138,181,.08);color:var(--sky);font-size:10px;font-weight:700;cursor:pointer;font-family:inherit">📲 Install App</button><button onclick="exportData()" style="margin-top:8px;margin-right:6px;padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--muted);font-size:10px;cursor:pointer;font-family:inherit">⬇ Export Backup</button><button onclick="importData()" style="margin-top:8px;margin-right:6px;padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--muted);font-size:10px;cursor:pointer;font-family:inherit">⬆ Import Backup</button><button onclick="resetToDefaults()" style="margin-top:8px;padding:5px 12px;border-radius:20px;border:1px solid #fde8e8;background:var(--card);color:var(--rust);font-size:10px;cursor:pointer;font-family:inherit">↺ Reset</button></div><div class="spacer"></div></div>
+<div id="t-vendors" class="tab"><div class="sec"><div class="sec-t">Contractors</div><div id="vend-contractors" class="v-grid"></div><div class="sec-t">Title & Lenders</div><div id="vend-lenders" class="v-grid"></div><div class="sec-t">Team</div><div id="vend-team" class="v-grid"></div><div class="sec-t">Loan Programs</div><div id="loan-list"></div><div class="mb"><div class="mb-t">VA Rate Buy-Down — The Math</div><div class="mb-r"><span>Nothing down @ 6.5%</span><span>$1,814/mo</span></div><div class="mb-r"><span>3% down @ 6.5%</span><span>$1,766/mo</span></div><div class="mb-r w"><span>$0 down + $7.5K buy-down @ 5.5%</span><span>$1,650/mo ✅</span></div><div class="mb-tip">Always buy the rate down, not the down payment.</div></div></div><div class="foot">Built by <span>Sirhc</span> · v0.7 · Apr 18 · That Gardening Realtor AI Team<br><span style="opacity:.6;font-size:9px">Data auto-saves to this device</span><br><button id="install-btn" onclick="installApp()" style="display:none;margin-top:8px;margin-right:6px;padding:6px 14px;border-radius:20px;border:1.5px solid var(--sky);background:rgba(74,138,181,.08);color:var(--sky);font-size:10px;font-weight:700;cursor:pointer;font-family:inherit">📲 Install App</button><button onclick="exportExpenses()" style="margin-top:8px;margin-right:6px;padding:5px 12px;border-radius:20px;border:1px solid #b8972a;background:var(--card);color:#b8972a;font-size:10px;cursor:pointer;font-family:inherit">📊 Export Tax Report</button><button onclick="exportData()" style="margin-top:8px;margin-right:6px;padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--muted);font-size:10px;cursor:pointer;font-family:inherit">⬇ Export Backup</button><button onclick="importData()" style="margin-top:8px;margin-right:6px;padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--muted);font-size:10px;cursor:pointer;font-family:inherit">⬆ Import Backup</button><button onclick="resetToDefaults()" style="margin-top:8px;padding:5px 12px;border-radius:20px;border:1px solid #fde8e8;background:var(--card);color:var(--rust);font-size:10px;cursor:pointer;font-family:inherit">↺ Reset</button></div><div class="spacer"></div></div>
 
 
 <!-- ACTION STRIP -->
@@ -473,7 +473,20 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
 
 <script>
 // ← bump version here on every update
-const APP_VERSION = 'v0.6 · Apr 18';
+const APP_VERSION = 'v0.7 · Apr 18';
+
+// Known issues surfaced in the post-sync recap modal
+const APP_KNOWN_ISSUES = [
+  'Google Calendar not connected — calendar strip empty',
+  'Mission Briefing button (being fixed this build)',
+];
+
+// ON-day batch tasks surfaced in the post-sync recap modal
+const APP_ON_DAY_TASKS = [
+  'Complete Google Calendar auth',
+  'Test full log→sync→read cycle',
+  'Add task from Tasks tab directly',
+];
 
 const STAGES=['Pre-List','Listed','Offer','Under Contract','Title Clear','Closing','Closed'];
 const CONTENT_STATUS=['Idea','Drafting','Ready','Posted'];
@@ -544,6 +557,8 @@ const loanPrograms=[
   {id:'lp4',icon:'💰',title:'DPA Programs',badge:'Free $$$',badgeC:'chip-o',rows:['<strong>TSAHC:</strong> 3–5% grant · no repayment','<strong>SETH:</strong> Up to 6% · no income cap Bexar Co.','<strong>City HAP:</strong> Up to $30K · NHSD'],detail:'Down Payment Assistance programs are the secret weapon. TSAHC offers 3-5% as a grant — free money, no repayment. SETH goes up to 6% with no income cap in Bexar County. City HAP through NHSD can provide up to $30K. These stack with FHA, VA, and conventional loans.\n\nAlways ask every lead about DPA eligibility.'}
 ];
 
+
+let expenses=[];
 
 const contentPipeline=[
   {id:'c1',title:'What is a Garden Share Group?',type:'Education',platforms:['Facebook','Nextdoor'],tags:['Community','Garden'],status:'Idea',hook:'',body:'',notes:'Explainer post — from Sallie Mae conversation. Make it inviting for total beginners.'},
@@ -669,8 +684,8 @@ function openDeal(id){
     <div class="d-field"><div class="d-label">Status</div><div id="deal-status-row" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:6px">${statusBtns}</div></div>
     <div class="d-field"><div class="d-label">Next Action</div><textarea class="m-notes-area" id="dealNext" placeholder="What's the next step?">${d.next}</textarea><div style="font-size:10px;color:var(--muted);margin-top:4px">Updates the card's next step.</div></div>
     <div class="d-field"><div class="d-label">Log Update</div><textarea class="m-notes-area" id="dealLog" placeholder="What happened? Any updates..." style="background:rgba(46,74,48,0.08);border-color:var(--moss)"></textarea><div style="font-size:10px;color:var(--muted);margin-top:4px">What just happened? This adds to the activity log.</div></div>
-    ${logHTML?`<div class="d-field"><div class="d-label">Activity Log</div>${logHTML}</div>`:''}
-    <button class="m-save-btn" onclick="saveDeal('${id}')">💾 Save & Close</button>`;
+    <button class="m-save-btn" onclick="saveDeal('${id}')">💾 Save & Close</button>
+    ${logHTML?`<div class="d-field" style="margin-top:16px"><div class="d-label" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'" style="cursor:pointer">Activity Log <span style="font-size:10px;opacity:.5">▾ tap to collapse</span></div><div>${logHTML}</div></div>`:''}`;
   openModal();
 }
 
@@ -708,8 +723,8 @@ function openLead(id){
     <div class="d-field"><div class="d-label">Status</div><div id="lead-status-row" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:6px">${statusBtns}</div></div>
     <div class="d-field"><div class="d-label">Next Action</div><textarea class="m-notes-area" id="leadNext" placeholder="What's the next step?">${l.next}</textarea><div style="font-size:10px;color:var(--muted);margin-top:4px">Updates the card's next step.</div></div>
     <div class="d-field"><div class="d-label">Log Update</div><textarea class="m-notes-area" id="leadLog" placeholder="What happened? Any updates..." style="background:rgba(46,74,48,0.08);border-color:var(--moss)"></textarea><div style="font-size:10px;color:var(--muted);margin-top:4px">What just happened? This adds to the activity log.</div></div>
-    ${logHTML?`<div class="d-field"><div class="d-label">Activity Log</div>${logHTML}</div>`:''}
-    <button class="m-save-btn" onclick="saveLead('${id}')">💾 Save & Close</button>`;
+    <button class="m-save-btn" onclick="saveLead('${id}')">💾 Save & Close</button>
+    ${logHTML?`<div class="d-field" style="margin-top:16px"><div class="d-label" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'" style="cursor:pointer">Activity Log <span style="font-size:10px;opacity:.5">▾ tap to collapse</span></div><div>${logHTML}</div></div>`:''}`;
   openModal();
 }
 
@@ -1165,7 +1180,7 @@ function renderCalStrip(){
 
 // ═══════════ PERSISTENCE ═══════════
 function saveData(){
-  try{localStorage.setItem('tgr_data',JSON.stringify({deals,leads,tasks,priorities,vendors,contentPipeline,loanPrograms}));}catch(e){}
+  try{localStorage.setItem('tgr_data',JSON.stringify({deals,leads,tasks,priorities,vendors,contentPipeline,loanPrograms,expenses}));}catch(e){}
 }
 
 function loadData(){
@@ -1179,7 +1194,92 @@ function loadData(){
     if(s.vendors&&s.vendors.length){vendors.length=0;vendors.push(...s.vendors);}
     if(s.contentPipeline&&s.contentPipeline.length){contentPipeline.length=0;contentPipeline.push(...s.contentPipeline);}
     if(s.loanPrograms&&s.loanPrograms.length){loanPrograms.length=0;loanPrograms.push(...s.loanPrograms);}
+    if(s.expenses&&s.expenses.length){expenses.length=0;expenses.push(...s.expenses);}
   }catch(e){}
+}
+
+// ═══════════ EXPENSE TRACKER ═══════════
+function openExpenseLog(){
+  const today=new Date().toISOString().slice(0,10);
+  document.getElementById('mBody').innerHTML=`
+    <div class="m-title">Log Mileage / Expense</div>
+    <div class="d-field"><div class="d-label">Date</div><input type="date" id="exp-date" value="${today}" style="width:100%;padding:10px;border:1.5px solid var(--border);border-radius:10px;font-family:inherit;font-size:13px;background:var(--card);color:var(--text)"></div>
+    <div class="d-field"><div class="d-label">Type</div>
+      <div style="display:flex;gap:8px;margin-top:6px">
+        <button id="exp-type-miles" onclick="setExpType('mileage')" style="flex:1;padding:10px;border-radius:10px;border:1.5px solid var(--moss);background:rgba(46,74,48,0.15);color:var(--moss);font-weight:700;font-family:inherit;cursor:pointer">🚗 Mileage</button>
+        <button id="exp-type-expense" onclick="setExpType('expense')" style="flex:1;padding:10px;border-radius:10px;border:1.5px solid var(--border);background:var(--card);color:var(--muted);font-weight:700;font-family:inherit;cursor:pointer">💸 Expense</button>
+      </div>
+    </div>
+    <div id="exp-miles-row" class="d-field"><div class="d-label">Miles</div><input type="number" id="exp-miles" placeholder="e.g. 24.5" style="width:100%;padding:10px;border:1.5px solid var(--border);border-radius:10px;font-family:inherit;font-size:13px;background:var(--card);color:var(--text)"></div>
+    <div id="exp-amount-row" class="d-field" style="display:none"><div class="d-label">Amount ($)</div><input type="number" id="exp-amount" placeholder="e.g. 45.00" style="width:100%;padding:10px;border:1.5px solid var(--border);border-radius:10px;font-family:inherit;font-size:13px;background:var(--card);color:var(--text)"></div>
+    <div id="exp-cat-row" class="d-field" style="display:none"><div class="d-label">Category</div>
+      <select id="exp-cat" style="width:100%;padding:10px;border:1.5px solid var(--border);border-radius:10px;font-family:inherit;font-size:13px;background:var(--card);color:var(--text)">
+        <option>Gas</option><option>Supplies</option><option>Marketing</option><option>Meals</option><option>Parking</option><option>Phone</option><option>Office</option><option>Other</option>
+      </select>
+    </div>
+    <div class="d-field"><div class="d-label">Notes / Purpose</div><input type="text" id="exp-notes" placeholder="e.g. Drive to 181 CR 7751 site visit" style="width:100%;padding:10px;border:1.5px solid var(--border);border-radius:10px;font-family:inherit;font-size:13px;background:var(--card);color:var(--text)"></div>
+    <button class="m-save-btn" onclick="saveExpense()" style="margin-top:16px">💾 Save Entry</button>`;
+  openModal();
+  setExpType('mileage');
+}
+
+function setExpType(type){
+  document.getElementById('exp-miles-row').style.display=type==='mileage'?'block':'none';
+  document.getElementById('exp-amount-row').style.display=type==='expense'?'block':'none';
+  document.getElementById('exp-cat-row').style.display=type==='expense'?'block':'none';
+  document.getElementById('exp-type-miles').style.background=type==='mileage'?'rgba(46,74,48,0.15)':'var(--card)';
+  document.getElementById('exp-type-miles').style.borderColor=type==='mileage'?'var(--moss)':'var(--border)';
+  document.getElementById('exp-type-miles').style.color=type==='mileage'?'var(--moss)':'var(--muted)';
+  document.getElementById('exp-type-expense').style.background=type==='expense'?'rgba(46,74,48,0.15)':'var(--card)';
+  document.getElementById('exp-type-expense').style.borderColor=type==='expense'?'var(--moss)':'var(--border)';
+  document.getElementById('exp-type-expense').style.color=type==='expense'?'var(--moss)':'var(--muted)';
+  document.getElementById('exp-type-miles').dataset.active=type==='mileage'?'1':'0';
+  document.getElementById('exp-type-expense').dataset.active=type==='expense'?'1':'0';
+}
+
+function saveExpense(){
+  const isMiles=document.getElementById('exp-type-miles').dataset.active==='1';
+  const date=document.getElementById('exp-date').value||new Date().toISOString().slice(0,10);
+  const notes=document.getElementById('exp-notes').value.trim();
+  if(isMiles){
+    const miles=parseFloat(document.getElementById('exp-miles').value);
+    if(!miles){alert('Enter miles.');return;}
+    expenses.push({id:'e'+Date.now(),date,type:'mileage',miles,notes});
+  } else {
+    const amount=parseFloat(document.getElementById('exp-amount').value);
+    const cat=document.getElementById('exp-cat').value;
+    if(!amount){alert('Enter amount.');return;}
+    expenses.push({id:'e'+Date.now(),date,type:'expense',amount,category:cat,notes});
+  }
+  saveData();
+  closeModal();
+  renderExpenseSummary();
+  showToast('Logged ✓');
+  flagUnsyncedChanges();
+}
+
+function renderExpenseSummary(){
+  const el=document.getElementById('exp-summary');if(!el)return;
+  const today=new Date().toISOString().slice(0,10);
+  const todayExp=expenses.filter(e=>e.date===today);
+  const miles=todayExp.filter(e=>e.type==='mileage').reduce((s,e)=>s+(e.miles||0),0);
+  const spent=todayExp.filter(e=>e.type==='expense').reduce((s,e)=>s+(e.amount||0),0);
+  const mo=today.slice(0,7);
+  const moMiles=expenses.filter(e=>e.type==='mileage'&&e.date.startsWith(mo)).reduce((s,e)=>s+(e.miles||0),0);
+  const moSpent=expenses.filter(e=>e.type==='expense'&&e.date.startsWith(mo)).reduce((s,e)=>s+(e.amount||0),0);
+  el.innerHTML=`<span style="color:var(--moss);font-weight:600">Today:</span> ${miles>0?miles+' mi · ':''}${spent>0?'$'+spent.toFixed(2):''}${!miles&&!spent?'nothing logged yet':''} &nbsp;·&nbsp; <span style="color:var(--muted)">This month: ${moMiles>0?moMiles+' mi':''} ${moSpent>0?'$'+moSpent.toFixed(2):''}</span>`;
+}
+
+function exportExpenses(){
+  if(!expenses.length){alert('No entries yet.');return;}
+  const rows=[['Date','Type','Miles','Amount','Category','Notes'],...expenses.map(e=>[e.date,e.type,e.miles||'',e.amount||'',e.category||'',e.notes||''])];
+  const csv=rows.map(r=>r.map(v=>`"${v}"`).join(',')).join('\n');
+  const blob=new Blob([csv],{type:'text/csv'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  const d=new Date();
+  a.href=url;a.download=`tgr-expenses-${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}.csv`;
+  a.click();URL.revokeObjectURL(url);
 }
 
 function exportData(){
@@ -1238,6 +1338,8 @@ async function _doGitHubPush(btn,content,token){
     if(putData.content){
       btn.textContent='Synced ✅';btn.style.background='var(--moss)';btn.style.color='#fff';
       // Clear queued Sirhc message after successful push
+      let _hadMsg=false;
+      try{const _sm=localStorage.getItem('tgr_sirhc_msg');const _smObj=_sm?JSON.parse(_sm):null;_hadMsg=!!((_smObj&&_smObj.msg)||'').trim();}catch(e){}
       localStorage.removeItem('tgr_sirhc_msg');
       const _savedEl=document.getElementById('sirhc-msg-saved');
       if(_savedEl)_savedEl.textContent='(sent with last sync)';
@@ -1248,6 +1350,10 @@ async function _doGitHubPush(btn,content,token){
       if(_syncDisp)_syncDisp.textContent='Last synced: '+_syncTime;
       clearUnsyncedFlag();
       setTimeout(()=>{btn.textContent='🌿 Sync to Sirhc';btn.style.background='';btn.style.color='';},4000);
+      // Count items with logs for the recap modal
+      const _dealCount=(deals||[]).filter(d=>!d.cls&&d.logs&&d.logs.length).length;
+      const _leadCount=(leads||[]).filter(l=>!l.cls&&l.logs&&l.logs.length).length;
+      showSyncRecap(_dealCount,_leadCount,_hadMsg);
     } else {
       throw new Error(putData.message||'bad response');
     }
@@ -1256,6 +1362,28 @@ async function _doGitHubPush(btn,content,token){
     btn.textContent='Token error — tap to retry';btn.style.background='var(--rust)';btn.style.color='#fff';
     setTimeout(()=>{btn.textContent='🌿 Sync to Sirhc';btn.style.background='';btn.style.color='';},5000);
   }
+}
+
+function showSyncRecap(dealCount,leadCount,hadMessage){
+  const issuesHTML=APP_KNOWN_ISSUES.map(i=>`<div class="m-log-entry" style="border-left:3px solid var(--rust);padding-left:10px;margin-top:6px"><span style="font-size:10px">⚠️ ${i}</span></div>`).join('');
+  const tasksHTML=APP_ON_DAY_TASKS.map(t=>`<div class="m-log-entry" style="border-left:3px solid var(--sky);padding-left:10px;margin-top:6px"><span style="font-size:10px">☐ ${t}</span></div>`).join('');
+  document.getElementById('mBody').innerHTML=`
+    <div class="m-title">Sync Complete 🌿</div>
+    <div class="m-type"><span style="font-size:16px">🌐</span>GitHub · ${new Date().toLocaleString()}</div>
+    <div class="d-field">
+      <div class="d-label">Synced</div>
+      <div class="d-val">${dealCount} deal${dealCount===1?'':'s'} with logs · ${leadCount} lead${leadCount===1?'':'s'} with logs${hadMessage?' · Sirhc message included':' · No Sirhc message'}</div>
+    </div>
+    <div class="d-field">
+      <div class="d-label">App Health — Known Issues</div>
+      ${issuesHTML||'<div class="m-log-entry" style="font-size:10px">No known issues.</div>'}
+    </div>
+    <div class="d-field">
+      <div class="d-label">ON Day Batch List</div>
+      ${tasksHTML}
+    </div>
+    <button onclick="closeModal()" style="width:100%;margin-top:8px;padding:12px;border-radius:12px;border:none;background:var(--moss);color:#fff;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">✓ Close</button>`;
+  openModal();
 }
 
 async function syncToSirhc(callerBtn){
@@ -1322,6 +1450,20 @@ async function syncToSirhc(callerBtn){
   });
   if(!(tasks||[]).length) lines.push('(none)');
   lines.push(``);
+
+  // Expenses
+  const today2=new Date().toISOString().slice(0,10);
+  const mo2=today2.slice(0,7);
+  const moMiles=(expenses||[]).filter(e=>e.type==='mileage'&&e.date.startsWith(mo2)).reduce((s,e)=>s+(e.miles||0),0);
+  const moSpent=(expenses||[]).filter(e=>e.type==='expense'&&e.date.startsWith(mo2)).reduce((s,e)=>s+(e.amount||0),0);
+  if(expenses&&expenses.length){
+    lines.push(`--- EXPENSES (${mo2}) ---`);
+    lines.push(`Total Miles: ${moMiles} · Total Spent: $${moSpent.toFixed(2)}`);
+    (expenses||[]).filter(e=>e.date.startsWith(mo2)).slice(0,10).forEach(e=>{
+      lines.push(`${e.date} | ${e.type==='mileage'?e.miles+' mi':('$'+e.amount+' '+e.category)} | ${e.notes||''}`);
+    });
+    lines.push(``);
+  }
 
   // Message for Sirhc
   lines.push(`--- MESSAGE FOR SIRHC ---`);
@@ -1431,8 +1573,10 @@ function showBriefing(preview){
     bp.innerHTML=`<div class="brief-mission-item">Set your 3 priorities for today</div>`;
   }
 
-  ov.style.opacity='1';
+  // Reset any inline styles left by acceptBriefing() so the overlay is
+  // always visible when triggered, including via the Mission Briefing button.
   ov.style.transition='';
+  ov.style.opacity='';
   ov.classList.remove('hidden');
 }
 
@@ -1529,6 +1673,7 @@ function clearUnsyncedFlag(){
 function init(){
   loadData();
   loadSirhcMsg();
+  renderExpenseSummary();
   const h=new Date().getHours();
   document.getElementById('greet').textContent=h<5?"Burning midnight oil, Chris.":h<12?"Good morning, Chris. Let's grow.":h<17?"Good afternoon, Chris.":h<21?"Good evening, Chris.":"Late night hustle, Chris.";
   renderDayBadge();
