@@ -407,7 +407,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
   </div>
 </div>
 
-<div class="hdr"><div class="hdr-top"><div><div class="brand">🌱 <em>That Gardening</em> Realtor</div><div class="greet" id="greet"></div></div><div style="display:flex;align-items:center;gap:8px"><button class="srch-icon" onclick="toggleSearch()" title="Search" style="font-size:22px;background:rgba(255,255,255,0.08);border-radius:8px;padding:6px 8px;">🔍</button><div class="dbadge ind" id="dbadge" onclick="openSchedule()" style="cursor:pointer">IN Day</div></div></div></div>
+<div class="hdr"><div class="hdr-top"><div><div class="brand">🌱 <em>That Gardening</em> Realtor</div><div class="greet" id="greet"></div></div><div style="display:flex;align-items:center;gap:8px"><button class="srch-icon" onclick="toggleSearch()" title="Search" style="font-size:22px;background:rgba(255,255,255,0.08);border-radius:8px;padding:6px 8px;">🔍</button><button onclick="openSettings()" style="background:rgba(255,255,255,0.08);border:none;border-radius:8px;padding:6px 8px;color:var(--leaf);font-size:22px;cursor:pointer;-webkit-tap-highlight-color:transparent;">⚙️</button><div class="dbadge ind" id="dbadge" onclick="openSchedule()" style="cursor:pointer">IN Day</div></div></div></div>
 <div class="srch-panel" id="srch-panel">
   <div class="srch-inner">
     <div class="srch-row"><span style="font-size:14px;opacity:.5">🔍</span><input class="srch-inp" id="srch-inp" placeholder="Search deals, leads, tasks, vendors…" autocomplete="off" oninput="runSearch(this.value)"><button class="srch-x" onclick="closeSearch()">✕</button></div>
@@ -438,7 +438,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
 <div id="t-leads" class="tab"><div class="sec"><div id="lead-list"></div></div><div class="spacer"></div></div>
 <div id="t-tasks" class="tab"><div id="alert-bar-tasks"></div><div class="sec"><div class="sec-t">Today's Tasks</div><div id="task-list"></div></div><div class="spacer"></div></div>
 <div id="t-content" class="tab"><div class="sec"><div class="sec-t">Content Pipeline</div><div id="content-list"></div></div><div class="spacer"></div></div>
-<div id="t-vendors" class="tab"><div class="sec"><div class="sec-t">Contractors</div><div id="vend-contractors" class="v-grid"></div><div class="sec-t">Title & Lenders</div><div id="vend-lenders" class="v-grid"></div><div class="sec-t">Team</div><div id="vend-team" class="v-grid"></div><div class="sec-t">Loan Programs</div><div id="loan-list"></div><div class="mb"><div class="mb-t">VA Rate Buy-Down — The Math</div><div class="mb-r"><span>Nothing down @ 6.5%</span><span>$1,814/mo</span></div><div class="mb-r"><span>3% down @ 6.5%</span><span>$1,766/mo</span></div><div class="mb-r w"><span>$0 down + $7.5K buy-down @ 5.5%</span><span>$1,650/mo ✅</span></div><div class="mb-tip">Always buy the rate down, not the down payment.</div></div></div><div class="foot">Built by <span>Sirhc</span> · v0.11 · Apr 19 · That Gardening Realtor AI Team<br><span style="opacity:.6;font-size:9px">Data auto-saves to this device</span><br><button id="install-btn" onclick="installApp()" style="display:none;margin-top:8px;margin-right:6px;padding:6px 14px;border-radius:20px;border:1.5px solid var(--sky);background:rgba(74,138,181,.08);color:var(--sky);font-size:10px;font-weight:700;cursor:pointer;font-family:inherit">📲 Install App</button><button onclick="exportExpenses()" style="margin-top:8px;margin-right:6px;padding:5px 12px;border-radius:20px;border:1px solid #b8972a;background:var(--card);color:#b8972a;font-size:10px;cursor:pointer;font-family:inherit">📊 Export Tax Report</button><button onclick="exportData()" style="margin-top:8px;margin-right:6px;padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--muted);font-size:10px;cursor:pointer;font-family:inherit">⬇ Export Backup</button><button onclick="importData()" style="margin-top:8px;margin-right:6px;padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--muted);font-size:10px;cursor:pointer;font-family:inherit">⬆ Import Backup</button><button onclick="resetToDefaults()" style="margin-top:8px;padding:5px 12px;border-radius:20px;border:1px solid #fde8e8;background:var(--card);color:var(--rust);font-size:10px;cursor:pointer;font-family:inherit">↺ Reset</button></div><div class="spacer"></div></div>
+<div id="t-vendors" class="tab"><div class="sec"><div class="sec-t">Contractors</div><div id="vend-contractors" class="v-grid"></div><div class="sec-t">Title & Lenders</div><div id="vend-lenders" class="v-grid"></div><div class="sec-t">Team</div><div id="vend-team" class="v-grid"></div><div class="sec-t">Loan Programs</div><div id="loan-list"></div><div class="mb"><div class="mb-t">VA Rate Buy-Down — The Math</div><div class="mb-r"><span>Nothing down @ 6.5%</span><span>$1,814/mo</span></div><div class="mb-r"><span>3% down @ 6.5%</span><span>$1,766/mo</span></div><div class="mb-r w"><span>$0 down + $7.5K buy-down @ 5.5%</span><span>$1,650/mo ✅</span></div><div class="mb-tip">Always buy the rate down, not the down payment.</div></div></div><div class="foot">Built by <span>Sirhc</span> · v0.12 · Apr 19 · That Gardening Realtor AI Team<br><span style="opacity:.6;font-size:9px">Data auto-saves to this device</span></div><div class="spacer"></div></div>
 
 
 <!-- CHAT TAB -->
@@ -490,6 +490,26 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
 <div class="m-ov" id="tokenOv" style="z-index:520"></div>
 <div class="modal" id="tokenModal" style="z-index:530"><div class="m-hnd"><div class="m-bar"></div><button class="m-x" onclick="closeTokenModal()">✕</button></div><div class="m-body"><div class="m-title">GitHub Token</div><div class="m-type"><span>🔑</span>One-time setup</div><p style="font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:16px">Enter your GitHub Personal Access Token to enable Sync to Sirhc. It's stored only on this device and never sent anywhere except GitHub.</p><div class="fg"><label class="fl">Token</label><input class="fi" id="token-input" type="password" placeholder="ghp_xxxxxxxxxxxxx" autocomplete="off"></div><button class="m-save-btn" onclick="submitToken()">Save &amp; Sync</button></div></div>
 
+
+<!-- SETTINGS MODAL -->
+<div class="m-ov" id="settingsOv" onclick="closeSettings()" style="z-index:520"></div>
+<div class="modal" id="settingsModal" style="z-index:530">
+  <div class="m-hnd"><div class="m-bar"></div><button class="m-x" onclick="closeSettings()">✕</button></div>
+  <div class="m-body">
+    <div class="m-title">Settings</div>
+    <div class="m-type"><span>⚙️</span>App configuration &amp; tools</div>
+    <button id="install-btn" onclick="installApp()" style="display:none;width:100%;text-align:left;padding:14px 16px;margin-bottom:8px;border-radius:12px;border:1.5px solid var(--sky);background:rgba(74,138,181,.08);color:var(--sky);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">📲 Install App</button>
+    <button onclick="exportExpenses();closeSettings()" style="width:100%;text-align:left;padding:14px 16px;margin-bottom:8px;border-radius:12px;border:1.5px solid #b8972a;background:rgba(184,151,42,.06);color:#b8972a;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">📊 Export Tax Report</button>
+    <button onclick="exportData();closeSettings()" style="width:100%;text-align:left;padding:14px 16px;margin-bottom:8px;border-radius:12px;border:1.5px solid var(--warm);background:var(--card);color:var(--muted);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">⬇ Export Backup</button>
+    <button onclick="importData();closeSettings()" style="width:100%;text-align:left;padding:14px 16px;margin-bottom:8px;border-radius:12px;border:1.5px solid var(--warm);background:var(--card);color:var(--muted);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">⬆ Import Backup</button>
+    <button onclick="resetToDefaults()" style="width:100%;text-align:left;padding:14px 16px;margin-bottom:20px;border-radius:12px;border:1.5px solid #fde8e8;background:rgba(196,98,45,.06);color:var(--rust);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">↺ Reset All Data</button>
+    <div style="background:var(--parch);border-radius:10px;padding:14px 16px">
+      <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted);margin-bottom:8px">About</div>
+      <div style="font-size:12px;color:var(--text);font-weight:600" id="settings-version"></div>
+      <div style="font-size:11px;color:var(--muted);margin-top:4px">Built by Sirhc · That Gardening Realtor AI Team</div>
+    </div>
+  </div>
+</div>
 
 <div class="m-ov" id="cOv" onclick="closeCmd()" style="z-index:550"></div>
 <div class="cpanel" id="cPanel">
@@ -570,7 +590,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
 
 <script>
 // ← bump version here on every update
-const APP_VERSION = 'v0.11 · Apr 19';
+const APP_VERSION = 'v0.12 · Apr 19';
 
 // Known issues surfaced in the post-sync recap modal
 const APP_KNOWN_ISSUES = [
@@ -1015,6 +1035,13 @@ function saveContent(id){const c=contentPipeline.find(x=>x.id===id);if(c){const 
 
 function openModal(){document.getElementById('mOv').classList.add('open');document.getElementById('mModal').classList.add('open')}
 function closeModal(){document.getElementById('mOv').classList.remove('open');document.getElementById('mModal').classList.remove('open')}
+function openSettings(){
+  const vEl=document.getElementById('settings-version');
+  if(vEl)vEl.textContent='Sirhc Cockpit '+APP_VERSION;
+  document.getElementById('settingsOv').classList.add('open');
+  document.getElementById('settingsModal').classList.add('open');
+}
+function closeSettings(){document.getElementById('settingsOv').classList.remove('open');document.getElementById('settingsModal').classList.remove('open')}
 function showToast(msg){
   let t=document.getElementById('tgr-toast');
   if(!t){t=document.createElement('div');t.id='tgr-toast';t.style.cssText='position:fixed;bottom:140px;left:50%;transform:translateX(-50%);background:var(--moss);color:#fff;padding:10px 20px;border-radius:20px;font-size:13px;font-weight:600;z-index:9999;box-shadow:0 4px 16px rgba(0,0,0,.2);transition:opacity .4s;pointer-events:none';document.body.appendChild(t);}
