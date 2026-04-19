@@ -338,6 +338,10 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
       <div class="brief-label">🔥 Hot Leads — Contact Today</div>
       <div id="brief-leads"></div>
     </div>
+    <div class="brief-section">
+      <div class="brief-label">🏡 Active Deals</div>
+      <div id="brief-deals"></div>
+    </div>
     <div class="brief-mission">
       <div class="brief-mission-label">⭐ Mission Objectives</div>
       <div id="brief-priorities"></div>
@@ -362,7 +366,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
 <div id="t-leads" class="tab"><div class="sec"><div id="lead-list"></div></div><div class="spacer"></div></div>
 <div id="t-tasks" class="tab"><div id="alert-bar-tasks"></div><div class="sec"><div class="sec-t">Today's Tasks</div><div id="task-list"></div></div><div class="spacer"></div></div>
 <div id="t-content" class="tab"><div class="sec"><div class="sec-t">Content Pipeline</div><div id="content-list"></div></div><div class="spacer"></div></div>
-<div id="t-vendors" class="tab"><div class="sec"><div class="sec-t">Contractors</div><div id="vend-contractors" class="v-grid"></div><div class="sec-t">Title & Lenders</div><div id="vend-lenders" class="v-grid"></div><div class="sec-t">Team</div><div id="vend-team" class="v-grid"></div><div class="sec-t">Loan Programs</div><div id="loan-list"></div><div class="mb"><div class="mb-t">VA Rate Buy-Down — The Math</div><div class="mb-r"><span>Nothing down @ 6.5%</span><span>$1,814/mo</span></div><div class="mb-r"><span>3% down @ 6.5%</span><span>$1,766/mo</span></div><div class="mb-r w"><span>$0 down + $7.5K buy-down @ 5.5%</span><span>$1,650/mo ✅</span></div><div class="mb-tip">Always buy the rate down, not the down payment.</div></div></div><div class="foot">Built by <span>Sirhc</span> · v0.7 · Apr 18 · That Gardening Realtor AI Team<br><span style="opacity:.6;font-size:9px">Data auto-saves to this device</span><br><button id="install-btn" onclick="installApp()" style="display:none;margin-top:8px;margin-right:6px;padding:6px 14px;border-radius:20px;border:1.5px solid var(--sky);background:rgba(74,138,181,.08);color:var(--sky);font-size:10px;font-weight:700;cursor:pointer;font-family:inherit">📲 Install App</button><button onclick="exportExpenses()" style="margin-top:8px;margin-right:6px;padding:5px 12px;border-radius:20px;border:1px solid #b8972a;background:var(--card);color:#b8972a;font-size:10px;cursor:pointer;font-family:inherit">📊 Export Tax Report</button><button onclick="exportData()" style="margin-top:8px;margin-right:6px;padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--muted);font-size:10px;cursor:pointer;font-family:inherit">⬇ Export Backup</button><button onclick="importData()" style="margin-top:8px;margin-right:6px;padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--muted);font-size:10px;cursor:pointer;font-family:inherit">⬆ Import Backup</button><button onclick="resetToDefaults()" style="margin-top:8px;padding:5px 12px;border-radius:20px;border:1px solid #fde8e8;background:var(--card);color:var(--rust);font-size:10px;cursor:pointer;font-family:inherit">↺ Reset</button></div><div class="spacer"></div></div>
+<div id="t-vendors" class="tab"><div class="sec"><div class="sec-t">Contractors</div><div id="vend-contractors" class="v-grid"></div><div class="sec-t">Title & Lenders</div><div id="vend-lenders" class="v-grid"></div><div class="sec-t">Team</div><div id="vend-team" class="v-grid"></div><div class="sec-t">Loan Programs</div><div id="loan-list"></div><div class="mb"><div class="mb-t">VA Rate Buy-Down — The Math</div><div class="mb-r"><span>Nothing down @ 6.5%</span><span>$1,814/mo</span></div><div class="mb-r"><span>3% down @ 6.5%</span><span>$1,766/mo</span></div><div class="mb-r w"><span>$0 down + $7.5K buy-down @ 5.5%</span><span>$1,650/mo ✅</span></div><div class="mb-tip">Always buy the rate down, not the down payment.</div></div></div><div class="foot">Built by <span>Sirhc</span> · v0.8 · Apr 19 · That Gardening Realtor AI Team<br><span style="opacity:.6;font-size:9px">Data auto-saves to this device</span><br><button id="install-btn" onclick="installApp()" style="display:none;margin-top:8px;margin-right:6px;padding:6px 14px;border-radius:20px;border:1.5px solid var(--sky);background:rgba(74,138,181,.08);color:var(--sky);font-size:10px;font-weight:700;cursor:pointer;font-family:inherit">📲 Install App</button><button onclick="exportExpenses()" style="margin-top:8px;margin-right:6px;padding:5px 12px;border-radius:20px;border:1px solid #b8972a;background:var(--card);color:#b8972a;font-size:10px;cursor:pointer;font-family:inherit">📊 Export Tax Report</button><button onclick="exportData()" style="margin-top:8px;margin-right:6px;padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--muted);font-size:10px;cursor:pointer;font-family:inherit">⬇ Export Backup</button><button onclick="importData()" style="margin-top:8px;margin-right:6px;padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--muted);font-size:10px;cursor:pointer;font-family:inherit">⬆ Import Backup</button><button onclick="resetToDefaults()" style="margin-top:8px;padding:5px 12px;border-radius:20px;border:1px solid #fde8e8;background:var(--card);color:var(--rust);font-size:10px;cursor:pointer;font-family:inherit">↺ Reset</button></div><div class="spacer"></div></div>
 
 
 <!-- ACTION STRIP -->
@@ -473,12 +477,11 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
 
 <script>
 // ← bump version here on every update
-const APP_VERSION = 'v0.7 · Apr 18';
+const APP_VERSION = 'v0.8 · Apr 19';
 
 // Known issues surfaced in the post-sync recap modal
 const APP_KNOWN_ISSUES = [
   'Google Calendar not connected — calendar strip empty',
-  'Mission Briefing button (being fixed this build)',
 ];
 
 // ON-day batch tasks surfaced in the post-sync recap modal
