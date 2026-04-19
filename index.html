@@ -1559,29 +1559,49 @@ function showBriefing(preview){
     }),500);
   }),900);
 
-  // Hot leads
-  const hotLeads=leads.filter(l=>!l.cls&&(l.temp==='Hot'||l.temp==='🔥 Hot'));
+  // Hot leads — filter by cls:'hot' or cls:'urg' (matches live data structure)
+  const hotLeads=leads.filter(l=>l.cls==='hot'||l.cls==='urg');
   const bl=document.getElementById('brief-leads');
-  if(hotLeads.length){
-    bl.innerHTML=hotLeads.map(l=>`<div class="brief-item"><div class="brief-dot hot"></div><div><div class="brief-item-text">${l.title||l.name}</div><div class="brief-item-sub">${l.stage||''}${l.lastContact?' · Last contact: '+l.lastContact:''}</div></div></div>`).join('');
-  } else {
-    bl.innerHTML=`<div class="brief-item"><div class="brief-dot"></div><div class="brief-item-text" style="color:rgba(255,255,255,.4)">No hot leads — time to plant some seeds.</div></div>`;
+  if(bl){
+    if(hotLeads.length){
+      bl.innerHTML=hotLeads.map(l=>`<div class="brief-item"><div class="brief-dot hot"></div><div><div class="brief-item-text">${l.title||l.name||'—'}</div><div class="brief-item-sub">${l.next||l.stage||''}</div></div></div>`).join('');
+    } else {
+      bl.innerHTML=`<div class="brief-item"><div class="brief-dot"></div><div class="brief-item-text" style="color:rgba(255,255,255,.4)">No hot leads — time to plant some seeds.</div></div>`;
+    }
   }
 
-  // Priorities
-  const activePri=priorities.filter(p=>!p.done).slice(0,3);
+  // Active deals — exclude closed (cls:'cls')
+  const activeDeals=deals.filter(d=>d.cls!=='cls');
+  const bd=document.getElementById('brief-deals');
+  if(bd){
+    if(activeDeals.length){
+      bd.innerHTML=activeDeals.map(d=>`<div class="brief-item"><div class="brief-dot" style="background:rgba(0,255,100,.45)"></div><div><div class="brief-item-text">${d.title||'—'}</div><div class="brief-item-sub">${d.chip||d.type||''}${d.next?' · '+d.next:''}</div></div></div>`).join('');
+    } else {
+      bd.innerHTML=`<div class="brief-item"><div class="brief-dot"></div><div class="brief-item-text" style="color:rgba(255,255,255,.4)">No active deals — go list something.</div></div>`;
+    }
+  }
+
+  // Priorities — show all (done with strikethrough, undone plain), up to 5
   const bp=document.getElementById('brief-priorities');
-  if(activePri.length){
-    bp.innerHTML=activePri.map(p=>`<div class="brief-mission-item">${p.title}</div>`).join('');
-  } else {
-    bp.innerHTML=`<div class="brief-mission-item">Set your 3 priorities for today</div>`;
+  if(bp){
+    const priToShow=priorities.slice(0,5);
+    if(priToShow.length){
+      bp.innerHTML=priToShow.map(p=>p.done
+        ?`<div class="brief-mission-item" style="text-decoration:line-through;opacity:.4">✓ ${p.title}</div>`
+        :`<div class="brief-mission-item">${p.title}</div>`
+      ).join('');
+    } else {
+      bp.innerHTML=`<div class="brief-mission-item" style="opacity:.5">No priorities set — add them in the Cockpit tab</div>`;
+    }
   }
 
-  // Reset any inline styles left by acceptBriefing() so the overlay is
-  // always visible when triggered, including via the Mission Briefing button.
-  ov.style.transition='';
-  ov.style.opacity='';
+  // Force the overlay fully visible — clear any leftover transition/opacity
+  // from acceptBriefing() so the button always works regardless of timing.
+  ov.style.transition='none';
+  ov.style.opacity='1';
   ov.classList.remove('hidden');
+  // Re-enable transitions after a frame so future dismissal animates normally
+  requestAnimationFrame(()=>{ ov.style.transition=''; });
 }
 
 const BRIEF_QUOTES=[
