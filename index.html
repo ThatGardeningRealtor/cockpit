@@ -25,7 +25,7 @@
   --r:12px;--ease:.25s cubic-bezier(.4,0,.2,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:var(--text);min-height:100vh;font-size:14px;-webkit-font-smoothing:antialiased;padding-bottom:140px;overflow-x:hidden}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:var(--text);min-height:100vh;font-size:14px;-webkit-font-smoothing:antialiased;padding-bottom:90px;overflow-x:hidden}
 
 
 .hdr{background:linear-gradient(180deg,var(--soil),var(--soil-mid));padding:20px 20px 16px;position:sticky;top:0;z-index:100;border-bottom:3px solid var(--moss)}
@@ -141,7 +141,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
 
 
 /* Action strip */
-.astrip{position:fixed;bottom:64px;left:0;right:0;z-index:100;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:6px;padding:8px 10px;background:linear-gradient(180deg,rgba(250,247,242,0),var(--cream) 20%)}
+.astrip{position:fixed;bottom:0;left:0;right:0;z-index:100;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:6px;padding:8px 10px max(14px,env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(250,247,242,0),var(--cream) 20%)}
 .abtn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:10px 8px;border-radius:var(--r);border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:10px;font-weight:700;letter-spacing:.5px;transition:all var(--ease);-webkit-tap-highlight-color:transparent}
 .abtn:active{transform:scale(.94)}
 .abtn-i{font-size:20px}
@@ -150,11 +150,19 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
 .ab-v{background:linear-gradient(135deg,var(--violet),var(--violet-s));color:#fff;box-shadow:0 3px 12px rgba(123,94,167,.25)}
 
 
-.bnav{position:fixed;bottom:0;left:0;right:0;background:var(--soil);border-top:2px solid var(--moss);display:grid;grid-template-columns:repeat(7,1fr);padding:6px 0 max(10px,env(safe-area-inset-bottom));z-index:100}
-.ni{display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;padding:6px 0;opacity:.45;transition:opacity var(--ease);-webkit-tap-highlight-color:transparent}
-.ni.on{opacity:1}.ni:active{transform:scale(.9)}
-.ni-i{font-size:18px}
-.ni-l{font-size:8px;color:var(--leaf);letter-spacing:.4px;text-transform:uppercase;font-weight:600}
+.nav-drawer{position:fixed;top:0;left:0;height:100%;width:280px;background:var(--soil);z-index:600;transform:translateX(-100%);transition:transform .25s ease;display:flex;flex-direction:column;box-shadow:4px 0 24px rgba(0,0,0,.4);}
+.nav-drawer.open{transform:translateX(0);}
+.nav-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:590;display:none;}
+.nav-overlay.open{display:block;}
+.nav-drawer-hdr{padding:20px 16px 12px;border-bottom:1px solid var(--bark);}
+.nav-drawer-brand{font-size:16px;font-weight:700;color:var(--leaf);}
+.nav-drawer-sub{font-size:11px;color:var(--muted);margin-top:2px;}
+.nav-item{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer;border-bottom:1px solid rgba(255,255,255,.04);transition:background .15s;position:relative;}
+.nav-item:active{background:rgba(255,255,255,.06);}
+.nav-item.active{background:rgba(61,107,64,.15);border-left:3px solid var(--moss);}
+.nav-item-icon{font-size:20px;width:28px;text-align:center;}
+.nav-item-label{font-size:14px;font-weight:600;color:var(--text);}
+.nav-item-badge{margin-left:auto;min-width:18px;height:18px;border-radius:9px;background:#e53935;color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 4px;}
 
 
 /* Modals */
@@ -349,9 +357,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
 /* ── v0.12 Swipe hint ── */
 .swipe-hint{font-size:9px;color:var(--muted);margin-top:4px;font-style:italic;opacity:.6}
 
-/* ── v0.13 Nav Badges ── */
-.ni{position:relative}
-.nav-badge{position:absolute;top:2px;right:calc(50% - 18px);min-width:16px;height:16px;border-radius:8px;background:#e53935;color:#fff;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 3px;pointer-events:none;line-height:1;z-index:1}
+/* ── v0.13 Nav Drawer active styles handled by .nav-item.active above ── */
 
 /* ── v0.10 Chat Tab ── */
 #tab-chat{display:none;flex-direction:column;height:calc(100vh - 120px)}
@@ -407,7 +413,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
   </div>
 </div>
 
-<div class="hdr"><div class="hdr-top"><div><div class="brand">🌱 <em>That Gardening</em> Realtor</div><div class="greet" id="greet"></div></div><div style="display:flex;align-items:center;gap:8px"><button class="srch-icon" onclick="toggleSearch()" title="Search" style="font-size:22px;background:rgba(255,255,255,0.08);border-radius:8px;padding:6px 8px;">🔍</button><button onclick="openSettings()" style="background:rgba(255,255,255,0.08);border:none;border-radius:8px;padding:6px 8px;color:var(--leaf);font-size:22px;cursor:pointer;-webkit-tap-highlight-color:transparent;">⚙️</button><div class="dbadge ind" id="dbadge" onclick="openSchedule()" style="cursor:pointer">IN Day</div></div></div></div>
+<div class="hdr"><div class="hdr-top"><div style="display:flex;align-items:flex-start;gap:4px"><button onclick="openNav()" style="background:none;border:none;color:var(--leaf);font-size:24px;cursor:pointer;padding:4px 8px 4px 0;-webkit-tap-highlight-color:transparent;">☰</button><div><div class="brand">🌱 <em>That Gardening</em> Realtor</div><div class="greet" id="greet"></div></div></div><div style="display:flex;align-items:center;gap:8px"><button class="srch-icon" onclick="toggleSearch()" title="Search" style="font-size:22px;background:rgba(255,255,255,0.08);border-radius:8px;padding:6px 8px;">🔍</button><button onclick="openSettings()" style="background:rgba(255,255,255,0.08);border:none;border-radius:8px;padding:6px 8px;color:var(--leaf);font-size:22px;cursor:pointer;-webkit-tap-highlight-color:transparent;">⚙️</button><div class="dbadge ind" id="dbadge" onclick="openSchedule()" style="cursor:pointer">IN Day</div></div></div></div>
 <div class="srch-panel" id="srch-panel">
   <div class="srch-inner">
     <div class="srch-row"><span style="font-size:14px;opacity:.5">🔍</span><input class="srch-inp" id="srch-inp" placeholder="Search deals, leads, tasks, vendors…" autocomplete="off" oninput="runSearch(this.value)"><button class="srch-x" onclick="closeSearch()">✕</button></div>
@@ -438,7 +444,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
 <div id="t-leads" class="tab"><div class="sec"><div id="lead-list"></div></div><div class="spacer"></div></div>
 <div id="t-tasks" class="tab"><div id="alert-bar-tasks"></div><div class="sec"><div class="sec-t">Today's Tasks</div><div id="task-list"></div></div><div class="spacer"></div></div>
 <div id="t-content" class="tab"><div class="sec"><div class="sec-t">Content Pipeline</div><div id="content-list"></div></div><div class="spacer"></div></div>
-<div id="t-vendors" class="tab"><div class="sec"><div class="sec-t">Contractors</div><div id="vend-contractors" class="v-grid"></div><div class="sec-t">Title & Lenders</div><div id="vend-lenders" class="v-grid"></div><div class="sec-t">Team</div><div id="vend-team" class="v-grid"></div><div class="sec-t">Loan Programs</div><div id="loan-list"></div><div class="mb"><div class="mb-t">VA Rate Buy-Down — The Math</div><div class="mb-r"><span>Nothing down @ 6.5%</span><span>$1,814/mo</span></div><div class="mb-r"><span>3% down @ 6.5%</span><span>$1,766/mo</span></div><div class="mb-r w"><span>$0 down + $7.5K buy-down @ 5.5%</span><span>$1,650/mo ✅</span></div><div class="mb-tip">Always buy the rate down, not the down payment.</div></div></div><div class="foot">Built by <span>Sirhc</span> · v0.12 · Apr 19 · That Gardening Realtor AI Team<br><span style="opacity:.6;font-size:9px">Data auto-saves to this device</span></div><div class="spacer"></div></div>
+<div id="t-vendors" class="tab"><div class="sec"><div class="sec-t">Contractors</div><div id="vend-contractors" class="v-grid"></div><div class="sec-t">Title & Lenders</div><div id="vend-lenders" class="v-grid"></div><div class="sec-t">Team</div><div id="vend-team" class="v-grid"></div><div class="sec-t">Loan Programs</div><div id="loan-list"></div><div class="mb"><div class="mb-t">VA Rate Buy-Down — The Math</div><div class="mb-r"><span>Nothing down @ 6.5%</span><span>$1,814/mo</span></div><div class="mb-r"><span>3% down @ 6.5%</span><span>$1,766/mo</span></div><div class="mb-r w"><span>$0 down + $7.5K buy-down @ 5.5%</span><span>$1,650/mo ✅</span></div><div class="mb-tip">Always buy the rate down, not the down payment.</div></div></div><div class="foot">Built by <span>Sirhc</span> · v0.13 · Apr 19 · That Gardening Realtor AI Team<br><span style="opacity:.6;font-size:9px">Data auto-saves to this device</span></div><div class="spacer"></div></div>
 
 
 <!-- CHAT TAB -->
@@ -470,15 +476,20 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
 </div>
 
 
-<!-- BOTTOM NAV -->
-<div class="bnav">
-  <div class="ni on" onclick="showTab('cock')" id="n-cock"><div class="ni-i">🏠</div><div class="ni-l">Cockpit</div></div>
-  <div class="ni" onclick="showTab('deals')" id="n-deals"><span class="nav-badge" id="badge-deals" style="display:none">0</span><div class="ni-i">🏡</div><div class="ni-l">Deals</div></div>
-  <div class="ni" onclick="showTab('leads')" id="n-leads"><span class="nav-badge" id="badge-leads" style="display:none">0</span><div class="ni-i">👥</div><div class="ni-l">Leads</div></div>
-  <div class="ni" onclick="showTab('tasks')" id="n-tasks"><span class="nav-badge" id="badge-tasks" style="display:none">0</span><div class="ni-i">📋</div><div class="ni-l">Tasks</div></div>
-  <div class="ni" onclick="showTab('content')" id="n-content"><div class="ni-i">🎨</div><div class="ni-l">Content</div></div>
-  <div class="ni" onclick="showTab('vendors')" id="n-vendors"><div class="ni-i">🔧</div><div class="ni-l">Vendors</div></div>
-  <div class="ni" onclick="showTab('chat')" id="n-chat"><div class="ni-i">💬</div><div class="ni-l">Sirhc</div></div>
+<!-- NAV DRAWER -->
+<div class="nav-overlay" id="navOverlay" onclick="closeNav()"></div>
+<div class="nav-drawer" id="navDrawer">
+  <div class="nav-drawer-hdr">
+    <div class="nav-drawer-brand">🌱 That Gardening Realtor</div>
+    <div class="nav-drawer-sub">Chris Drawdy · eXp Realty</div>
+  </div>
+  <div class="nav-item active" id="nd-cock" onclick="showTab('cock');closeNav()"><div class="nav-item-icon">🏠</div><div class="nav-item-label">Cockpit</div></div>
+  <div class="nav-item" id="nd-deals" onclick="showTab('deals');closeNav()"><div class="nav-item-icon">🏡</div><div class="nav-item-label">Deals</div><span class="nav-item-badge" id="badge-deals" style="display:none">0</span></div>
+  <div class="nav-item" id="nd-leads" onclick="showTab('leads');closeNav()"><div class="nav-item-icon">👥</div><div class="nav-item-label">Leads</div><span class="nav-item-badge" id="badge-leads" style="display:none">0</span></div>
+  <div class="nav-item" id="nd-tasks" onclick="showTab('tasks');closeNav()"><div class="nav-item-icon">📋</div><div class="nav-item-label">Tasks</div><span class="nav-item-badge" id="badge-tasks" style="display:none">0</span></div>
+  <div class="nav-item" id="nd-content" onclick="showTab('content');closeNav()"><div class="nav-item-icon">🎨</div><div class="nav-item-label">Content</div></div>
+  <div class="nav-item" id="nd-vendors" onclick="showTab('vendors');closeNav()"><div class="nav-item-icon">🔧</div><div class="nav-item-label">Vendors</div></div>
+  <div class="nav-item" id="nd-chat" onclick="showTab('chat');closeNav()"><div class="nav-item-icon">💬</div><div class="nav-item-label">Sirhc</div></div>
 </div>
 
 
@@ -590,7 +601,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
 
 <script>
 // ← bump version here on every update
-const APP_VERSION = 'v0.12 · Apr 19';
+const APP_VERSION = 'v0.13 · Apr 19';
 
 // Known issues surfaced in the post-sync recap modal
 const APP_KNOWN_ISSUES = [
@@ -788,16 +799,21 @@ function attachSwipe(card,taskId){
     card.style.transform='';
     card.style.background='';
     setTimeout(()=>{card.style.transition='';},260);
-    if(dx>80){
+    if(dx>120){
       const t=tasks.find(x=>x.id===taskId);
       if(!t)return;
+      const wasOpen=!t.done;
       t.done=!t.done;
       saveData();
       renderBadges();
       // Green flash then re-render
       card.style.background='rgba(46,74,48,.35)';
       setTimeout(()=>{card.style.background='';renderTasks();renderAlerts();},320);
-      showToast(t.done?'Task complete ✓':'Task reopened');
+      if(wasOpen){
+        showUndoToast(taskId);
+      } else {
+        showToast('Task reopened');
+      }
     }
   },{passive:true});
 }
@@ -1049,19 +1065,50 @@ function showToast(msg){
   clearTimeout(t._to);t._to=setTimeout(()=>{t.style.opacity='0';},2200);
 }
 
+let undoTimer=null;
+function showUndoToast(taskId){
+  clearUndoToast();
+  const toast=document.createElement('div');
+  toast.id='undo-toast';
+  toast.style.cssText='position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:#2a7a4a;color:#fff;padding:10px 18px;border-radius:24px;font-size:13px;font-weight:600;z-index:700;display:flex;gap:12px;align-items:center;box-shadow:0 4px 16px rgba(0,0,0,.3);white-space:nowrap;';
+  toast.innerHTML='Task complete ✓ <span onclick="undoComplete(\''+taskId+'\')" style="text-decoration:underline;cursor:pointer;opacity:.85;">Undo</span>';
+  document.body.appendChild(toast);
+  undoTimer=setTimeout(clearUndoToast,4000);
+}
+function clearUndoToast(){
+  clearTimeout(undoTimer);
+  const t=document.getElementById('undo-toast');
+  if(t)t.remove();
+}
+function undoComplete(taskId){
+  const t=tasks.find(x=>x.id===taskId);
+  if(t){t.done=false;saveData();renderTasks();renderBadges();}
+  clearUndoToast();
+}
+
 
 function showTab(t){
   document.querySelectorAll('.tab').forEach(e=>e.classList.remove('on'));
   document.querySelectorAll('#tab-chat').forEach(e=>e.classList.remove('on'));
-  document.querySelectorAll('.ni').forEach(e=>e.classList.remove('on'));
+  document.querySelectorAll('.nav-item').forEach(e=>e.classList.remove('active'));
   if(t==='chat'){
     document.getElementById('tab-chat').classList.add('on');
   } else {
     document.getElementById('t-'+t).classList.add('on');
   }
-  document.getElementById('n-'+t).classList.add('on');
+  const ndEl=document.getElementById('nd-'+t);
+  if(ndEl)ndEl.classList.add('active');
   if(t!=='chat')window.scrollTo({top:0,behavior:'smooth'});
   if(t==='chat')setTimeout(()=>scrollChatToBottom(),100);
+}
+
+function openNav(){
+  document.getElementById('navDrawer').classList.add('open');
+  document.getElementById('navOverlay').classList.add('open');
+}
+function closeNav(){
+  document.getElementById('navDrawer').classList.remove('open');
+  document.getElementById('navOverlay').classList.remove('open');
 }
 
 
