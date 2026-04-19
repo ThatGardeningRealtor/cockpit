@@ -316,6 +316,37 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
 .brief-content>*:nth-child(6){animation-delay:.6s}
 .brief-content>*:nth-child(7){animation-delay:.7s}
 .brief-content>*:nth-child(8){animation-delay:.8s}
+
+/* ── v0.11 Search ── */
+.srch-icon{background:none;border:none;color:var(--leaf);font-size:18px;cursor:pointer;padding:4px 6px;-webkit-tap-highlight-color:transparent;opacity:.75;transition:opacity var(--ease);flex-shrink:0}
+.srch-icon:active{opacity:1}
+.srch-panel{overflow:hidden;max-height:0;transition:max-height .3s cubic-bezier(.4,0,.2,1);background:var(--soil-mid);border-bottom:2px solid var(--moss)}
+.srch-panel.open{max-height:420px}
+.srch-inner{padding:10px 16px 12px}
+.srch-row{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.07);border-radius:10px;padding:8px 12px;border:1.5px solid rgba(255,255,255,.1)}
+.srch-row:focus-within{border-color:var(--sage-c)}
+.srch-inp{flex:1;background:none;border:none;color:var(--cream);font-family:'DM Sans',sans-serif;font-size:14px;outline:none}
+.srch-inp::placeholder{color:rgba(255,255,255,.3)}
+.srch-x{background:none;border:none;color:var(--sage-c);font-size:16px;cursor:pointer;padding:0 2px;-webkit-tap-highlight-color:transparent}
+.srch-results{margin-top:10px;max-height:300px;overflow-y:auto}
+.srch-card{background:rgba(255,255,255,.06);border-radius:10px;padding:10px 12px;display:flex;align-items:center;gap:10px;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background var(--ease)}
+.srch-card+.srch-card{margin-top:6px}
+.srch-card:active{background:rgba(255,255,255,.12)}
+.srch-type{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:2px 7px;border-radius:8px;flex-shrink:0}
+.srch-type-deal{background:#e0eff8;color:#2F6E99}
+.srch-type-lead{background:#fdf3d8;color:#7A5E10}
+.srch-type-task{background:#fde8e8;color:#B5422B}
+.srch-type-vendor{background:var(--warm);color:var(--muted)}
+.srch-label{font-size:12px;font-weight:600;color:var(--cream);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.srch-sub{font-size:10px;color:rgba(255,255,255,.45);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.srch-empty{font-size:12px;color:rgba(255,255,255,.35);text-align:center;padding:16px 0}
+
+/* ── v0.12 Swipe hint ── */
+.swipe-hint{font-size:9px;color:var(--muted);margin-top:4px;font-style:italic;opacity:.6}
+
+/* ── v0.13 Nav Badges ── */
+.ni{position:relative}
+.nav-badge{position:absolute;top:2px;right:calc(50% - 18px);min-width:16px;height:16px;border-radius:8px;background:#e53935;color:#fff;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 3px;pointer-events:none;line-height:1;z-index:1}
 </style>
 </head>
 <body>
@@ -350,7 +381,13 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
   </div>
 </div>
 
-<div class="hdr"><div class="hdr-top"><div><div class="brand">🌱 <em>That Gardening</em> Realtor</div><div class="greet" id="greet"></div></div><div class="dbadge ind" id="dbadge" onclick="openSchedule()" style="cursor:pointer">IN Day</div></div></div>
+<div class="hdr"><div class="hdr-top"><div><div class="brand">🌱 <em>That Gardening</em> Realtor</div><div class="greet" id="greet"></div></div><div style="display:flex;align-items:center;gap:8px"><button class="srch-icon" onclick="toggleSearch()" title="Search">🔍</button><div class="dbadge ind" id="dbadge" onclick="openSchedule()" style="cursor:pointer">IN Day</div></div></div></div>
+<div class="srch-panel" id="srch-panel">
+  <div class="srch-inner">
+    <div class="srch-row"><span style="font-size:14px;opacity:.5">🔍</span><input class="srch-inp" id="srch-inp" placeholder="Search deals, leads, tasks, vendors…" autocomplete="off" oninput="runSearch(this.value)"><button class="srch-x" onclick="closeSearch()">✕</button></div>
+    <div class="srch-results" id="srch-results"></div>
+  </div>
+</div>
 
 
 <div class="stats">
@@ -366,7 +403,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
 <div id="t-leads" class="tab"><div class="sec"><div id="lead-list"></div></div><div class="spacer"></div></div>
 <div id="t-tasks" class="tab"><div id="alert-bar-tasks"></div><div class="sec"><div class="sec-t">Today's Tasks</div><div id="task-list"></div></div><div class="spacer"></div></div>
 <div id="t-content" class="tab"><div class="sec"><div class="sec-t">Content Pipeline</div><div id="content-list"></div></div><div class="spacer"></div></div>
-<div id="t-vendors" class="tab"><div class="sec"><div class="sec-t">Contractors</div><div id="vend-contractors" class="v-grid"></div><div class="sec-t">Title & Lenders</div><div id="vend-lenders" class="v-grid"></div><div class="sec-t">Team</div><div id="vend-team" class="v-grid"></div><div class="sec-t">Loan Programs</div><div id="loan-list"></div><div class="mb"><div class="mb-t">VA Rate Buy-Down — The Math</div><div class="mb-r"><span>Nothing down @ 6.5%</span><span>$1,814/mo</span></div><div class="mb-r"><span>3% down @ 6.5%</span><span>$1,766/mo</span></div><div class="mb-r w"><span>$0 down + $7.5K buy-down @ 5.5%</span><span>$1,650/mo ✅</span></div><div class="mb-tip">Always buy the rate down, not the down payment.</div></div></div><div class="foot">Built by <span>Sirhc</span> · v0.8 · Apr 19 · That Gardening Realtor AI Team<br><span style="opacity:.6;font-size:9px">Data auto-saves to this device</span><br><button id="install-btn" onclick="installApp()" style="display:none;margin-top:8px;margin-right:6px;padding:6px 14px;border-radius:20px;border:1.5px solid var(--sky);background:rgba(74,138,181,.08);color:var(--sky);font-size:10px;font-weight:700;cursor:pointer;font-family:inherit">📲 Install App</button><button onclick="exportExpenses()" style="margin-top:8px;margin-right:6px;padding:5px 12px;border-radius:20px;border:1px solid #b8972a;background:var(--card);color:#b8972a;font-size:10px;cursor:pointer;font-family:inherit">📊 Export Tax Report</button><button onclick="exportData()" style="margin-top:8px;margin-right:6px;padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--muted);font-size:10px;cursor:pointer;font-family:inherit">⬇ Export Backup</button><button onclick="importData()" style="margin-top:8px;margin-right:6px;padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--muted);font-size:10px;cursor:pointer;font-family:inherit">⬆ Import Backup</button><button onclick="resetToDefaults()" style="margin-top:8px;padding:5px 12px;border-radius:20px;border:1px solid #fde8e8;background:var(--card);color:var(--rust);font-size:10px;cursor:pointer;font-family:inherit">↺ Reset</button></div><div class="spacer"></div></div>
+<div id="t-vendors" class="tab"><div class="sec"><div class="sec-t">Contractors</div><div id="vend-contractors" class="v-grid"></div><div class="sec-t">Title & Lenders</div><div id="vend-lenders" class="v-grid"></div><div class="sec-t">Team</div><div id="vend-team" class="v-grid"></div><div class="sec-t">Loan Programs</div><div id="loan-list"></div><div class="mb"><div class="mb-t">VA Rate Buy-Down — The Math</div><div class="mb-r"><span>Nothing down @ 6.5%</span><span>$1,814/mo</span></div><div class="mb-r"><span>3% down @ 6.5%</span><span>$1,766/mo</span></div><div class="mb-r w"><span>$0 down + $7.5K buy-down @ 5.5%</span><span>$1,650/mo ✅</span></div><div class="mb-tip">Always buy the rate down, not the down payment.</div></div></div><div class="foot">Built by <span>Sirhc</span> · v0.9 · Apr 19 · That Gardening Realtor AI Team<br><span style="opacity:.6;font-size:9px">Data auto-saves to this device</span><br><button id="install-btn" onclick="installApp()" style="display:none;margin-top:8px;margin-right:6px;padding:6px 14px;border-radius:20px;border:1.5px solid var(--sky);background:rgba(74,138,181,.08);color:var(--sky);font-size:10px;font-weight:700;cursor:pointer;font-family:inherit">📲 Install App</button><button onclick="exportExpenses()" style="margin-top:8px;margin-right:6px;padding:5px 12px;border-radius:20px;border:1px solid #b8972a;background:var(--card);color:#b8972a;font-size:10px;cursor:pointer;font-family:inherit">📊 Export Tax Report</button><button onclick="exportData()" style="margin-top:8px;margin-right:6px;padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--muted);font-size:10px;cursor:pointer;font-family:inherit">⬇ Export Backup</button><button onclick="importData()" style="margin-top:8px;margin-right:6px;padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--muted);font-size:10px;cursor:pointer;font-family:inherit">⬆ Import Backup</button><button onclick="resetToDefaults()" style="margin-top:8px;padding:5px 12px;border-radius:20px;border:1px solid #fde8e8;background:var(--card);color:var(--rust);font-size:10px;cursor:pointer;font-family:inherit">↺ Reset</button></div><div class="spacer"></div></div>
 
 
 <!-- ACTION STRIP -->
@@ -381,9 +418,9 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
 <!-- BOTTOM NAV -->
 <div class="bnav">
   <div class="ni on" onclick="showTab('cock')" id="n-cock"><div class="ni-i">🏠</div><div class="ni-l">Cockpit</div></div>
-  <div class="ni" onclick="showTab('deals')" id="n-deals"><div class="ni-i">🏡</div><div class="ni-l">Deals</div></div>
-  <div class="ni" onclick="showTab('leads')" id="n-leads"><div class="ni-i">👥</div><div class="ni-l">Leads</div></div>
-  <div class="ni" onclick="showTab('tasks')" id="n-tasks"><div class="ni-i">📋</div><div class="ni-l">Tasks</div></div>
+  <div class="ni" onclick="showTab('deals')" id="n-deals"><span class="nav-badge" id="badge-deals" style="display:none">0</span><div class="ni-i">🏡</div><div class="ni-l">Deals</div></div>
+  <div class="ni" onclick="showTab('leads')" id="n-leads"><span class="nav-badge" id="badge-leads" style="display:none">0</span><div class="ni-i">👥</div><div class="ni-l">Leads</div></div>
+  <div class="ni" onclick="showTab('tasks')" id="n-tasks"><span class="nav-badge" id="badge-tasks" style="display:none">0</span><div class="ni-i">📋</div><div class="ni-l">Tasks</div></div>
   <div class="ni" onclick="showTab('content')" id="n-content"><div class="ni-i">🎨</div><div class="ni-l">Content</div></div>
   <div class="ni" onclick="showTab('vendors')" id="n-vendors"><div class="ni-i">🔧</div><div class="ni-l">Vendors</div></div>
 </div>
@@ -477,7 +514,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
 
 <script>
 // ← bump version here on every update
-const APP_VERSION = 'v0.8 · Apr 19';
+const APP_VERSION = 'v0.9 · Apr 19';
 
 // Known issues surfaced in the post-sync recap modal
 const APP_KNOWN_ISSUES = [
@@ -633,13 +670,60 @@ function renderLeads(){
 
 
 function renderTasks(){
-  document.getElementById('task-list').innerHTML=tasks.map(t=>`
-    <div class="card" onclick="openTask('${t.id}')" style="display:flex;align-items:flex-start;gap:12px;border-left-color:${t.done?'var(--muted)':t.tagC==='tag-urgent'?'var(--rust)':t.tagC==='tag-lead'?'var(--gold)':t.tagC==='tag-community'?'var(--moss)':'var(--sky)'};${t.done?'opacity:.45':''}">
+  const container=document.getElementById('task-list');
+  container.innerHTML=tasks.map(t=>`
+    <div class="card" id="tc-${t.id}" onclick="openTask('${t.id}')" style="display:flex;align-items:flex-start;gap:12px;border-left-color:${t.done?'var(--muted)':t.tagC==='tag-urgent'?'var(--rust)':t.tagC==='tag-lead'?'var(--gold)':t.tagC==='tag-community'?'var(--moss)':'var(--sky)'};${t.done?'opacity:.45;':''}overflow:hidden;position:relative;touch-action:pan-y;">
       <div style="width:20px;height:20px;border-radius:6px;border:2px solid ${t.done?'var(--moss)':'var(--sage-c)'};background:${t.done?'var(--moss)':'transparent'};display:flex;align-items:center;justify-content:center;font-size:12px;color:${t.done?'#fff':'transparent'};flex-shrink:0;margin-top:1px">✓</div>
       <div style="flex:1;min-width:0"><div style="font-size:13px;font-weight:600;line-height:1.3;${t.done?'text-decoration:line-through;color:var(--muted)':''}">${t.title}</div>
       <div style="font-size:11px;color:var(--muted);margin-top:3px">${t.meta}</div>
       <span class="${t.tagC}" style="display:inline-block;font-size:9px;font-weight:700;padding:2px 8px;border-radius:10px;text-transform:uppercase;letter-spacing:.6px;margin-top:5px">${t.tag}</span>
-      ${t.notes?'<div style="font-size:10px;color:var(--sage-c);margin-top:4px">📝 Has notes</div>':''}</div></div>`).join('');
+      ${t.notes?'<div style="font-size:10px;color:var(--sage-c);margin-top:4px">📝 Has notes</div>':''}
+      ${!t.done?'<div class="swipe-hint">← swipe to complete</div>':''}</div></div>`).join('');
+  // Attach swipe listeners
+  tasks.forEach(t=>{
+    const card=document.getElementById('tc-'+t.id);
+    if(!card)return;
+    attachSwipe(card,t.id);
+  });
+}
+
+function attachSwipe(card,taskId){
+  let startX=0,startY=0,dragging=false;
+  card.addEventListener('touchstart',e=>{
+    startX=e.touches[0].clientX;
+    startY=e.touches[0].clientY;
+    dragging=true;
+  },{passive:true});
+  card.addEventListener('touchmove',e=>{
+    if(!dragging)return;
+    const dx=e.touches[0].clientX-startX;
+    const dy=e.touches[0].clientY-startY;
+    if(Math.abs(dy)>Math.abs(dx))return; // vertical scroll — ignore
+    if(dx>0){
+      card.style.transform=`translateX(${Math.min(dx,120)}px)`;
+      card.style.background=`rgba(46,74,48,${Math.min(dx/120,0.25)})`;
+    }
+  },{passive:true});
+  card.addEventListener('touchend',e=>{
+    if(!dragging)return;
+    dragging=false;
+    const dx=e.changedTouches[0].clientX-startX;
+    card.style.transition='transform .25s ease,background .25s ease';
+    card.style.transform='';
+    card.style.background='';
+    setTimeout(()=>{card.style.transition='';},260);
+    if(dx>80){
+      const t=tasks.find(x=>x.id===taskId);
+      if(!t)return;
+      t.done=!t.done;
+      saveData();
+      renderBadges();
+      // Green flash then re-render
+      card.style.background='rgba(46,74,48,.35)';
+      setTimeout(()=>{card.style.background='';renderTasks();renderAlerts();},320);
+      showToast(t.done?'Task complete ✓':'Task reopened');
+    }
+  },{passive:true});
 }
 
 
@@ -1183,9 +1267,7 @@ function renderCalStrip(){
 
 
 // ═══════════ PERSISTENCE ═══════════
-function saveData(){
-  try{localStorage.setItem('tgr_data',JSON.stringify({deals,leads,tasks,priorities,vendors,contentPipeline,loanPrograms,expenses}));}catch(e){}
-}
+// saveData is defined below near renderBadges so badges update on every save
 
 function loadData(){
   try{
@@ -1694,6 +1776,66 @@ function clearUnsyncedFlag(){
   });
 }
 
+// ═══════════ v0.13 — BADGES ═══════════
+function renderBadges(){
+  // Deals: urg
+  const dc=deals.filter(d=>d.cls==='urg').length;
+  const db=document.getElementById('badge-deals');
+  if(db){db.textContent=dc;db.style.display=dc>0?'flex':'none';}
+  // Leads: hot or urg
+  const lc=leads.filter(l=>l.cls==='hot'||l.cls==='urg').length;
+  const lb=document.getElementById('badge-leads');
+  if(lb){lb.textContent=lc;lb.style.display=lc>0?'flex':'none';}
+  // Tasks: urgent tag and not done
+  const tc=tasks.filter(t=>t.tagC==='tag-urgent'&&!t.done).length;
+  const tb=document.getElementById('badge-tasks');
+  if(tb){tb.textContent=tc;tb.style.display=tc>0?'flex':'none';}
+}
+
+// ═══════════ v0.11 — SEARCH ═══════════
+function toggleSearch(){
+  const panel=document.getElementById('srch-panel');
+  const isOpen=panel.classList.contains('open');
+  if(isOpen){closeSearch();}
+  else{panel.classList.add('open');setTimeout(()=>document.getElementById('srch-inp').focus(),320);}
+}
+
+function closeSearch(){
+  const panel=document.getElementById('srch-panel');
+  panel.classList.remove('open');
+  const inp=document.getElementById('srch-inp');
+  if(inp)inp.value='';
+  const res=document.getElementById('srch-results');
+  if(res)res.innerHTML='';
+}
+
+function runSearch(q){
+  const res=document.getElementById('srch-results');
+  if(!res)return;
+  q=q.trim().toLowerCase();
+  if(!q){res.innerHTML='';return;}
+  const hits=[];
+  deals.forEach(d=>{if((d.title||'').toLowerCase().includes(q)||(d.loc||'').toLowerCase().includes(q)||(d.contact||'').toLowerCase().includes(q))hits.push({type:'Deal',label:d.title+(d.loc?' — '+d.loc:''),sub:d.chip||d.type||'',fn:`openDeal('${d.id}');closeSearch()`});});
+  leads.forEach(l=>{if((l.title||'').toLowerCase().includes(q)||(l.detail||'').toLowerCase().includes(q))hits.push({type:'Lead',label:l.title,sub:l.type||'',fn:`openLead('${l.id}');closeSearch()`});});
+  tasks.forEach(t=>{if((t.title||'').toLowerCase().includes(q)||(t.meta||'').toLowerCase().includes(q))hits.push({type:'Task',label:t.title,sub:t.meta||'',fn:`openTask('${t.id}');closeSearch()`});});
+  vendors.forEach(v=>{if((v.name||'').toLowerCase().includes(q)||(v.role||'').toLowerCase().includes(q)||(v.note||'').toLowerCase().includes(q))hits.push({type:'Vendor',label:v.name,sub:v.role||'',fn:`openVendor('${v.id}');closeSearch()`});});
+  if(!hits.length){res.innerHTML='<div class="srch-empty">No results for "'+q.replace(/</g,'&lt;')+'"</div>';return;}
+  const typeClass={Deal:'srch-type-deal',Lead:'srch-type-lead',Task:'srch-type-task',Vendor:'srch-type-vendor'};
+  res.innerHTML=hits.map(h=>`<div class="srch-card" onclick="${h.fn}"><span class="srch-type ${typeClass[h.type]||''}">${h.type}</span><div style="min-width:0;flex:1"><div class="srch-label">${h.label}</div><div class="srch-sub">${h.sub}</div></div><span style="font-size:10px;color:rgba(255,255,255,.3);flex-shrink:0">→</span></div>`).join('');
+}
+
+// Close search when tapping outside
+document.addEventListener('touchstart',function(e){
+  const panel=document.getElementById('srch-panel');
+  if(!panel||!panel.classList.contains('open'))return;
+  if(!panel.contains(e.target)&&!e.target.classList.contains('srch-icon')){closeSearch();}
+},{passive:true});
+
+function saveData(){
+  try{localStorage.setItem('tgr_data',JSON.stringify({deals,leads,tasks,priorities,vendors,contentPipeline,loanPrograms,expenses}));}catch(e){}
+  renderBadges();
+}
+
 function init(){
   loadData();
   loadSirhcMsg();
@@ -1702,6 +1844,7 @@ function init(){
   document.getElementById('greet').textContent=h<5?"Burning midnight oil, Chris.":h<12?"Good morning, Chris. Let's grow.":h<17?"Good afternoon, Chris.":h<21?"Good evening, Chris.":"Late night hustle, Chris.";
   renderDayBadge();
   renderCalStrip();renderAlerts();renderPriorities();renderPipelineSnap();renderDeals();renderLeads();renderTasks();renderVendors();renderLoans();renderContent();renderWeeklyRhythm();
+  renderBadges();
   setTimeout(showBriefing,600);
 }
 init();
