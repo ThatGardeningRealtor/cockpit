@@ -162,12 +162,12 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
 .nav-overlay.open{display:block;}
 .nav-drawer-hdr{padding:20px 16px 12px;border-bottom:1px solid var(--bark);}
 .nav-drawer-brand{font-size:16px;font-weight:700;color:var(--leaf);}
-.nav-drawer-sub{font-size:11px;color:var(--muted);margin-top:2px;}
+.nav-drawer-sub{font-size:11px;color:#8FB892;margin-top:2px;}
 .nav-item{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer;border-bottom:1px solid rgba(255,255,255,.04);transition:background .15s;position:relative;}
 .nav-item:active{background:rgba(255,255,255,.06);}
 .nav-item.active{background:rgba(61,107,64,.15);border-left:3px solid var(--moss);}
 .nav-item-icon{font-size:20px;width:28px;text-align:center;}
-.nav-item-label{font-size:14px;font-weight:600;color:var(--cream);}
+.nav-item-label{font-size:14px;font-weight:600;color:#FAF7F2;}
 .nav-item-badge{margin-left:auto;min-width:18px;height:18px;border-radius:9px;background:#e53935;color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 4px;}
 
 
@@ -2101,7 +2101,7 @@ function renderChatHistory(){
   chatHistory.forEach(m => {
     const div = document.createElement('div');
     div.className = m.role === 'user' ? 'chat-bubble-user' : 'chat-bubble-sirhc';
-    div.textContent = m.content;
+    div.textContent = typeof m.content === 'string' ? m.content : JSON.stringify(m.content);
     msgsEl.appendChild(div);
   });
   scrollChatToBottom();
