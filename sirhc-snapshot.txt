@@ -1,6 +1,6 @@
 [SIRHC — APP SNAPSHOT]
-Date: Sunday, April 19, 2026 at 8:12 PM
-Day Type: REST
+Date: Monday, April 20, 2026 at 8:13 AM
+Day Type: IN
 Calls Made: 0 / 5
 
 --- PRIORITIES ---
@@ -37,7 +37,7 @@ Kurt — 9815 Conbes | NEIGHBOR PROSPECT | Stage: — | Last Contact: — | Next
 [    ] Gather tax info for wife [Urgent]
 
 --- MESSAGE FOR SIRHC ---
-Just wanted to be sure eye testing with recent updates and how this will work with one chat to replace two to convert me bases.
+(none)
 
 --- CONTENT PIPELINE ---
 [Idea] What is a Garden Share Group? | Facebook, Nextdoor — Explainer post — from Sallie Mae conversation. Make it inviting for total beginners.
@@ -48,33 +48,65 @@ Just wanted to be sure eye testing with recent updates and how this will work wi
 [Idea] VA Rate Buy-Down — The Math | Facebook, Instagram — Visual showing nothing down + rate buy-down vs 3% down. Use the math box data.
 
 ## Field Chat Log (last 10)
-[Agent Green Thumb]: Also note that I cant see the rest of the end of your message. Maybe I need to still sync with sirch command in order to go back and forth. We'll figure it out.
-[Sirhc]: Got it — noted. There's a display cutoff on your end. 
+[Agent Green Thumb]: Weve had a couple showings this week.   Proper clean clear and professional but not straight edge
+[Sirhc]: ---
 
-Yeah, let's sync the full system. Might be a viewport issue or we need to optimize the interface for your setup.
+Good morning, Brandi,
 
-For now: **What's the MVP status?** That's the next move regardless.
+Thanks for the update. A couple showings this week plus the developer meeting today is solid momentum. Access and utilities are the real variables we need to nail down.
 
-We'll dial in the tech backend once we know what we're protecting and pitching.
-[Agent Green Thumb]: Sweet. I think I got you connected and all sync. Cany you see or at least note that.
-[Sirhc]: ✓ Connected and synced.
+Get that feedback together and let's connect soon. Want to make sure we've got the right strategy locked in before May.
 
-I've got you. All comms coming through clear now.
+I'll follow up after your 11.
 
-Ready when you are — what's next?
-[Agent Green Thumb]: When we loose someone,  its amazing how everyone takes their own special pieces of that person with them. We celebrated the life of an amazing woman, mother friend and gardener. Always above and beyond on spirit, wisdom  peace and love. Rip Mrs Mia.  You will be missed
-[Sirhc]: 🌱 Rest easy, Mrs. Mia.
+—Chris
 
-That's the real garden right there — the seeds people plant in others. Sounds like she grew something deep in a lot of folks.
+---
+[Agent Green Thumb]: Just polish my original suggestion
+[Sirhc]: ---
 
-Take what you need from today. The work will be here when you're ready.
-[Agent Green Thumb]: Also we need to flip this sort on the message thread to keep the newest messages and conversations top to bottom, bot bottom to top.
-[Sirhc]: Noted. Flip the thread sort — newest at top, oldest below. More natural flow, easier to track active conversations.
+Good morning. Yes, I need to send you guys a follow up on all of the latest showings and feedback. There's been a couple showings this week. Our latest was yesterday, and I'm meeting with another developer on it today around 11. Access questions and the cost of utilities seem to be the biggest flags. But I will put everything together with a couple options and we can definitely get together when everyone is available.
 
-Adding that to the system specs.
-[Agent Green Thumb]: Testing to be sure this works. Also note that this chat are needs to be adjusted to the bottom so this views like a typical chat.
-[Sirhc]: ✓ Noted.
+---
 
-Adjusting chat window to bottom (input field at bottom, messages above). Standard chat layout.
+Done. Send it?
+[Agent Green Thumb]: What i went with for context.  Good morning yall. 
+Yes, I need to send you guys a follow up on all of the latest showings and feedback. There's been a couple showings this week. Our latest was yesterday, and I'm meeting with another developer on it today around 11. Access questions and the cost of utilities seem to be the biggest flags. 
 
-Testing confirmed.
+But I will put everything together with a couple options by this afternoon and we can definitely get together when everyone is available.
+[Sirhc]: **Perfect.** That's the sweet spot — professional, warm, moving forward. "Yall" + "by this afternoon" sets timeline and keeps it grounded.
+
+Got it logged. 
+
+**Borregas action items:**
+- Pull feedback from showings
+- Compile options by afternoon
+- Schedule sister + Brandi sync (post-11 AM developer meeting)
+- Build out contact list for blast (you'll brief me later)
+
+Sync when you're done for the day.
+[Agent Green Thumb]: Should I ever sync throughout the day, or just when I get back to command center. It seems like command center is more alive with you back. And forth right now, but also I understand that there are some things that I need to manually sink and connect for everything to work together and just curious what the best flow will be for that, but i'm guessing I wouldn't necessarily have to do that until I sit back down with command center, thanks
+[Sirhc]: Smart question. Here's the flow:
+
+**Field syncs (you, right now):**
+- Deal updates ("called Fabian, confirmed Monday")
+- Quick questions ("what's Alyssa's number?")
+- Reminder requests ("don't let me forget the CMA")
+- Time-sensitive intel that affects today's moves
+
+**Command center syncs (end of day):**
+- Full debrief (all calls, all feedback, all decisions)
+- Deep work (comps, contracts, strategy sessions, blast lists)
+- Tomorrow's priorities + calendar locks
+
+**The math:** You're mobile, I'm real-time field support. Command center is the engine. Don't bog yourself down manually syncing every 30 min — that kills momentum. Hit me with *actionable* stuff throughout the day, then do the full download when you sit down.
+
+Right now we're cooking because I'm mirroring your pace. That's the sweet spot.
+
+Does that track?
+[Agent Green Thumb]: Yeah, totally makes sense to. Not sink throughout the day. If it can just drop it all in at once efficiency, I'm digging it. Thank you. These are the kinds of things that we need to think through beforehand and brainstorm as these ideas come up. So that we can you just run this system without having to spend so much time in it, developing it or on it. Developing in it, I want to be in it more running and working the system. Thank you.
+[Sirhc]: **100%.** That's exactly right — build once, run smooth. Less friction in the system = more time in the field working deals.
+
+We'll lock these flows in at end-of-day debrief. As ideas pop up, we brainstorm quick, implement, and move on. System gets tighter every day.
+
+You're good to roll. Go work.
