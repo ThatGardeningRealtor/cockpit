@@ -455,14 +455,14 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
     <input type="checkbox" onchange="debCheck('deb-followup',this)"> Any follow-ups to schedule?
   </div>
 </div>
-<div class="qc"><div class="qt">"Plant the seed. Water it daily. Trust the season."</div><div class="qa">— Sirhc</div></div><div style="margin-top:16px;"><div style="font-size:10px;font-weight:700;letter-spacing:.06em;color:var(--muted);text-transform:uppercase;margin-bottom:6px;">Message Sirhc</div><textarea id="sirhc-msg-input" rows="3" placeholder="Notes, questions, or updates for next session..." style="width:100%;box-sizing:border-box;background:var(--card);border:1.5px solid var(--border);border-radius:10px;color:var(--text);font-size:12px;font-family:inherit;padding:8px 10px;resize:vertical;outline:none;"></textarea><div style="display:flex;align-items:center;gap:10px;margin-top:6px;"><button onclick="saveSirhcMsg()" style="padding:6px 14px;border-radius:20px;border:1.5px solid var(--border);background:var(--card);color:var(--muted);font-size:11px;font-weight:700;cursor:pointer;font-family:inherit;">Save Note</button><div id="sirhc-msg-saved" style="font-size:10px;color:var(--muted);font-style:italic;"></div></div></div></div></div><div class="spacer"></div></div>
+<div class="qc"><div class="qt">"Plant the seed. Water it daily. Trust the season."</div><div class="qa">— Sirhc</div></div></div></div><div class="spacer"></div></div>
 
 
 <div id="t-deals" class="tab"><div class="sec"><div class="sec-t">Active Listings & Deals</div><div id="deal-list"></div></div><div class="spacer"></div></div>
 <div id="t-leads" class="tab"><div class="sec"><div id="lead-list"></div></div><div class="spacer"></div></div>
 <div id="t-tasks" class="tab"><div id="alert-bar-tasks"></div><div class="sec"><div class="sec-t">Today's Tasks</div><div id="task-list"></div></div><div class="spacer"></div></div>
 <div id="t-content" class="tab"><div class="sec"><div class="sec-t">Content Pipeline</div><div id="content-list"></div></div><div class="spacer"></div></div>
-<div id="t-vendors" class="tab"><div class="sec"><div class="sec-t">Contractors</div><div id="vend-contractors" class="v-grid"></div><div class="sec-t">Title & Lenders</div><div id="vend-lenders" class="v-grid"></div><div class="sec-t">Team</div><div id="vend-team" class="v-grid"></div><div class="sec-t">Loan Programs</div><div id="loan-list"></div><div class="mb"><div class="mb-t">VA Rate Buy-Down — The Math</div><div class="mb-r"><span>Nothing down @ 6.5%</span><span>$1,814/mo</span></div><div class="mb-r"><span>3% down @ 6.5%</span><span>$1,766/mo</span></div><div class="mb-r w"><span>$0 down + $7.5K buy-down @ 5.5%</span><span>$1,650/mo ✅</span></div><div class="mb-tip">Always buy the rate down, not the down payment.</div></div></div><div class="foot">Built by <span>Sirhc</span> · v0.16 · Apr 19 · That Gardening Realtor AI Team<br><span style="opacity:.6;font-size:9px">Data auto-saves to this device</span></div><div class="spacer"></div></div>
+<div id="t-vendors" class="tab"><div class="sec"><div class="sec-t">Contractors</div><div id="vend-contractors" class="v-grid"></div><div class="sec-t">Title & Lenders</div><div id="vend-lenders" class="v-grid"></div><div class="sec-t">Team</div><div id="vend-team" class="v-grid"></div><div class="sec-t">Loan Programs</div><div id="loan-list"></div><div class="mb"><div class="mb-t">VA Rate Buy-Down — The Math</div><div class="mb-r"><span>Nothing down @ 6.5%</span><span>$1,814/mo</span></div><div class="mb-r"><span>3% down @ 6.5%</span><span>$1,766/mo</span></div><div class="mb-r w"><span>$0 down + $7.5K buy-down @ 5.5%</span><span>$1,650/mo ✅</span></div><div class="mb-tip">Always buy the rate down, not the down payment.</div></div></div><div class="foot">Built by <span>Sirhc</span> · v0.17 · Apr 19 · That Gardening Realtor AI Team<br><span style="opacity:.6;font-size:9px">Data auto-saves to this device</span></div><div class="spacer"></div></div>
 
 
 <!-- CHAT TAB -->
@@ -623,7 +623,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
 
 <script>
 // ← bump version here on every update
-const APP_VERSION = 'v0.16 · Apr 19';
+const APP_VERSION = 'v0.17 · Apr 19';
 
 // Known issues surfaced in the post-sync recap modal
 const APP_KNOWN_ISSUES = [
@@ -1899,41 +1899,6 @@ function installApp(){
   if(_installPrompt){_installPrompt.prompt();_installPrompt.userChoice.then(()=>{_installPrompt=null;});}
 }
 
-function saveSirhcMsg(){
-  const inp=document.getElementById('sirhc-msg-input');
-  const saved=document.getElementById('sirhc-msg-saved');
-  const text=(inp.value||'').trim();
-  if(!text){inp.focus();return;}
-  const ts=new Date();
-  const timeStr=ts.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
-  localStorage.setItem('tgr_sirhc_msg',JSON.stringify({msg:text,ts:ts.toISOString()}));
-  saved.textContent=`Saved ${timeStr} — syncs with next 🌿`;
-  inp.value='';
-  flagUnsyncedChanges();
-}
-
-function loadSirhcMsg(){
-  const saved=document.getElementById('sirhc-msg-saved');
-  if(!saved)return;
-  try{
-    const raw=localStorage.getItem('tgr_sirhc_msg');
-    if(!raw)return;
-    const obj=JSON.parse(raw);
-    if(obj&&obj.msg){
-      const ts=new Date(obj.ts);
-      const timeStr=ts.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
-      const dateStr=ts.toLocaleDateString('en-US',{month:'short',day:'numeric'});
-      saved.textContent=`Queued ${dateStr} ${timeStr}: "${obj.msg.length>60?obj.msg.slice(0,57)+'…':obj.msg}"`;
-      flagUnsyncedChanges();
-    }
-  }catch(e){}
-  // Populate last-synced-display
-  try{
-    const lastSync=localStorage.getItem('tgr_last_sync');
-    const disp=document.getElementById('last-synced-display');
-    if(disp)disp.textContent=lastSync?'Last synced: '+lastSync:'Not yet synced this session';
-  }catch(e){}
-}
 
 function flagUnsyncedChanges(){
   ['sync-btn-cock','sync-btn'].forEach(id=>{
@@ -2176,7 +2141,6 @@ function resetDebrief(){
 
 function init(){
   loadData();
-  loadSirhcMsg();
   resetDebrief();
   renderExpenseSummary();
   const h=new Date().getHours();
