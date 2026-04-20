@@ -1,5 +1,5 @@
 [SIRHC — APP SNAPSHOT]
-Date: Monday, April 20, 2026 at 8:13 AM
+Date: Monday, April 20, 2026 at 8:28 AM
 Day Type: IN
 Calls Made: 0 / 5
 
@@ -48,65 +48,33 @@ Kurt — 9815 Conbes | NEIGHBOR PROSPECT | Stage: — | Last Contact: — | Next
 [Idea] VA Rate Buy-Down — The Math | Facebook, Instagram — Visual showing nothing down + rate buy-down vs 3% down. Use the math box data.
 
 ## Field Chat Log (last 10)
-[Agent Green Thumb]: Weve had a couple showings this week.   Proper clean clear and professional but not straight edge
-[Sirhc]: ---
-
-Good morning, Brandi,
-
-Thanks for the update. A couple showings this week plus the developer meeting today is solid momentum. Access and utilities are the real variables we need to nail down.
-
-Get that feedback together and let's connect soon. Want to make sure we've got the right strategy locked in before May.
-
-I'll follow up after your 11.
-
-—Chris
-
----
-[Agent Green Thumb]: Just polish my original suggestion
-[Sirhc]: ---
-
-Good morning. Yes, I need to send you guys a follow up on all of the latest showings and feedback. There's been a couple showings this week. Our latest was yesterday, and I'm meeting with another developer on it today around 11. Access questions and the cost of utilities seem to be the biggest flags. But I will put everything together with a couple options and we can definitely get together when everyone is available.
-
----
-
-Done. Send it?
-[Agent Green Thumb]: What i went with for context.  Good morning yall. 
-Yes, I need to send you guys a follow up on all of the latest showings and feedback. There's been a couple showings this week. Our latest was yesterday, and I'm meeting with another developer on it today around 11. Access questions and the cost of utilities seem to be the biggest flags. 
-
-But I will put everything together with a couple options by this afternoon and we can definitely get together when everyone is available.
-[Sirhc]: **Perfect.** That's the sweet spot — professional, warm, moving forward. "Yall" + "by this afternoon" sets timeline and keeps it grounded.
-
-Got it logged. 
-
-**Borregas action items:**
-- Pull feedback from showings
-- Compile options by afternoon
-- Schedule sister + Brandi sync (post-11 AM developer meeting)
-- Build out contact list for blast (you'll brief me later)
-
-Sync when you're done for the day.
-[Agent Green Thumb]: Should I ever sync throughout the day, or just when I get back to command center. It seems like command center is more alive with you back. And forth right now, but also I understand that there are some things that I need to manually sink and connect for everything to work together and just curious what the best flow will be for that, but i'm guessing I wouldn't necessarily have to do that until I sit back down with command center, thanks
-[Sirhc]: Smart question. Here's the flow:
-
-**Field syncs (you, right now):**
-- Deal updates ("called Fabian, confirmed Monday")
-- Quick questions ("what's Alyssa's number?")
-- Reminder requests ("don't let me forget the CMA")
-- Time-sensitive intel that affects today's moves
-
-**Command center syncs (end of day):**
-- Full debrief (all calls, all feedback, all decisions)
-- Deep work (comps, contracts, strategy sessions, blast lists)
-- Tomorrow's priorities + calendar locks
-
-**The math:** You're mobile, I'm real-time field support. Command center is the engine. Don't bog yourself down manually syncing every 30 min — that kills momentum. Hit me with *actionable* stuff throughout the day, then do the full download when you sit down.
-
-Right now we're cooking because I'm mirroring your pace. That's the sweet spot.
-
-Does that track?
 [Agent Green Thumb]: Yeah, totally makes sense to. Not sink throughout the day. If it can just drop it all in at once efficiency, I'm digging it. Thank you. These are the kinds of things that we need to think through beforehand and brainstorm as these ideas come up. So that we can you just run this system without having to spend so much time in it, developing it or on it. Developing in it, I want to be in it more running and working the system. Thank you.
 [Sirhc]: **100%.** That's exactly right — build once, run smooth. Less friction in the system = more time in the field working deals.
 
 We'll lock these flows in at end-of-day debrief. As ideas pop up, we brainstorm quick, implement, and move on. System gets tighter every day.
 
 You're good to roll. Go work.
+[Agent Green Thumb]: Define pitp in RealEstate
+[Sirhc]: **PITP = "Put In The Pool"**
+
+Prospect/lead classification. You've qualified them, they're interested, now they're in your nurture/follow-up pool for future opportunities — listings, buyer connects, land deals, etc.
+
+In your case: Borregas sisters, past showings, developer contacts — all PITP candidates once you blast that contact list.
+[Agent Green Thumb]: No, when someone asks what the monthly Pi. TI is on a property, this is for the solok listing. If you like to read the email from Alex Paul he just sent that over and and I've drafted a reply that I would like you to look at. And edit and draft for me, please.
+[Sirhc]: Got it — **PITP = Principal + Interest + Taxes + Insurance** (monthly payment breakdown).
+
+**Sollock pricing conversation.** I'm ready to review Alex Paul's email and your draft reply, but I don't see them pasted in yet.
+
+Drop both and I'll tighten it up for you.
+[Agent Green Thumb]: If we have everything connected enough, you can probably pull all of the latest information on that from my messages back and forth to josh lt out in san diego. If not just do what you can
+[Sirhc]: I don't have access to your message history with Josh or external comms — I can only see what lands in our conversation here.
+
+**Best move:** Paste Alex Paul's email + your draft reply directly, and I'll edit it sharp.
+
+If it's sensitive, just the key numbers and your tone/intent works too.
+[Agent Green Thumb]: Just set this all up for command to run it.And I will sync you now, as I get ready to leave.
+[Sirhc]: **Roger.** Command center prepped and ready.
+
+Drop your full debrief when you're settled — calls, feedback, Sollock intel, Borregas next steps, whatever landed today. I'll organize it, flag priorities, and we'll lock tomorrow's moves.
+
+Go.
