@@ -1,5 +1,5 @@
 [SIRHC — APP SNAPSHOT]
-Date: Monday, April 20, 2026 at 9:11 AM
+Date: Monday, April 20, 2026 at 7:53 PM
 Day Type: IN
 Calls Made: 0 / 5
 
@@ -48,18 +48,6 @@ Kurt — 9815 Conbes | NEIGHBOR PROSPECT | Stage: — | Last Contact: — | Next
 [Idea] VA Rate Buy-Down — The Math | Facebook, Instagram — Visual showing nothing down + rate buy-down vs 3% down. Use the math box data.
 
 ## Field Chat Log (last 10)
-[Agent Green Thumb]: I'm using google maps to navigate to our next stop.But i'm also using my starva app to track mileage.Let's see what we can do to work with google maps and google in general.If we need to connect anything so that you can help me log.My mileage, much easier, just as we're doing it if that makes sense
-[Sirhc]: **Got it.** A few options to explore:
-
-1. **Google Maps timeline + Strava sync** — Both log your route automatically. At end-of-day debrief, you just tell me start/end points and I calculate mileage for tax/business write-off tracking.
-
-2. **Manual quick-log** — You text me mid-day stops: "Jordan to 340 Sollock, 15 min" and I build the mileage sheet during your debrief.
-
-3. **Strava direct export** — Pull your weekly Strava activity log and I organize it into a clean mileage ledger.
-
-**Honest take:** Option 1 (you run Strava, I organize at debrief) is cleanest. No extra friction, zero manual entry. Just sync the week's routes when you sit down.
-
-Which feels most natural to you?
 [Agent Green Thumb]: Okay, that sounds good. We'll dive into it later. When there's time because I'm not sure what options I have with my free version of starva. I was just thinking. If we were already connected with Google, we might be able to pull up the trip, search or something like that. But I'll take your lead on that side of it with Rex. Because you're the professionals I'm headed out to go pick up that document from Michael right now. I'll be meeting him on a job site. So we will definitely have to schedule a follow-up with him later on as well. And maybe I'll get some social media for today. While I'm out and about just to tell this story, I feel like that would make the most sense. I'll start blogging on the way down. That's vlogging with a v video blog
 [Sirhc]: **Got it.** Michael jobsite pickup + follow-up scheduling noted.
 
@@ -138,3 +126,20 @@ This is exactly the kind of optimization we should be running. Cost-effective, a
 I'll flag it for Rex at debrief sync. We'll sketch it out and have a prototype ready to test by end of week.
 
 You're good. Drive safe, grab that document.
+[Agent Green Thumb]: Okay, I also have some things to add regarding social media posts and all of that. I actually was able to create a couple video blogs on my phone around new construction and just my morning routine in a few different clips. So some of them are up birds of 2 to 3 minutes. So I don't know if we can turn those into tiktoks or what platform that would work best on, or if we chop it up, in use it on multiple platforms across-the-board and then we'll pull scripts as well, that way we can just keep logs. And filled up our content creation, team, side of things. And that way, we can easily batch and manage are posting to take that side up to the next level
+[Sirhc]: **Sharp move.** You're already creating — now we systematize it.
+
+**What we do with those clips:**
+
+1. **Chop them** — 2-3 min vlog becomes 3-4 TikTok/Reels (15-30 sec each) + 1 YouTube short + 1 LinkedIn post
+2. **Extract scripts** — Pull voiceover/talking points, log them for future reference and team use
+3. **Batch calendar** — Command center builds a 2-week posting schedule across platforms (TikTok, Instagram Reels, YouTube, LinkedIn)
+4. **Repurpose** — Same content, different cuts, different angles = content multiplication
+
+**Real play:** Once we lock this workflow, you film raw, we handle the editing/posting/scheduling. You stay in the field, we keep the feed hot.
+
+**Next step:** Drop those clips to command center at tonight's debrief. Rex handles the architecture — batching schedule, platform strategy, script logging. I'll help organize which clips hit which platform.
+
+This scales your brand without eating your time.
+
+Good instinct. Keep filming.
