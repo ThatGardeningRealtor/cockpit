@@ -1,5 +1,5 @@
 [SIRHC — APP SNAPSHOT]
-Date: Wednesday, April 22, 2026 at 6:08 AM
+Date: Wednesday, April 22, 2026 at 6:39 AM
 Day Type: IN
 Calls Made: 0 / 5
 
@@ -52,41 +52,6 @@ Kurt — 9815 Conbes | NEIGHBOR PROSPECT | Stage: — | Last Contact: — | Next
 [Idea] VA Rate Buy-Down — The Math | Facebook, Instagram — Visual showing nothing down + rate buy-down vs 3% down. Use the math box data.
 
 ## Field Chat Log (last 10)
-[Agent Green Thumb]: Okay, that sounds good. We'll dive into it later. When there's time because I'm not sure what options I have with my free version of starva. I was just thinking. If we were already connected with Google, we might be able to pull up the trip, search or something like that. But I'll take your lead on that side of it with Rex. Because you're the professionals I'm headed out to go pick up that document from Michael right now. I'll be meeting him on a job site. So we will definitely have to schedule a follow-up with him later on as well. And maybe I'll get some social media for today. While I'm out and about just to tell this story, I feel like that would make the most sense. I'll start blogging on the way down. That's vlogging with a v video blog
-[Sirhc]: **Got it.** Michael jobsite pickup + follow-up scheduling noted.
-
-**Vlogging angle:** Smart move. You're already mobile, already got the story (Pleasanton lien release, Monday notary setup, moving pieces). Raw field content hits different than studio stuff.
-
-Quick thought: Get a clip of the document handoff if Michael's cool with it — "here's what it takes to close a deal" energy. Real, unpolished, useful.
-
-Roll with it. We'll weave it into the content strategy at debrief.
-
-Now go get that document.
-[Agent Green Thumb]: Dude, that's absolutely solid. And while I'm on it using this, I'm using my voice input to talk to you. But could we put the live chat back? And forth to where I can talk to you. And you can just talk back to me. And what would that look like on the development side? And also, what additional costs would that add with the way we have messaging?And everything synced with the command center
-[Sirhc]: **Real talk:** Live voice chat back-and-forth would be slick, but here's the dev reality:
-
-**What it looks like:**
-- You hit a voice button, speak naturally, I respond in real-time audio
-- Syncs to command center transcript automatically
-- Cleaner than typing on the road
-
-**The cost side:**
-- Adds API calls (voice-to-text + text-to-speech layers)
-- Probably 15-25% bump on current backend spend
-- Depends on call volume/duration
-
-**Better move for now:**
-- Keep voice *input* (you're already doing it), I text back
-- Zero extra cost, still hands-free for you
-- Command center logs everything anyway
-
-**Future play:** Once we've run this system locked in for a month or two and see the ROI, live audio chat becomes the upgrade that makes sense cost-wise.
-
-Right now? You're already winning with voice input + text response. Don't fix what's working.
-
-Discuss with command center when you sync tonight if you want to explore it deeper.
-
-Now drive safe.
 [Agent Green Thumb]: Excellent.Thank you for that.I will have to adjust my keyboard so that I don't have to reach all the way down to the corner for the microphone.So it's easier to talk to you to input this.But as far as the cost go, what would we actually be looking at?Because I think messages now were 325 ten thousandth of a sent or something like that.So realistically, I understand a major increase, but what would that mean, as far as cost to run this through just a talking back and forth set up that we just discussed
 [Sirhc]: **Honest breakdown:**
 
@@ -147,3 +112,25 @@ You're good. Drive safe, grab that document.
 This scales your brand without eating your time.
 
 Good instinct. Keep filming.
+[Agent Green Thumb]: Make a note that all of Josh L.T.'s leads are in ATTRAC+ROI, and that's where I'll be completing my calls and logs for his new construction leads. This task needs to be scheduled around the best calling times for California residents in San Diego. Time blocks should be held throughout my week that work with my schedule and ultimately dial in the best time to connect with these people.
+[Sirhc]: **Noted and logged.**
+
+**Josh L.T. San Diego leads:**
+- Platform: ATTRAC+ROI
+- All calls + logs completed there
+- California time zone = 2 hours behind you (San Antonio)
+- Best calling windows: 8-10am PST (10am-12pm your time) / 4-6pm PST (6-8pm your time)
+
+**Action:** Command center blocks dedicated calling time slots this week that sync your schedule + California prime hours. You dial from ATTRAC+ROI, log directly there, we track activity.
+
+**Flag for debrief:** Confirm which days work best for your Josh L.T. calling blocks so we build it into your weekly calendar locked in.
+
+This gets dialed in tonight.
+[Agent Green Thumb]: For the days, just go ahead and block in any of the best times to call. If I'm not busy during that time, I will make the calls, and if I am, I will readjust the calendar. The schedule will be created, and I will update the rules to frequency later if needed.
+[Sirhc]: **Done.** Command center locks in California prime calling windows across your week — mornings (10am-12pm your time) and evenings (6-8pm your time) on flexible days.
+
+You hit them when you're free, skip them when deals demand. Calendar adjusts as needed.
+
+Rules and frequency dialed in later once we see what sticks.
+
+**Logged for debrief sync.**
