@@ -1,5 +1,5 @@
 [SIRHC — APP SNAPSHOT]
-Date: Wednesday, April 22, 2026 at 6:47 AM
+Date: Wednesday, April 22, 2026 at 11:20 PM
 Day Type: IN
 Calls Made: 0 / 5
 
@@ -26,13 +26,14 @@ Kurt — 9815 Conbes | NEIGHBOR PROSPECT | Stage: — | Last Contact: — | Next
   Log (Apr 15): Spoke with Kurt — interested in nearby listing details at $275K
 
 --- TASKS ---
-[    ] Call lien holder — Coughran Rd [Urgent]
+[DONE] Call lien holder — Coughran Rd [Urgent]
+       Log (Apr 22, 2026 11:11 PM): We're able to find a local notary Michael, who was able to assist with the signature. I picked up the document and got everything over to title last week. They're waiting on one item line fifteen for probate to clear, and we'll be good close.
 [    ] Follow up Pamela M. [Hot Lead]
 [    ] Call Kelly — 181 CR 7751 police report [Deal]
 [    ] Follow up Kendall — 181 CR 7751 [Deal]
 [    ] Call Gilberto — 340 Sollock seller finance [Deal]
 [    ] Call Matt Chandler — 340 Sollock pricing [Deal]
-[    ] Howell — new construction search [Urgent]
+[DONE] Howell — new construction search [Urgent]
 [    ] Follow up Sallie Mae F. [Community]
 [    ] Follow up Kurt — 9815 Conbes [Prospect]
 [    ] Reach out to Colton Brown [Seller Lead]
@@ -52,49 +53,6 @@ Kurt — 9815 Conbes | NEIGHBOR PROSPECT | Stage: — | Last Contact: — | Next
 [Idea] VA Rate Buy-Down — The Math | Facebook, Instagram — Visual showing nothing down + rate buy-down vs 3% down. Use the math box data.
 
 ## Field Chat Log (last 10)
-[Agent Green Thumb]: Excellent.Thank you for that.I will have to adjust my keyboard so that I don't have to reach all the way down to the corner for the microphone.So it's easier to talk to you to input this.But as far as the cost go, what would we actually be looking at?Because I think messages now were 325 ten thousandth of a sent or something like that.So realistically, I understand a major increase, but what would that mean, as far as cost to run this through just a talking back and forth set up that we just discussed
-[Sirhc]: **Honest breakdown:**
-
-Current messaging cost is negligible — you're right, fractions of a cent per message.
-
-**Voice chat adds:**
-- Speech-to-text API calls (your voice → text)
-- Text-to-speech API calls (my response → audio)
-- Each call = ~$0.001-0.003 depending on length/provider
-
-**Real math:**
-If you're doing 20-30 voice exchanges per day = **$0.60-1.80/day**, roughly **$18-54/month**.
-
-That's not a "major increase" — it's pocket change compared to what you're closing. But it *is* an add-on cost versus current free-tier messaging.
-
-**The play:** Not worth it until voice chat actually saves you measurable time/deal friction. Right now, voice input + text response is 95% as good for zero extra cost.
-
-**When it makes sense:** Down the road, when you're managing multiple agents or teams and real-time verbal syncs become a bottleneck.
-
-Command center can explore cheaper alternatives too (Twilio, etc.) if this becomes priority.
-
-For now — stick with what's working.
-[Agent Green Thumb]: So I've noticed that it's very easy for me to talk directly to my Google account through my phone. By just asking to talk to Google and from there, I can input notes in place somewhere that maybe command center would be able to read and act on that or something that we could ask it to sync. Maybe we can just kind of work that into a daily checklist to sync 4 times a day automatically and then just whenever I automatically hit sync. And yeah, but maybe the Google input is something that command center could read a little more clearly, but also I guess that doesn't really help put the entire situation. So I don't know, just something something note something that we can work on. As the as the experts also, would you and Rex? Maybe find a better solution that will keep the cost down. It's a much closer where we're at now instead of those other additional costs.Because for the cost for that amount of messages just definitely doesn't make sense
-[Sirhc]: **Exactly right.** You're thinking smart.
-
-**Google Notes sync angle:**
-- You voice-dump into Google Keep/Docs (free, native to your phone)
-- Command center pulls those notes 4x daily auto-sync
-- We parse it, organize it, flag priorities
-- Zero extra cost, zero API overhead
-
-**Real honest take:** Rex and I will explore that path. It's cleaner than paid voice APIs and keeps everything in the Google ecosystem you're already using.
-
-**The move:**
-- You keep doing what works (voice input, texting me)
-- We build a Google Notes → Command Center bridge on the backend
-- Test it this week, see if it tightens the workflow without bleeding budget
-
-This is exactly the kind of optimization we should be running. Cost-effective, already in your muscle memory, scales clean.
-
-I'll flag it for Rex at debrief sync. We'll sketch it out and have a prototype ready to test by end of week.
-
-You're good. Drive safe, grab that document.
 [Agent Green Thumb]: Okay, I also have some things to add regarding social media posts and all of that. I actually was able to create a couple video blogs on my phone around new construction and just my morning routine in a few different clips. So some of them are up birds of 2 to 3 minutes. So I don't know if we can turn those into tiktoks or what platform that would work best on, or if we chop it up, in use it on multiple platforms across-the-board and then we'll pull scripts as well, that way we can just keep logs. And filled up our content creation, team, side of things. And that way, we can easily batch and manage are posting to take that side up to the next level
 [Sirhc]: **Sharp move.** You're already creating — now we systematize it.
 
@@ -134,3 +92,32 @@ You hit them when you're free, skip them when deals demand. Calendar adjusts as 
 Rules and frequency dialed in later once we see what sticks.
 
 **Logged for debrief sync.**
+[Agent Green Thumb]: For the divine property for priority bank, I requested the police report with the case number to heather Carreon in the records department with medina county and copied kelly jennings on the email for the report.So they can clarify if needed.
+[Sirhc]: **Got it logged.**
+
+**181 CR 7751, Devine — Priority Bank foreclosure:**
+- Police report + case number requested from Heather Carreon (Medina County Records)
+- Kelly Jennings copied for clarity/follow-up
+- Waiting on report delivery
+
+**Next:** Once report lands, we know what we're dealing with structurally. Then Marc's Grey Lion quote gets prioritized accordingly.
+
+**Flagged for debrief.**
+[Agent Green Thumb]: I sent an email to Alyssa and her team at Chicago title to check-in on the release form and closing schedule so that we can schedule buyer and seller. Alejandro replied to the email and said, we're just waiting on item . Pending Estate of Becky Lynn Steffen Probate Court Cause No. 8844 Atascosa County, Texas The Company reserves the right to make additional requirements as may be deemed necessary after the examination of the above court case. (Pending Documents on Order
+[Sirhc]: **8449 Coughran Rd, Pleasanton — Lien Release Update:**
+
+Alyssa's team (Chicago Title) came back: waiting on **Estate of Becky Lynn Steffen probate clearance** (Atascosa County, Cause #8844).
+
+**What this means:** Can't close until probate clears. This is title's call, not ours — they reserve right to ask for more docs once the court case resolves.
+
+**Action items:**
+- Monitor probate status on Cause #8844 Atascosa County
+- Stay in touch with Alejandro at Chicago Title for updates
+- Once probate clears, title examines it, then lien release can finalize
+- Then we schedule Fernando Castillo + notary (Michael) to sign
+
+**This pushes Monday's notary meet** — probate resolution comes first.
+
+**Flag for debrief:** Check probate status tonight, confirm revised timeline with Alejandro.
+
+Got it logged.
