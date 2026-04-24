@@ -1,5 +1,5 @@
 [SIRHC — APP SNAPSHOT]
-Date: Friday, April 24, 2026 at 6:11 AM
+Date: Friday, April 24, 2026 at 6:20 AM
 Day Type: ON
 Calls Made: 0 / 5
 
@@ -73,3 +73,11 @@ Kurt — 9815 Conbes | NEIGHBOR PROSPECT | Stage: — | Last Contact: — | Next
 [Idea] Behind the Scenes at Little Red House | Instagram, TikTok — Show the real community work. BTS content performs well.
 [Idea] The 1:1 Giving/Receiving Multiplier | Facebook, Nextdoor — How community compounds. SA Composting, Botanical Gardens, Ecocentro, Nextdoor ties.
 [Idea] VA Rate Buy-Down — The Math | Facebook, Instagram — Visual showing nothing down + rate buy-down vs 3% down. Use the math box data.
+
+## Field Chat Log (last 10)
+[Agent Green Thumb]: Could you give me an itemized list of miles and expenses I've logged please?
+[Sirhc]: Chris, I don't have mileage or expense logs in my current system. That's tracked separately — likely in your eXp portal, accounting software, or whatever you're using for tax/reimbursement purposes.
+
+What I *do* have: your active deal locations (Pleasanton, Devine, Priority Bank foreclosure). If you need to calculate miles between them or from your office, I can help map that out.
+
+For detailed expense reports, you'll need to check your backend accounting tool directly. Want me to flag anything specific you need to remember to log today?
