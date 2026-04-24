@@ -1577,6 +1577,7 @@ async function _doGitHubPush(btn,content,token){
     btn.textContent='Syncing...';btn.style.background='var(--gold)';btn.style.color='#fff';
     const headers={'Authorization':`token ${token}`,'Content-Type':'application/json'};
     const getRes=await fetch('https://api.github.com/repos/ThatGardeningRealtor/cockpit/contents/sirhc-snapshot.txt',{headers});
+    if(getRes.status===401||getRes.status===403){throw new Error('auth');}
     const getData=await getRes.json();
     const sha=getData.sha||null;
     const payload={message:'Sync snapshot',content:btoa(unescape(encodeURIComponent(content)))};
@@ -1585,20 +1586,17 @@ async function _doGitHubPush(btn,content,token){
     const putData=await putRes.json();
     if(putData.content){
       btn.textContent='Synced ✅';btn.style.background='var(--moss)';btn.style.color='#fff';
-      // Clear queued Sirhc message after successful push
       let _hadMsg=false;
       try{const _sm=localStorage.getItem('tgr_sirhc_msg');const _smObj=_sm?JSON.parse(_sm):null;_hadMsg=!!((_smObj&&_smObj.msg)||'').trim();}catch(e){}
       localStorage.removeItem('tgr_sirhc_msg');
       const _savedEl=document.getElementById('sirhc-msg-saved');
       if(_savedEl)_savedEl.textContent='(sent with last sync)';
-      // Save last-synced timestamp and update display
       const _syncTime=new Date().toLocaleString();
       localStorage.setItem('tgr_last_sync',_syncTime);
       const _syncDisp=document.getElementById('last-synced-display');
       if(_syncDisp)_syncDisp.textContent='Last synced: '+_syncTime;
       clearUnsyncedFlag();
       setTimeout(()=>{btn.textContent='🌿 Sync to Sirhc';btn.style.background='';btn.style.color='';},4000);
-      // Count items with logs for the recap modal
       const _dealCount=(deals||[]).filter(d=>!d.cls&&d.logs&&d.logs.length).length;
       const _leadCount=(leads||[]).filter(l=>!l.cls&&l.logs&&l.logs.length).length;
       showSyncRecap(_dealCount,_leadCount,_hadMsg);
@@ -1606,8 +1604,13 @@ async function _doGitHubPush(btn,content,token){
       throw new Error(putData.message||'bad response');
     }
   } catch(e){
-    localStorage.removeItem('tgr_gh_token');
-    btn.textContent='Token error — tap to retry';btn.style.background='var(--rust)';btn.style.color='#fff';
+    if(e.message==='auth'){
+      localStorage.removeItem('tgr_gh_token');
+      btn.textContent='⚠️ Token expired — tap to re-enter';
+    } else {
+      btn.textContent='Sync failed — tap to retry';
+    }
+    btn.style.background='var(--rust)';btn.style.color='#fff';
     setTimeout(()=>{btn.textContent='🌿 Sync to Sirhc';btn.style.background='';btn.style.color='';},5000);
   }
 }
@@ -1634,19 +1637,26 @@ function showSyncRecap(dealCount,leadCount,hadMessage){
   openModal();
 }
 
-async function syncToSirhc(callerBtn){
-  // callerBtn is the button element that was clicked
-  const btn=callerBtn||document.getElementById('sync-btn-cock')||document.getElementById('sync-btn');
-  if(!btn){console.warn('syncToSirhc: no button reference found');return;}
-
-  // Show immediate feedback
-  const origText=btn.textContent;
-  btn.textContent='Building snapshot...';btn.style.background='var(--gold)';btn.style.color='#fff';
+function buildSnapshot(){
+  // Always read fresh from localStorage so priorities and all data are current
+  let _deals=deals,_leads=leads,_tasks=tasks,_priorities=priorities,_expenses=expenses,_contentPipeline=contentPipeline;
+  try{
+    const s=JSON.parse(localStorage.getItem('tgr_data'));
+    if(s){
+      if(s.deals)_deals=s.deals;
+      if(s.leads)_leads=s.leads;
+      if(s.tasks)_tasks=s.tasks;
+      if(s.priorities)_priorities=s.priorities;
+      if(s.expenses)_expenses=s.expenses;
+      if(s.contentPipeline)_contentPipeline=s.contentPipeline;
+    }
+  }catch(e){}
 
   const now=new Date();
   const dateStr=now.toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
   const timeStr=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
-  const callCount=parseInt(document.getElementById('cCnt').textContent)||0;
+  const callCountEl=document.getElementById('cCnt');
+  const callCount=callCountEl?parseInt(callCountEl.textContent)||0:0;
   const sched=getSched();
   const dayType=(sched[now.getDay()]||'rest').toUpperCase();
 
@@ -1657,17 +1667,15 @@ async function syncToSirhc(callerBtn){
   lines.push(`Calls Made: ${callCount} / 5`);
   lines.push(``);
 
-  // Priorities
   lines.push(`--- PRIORITIES ---`);
-  (priorities||[]).forEach(p=>{
+  (_priorities||[]).forEach(p=>{
     lines.push(`[${p.done?'DONE':'    '}] ${p.title||''}${p.notes?' — '+p.notes:''}`);
   });
-  if(!(priorities||[]).length) lines.push('(none)');
+  if(!(_priorities||[]).length) lines.push('(none)');
   lines.push(``);
 
-  // Deals
   lines.push(`--- ACTIVE DEALS ---`);
-  const activeDeals=(deals||[]).filter(d=>!d.cls);
+  const activeDeals=(_deals||[]).filter(d=>!d.cls);
   activeDeals.forEach(d=>{
     lines.push(`${d.title||d.address||'Unknown'} | ${d.status||'—'} | Stage: ${d.stage!==undefined?d.stage:'—'}${d.notes?' | '+d.notes:''}`);
     if(d.logs&&d.logs.length){d.logs.slice(0,3).forEach(lg=>lines.push(`  Log (${lg.t||'?'}): ${lg.m||''}`));}
@@ -1675,9 +1683,8 @@ async function syncToSirhc(callerBtn){
   if(!activeDeals.length) lines.push('(none)');
   lines.push(``);
 
-  // Leads
   lines.push(`--- LEADS ---`);
-  const activeLeads=(leads||[]).filter(l=>!l.cls);
+  const activeLeads=(_leads||[]).filter(l=>!l.cls);
   activeLeads.forEach(l=>{
     const name=l.title||l.name||'Unknown';
     const temp=l.temp||l.type||'—';
@@ -1690,30 +1697,27 @@ async function syncToSirhc(callerBtn){
   if(!activeLeads.length) lines.push('(none)');
   lines.push(``);
 
-  // Tasks
   lines.push(`--- TASKS ---`);
-  (tasks||[]).forEach(t=>{
+  (_tasks||[]).forEach(t=>{
     lines.push(`[${t.done?'DONE':'    '}] ${t.title||''}${t.tag?' ['+t.tag+']':''}${t.notes?' — '+t.notes:''}`);
     if(t.logs&&t.logs.length){t.logs.slice(0,2).forEach(lg=>lines.push(`       Log (${lg.t||'?'}): ${lg.m||''}`));}
   });
-  if(!(tasks||[]).length) lines.push('(none)');
+  if(!(_tasks||[]).length) lines.push('(none)');
   lines.push(``);
 
-  // Expenses
-  const today2=new Date().toISOString().slice(0,10);
+  const today2=now.toISOString().slice(0,10);
   const mo2=today2.slice(0,7);
-  const moMiles=(expenses||[]).filter(e=>e.type==='mileage'&&e.date.startsWith(mo2)).reduce((s,e)=>s+(e.miles||0),0);
-  const moSpent=(expenses||[]).filter(e=>e.type==='expense'&&e.date.startsWith(mo2)).reduce((s,e)=>s+(e.amount||0),0);
-  if(expenses&&expenses.length){
+  const moMiles=(_expenses||[]).filter(e=>e.type==='mileage'&&e.date.startsWith(mo2)).reduce((s,e)=>s+(e.miles||0),0);
+  const moSpent=(_expenses||[]).filter(e=>e.type==='expense'&&e.date.startsWith(mo2)).reduce((s,e)=>s+(e.amount||0),0);
+  if(_expenses&&_expenses.length){
     lines.push(`--- EXPENSES (${mo2}) ---`);
     lines.push(`Total Miles: ${moMiles} · Total Spent: $${moSpent.toFixed(2)}`);
-    (expenses||[]).filter(e=>e.date.startsWith(mo2)).slice(0,10).forEach(e=>{
+    (_expenses||[]).filter(e=>e.date.startsWith(mo2)).slice(0,10).forEach(e=>{
       lines.push(`${e.date} | ${e.type==='mileage'?e.miles+' mi':('$'+e.amount+' '+e.category)} | ${e.notes||''}`);
     });
     lines.push(``);
   }
 
-  // Message for Sirhc
   lines.push(`--- MESSAGE FOR SIRHC ---`);
   try{
     const _sm=localStorage.getItem('tgr_sirhc_msg');
@@ -1722,8 +1726,7 @@ async function syncToSirhc(callerBtn){
   }catch(e){lines.push('(none)');}
   lines.push(``);
 
-  // Content pipeline — non-posted items
-  const activeContent=(contentPipeline||[]).filter(c=>c.status!=='Posted');
+  const activeContent=(_contentPipeline||[]).filter(c=>c.status!=='Posted');
   if(activeContent.length){
     lines.push(`--- CONTENT PIPELINE ---`);
     activeContent.forEach(c=>{
@@ -1732,29 +1735,66 @@ async function syncToSirhc(callerBtn){
     lines.push(``);
   }
 
-  // Field Chat Log — last 10 messages from chatHistory
-  const recentChat = (chatHistory || []).filter(m => typeof m.content === 'string' && m.content.trim() !== '').slice(-10);
+  const recentChat=(chatHistory||[]).filter(m=>typeof m.content==='string'&&m.content.trim()!=='').slice(-10);
   if(recentChat.length){
     lines.push(`## Field Chat Log (last 10)`);
-    recentChat.forEach(m => {
-      const label = m.role === 'user' ? '[Agent Green Thumb]' : '[Sirhc]';
+    recentChat.forEach(m=>{
+      const label=m.role==='user'?'[Agent Green Thumb]':'[Sirhc]';
       lines.push(`${label}: ${m.content}`);
     });
     lines.push(``);
   }
 
-  const content=lines.join('\n');
+  return lines.join('\n');
+}
 
-  // Check for token
+async function syncToSirhc(callerBtn){
+  const btn=callerBtn||document.getElementById('sync-btn-cock')||document.getElementById('sync-btn');
+  if(!btn){console.warn('syncToSirhc: no button reference found');return;}
+  btn.textContent='Building snapshot...';btn.style.background='var(--gold)';btn.style.color='#fff';
+  const content=buildSnapshot();
   let token=localStorage.getItem('tgr_gh_token');
   if(!token){
-    // Restore button to neutral while modal is open
     btn.textContent='🔑 Enter token...';btn.style.background='var(--gold)';btn.style.color='#fff';
     openTokenModal(btn,content);
     return;
   }
-
   await _doGitHubPush(btn,content,token);
+}
+
+let _autoSyncTimer=null;
+function scheduleAutoSync(){
+  clearTimeout(_autoSyncTimer);
+  _autoSyncTimer=setTimeout(()=>autoSync(),30000);
+}
+
+async function autoSync(){
+  const token=localStorage.getItem('tgr_gh_token');
+  if(!token)return;
+  const content=buildSnapshot();
+  try{
+    const headers={'Authorization':`token ${token}`,'Content-Type':'application/json'};
+    const getRes=await fetch('https://api.github.com/repos/ThatGardeningRealtor/cockpit/contents/sirhc-snapshot.txt',{headers});
+    if(getRes.status===401||getRes.status===403){
+      localStorage.removeItem('tgr_gh_token');
+      const disp=document.getElementById('last-synced-display');
+      if(disp)disp.textContent='⚠️ Sync token expired — tap Sync to re-enter';
+      return;
+    }
+    const getData=await getRes.json();
+    const sha=getData.sha||null;
+    const payload={message:'Auto-sync snapshot',content:btoa(unescape(encodeURIComponent(content)))};
+    if(sha)payload.sha=sha;
+    const putRes=await fetch('https://api.github.com/repos/ThatGardeningRealtor/cockpit/contents/sirhc-snapshot.txt',{method:'PUT',headers,body:JSON.stringify(payload)});
+    const putData=await putRes.json();
+    if(putData.content){
+      const _syncTime=new Date().toLocaleString();
+      localStorage.setItem('tgr_last_sync',_syncTime);
+      const disp=document.getElementById('last-synced-display');
+      if(disp)disp.textContent='Last synced: '+_syncTime;
+      clearUnsyncedFlag();
+    }
+  }catch(e){console.warn('Auto-sync failed:',e);}
 }
 
 function importData(){
@@ -1972,6 +2012,7 @@ document.addEventListener('touchstart',function(e){
 function saveData(){
   try{localStorage.setItem('tgr_data',JSON.stringify({deals,leads,tasks,priorities,vendors,contentPipeline,loanPrograms,expenses}));}catch(e){}
   renderBadges();
+  scheduleAutoSync();
 }
 
 // ═══════════ v0.10 — CHAT (SIRHC LIVE) ═══════════
@@ -2151,6 +2192,7 @@ function init(){
   loadChatHistory();
   renderChatHistory();
   setTimeout(showBriefing,600);
+  setTimeout(()=>autoSync(),3000);
 }
 init();
 </script>
