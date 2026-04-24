@@ -1,19 +1,15 @@
 [SIRHC — APP SNAPSHOT]
-Date: Thursday, April 23, 2026 at 11:03 PM
+Date: Thursday, April 23, 2026 at 11:05 PM
 Day Type: IN
 Calls Made: 0 / 5
 
 --- PRIORITIES ---
-[DONE] Call lien holder — 8449 Coughran Rd — Lean release was signed and notarized and delivered to title. We are just waiting on the approval from underwriting, and next steps to schedule our closing.
+[DONE] Call lien holder — 8449 Coughran Rd
 [    ] Confirm Howell pre-approval w/ Zach
-[DONE] Call Gilberto — 340 Sollock seller finance — Add to my calendar to call and check in with Gilberto one last time on this and see if those buyers are still legitimate, or if maybe we could help them find another house once they receive their settlement money.
-We've also already logged our next task to reach out to mountain Chandler with some detailed options to see where they would like to move next. With the price.Add to my calendar to call and check in with Gilberto one last time on this and see if those buyers are still legitimate, or if maybe we could help them find another house once they receive their settlement money.
-
-We've also already logged our next task to reach out to Matt & Chandler with some detailed options to see where they would like to move next, with the price.
+[    ] Call Gilberto — 340 Sollock seller finance
 
 --- ACTIVE DEALS ---
 Borregas Property | — | Stage: 0 | Outreach needed to past and recent prospects
-  Log (Apr 22, 2026 5:56 AM): Follow up with recent showing agents and also get together with Isaac to see if we can put an informal offer together. Ask him if he was able to find everything he needed with the city to ensure the property would work for what he's trying to do. I also need to send Isaac a list of properties within a property search. So I need to get with him and ask what the criteria looks like to dial it in. Maybe we could jump on a quick Zoom call or something like that to walk through it.
 
 --- LEADS ---
 James Drause (Rhett) | INVESTOR LEAD | Stage: — | Last Contact: — | Next: Pull contact from Bold Trail · first call · understand buy box
@@ -26,26 +22,19 @@ Kurt — 9815 Conbes | NEIGHBOR PROSPECT | Stage: — | Last Contact: — | Next
   Log (Apr 15): Spoke with Kurt — interested in nearby listing details at $275K
 
 --- TASKS ---
-[DONE] Call lien holder — Coughran Rd [Urgent]
-       Log (Apr 22, 2026 11:11 PM): We're able to find a local notary Michael, who was able to assist with the signature. I picked up the document and got everything over to title last week. They're waiting on one item line fifteen for probate to clear, and we'll be good close.
+[    ] Call lien holder — Coughran Rd [Urgent]
 [    ] Follow up Pamela M. [Hot Lead]
 [    ] Call Kelly — 181 CR 7751 police report [Deal]
 [    ] Follow up Kendall — 181 CR 7751 [Deal]
 [    ] Call Gilberto — 340 Sollock seller finance [Deal]
 [    ] Call Matt Chandler — 340 Sollock pricing [Deal]
-[DONE] Howell — new construction search [Urgent]
+[    ] Howell — new construction search [Urgent]
 [    ] Follow up Sallie Mae F. [Community]
 [    ] Follow up Kurt — 9815 Conbes [Prospect]
 [    ] Reach out to Colton Brown [Seller Lead]
 [    ] Essie shout out — video post [Team]
 [    ] Pull James Drause from Bold Trail [Investor]
 [    ] Gather tax info for wife [Urgent]
-
---- EXPENSES (2026-04) ---
-Total Miles: 96 · Total Spent: $81.34
-2026-04-23 | 96 mi | Drive to coffrin road, listing to pick up my sign and lock. Closing day!
-2026-04-23 | $9.63 Meals | Devine sign pickup QT
-2026-04-23 | $71.71 Gas | 8449 Coughran Rd Closing
 
 --- MESSAGE FOR SIRHC ---
 (none)
@@ -57,73 +46,3 @@ Total Miles: 96 · Total Spent: $81.34
 [Idea] Behind the Scenes at Little Red House | Instagram, TikTok — Show the real community work. BTS content performs well.
 [Idea] The 1:1 Giving/Receiving Multiplier | Facebook, Nextdoor — How community compounds. SA Composting, Botanical Gardens, Ecocentro, Nextdoor ties.
 [Idea] VA Rate Buy-Down — The Math | Facebook, Instagram — Visual showing nothing down + rate buy-down vs 3% down. Use the math box data.
-
-## Field Chat Log (last 10)
-[Agent Green Thumb]: Okay, I also have some things to add regarding social media posts and all of that. I actually was able to create a couple video blogs on my phone around new construction and just my morning routine in a few different clips. So some of them are up birds of 2 to 3 minutes. So I don't know if we can turn those into tiktoks or what platform that would work best on, or if we chop it up, in use it on multiple platforms across-the-board and then we'll pull scripts as well, that way we can just keep logs. And filled up our content creation, team, side of things. And that way, we can easily batch and manage are posting to take that side up to the next level
-[Sirhc]: **Sharp move.** You're already creating — now we systematize it.
-
-**What we do with those clips:**
-
-1. **Chop them** — 2-3 min vlog becomes 3-4 TikTok/Reels (15-30 sec each) + 1 YouTube short + 1 LinkedIn post
-2. **Extract scripts** — Pull voiceover/talking points, log them for future reference and team use
-3. **Batch calendar** — Command center builds a 2-week posting schedule across platforms (TikTok, Instagram Reels, YouTube, LinkedIn)
-4. **Repurpose** — Same content, different cuts, different angles = content multiplication
-
-**Real play:** Once we lock this workflow, you film raw, we handle the editing/posting/scheduling. You stay in the field, we keep the feed hot.
-
-**Next step:** Drop those clips to command center at tonight's debrief. Rex handles the architecture — batching schedule, platform strategy, script logging. I'll help organize which clips hit which platform.
-
-This scales your brand without eating your time.
-
-Good instinct. Keep filming.
-[Agent Green Thumb]: Make a note that all of Josh L.T.'s leads are in ATTRAC+ROI, and that's where I'll be completing my calls and logs for his new construction leads. This task needs to be scheduled around the best calling times for California residents in San Diego. Time blocks should be held throughout my week that work with my schedule and ultimately dial in the best time to connect with these people.
-[Sirhc]: **Noted and logged.**
-
-**Josh L.T. San Diego leads:**
-- Platform: ATTRAC+ROI
-- All calls + logs completed there
-- California time zone = 2 hours behind you (San Antonio)
-- Best calling windows: 8-10am PST (10am-12pm your time) / 4-6pm PST (6-8pm your time)
-
-**Action:** Command center blocks dedicated calling time slots this week that sync your schedule + California prime hours. You dial from ATTRAC+ROI, log directly there, we track activity.
-
-**Flag for debrief:** Confirm which days work best for your Josh L.T. calling blocks so we build it into your weekly calendar locked in.
-
-This gets dialed in tonight.
-[Agent Green Thumb]: For the days, just go ahead and block in any of the best times to call. If I'm not busy during that time, I will make the calls, and if I am, I will readjust the calendar. The schedule will be created, and I will update the rules to frequency later if needed.
-[Sirhc]: **Done.** Command center locks in California prime calling windows across your week — mornings (10am-12pm your time) and evenings (6-8pm your time) on flexible days.
-
-You hit them when you're free, skip them when deals demand. Calendar adjusts as needed.
-
-Rules and frequency dialed in later once we see what sticks.
-
-**Logged for debrief sync.**
-[Agent Green Thumb]: For the divine property for priority bank, I requested the police report with the case number to heather Carreon in the records department with medina county and copied kelly jennings on the email for the report.So they can clarify if needed.
-[Sirhc]: **Got it logged.**
-
-**181 CR 7751, Devine — Priority Bank foreclosure:**
-- Police report + case number requested from Heather Carreon (Medina County Records)
-- Kelly Jennings copied for clarity/follow-up
-- Waiting on report delivery
-
-**Next:** Once report lands, we know what we're dealing with structurally. Then Marc's Grey Lion quote gets prioritized accordingly.
-
-**Flagged for debrief.**
-[Agent Green Thumb]: I sent an email to Alyssa and her team at Chicago title to check-in on the release form and closing schedule so that we can schedule buyer and seller. Alejandro replied to the email and said, we're just waiting on item . Pending Estate of Becky Lynn Steffen Probate Court Cause No. 8844 Atascosa County, Texas The Company reserves the right to make additional requirements as may be deemed necessary after the examination of the above court case. (Pending Documents on Order
-[Sirhc]: **8449 Coughran Rd, Pleasanton — Lien Release Update:**
-
-Alyssa's team (Chicago Title) came back: waiting on **Estate of Becky Lynn Steffen probate clearance** (Atascosa County, Cause #8844).
-
-**What this means:** Can't close until probate clears. This is title's call, not ours — they reserve right to ask for more docs once the court case resolves.
-
-**Action items:**
-- Monitor probate status on Cause #8844 Atascosa County
-- Stay in touch with Alejandro at Chicago Title for updates
-- Once probate clears, title examines it, then lien release can finalize
-- Then we schedule Fernando Castillo + notary (Michael) to sign
-
-**This pushes Monday's notary meet** — probate resolution comes first.
-
-**Flag for debrief:** Check probate status tonight, confirm revised timeline with Alejandro.
-
-Got it logged.
