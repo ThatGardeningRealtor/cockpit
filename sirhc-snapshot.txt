@@ -1,10 +1,10 @@
 [SIRHC — APP SNAPSHOT]
-Date: Thursday, April 23, 2026 at 11:05 PM
-Day Type: IN
+Date: Friday, April 24, 2026 at 5:19 AM
+Day Type: ON
 Calls Made: 0 / 5
 
 --- PRIORITIES ---
-[DONE] Call lien holder — 8449 Coughran Rd
+[    ] Call lien holder — 8449 Coughran Rd
 [    ] Confirm Howell pre-approval w/ Zach
 [    ] Call Gilberto — 340 Sollock seller finance
 
