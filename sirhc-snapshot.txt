@@ -1,17 +1,44 @@
 [SIRHC — APP SNAPSHOT]
-Date: Friday, April 24, 2026 at 5:27 AM
+Date: Friday, April 24, 2026 at 6:05 AM
 Day Type: ON
 Calls Made: 0 / 5
 
 --- PRIORITIES ---
-[    ] Call lien holder — 8449 Coughran Rd
-[    ] Confirm Howell pre-approval w/ Zach
-[    ] Call Gilberto — 340 Sollock seller finance
+[    ] Coughran Rd — follow up with Alyssa on closing schedule — Fernando signed and delivered to Alyssa at Chicago Title. Joy signing at UPS Store when title clears. Thank you basket for Michael + UPS Store.
+[    ] 340 Sollock — broker call first, then three paths with sellers — Seller finance (Gilberto) dead. Talk to broker about short sale protocol and subbing out Devine listing BEFORE calling Matt/Chandler.
+[    ] Mill Path — get listing agreement signed — Referral from Isaac Linares. Foundation crack needs pre-inspection (Coach Ricky Smith). Payoff discrepancy — sellers to verify with lender.
 
 --- ACTIVE DEALS ---
-Borregas Property | — | Stage: 0 | Outreach needed to past and recent prospects
+8449 Coughran Rd | — | Stage: 3 | Lien release signed by Fernando Castillo + delivered to Alyssa at Chicago Title Apr 21 ✓ · Buyer agent: Sam VanDenheuvel (Exquisite SA) · Joy signing at UPS Store when title clears · Thank you basket planned for Michael + UPS Store
+  Log (Apr 21): Fernando signed lien release — delivered to Alyssa at Chicago Title ✓. Joy confirmed as conservator — will sign at UPS Store when ready. Alyssa coordinating.
+  Log (Apr 19): Chicago Title underwriting: full lien release required — no workaround. Lien was prepared at Deeds.com, not Reliable Title.
+  Log (Apr 15): Spoke with Fabian Cerrillo (Fernando's family member) — understanding and willing to help · 830-200-8030
+181 CR 7751 | — | Stage: 0 | Bank took home back Dec — damage was after bank possession (not prior occupant). Kendall pricing high — shopping alternatives. Self-manage option (dumpster + coordination fee) being explored. Pedro = hold referrals (bad Nextdoor report).
+  Log (Apr 16): Kelly confirmed damage was after bank possession — liability shifts away from son. Matt Van Gorder site visit + police report with Deputy Munoz. Kendall pricing flagged high.
+  Log (Apr 15): Lawyer Deborah Geiger confirmed son caused damage. Deputy Munoz took info — bank or lawyer needs to initiate formal report.
+  Log (Apr 13): Photos + video shot. Sent to Kendall and Matt Van Gorder for quotes.
+340 Sollock Dr | — | Stage: 1 | 208 DOM · underwater ~$93K-$143K · payoff ~$493K · market value $350K-$400K · VA loan 5.25% $2,843/mo · double-carrying Pearl Brewery apt + mortgage. Gilberto seller finance = dead. Three paths: A) Short sale $370K-$385K, B) VA loan assumption by investor, C) Price reduction + bring $100K-$122K cash to close.
+  Log (Apr 21): Full CMA done — underwater $93K-$143K. 717 Jack Nicklaus listed at $519K makes current $528,999 impossible to defend. Seller finance (Gilberto) appears dead.
+  Log (Apr 19): Gilberto buyers wishy-washy — seller finance likely dead. Broker call needed before talking to sellers.
+  Log (Apr 15): Pricing conversation overdue. Biggest house in neighborhood. Sellers carrying costs compounding daily.
+Tilden TX 20ac | — | Stage: 0 | Offer dead — Michael Rodriguez RBFCU stalled, EM never came in. Steve was clearing property — likely done by now. Lead with net after close on next offer, not gross price.
+  Log (Apr 13): Offer basically dead — option money not received. Steve still clearing. More open to looking at full picture on offers now.
+  Log (Apr 9): Owner finance showing completed — using as leverage for pricing conversation
+Borregas Property | — | Stage: 1 | Sisters want to end listing after March expiration. Isaac Linares interested in mobile home development — ~$150K offer contingent on his project moving forward. Half units for displaced veterans, half for profit.
+  Log (Apr 21): Updated sisters on Apr 20 showing + Isaac development interest. Sisters excited. Isaac offered ~$150K contingent on mobile home project.
+  Log (Apr 20): Showing occurred. Dedicated prospect call block completed.
+10023 Mill Path | — | Stage: 0 | Referral from Isaac Linares. 3BR/2.5BA. Sellers confirmed moving forward Apr 21. CMA: $259,900 recommended. June deadline — motivated. Potential hairline foundation crack — disclose + pre-inspection (Coach Ricky Smith). Payoff discrepancy: seller says $170K, records show $192K — verify.
+  Log (Apr 21): Listing consultation on-site 11am with Isaac — went well. Sellers confirmed moving forward via email ~2:30pm. $259,900 recommended. Foundation crack discussed. Payoff discrepancy flagged.
+  Log (Apr 19): Referral from Isaac. CMA completed — $259,900. Meeting set for Apr 21 at 11am.
 
 --- LEADS ---
+Pamela M. | HOT LEAD | Stage: — | Last Contact: — | Next: Follow up · connect with VA-approved lender
+  Log (Apr 12): Initial contact via Nextdoor — very interested
+  Log (Apr 12): Flagged VA loan eligibility
+Mike & Alice Howell | URGENT BUYER | Stage: — | Last Contact: — | Next: Confirm pre-approval w/ Zach · set up new construction search · no HOA
+  Log (Apr 15): Rental being sold · duplex renovating · rents going up · pivoting to new construction
+  Log (Jan 7): Paid off remaining debt — ready for pre-approval
+  Log (Dec 15): Met at Little Red House pop-up
 James Drause (Rhett) | INVESTOR LEAD | Stage: — | Last Contact: — | Next: Pull contact from Bold Trail · first call · understand buy box
 Sallie Mae F. | COMMUNITY | Stage: — | Last Contact: — | Next: Follow up this week · get her to next plant share · offer 3 starter plants · ask permission for her story
   Log (Apr 15): New message — wants to create memory garden for her daughter she lost
