@@ -532,6 +532,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
     <div class="m-title">Settings</div>
     <div class="m-type"><span>⚙️</span>App configuration &amp; tools</div>
     <button id="install-btn" onclick="installApp()" style="display:none;width:100%;text-align:left;padding:14px 16px;margin-bottom:8px;border-radius:12px;border:1.5px solid var(--sky);background:rgba(74,138,181,.08);color:var(--sky);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">📲 Install App</button>
+    <button onclick="updateGitHubToken();closeSettings()" style="width:100%;text-align:left;padding:14px 16px;margin-bottom:8px;border-radius:12px;border:1.5px solid var(--moss);background:rgba(46,74,48,.08);color:var(--moss);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">🔑 Update GitHub Token</button>
     <button onclick="exportExpenses();closeSettings()" style="width:100%;text-align:left;padding:14px 16px;margin-bottom:8px;border-radius:12px;border:1.5px solid #b8972a;background:rgba(184,151,42,.06);color:#b8972a;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">📊 Export Tax Report</button>
     <button onclick="exportData();closeSettings()" style="width:100%;text-align:left;padding:14px 16px;margin-bottom:8px;border-radius:12px;border:1.5px solid var(--warm);background:var(--card);color:var(--muted);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">⬇ Export Backup</button>
     <button onclick="importData();closeSettings()" style="width:100%;text-align:left;padding:14px 16px;margin-bottom:8px;border-radius:12px;border:1.5px solid var(--warm);background:var(--card);color:var(--muted);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">⬆ Import Backup</button>
@@ -1076,6 +1077,16 @@ function saveContent(id){const c=contentPipeline.find(x=>x.id===id);if(c){const 
 
 function openModal(){document.getElementById('mOv').classList.add('open');document.getElementById('mModal').classList.add('open')}
 function closeModal(){document.getElementById('mOv').classList.remove('open');document.getElementById('mModal').classList.remove('open')}
+function updateGitHubToken(){
+  const current=localStorage.getItem('tgr_gh_token');
+  const token=prompt(current?'Paste your new GitHub token (current one will be replaced):':'Paste your GitHub token (starts with ghp_):');
+  if(!token||!token.trim())return;
+  localStorage.setItem('tgr_gh_token',token.trim());
+  const disp=document.getElementById('last-synced-display');
+  if(disp)disp.textContent='Token updated — tap Sync to verify';
+  showToast('Token saved ✓');
+}
+
 function openSettings(){
   const vEl=document.getElementById('settings-version');
   if(vEl)vEl.textContent='Sirhc Cockpit '+APP_VERSION;
