@@ -1,5 +1,5 @@
 [SIRHC — APP SNAPSHOT]
-Date: Monday, April 27, 2026 at 11:05 PM
+Date: Monday, April 27, 2026 at 11:20 PM
 Day Type: IN
 Calls Made: 0 / 5
 
@@ -86,23 +86,6 @@ Total Miles: 96 · Total Spent: $12.05
 [Idea] VA Rate Buy-Down — The Math | Facebook, Instagram — Visual showing nothing down + rate buy-down vs 3% down. Use the math box data.
 
 ## Field Chat Log (last 10)
-[Agent Green Thumb]: Okay, but can you update back?And forth to command center yet
-[Sirhc]: Not yet. Right now I'm pulling intel *from* you in real-time, logging it here, and surfacing reminders at debrief — but I can't push updates back to a centralized command center system automatically.
-
-Think of it this way: I'm your field notepad that talks back. Command center handles the heavy infrastructure lift.
-
-If that changes down the line, you'll know. For now, keep feeding me updates like you're doing — I'll keep them sharp and organized for you.
-
-Anything else on the active deals?
-[Agent Green Thumb]: I need to check-in with Matt and Chandler. Income is the solar drive property information that I sent over. And any next steps also follow up with the recent calls.And showings on the property and goberto, with the seller finance option.
-[Sirhc]: **Follow-up needed:**
-
-1. **Matt & Chandler** (Sollock sellers) — Check income docs you sent on solar drive property + next steps
-2. **Recent calls follow-up** — clarify which ones, but I'll flag at debrief
-3. **Showings on property** — status check
-4. **Gilberto** — seller finance option update (those buyers still wishy-washy?)
-
-Got it logged. When you connect with them today, drop me the updates and I'll know where we stand on Sollock pricing conversation + whether that short sale angle is real.
 [Agent Green Thumb]: I've had a lot of showings and interest in the burgers road. Property Isaac also said that he could call in a couple favors to get us. Rough estimates on utility costs for that property. So be sure to follow-up with him on that. And you need to take him out to lunch or find a way to pay him back on some of the stuff
 [Sirhc]: **Burgers Road Property — Hot:**
 - Lots of showings + solid interest
@@ -137,3 +120,36 @@ This is solid work, Chris. You've got the contacts + the heart for it. People in
 **Next step:** Get connected with those three, map out what the program looks like, and see if there's a real play here.
 
 Got it logged. Let me know once you've had initial conversations with Adam, Brian, and Riley — I'll help you track momentum on this.
+[Agent Green Thumb]: How so net David Garcia on Saturday at the Texas store? Even at fenrick's nursery, David Garcia is the founder of greenies. And that's another place that I would like to look into, for volunteering. Sometime and get some mode, David and all the programs that the city offers for our gardening groups. As well as the neighbors and community in general on another side note, Joe mentioned that we could potentially use the Greenbelt the $100. Of their house is to garden.Batman be a good project for the composting group and just the community in general
+[Sirhc]: **Saturday Meet-up Logged:**
+
+David Garcia — Texas Store + Fenrick's Nursery. He's the Greenies founder. You want to:
+- Explore volunteering opportunities
+- Learn about city programs for gardening groups
+- Community/neighbor connection angle
+
+**Also noted:**
+Joe mentioned Greenbelt potential ($100 house?) — composting group project + community benefit.
+
+This is good soil to till, Chris. Community roots = repeat business + genuine relationships.
+
+**Next:** Touch base with David on Saturday, get the lay of the land on those programs, then loop back with Joe on the Greenbelt composting angle.
+
+Got it locked. Update me after Saturday.
+[Agent Green Thumb]: The neighbor jill mentioned this and there is no hundred dollar house and we can scratch that part. I've hoped chill with her new fridge and I was just over there earlier today. To take her old fridge out to the curb, I ended app stopping at H Eb and grabbed her some garlic bread to go with the beans and rice that she made and shared with us. I also left her a $100 gift card to the grocery store
+I need to get with josh.Lending tips lt about a potential reverse mortgage type situation to update. Joe's house and get her out of some debt. We need to ask him about what sort of options we have. And reach out to other potential resources that could help her out
+[Sirhc]: **Jill Update — Scratch the "$100 house":**
+- You helped her move her old fridge today
+- Grabbed garlic bread to pair with her beans & rice
+- Left her a $100 grocery gift card
+
+That's solid neighbor work, Chris. Real help, no strings.
+
+**New Priority — Jill's Financial Situation:**
+- **Josh/LT (lending tips)** — reverse mortgage options for Jill's house to clear debt
+- Need to explore what options exist
+- Research other resources that could help her
+
+**Next steps:** Call Josh about reverse mortgage feasibility for Jill, then identify 2-3 other resources (nonprofits, county programs, etc.) that might assist.
+
+Got it logged. Let me know what Josh says — could be a real lifeline for her.
