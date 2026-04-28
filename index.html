@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -881,8 +881,8 @@ function openDeal(id){
   const stgHTML=STAGES.map((s,i)=>{let h=`<div class="stg-d ${i<d.stage?'dn':''} ${i===d.stage?'cur':''}"></div>`;if(i<STAGES.length-1)h+=`<div class="stg-ln ${i<d.stage?'dn':''}"></div>`;return h}).join('');
   const labHTML=STAGES.map((s,i)=>`<div class="stg-lab ${i===d.stage?'cur-l':''}">${s}</div>`).join('');
   const logHTML=d.logs.map(l=>`<div class="m-log-entry"><div class="m-log-time">${l.t}</div>${l.m}</div>`).join('');
-  const statuses=[{v:'urg',label:'🔴 Urgent'},{v:'act',label:'🟢 Active'},{v:'hold',label:'⏸ On Hold'},{v:'',label:'Default'}];
-  const statusBtns=statuses.map(s=>`<button onclick="setDealStatus('${id}','${s.v}')" style="padding:6px 10px;border-radius:6px;border:1.5px solid ${d.cls===s.v?'var(--rust)':'var(--border)'};background:${d.cls===s.v?'var(--rust)':'var(--card)'};color:${d.cls===s.v?'#fff':'var(--text)'};font-size:12px;cursor:pointer;margin:2px">${s.label}</button>`).join('');
+  const statuses=[{v:'urg',label:'🔴 Urgent'},{v:'act',label:'🟢 Active'},{v:'hold',label:'⏸ On Hold'},{v:'',label:'Default'},{v:'cls',label:'✅ Closed'}];
+  const statusBtns=statuses.map(s=>`<button onclick="setDealStatus('${id}','${s.v}')" style="padding:6px 10px;border-radius:6px;border:1.5px solid ${d.cls===s.v?'var(--moss)':'var(--border)'};background:${d.cls===s.v?'var(--moss)':'var(--card)'};color:${d.cls===s.v?'#fff':'var(--text)'};font-size:12px;cursor:pointer;margin:2px">${s.label}</button>`).join('');
   document.getElementById('mBody').innerHTML=`<div class="m-title">${d.title} — ${d.loc}</div><div class="m-type"><span style="font-size:16px">🏡</span>${d.type}</div>
     <div class="stg"><div class="stg-dots">${stgHTML}</div><div class="stg-labs">${labHTML}</div><div class="stg-cur">Current stage: ${STAGES[d.stage]}</div></div>
     ${d.contact?`<div class="d-field"><div class="d-label">Contact</div><div class="d-val">${d.contact}</div>${d.phone?`<a href="tel:${d.phone.replace(/\D/g,'')}" class="d-phone">📞 ${d.phone}</a>`:''}</div>`:''}
@@ -897,10 +897,11 @@ function openDeal(id){
 
 function setDealStatus(id,cls){
   const d=deals.find(x=>x.id===id);if(!d)return;
-  d.cls=cls;saveData();renderAlerts();
-  const statuses=[{v:'urg',label:'🔴 Urgent'},{v:'act',label:'🟢 Active'},{v:'hold',label:'⏸ On Hold'},{v:'',label:'Default'}];
+  d.cls=cls;saveData();renderAlerts();renderDeals();renderPipelineSnap();
+  const statuses=[{v:'urg',label:'🔴 Urgent'},{v:'act',label:'🟢 Active'},{v:'hold',label:'⏸ On Hold'},{v:'',label:'Default'},{v:'cls',label:'✅ Closed'}];
   const row=document.getElementById('deal-status-row');
-  if(row)row.innerHTML=statuses.map(s=>`<button onclick="setDealStatus('${id}','${s.v}')" style="padding:6px 10px;border-radius:6px;border:1.5px solid ${d.cls===s.v?'var(--rust)':'var(--border)'};background:${d.cls===s.v?'var(--rust)':'var(--card)'};color:${d.cls===s.v?'#fff':'var(--text)'};font-size:12px;cursor:pointer;margin:2px">${s.label}</button>`).join('');
+  if(row)row.innerHTML=statuses.map(s=>`<button onclick="setDealStatus('${id}','${s.v}')" style="padding:6px 10px;border-radius:6px;border:1.5px solid ${d.cls===s.v?'var(--moss)':'var(--border)'};background:${d.cls===s.v?'var(--moss)':'var(--card)'};color:${d.cls===s.v?'#fff':'var(--text)'};font-size:12px;cursor:pointer;margin:2px">${s.label}</button>`).join('');
+  if(cls==='cls'){closeModal();showToast('Deal closed ✓');}
 }
 
 function saveDeal(id){
