@@ -1604,13 +1604,13 @@ async function _doGitHubPush(btn,content,token){
   try{
     btn.textContent='Syncing...';btn.style.background='var(--gold)';btn.style.color='#fff';
     const headers={'Authorization':`token ${token}`,'Content-Type':'application/json'};
-    const getRes=await fetch('https://api.github.com/repos/ThatGardeningRealtor/cockpit/contents/sirhc-snapshot.txt',{headers});
+    const getRes=await fetch('https://api.github.com/repos/ThatGardeningRealtor/cockpit-data/contents/sirhc-snapshot.txt',{headers});
     if(getRes.status===401||getRes.status===403){throw new Error('auth');}
     const getData=await getRes.json();
     const sha=getData.sha||null;
     const payload={message:'Sync snapshot',content:btoa(unescape(encodeURIComponent(content)))};
     if(sha)payload.sha=sha;
-    const putRes=await fetch('https://api.github.com/repos/ThatGardeningRealtor/cockpit/contents/sirhc-snapshot.txt',{method:'PUT',headers,body:JSON.stringify(payload)});
+    const putRes=await fetch('https://api.github.com/repos/ThatGardeningRealtor/cockpit-data/contents/sirhc-snapshot.txt',{method:'PUT',headers,body:JSON.stringify(payload)});
     const putData=await putRes.json();
     if(putData.content){
       btn.textContent='Synced ✅';btn.style.background='var(--moss)';btn.style.color='#fff';
@@ -1802,7 +1802,7 @@ async function autoSync(){
   const content=buildSnapshot();
   try{
     const headers={'Authorization':`token ${token}`,'Content-Type':'application/json'};
-    const getRes=await fetch('https://api.github.com/repos/ThatGardeningRealtor/cockpit/contents/sirhc-snapshot.txt',{headers});
+    const getRes=await fetch('https://api.github.com/repos/ThatGardeningRealtor/cockpit-data/contents/sirhc-snapshot.txt',{headers});
     if(getRes.status===401||getRes.status===403){
       localStorage.removeItem('tgr_gh_token');
       const disp=document.getElementById('last-synced-display');
@@ -1813,7 +1813,7 @@ async function autoSync(){
     const sha=getData.sha||null;
     const payload={message:'Auto-sync snapshot',content:btoa(unescape(encodeURIComponent(content)))};
     if(sha)payload.sha=sha;
-    const putRes=await fetch('https://api.github.com/repos/ThatGardeningRealtor/cockpit/contents/sirhc-snapshot.txt',{method:'PUT',headers,body:JSON.stringify(payload)});
+    const putRes=await fetch('https://api.github.com/repos/ThatGardeningRealtor/cockpit-data/contents/sirhc-snapshot.txt',{method:'PUT',headers,body:JSON.stringify(payload)});
     const putData=await putRes.json();
     if(putData.content){
       const _syncTime=new Date().toLocaleString();
