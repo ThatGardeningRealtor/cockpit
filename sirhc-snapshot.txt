@@ -1,5 +1,5 @@
 [SIRHC — APP SNAPSHOT]
-Date: Monday, April 27, 2026 at 10:45 PM
+Date: Monday, April 27, 2026 at 10:51 PM
 Day Type: IN
 Calls Made: 0 / 5
 
@@ -94,3 +94,29 @@ For detailed expense reports, you'll need to check your backend accounting tool 
 **Task:** Send LT (Josh Massieh) the 6310 Robin Forest wholesale deal info + Nick & Julie's contact details for follow-up.
 
 I'll surface this at end-of-day debrief so you don't miss it. You want me to remind you before you log off, or handle it a specific time?
+[Agent Green Thumb]: We need to add a new client to our database.  Jose and Kathryn Arango. I just sent them the listing agreement today. We need to follow up with them tomorrow. This lead came in through Isaac. The mobile home guy I also wanna get him connected with julie and nick or some creative finance options that might work with their situation.And also get them connected with mike and alice to see if he has anything available for them.I'm gonna kill him and anyone who tries to stop.I will fill you in with all the details as soon as I get the signed contract back from them.
+[Sirhc]: **New Client Logged:**
+- **Jose & Kathryn Arango** — listing agreement sent today
+- **Source:** Isaac
+- **Property Type:** Mobile home
+- **Follow-up:** Tomorrow
+- **Connections to make:**
+  1. Julie & Nick (creative finance options)
+  2. Mike & Alice (availability check)
+
+Clear on the priority. Once you get that signed contract back, drop the details and I'll have everything ready to coordinate those connections.
+
+You're locked in. Talk tomorrow.
+[Agent Green Thumb]: For Nick and Julie, we got to talk with Zach today, music and Julie. I need to follow-up with Nick on the summary that Zach sent out for them to. Are you still using no? What the next steps are? And we're waiting on some income documents for Nick. They may have to finance F. HA or creative financing? Just based on their credit history and not being able to qualify VA. will have more details from Zach. In the next day or so.
+[Sirhc]: Got it. Let me parse this:
+
+**Nick & Julie Status:**
+- Had call with Zach today (+ music contact)
+- **Action needed:** Follow up with Nick on Zach's summary
+- **Blocker:** Waiting on income documents from Nick
+- **Financing path:** FHA or creative — VA won't work due to credit history
+- **Next intel:** Zach has more details coming in next day or so
+
+So you're waiting on docs from Nick, then Zach sends full picture, then you can firm up financing strategy with Julie & Nick.
+
+Got it logged. Sync when you have Zach's follow-up so we know which direction to point them.
