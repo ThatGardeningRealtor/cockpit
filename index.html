@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -558,6 +558,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
     <div class="cp-ft">New Lead Intake</div><div class="cp-fs">Sage qualifies, flags loan programs, and gives the next step.</div>
     <div class="fg"><label class="fl">Lead Name</label><input class="fi" id="s-name" placeholder="First and last name"></div>
     <div class="fr"><div class="fg"><label class="fl">Phone</label><input class="fi" id="s-phone" type="tel" placeholder="210-555-1234"></div><div class="fg"><label class="fl">Source</label><select class="fsel" id="s-src"><option value="">Select...</option><option>Nextdoor</option><option>Facebook</option><option>Referral</option><option>Bold Trail</option><option>Open House</option><option>LRH Pop-up</option><option>Garden Group</option><option>Door Knock</option><option>Ecocentro</option><option>Botanical Gardens</option><option>Other</option></select></div></div>
+    <div class="fg"><label class="fl" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">Partner / Co-Buyer <button id="s-partner-toggle" onclick="togglePartner()" style="font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;border:1.5px solid var(--sage-c);background:none;color:var(--sage-c);cursor:pointer;font-family:inherit;line-height:1.4">+ Add</button></label><div id="s-partner-section" style="display:none"><div class="fr"><div class="fg"><label class="fl">Partner Name</label><input class="fi" id="s-pname" placeholder="Partner's name"></div><div class="fg"><label class="fl">Partner Phone</label><input class="fi" id="s-pphone" type="tel" placeholder="210-555-5678"></div></div><div class="fg"><label class="fl">Partner Email</label><input class="fi" id="s-pemail" type="email" placeholder="partner@email.com"></div></div></div>
     <div class="fg"><label class="fl">Tags (select all that apply)</label><div class="chp" id="s-tags"><div class="cho" onclick="tChM(this)">Buyer</div><div class="cho" onclick="tChM(this)">Seller</div><div class="cho" onclick="tChM(this)">Community</div><div class="cho" onclick="tChM(this)">Garden</div><div class="cho" onclick="tChM(this)">Investor</div><div class="cho" onclick="tChM(this)">Vendor</div><div class="cho" onclick="tChM(this)">Lender</div><div class="cho" onclick="tChM(this)">New Build</div></div></div>
     <div class="fg"><label class="fl">Timeline</label><div class="chp" id="s-tl"><div class="cho" onclick="tCh(this,'s')">Now</div><div class="cho" onclick="tCh(this,'s')">30 days</div><div class="cho" onclick="tCh(this,'s')">60 days</div><div class="cho" onclick="tCh(this,'s')">90+ days</div><div class="cho" onclick="tCh(this,'s')">No timeline</div></div></div>
     <div class="fg"><label class="fl">Warmth</label><div class="chp" id="s-warm"><div class="cho" onclick="tCh(this,'s')">Hot</div><div class="cho" onclick="tCh(this,'s')">Warm</div><div class="cho" onclick="tCh(this,'s')">Cool</div><div class="cho" onclick="tCh(this,'s')">Nurture</div></div></div>
@@ -1257,10 +1258,23 @@ async function submitToTeam(rbId,rId,label,prefix,content){
   card.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 
+function togglePartner(){
+  const sec=document.getElementById('s-partner-section');
+  const btn=document.getElementById('s-partner-toggle');
+  const open=sec.style.display==='block';
+  sec.style.display=open?'none':'block';
+  btn.textContent=open?'+ Add':'− Remove';
+  if(!open)setTimeout(()=>document.getElementById('s-pname').focus(),100);
+}
+
 function subSage(){
   const name=document.getElementById('s-name').value.trim();if(!name){alert('Lead name required.');return}
   const tags=gChM('s-tags');
-  const content=`[SAGE — NEW LEAD]\nName: ${name}\nPhone: ${document.getElementById('s-phone').value||'n/a'}\nSource: ${document.getElementById('s-src').value||'n/a'}\nTags: ${tags.join(', ')||'none'}\nTimeline: ${gCh('s-tl')||'n/a'}\nWarmth: ${gCh('s-warm')||'n/a'}\nNotes: ${document.getElementById('s-notes').value||'none'}`;
+  const pname=document.getElementById('s-pname').value.trim();
+  const pphone=document.getElementById('s-pphone').value.trim();
+  const pemail=document.getElementById('s-pemail').value.trim();
+  const partnerStr=pname?`\nPartner: ${pname}${pphone?' | '+pphone:''}${pemail?' | '+pemail:''}`:''
+  const content=`[SAGE — NEW LEAD]\nName: ${name}\nPhone: ${document.getElementById('s-phone').value||'n/a'}${partnerStr}\nSource: ${document.getElementById('s-src').value||'n/a'}\nTags: ${tags.join(', ')||'none'}\nTimeline: ${gCh('s-tl')||'n/a'}\nWarmth: ${gCh('s-warm')||'n/a'}\nNotes: ${document.getElementById('s-notes').value||'none'}`;
   submitToTeam('s-rb','s-resp','Sage','lead',content);
 }
 
@@ -1767,7 +1781,7 @@ async function syncToSirhc(callerBtn){
 let _autoSyncTimer=null;
 function scheduleAutoSync(){
   clearTimeout(_autoSyncTimer);
-  _autoSyncTimer=setTimeout(()=>autoSync(),30000);
+  _autoSyncTimer=setTimeout(()=>autoSync(),10000);
 }
 
 async function autoSync(){
@@ -2182,6 +2196,18 @@ function resetDebrief(){
   });
 }
 
+function checkSyncOnOpen(){
+  const token=localStorage.getItem('tgr_gh_token');
+  const lastSync=localStorage.getItem('tgr_last_sync');
+  const disp=document.getElementById('last-synced-display');
+  if(!token){
+    if(disp)disp.textContent='⚠️ Sync not connected — tap 🌿 Sync to link GitHub';
+    return;
+  }
+  if(lastSync&&disp)disp.textContent='Last synced: '+lastSync;
+  setTimeout(()=>autoSync(),1500);
+}
+
 function init(){
   loadData();
   resetDebrief();
@@ -2194,7 +2220,7 @@ function init(){
   loadChatHistory();
   renderChatHistory();
   setTimeout(showBriefing,600);
-  setTimeout(()=>autoSync(),3000);
+  checkSyncOnOpen();
 }
 init();
 </script>
