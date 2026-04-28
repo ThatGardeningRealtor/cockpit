@@ -10,13 +10,13 @@ Calls Made: 0 / 5
 
 --- ACTIVE DEALS ---
 8449 Coughran Rd | — | Stage: 3 | Lien release signed by Fernando Castillo + delivered to Alyssa at Chicago Title Apr 21 ✓ · Buyer agent: Sam VanDenheuvel (Exquisite SA) · Joy signing at UPS Store when title clears · Thank you basket planned for Michael + UPS Store
-  Log (Apr 27, 2026 10:58 PM): We've officially closed and gotten everyone funded. This transaction is now closed. We need a follow up process to get joy, this rug and the trollery that I want to send out to her. Also follow up with the buyers a chant sam to thank her once again and see if there is any sort of follow up lunch or coffee that we could get together on.
-  Log (Apr 26, 2026 1:13 PM): Cleared,  funded and closed.
   Log (Apr 21): Fernando signed lien release — delivered to Alyssa at Chicago Title ✓. Joy confirmed as conservator — will sign at UPS Store when ready. Alyssa coordinating.
+  Log (Apr 19): Chicago Title underwriting: full lien release required — no workaround. Lien was prepared at Deeds.com, not Reliable Title.
+  Log (Apr 15): Spoke with Fabian Cerrillo (Fernando's family member) — understanding and willing to help · 830-200-8030
 181 CR 7751 | — | Stage: 0 | Bank took home back Dec — damage was after bank possession (not prior occupant). Kendall pricing high — shopping alternatives. Self-manage option (dumpster + coordination fee) being explored. Pedro = hold referrals (bad Nextdoor report).
-  Log (Apr 27, 2026 10:58 PM): I need to check in with kelly to see if she has any updates from the insurance adjuster insurance company and police report follow up with that contractor that was frustrated me out there at some point this week for additional estimates.
   Log (Apr 16): Kelly confirmed damage was after bank possession — liability shifts away from son. Matt Van Gorder site visit + police report with Deputy Munoz. Kendall pricing flagged high.
   Log (Apr 15): Lawyer Deborah Geiger confirmed son caused damage. Deputy Munoz took info — bank or lawyer needs to initiate formal report.
+  Log (Apr 13): Photos + video shot. Sent to Kendall and Matt Van Gorder for quotes.
 340 Sollock Dr | — | Stage: 1 | 208 DOM · underwater ~$93K-$143K · payoff ~$493K · market value $350K-$400K · VA loan 5.25% $2,843/mo · double-carrying Pearl Brewery apt + mortgage. Gilberto seller finance = dead. Three paths: A) Short sale $370K-$385K, B) VA loan assumption by investor, C) Price reduction + bring $100K-$122K cash to close.
   Log (Apr 21): Full CMA done — underwater $93K-$143K. 717 Jack Nicklaus listed at $519K makes current $528,999 impossible to defend. Seller finance (Gilberto) appears dead.
   Log (Apr 19): Gilberto buyers wishy-washy — seller finance likely dead. Broker call needed before talking to sellers.
@@ -36,9 +36,9 @@ Pamela M. | HOT LEAD | Stage: — | Last Contact: — | Next: Follow up · conne
   Log (Apr 12): Initial contact via Nextdoor — very interested
   Log (Apr 12): Flagged VA loan eligibility
 Mike & Alice Howell | URGENT BUYER | Stage: — | Last Contact: — | Next: Confirm pre-approval w/ Zach · set up new construction search · no HOA
-  Log (Apr 27, 2026 10:59 PM): Connect with isaac on some options, creative on their home purchase
   Log (Apr 15): Rental being sold · duplex renovating · rents going up · pivoting to new construction
   Log (Jan 7): Paid off remaining debt — ready for pre-approval
+  Log (Dec 15): Met at Little Red House pop-up
 James Drause (Rhett) | INVESTOR LEAD | Stage: — | Last Contact: — | Next: Pull contact from Bold Trail · first call · understand buy box
 Sallie Mae F. | COMMUNITY | Stage: — | Last Contact: — | Next: Follow up this week · get her to next plant share · offer 3 starter plants · ask permission for her story
   Log (Apr 15): New message — wants to create memory garden for her daughter she lost
@@ -48,13 +48,10 @@ Colton Brown | SELLER LEAD | Stage: — | Last Contact: — | Next: Reach out ·
 Kurt — 9815 Conbes | NEIGHBOR PROSPECT | Stage: — | Last Contact: — | Next: Follow up with listing agent on 9815 Conbes · report back to Kurt · determine if buyer or seller
   Log (Apr 15): Spoke with Kurt — interested in nearby listing details at $275K
 Julie & Nick | VETERAN BUYER | Stage: — | Last Contact: — | Next: Connect to lenders (Zach + Erik) · pull credit · determine VA entitlement status · map 2-3 options once financials known
-  Log (Apr 27, 2026 11:00 PM): Julie and I met with sack tickets, some initial figure started. It seems like they may have to qualify fha or go a creative route based on their credit history and late payments. Nick is going to get all of the information. The Zack needs for income, and we will see where it goes from there. Sax also, getting us connected with a financial advisor Mia, and she is going to see what we can do to help them out on that side. Julie said that Nick had already reached out to somebody, and it was going to cost upwards of $1600. So find out if he's already done that. And if neo would be a more realistic option for them to use
   Log (Apr 24): New lead. Julie 100% disabled veteran — VA funding fee waived. Nick long-haul trucker. Prior debt/foreclosure in background. Open to manufactured home with good outdoor space. Lender connections next.
 
 --- TASKS ---
-[DONE] Call lien holder — Coughran Rd [Urgent]
-       Log (Apr 27, 2026 11:01 PM): This transaction is closed and funded
-as of today
+[    ] Call lien holder — Coughran Rd [Urgent]
 [    ] Follow up Pamela M. [Hot Lead]
 [    ] Call Kelly — 181 CR 7751 police report [Deal]
 [    ] Follow up Kendall — 181 CR 7751 [Deal]
@@ -67,12 +64,6 @@ as of today
 [    ] Essie shout out — video post [Team]
 [    ] Pull James Drause from Bold Trail [Investor]
 [    ] Gather tax info for wife [Urgent]
-       Log (Apr 27, 2026 11:01 PM): This needs to get finished asap
-
---- EXPENSES (2026-04) ---
-Total Miles: 96 · Total Spent: $12.05
-2026-04-23 | 96 mi | Sold. Pick up sign from property.
-2026-04-23 | $12.05 Meals | QT Coughran Rd sign pick-up.  Sold
 
 --- MESSAGE FOR SIRHC ---
 (none)
@@ -84,72 +75,3 @@ Total Miles: 96 · Total Spent: $12.05
 [Idea] Behind the Scenes at Little Red House | Instagram, TikTok — Show the real community work. BTS content performs well.
 [Idea] The 1:1 Giving/Receiving Multiplier | Facebook, Nextdoor — How community compounds. SA Composting, Botanical Gardens, Ecocentro, Nextdoor ties.
 [Idea] VA Rate Buy-Down — The Math | Facebook, Instagram — Visual showing nothing down + rate buy-down vs 3% down. Use the math box data.
-
-## Field Chat Log (last 10)
-[Agent Green Thumb]: I've had a lot of showings and interest in the burgers road. Property Isaac also said that he could call in a couple favors to get us. Rough estimates on utility costs for that property. So be sure to follow-up with him on that. And you need to take him out to lunch or find a way to pay him back on some of the stuff
-[Sirhc]: **Burgers Road Property — Hot:**
-- Lots of showings + solid interest
-- **Isaac connection:** Can pull utility cost estimates (favors owed)
-- **Action:** Follow up with Isaac on those rough estimates
-- **Important:** You owe him lunch or a gesture — don't let that slip
-
-Isaac's being a good partner. Remind yourself to take care of that sooner rather than later.
-
-Got it logged. Surface this at end of day so you remember to reach out to Isaac before momentum dies.
-[Agent Green Thumb]: I made a few calls to lending tips, new construction leads lending tips.Is josh or lt homeland California. He's a lender and investor who started a big part of our real estate group, and what it is today. I'm working with him on making more these calls. So that he can hook me up with call list that are for local properties.
-[Sirhc]: **Got it logged:**
-
-Josh/LT — lender & investor, key player in building your real estate group. You're doing lending tip calls + new construction lead calls *with* him so he can build you a solid local property call list.
-
-That's smart collaboration — he gets intel, you get qualified leads.
-
-Keep me posted on what call list he sends over. When that lands, let me know and I'll help you prioritize who to hit first.
-[Agent Green Thumb]: Kelly, Jennings also reached out about putting together a program that helps people in pre-foreclosure status to give them some options on getting out of their homes or potentially saving. And staying in their homes, I love to get connected with Adam. West and also Brian hosh cheddar
-And riley hexel, I got this opportunity to see if we can make a change, and this broken system, I have people that are overqualified are just in situations that they can no longer afford their homes.
-[Sirhc]: **Pre-Foreclosure Program — New Opportunity:**
-
-Kelly Jennings reached out about building a program for pre-foreclosure homeowners — options to exit cleanly or save the home.
-
-**Connections needed:**
-- Adam West
-- Brian Hosh Cheddar
-- Riley Hexel
-
-This is solid work, Chris. You've got the contacts + the heart for it. People in bad spots need real options, not just a "sorry, foreclosed" notice.
-
-**Next step:** Get connected with those three, map out what the program looks like, and see if there's a real play here.
-
-Got it logged. Let me know once you've had initial conversations with Adam, Brian, and Riley — I'll help you track momentum on this.
-[Agent Green Thumb]: How so net David Garcia on Saturday at the Texas store? Even at fenrick's nursery, David Garcia is the founder of greenies. And that's another place that I would like to look into, for volunteering. Sometime and get some mode, David and all the programs that the city offers for our gardening groups. As well as the neighbors and community in general on another side note, Joe mentioned that we could potentially use the Greenbelt the $100. Of their house is to garden.Batman be a good project for the composting group and just the community in general
-[Sirhc]: **Saturday Meet-up Logged:**
-
-David Garcia — Texas Store + Fenrick's Nursery. He's the Greenies founder. You want to:
-- Explore volunteering opportunities
-- Learn about city programs for gardening groups
-- Community/neighbor connection angle
-
-**Also noted:**
-Joe mentioned Greenbelt potential ($100 house?) — composting group project + community benefit.
-
-This is good soil to till, Chris. Community roots = repeat business + genuine relationships.
-
-**Next:** Touch base with David on Saturday, get the lay of the land on those programs, then loop back with Joe on the Greenbelt composting angle.
-
-Got it locked. Update me after Saturday.
-[Agent Green Thumb]: The neighbor jill mentioned this and there is no hundred dollar house and we can scratch that part. I've hoped chill with her new fridge and I was just over there earlier today. To take her old fridge out to the curb, I ended app stopping at H Eb and grabbed her some garlic bread to go with the beans and rice that she made and shared with us. I also left her a $100 gift card to the grocery store
-I need to get with josh.Lending tips lt about a potential reverse mortgage type situation to update. Joe's house and get her out of some debt. We need to ask him about what sort of options we have. And reach out to other potential resources that could help her out
-[Sirhc]: **Jill Update — Scratch the "$100 house":**
-- You helped her move her old fridge today
-- Grabbed garlic bread to pair with her beans & rice
-- Left her a $100 grocery gift card
-
-That's solid neighbor work, Chris. Real help, no strings.
-
-**New Priority — Jill's Financial Situation:**
-- **Josh/LT (lending tips)** — reverse mortgage options for Jill's house to clear debt
-- Need to explore what options exist
-- Research other resources that could help her
-
-**Next steps:** Call Josh about reverse mortgage feasibility for Jill, then identify 2-3 other resources (nonprofits, county programs, etc.) that might assist.
-
-Got it logged. Let me know what Josh says — could be a real lifeline for her.
