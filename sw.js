@@ -1,4 +1,4 @@
-const CACHE = 'tgr-cockpit-v2';
+const CACHE = 'tgr-cockpit-v3';
 const ASSETS = ['/cockpit/', '/cockpit/index.html', '/cockpit/manifest.json'];
 
 self.addEventListener('install', e => {
