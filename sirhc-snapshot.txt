@@ -1,5 +1,5 @@
 [SIRHC — APP SNAPSHOT]
-Date: Monday, April 27, 2026 at 11:02 PM
+Date: Monday, April 27, 2026 at 11:05 PM
 Day Type: IN
 Calls Made: 0 / 5
 
@@ -86,27 +86,6 @@ Total Miles: 96 · Total Spent: $12.05
 [Idea] VA Rate Buy-Down — The Math | Facebook, Instagram — Visual showing nothing down + rate buy-down vs 3% down. Use the math box data.
 
 ## Field Chat Log (last 10)
-[Agent Green Thumb]: For Nick and Julie, we got to talk with Zach today, music and Julie. I need to follow-up with Nick on the summary that Zach sent out for them to. Are you still using no? What the next steps are? And we're waiting on some income documents for Nick. They may have to finance F. HA or creative financing? Just based on their credit history and not being able to qualify VA. will have more details from Zach. In the next day or so.
-[Sirhc]: Got it. Let me parse this:
-
-**Nick & Julie Status:**
-- Had call with Zach today (+ music contact)
-- **Action needed:** Follow up with Nick on Zach's summary
-- **Blocker:** Waiting on income documents from Nick
-- **Financing path:** FHA or creative — VA won't work due to credit history
-- **Next intel:** Zach has more details coming in next day or so
-
-So you're waiting on docs from Nick, then Zach sends full picture, then you can firm up financing strategy with Julie & Nick.
-
-Got it logged. Sync when you have Zach's follow-up so we know which direction to point them.
-[Agent Green Thumb]: What do we need to do to connect the google calendar properly
-[Sirhc]: That's outside my wheelhouse, Chris. Google Calendar integration would be a command center (backend system) setup issue — not field operations.
-
-You'd need to check with your eXp tech support or whoever handles your CRM/calendar sync. Could also be a settings thing on your end.
-
-What I *can* do: manage your task reminders and deal timeline verbally through our end-of-day debriefs. Not as slick as auto-sync, but it works.
-
-Need anything else for today's deals?
 [Agent Green Thumb]: Okay, but can you update back?And forth to command center yet
 [Sirhc]: Not yet. Right now I'm pulling intel *from* you in real-time, logging it here, and surfacing reminders at debrief — but I can't push updates back to a centralized command center system automatically.
 
@@ -134,3 +113,27 @@ Got it logged. When you connect with them today, drop me the updates and I'll kn
 Isaac's being a good partner. Remind yourself to take care of that sooner rather than later.
 
 Got it logged. Surface this at end of day so you remember to reach out to Isaac before momentum dies.
+[Agent Green Thumb]: I made a few calls to lending tips, new construction leads lending tips.Is josh or lt homeland California. He's a lender and investor who started a big part of our real estate group, and what it is today. I'm working with him on making more these calls. So that he can hook me up with call list that are for local properties.
+[Sirhc]: **Got it logged:**
+
+Josh/LT — lender & investor, key player in building your real estate group. You're doing lending tip calls + new construction lead calls *with* him so he can build you a solid local property call list.
+
+That's smart collaboration — he gets intel, you get qualified leads.
+
+Keep me posted on what call list he sends over. When that lands, let me know and I'll help you prioritize who to hit first.
+[Agent Green Thumb]: Kelly, Jennings also reached out about putting together a program that helps people in pre-foreclosure status to give them some options on getting out of their homes or potentially saving. And staying in their homes, I love to get connected with Adam. West and also Brian hosh cheddar
+And riley hexel, I got this opportunity to see if we can make a change, and this broken system, I have people that are overqualified are just in situations that they can no longer afford their homes.
+[Sirhc]: **Pre-Foreclosure Program — New Opportunity:**
+
+Kelly Jennings reached out about building a program for pre-foreclosure homeowners — options to exit cleanly or save the home.
+
+**Connections needed:**
+- Adam West
+- Brian Hosh Cheddar
+- Riley Hexel
+
+This is solid work, Chris. You've got the contacts + the heart for it. People in bad spots need real options, not just a "sorry, foreclosed" notice.
+
+**Next step:** Get connected with those three, map out what the program looks like, and see if there's a real play here.
+
+Got it logged. Let me know once you've had initial conversations with Adam, Brian, and Riley — I'll help you track momentum on this.
