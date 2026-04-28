@@ -1,5 +1,5 @@
 [SIRHC — APP SNAPSHOT]
-Date: Monday, April 27, 2026 at 10:59 PM
+Date: Monday, April 27, 2026 at 11:02 PM
 Day Type: IN
 Calls Made: 0 / 5
 
@@ -48,10 +48,13 @@ Colton Brown | SELLER LEAD | Stage: — | Last Contact: — | Next: Reach out ·
 Kurt — 9815 Conbes | NEIGHBOR PROSPECT | Stage: — | Last Contact: — | Next: Follow up with listing agent on 9815 Conbes · report back to Kurt · determine if buyer or seller
   Log (Apr 15): Spoke with Kurt — interested in nearby listing details at $275K
 Julie & Nick | VETERAN BUYER | Stage: — | Last Contact: — | Next: Connect to lenders (Zach + Erik) · pull credit · determine VA entitlement status · map 2-3 options once financials known
+  Log (Apr 27, 2026 11:00 PM): Julie and I met with sack tickets, some initial figure started. It seems like they may have to qualify fha or go a creative route based on their credit history and late payments. Nick is going to get all of the information. The Zack needs for income, and we will see where it goes from there. Sax also, getting us connected with a financial advisor Mia, and she is going to see what we can do to help them out on that side. Julie said that Nick had already reached out to somebody, and it was going to cost upwards of $1600. So find out if he's already done that. And if neo would be a more realistic option for them to use
   Log (Apr 24): New lead. Julie 100% disabled veteran — VA funding fee waived. Nick long-haul trucker. Prior debt/foreclosure in background. Open to manufactured home with good outdoor space. Lender connections next.
 
 --- TASKS ---
-[    ] Call lien holder — Coughran Rd [Urgent]
+[DONE] Call lien holder — Coughran Rd [Urgent]
+       Log (Apr 27, 2026 11:01 PM): This transaction is closed and funded
+as of today
 [    ] Follow up Pamela M. [Hot Lead]
 [    ] Call Kelly — 181 CR 7751 police report [Deal]
 [    ] Follow up Kendall — 181 CR 7751 [Deal]
@@ -64,6 +67,7 @@ Julie & Nick | VETERAN BUYER | Stage: — | Last Contact: — | Next: Connect to
 [    ] Essie shout out — video post [Team]
 [    ] Pull James Drause from Bold Trail [Investor]
 [    ] Gather tax info for wife [Urgent]
+       Log (Apr 27, 2026 11:01 PM): This needs to get finished asap
 
 --- EXPENSES (2026-04) ---
 Total Miles: 96 · Total Spent: $12.05
