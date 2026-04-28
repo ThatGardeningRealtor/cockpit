@@ -1,5 +1,5 @@
 [SIRHC — APP SNAPSHOT]
-Date: Monday, April 27, 2026 at 10:51 PM
+Date: Monday, April 27, 2026 at 10:58 PM
 Day Type: IN
 Calls Made: 0 / 5
 
@@ -10,9 +10,9 @@ Calls Made: 0 / 5
 
 --- ACTIVE DEALS ---
 8449 Coughran Rd | — | Stage: 3 | Lien release signed by Fernando Castillo + delivered to Alyssa at Chicago Title Apr 21 ✓ · Buyer agent: Sam VanDenheuvel (Exquisite SA) · Joy signing at UPS Store when title clears · Thank you basket planned for Michael + UPS Store
+  Log (Apr 27, 2026 10:58 PM): We've officially closed and gotten everyone funded. This transaction is now closed. We need a follow up process to get joy, this rug and the trollery that I want to send out to her. Also follow up with the buyers a chant sam to thank her once again and see if there is any sort of follow up lunch or coffee that we could get together on.
   Log (Apr 26, 2026 1:13 PM): Cleared,  funded and closed.
   Log (Apr 21): Fernando signed lien release — delivered to Alyssa at Chicago Title ✓. Joy confirmed as conservator — will sign at UPS Store when ready. Alyssa coordinating.
-  Log (Apr 19): Chicago Title underwriting: full lien release required — no workaround. Lien was prepared at Deeds.com, not Reliable Title.
 181 CR 7751 | — | Stage: 0 | Bank took home back Dec — damage was after bank possession (not prior occupant). Kendall pricing high — shopping alternatives. Self-manage option (dumpster + coordination fee) being explored. Pedro = hold referrals (bad Nextdoor report).
   Log (Apr 16): Kelly confirmed damage was after bank possession — liability shifts away from son. Matt Van Gorder site visit + police report with Deputy Munoz. Kendall pricing flagged high.
   Log (Apr 15): Lawyer Deborah Geiger confirmed son caused damage. Deputy Munoz took info — bank or lawyer needs to initiate formal report.
@@ -82,31 +82,6 @@ Total Miles: 96 · Total Spent: $12.05
 [Idea] VA Rate Buy-Down — The Math | Facebook, Instagram — Visual showing nothing down + rate buy-down vs 3% down. Use the math box data.
 
 ## Field Chat Log (last 10)
-[Agent Green Thumb]: Could you give me an itemized list of miles and expenses I've logged please?
-[Sirhc]: Chris, I don't have mileage or expense logs in my current system. That's tracked separately — likely in your eXp portal, accounting software, or whatever you're using for tax/reimbursement purposes.
-
-What I *do* have: your active deal locations (Pleasanton, Devine, Priority Bank foreclosure). If you need to calculate miles between them or from your office, I can help map that out.
-
-For detailed expense reports, you'll need to check your backend accounting tool directly. Want me to flag anything specific you need to remember to log today?
-[Agent Green Thumb]: Set a task to send LT aka Josh Massieh the info on 6310 Robin Forest wholesale deal .  Send nick and Julie info to LT for follow up.
-[Sirhc]: Got it locked in.
-
-**Task:** Send LT (Josh Massieh) the 6310 Robin Forest wholesale deal info + Nick & Julie's contact details for follow-up.
-
-I'll surface this at end-of-day debrief so you don't miss it. You want me to remind you before you log off, or handle it a specific time?
-[Agent Green Thumb]: We need to add a new client to our database.  Jose and Kathryn Arango. I just sent them the listing agreement today. We need to follow up with them tomorrow. This lead came in through Isaac. The mobile home guy I also wanna get him connected with julie and nick or some creative finance options that might work with their situation.And also get them connected with mike and alice to see if he has anything available for them.I'm gonna kill him and anyone who tries to stop.I will fill you in with all the details as soon as I get the signed contract back from them.
-[Sirhc]: **New Client Logged:**
-- **Jose & Kathryn Arango** — listing agreement sent today
-- **Source:** Isaac
-- **Property Type:** Mobile home
-- **Follow-up:** Tomorrow
-- **Connections to make:**
-  1. Julie & Nick (creative finance options)
-  2. Mike & Alice (availability check)
-
-Clear on the priority. Once you get that signed contract back, drop the details and I'll have everything ready to coordinate those connections.
-
-You're locked in. Talk tomorrow.
 [Agent Green Thumb]: For Nick and Julie, we got to talk with Zach today, music and Julie. I need to follow-up with Nick on the summary that Zach sent out for them to. Are you still using no? What the next steps are? And we're waiting on some income documents for Nick. They may have to finance F. HA or creative financing? Just based on their credit history and not being able to qualify VA. will have more details from Zach. In the next day or so.
 [Sirhc]: Got it. Let me parse this:
 
@@ -120,3 +95,38 @@ You're locked in. Talk tomorrow.
 So you're waiting on docs from Nick, then Zach sends full picture, then you can firm up financing strategy with Julie & Nick.
 
 Got it logged. Sync when you have Zach's follow-up so we know which direction to point them.
+[Agent Green Thumb]: What do we need to do to connect the google calendar properly
+[Sirhc]: That's outside my wheelhouse, Chris. Google Calendar integration would be a command center (backend system) setup issue — not field operations.
+
+You'd need to check with your eXp tech support or whoever handles your CRM/calendar sync. Could also be a settings thing on your end.
+
+What I *can* do: manage your task reminders and deal timeline verbally through our end-of-day debriefs. Not as slick as auto-sync, but it works.
+
+Need anything else for today's deals?
+[Agent Green Thumb]: Okay, but can you update back?And forth to command center yet
+[Sirhc]: Not yet. Right now I'm pulling intel *from* you in real-time, logging it here, and surfacing reminders at debrief — but I can't push updates back to a centralized command center system automatically.
+
+Think of it this way: I'm your field notepad that talks back. Command center handles the heavy infrastructure lift.
+
+If that changes down the line, you'll know. For now, keep feeding me updates like you're doing — I'll keep them sharp and organized for you.
+
+Anything else on the active deals?
+[Agent Green Thumb]: I need to check-in with Matt and Chandler. Income is the solar drive property information that I sent over. And any next steps also follow up with the recent calls.And showings on the property and goberto, with the seller finance option.
+[Sirhc]: **Follow-up needed:**
+
+1. **Matt & Chandler** (Sollock sellers) — Check income docs you sent on solar drive property + next steps
+2. **Recent calls follow-up** — clarify which ones, but I'll flag at debrief
+3. **Showings on property** — status check
+4. **Gilberto** — seller finance option update (those buyers still wishy-washy?)
+
+Got it logged. When you connect with them today, drop me the updates and I'll know where we stand on Sollock pricing conversation + whether that short sale angle is real.
+[Agent Green Thumb]: I've had a lot of showings and interest in the burgers road. Property Isaac also said that he could call in a couple favors to get us. Rough estimates on utility costs for that property. So be sure to follow-up with him on that. And you need to take him out to lunch or find a way to pay him back on some of the stuff
+[Sirhc]: **Burgers Road Property — Hot:**
+- Lots of showings + solid interest
+- **Isaac connection:** Can pull utility cost estimates (favors owed)
+- **Action:** Follow up with Isaac on those rough estimates
+- **Important:** You owe him lunch or a gesture — don't let that slip
+
+Isaac's being a good partner. Remind yourself to take care of that sooner rather than later.
+
+Got it logged. Surface this at end of day so you remember to reach out to Isaac before momentum dies.
