@@ -462,7 +462,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
 <div id="t-leads" class="tab"><div class="sec"><div id="lead-list"></div></div><div class="spacer"></div></div>
 <div id="t-tasks" class="tab"><div id="alert-bar-tasks"></div><div class="sec"><div class="sec-t">Today's Tasks</div><div id="task-list"></div></div><div class="spacer"></div></div>
 <div id="t-content" class="tab"><div class="sec"><div class="sec-t">Content Pipeline</div><div id="content-list"></div></div><div class="spacer"></div></div>
-<div id="t-vendors" class="tab"><div class="sec"><div class="sec-t">Contractors</div><div id="vend-contractors" class="v-grid"></div><div class="sec-t">Title & Lenders</div><div id="vend-lenders" class="v-grid"></div><div class="sec-t">Team</div><div id="vend-team" class="v-grid"></div><div class="sec-t">Loan Programs</div><div id="loan-list"></div><div class="mb"><div class="mb-t">VA Rate Buy-Down — The Math</div><div class="mb-r"><span>Nothing down @ 6.5%</span><span>$1,814/mo</span></div><div class="mb-r"><span>3% down @ 6.5%</span><span>$1,766/mo</span></div><div class="mb-r w"><span>$0 down + $7.5K buy-down @ 5.5%</span><span>$1,650/mo ✅</span></div><div class="mb-tip">Always buy the rate down, not the down payment.</div></div></div><div class="foot">Built by <span>Sirhc</span> · v0.17 · Apr 19 · That Gardening Realtor AI Team<br><span style="opacity:.6;font-size:9px">Data auto-saves to this device</span></div><div class="spacer"></div></div>
+<div id="t-vendors" class="tab"><div class="sec"><div class="sec-t">Community 🌱</div><div id="vend-community" class="v-grid"></div><div class="sec-t">Contractors</div><div id="vend-contractors" class="v-grid"></div><div class="sec-t">Title & Lenders</div><div id="vend-lenders" class="v-grid"></div><div class="sec-t">Team</div><div id="vend-team" class="v-grid"></div><div class="sec-t">Loan Programs</div><div id="loan-list"></div><div class="mb"><div class="mb-t">VA Rate Buy-Down — The Math</div><div class="mb-r"><span>Nothing down @ 6.5%</span><span>$1,814/mo</span></div><div class="mb-r"><span>3% down @ 6.5%</span><span>$1,766/mo</span></div><div class="mb-r w"><span>$0 down + $7.5K buy-down @ 5.5%</span><span>$1,650/mo ✅</span></div><div class="mb-tip">Always buy the rate down, not the down payment.</div></div></div><div class="foot">Built by <span>Sirhc</span> · That Gardening Realtor AI Team<br><span style="opacity:.6;font-size:9px">Data auto-saves to this device</span></div><div class="spacer"></div></div>
 
 
 <!-- CHAT TAB -->
@@ -625,8 +625,19 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
 
 
 <script>
+const community=[
+  {id:'cm1',name:'David Garcia',connection:'Greenies founder · met at Fenrick\'s Nursery Apr 28',lastTouch:'Apr 28',tags:['Garden','Community'],phone:'',note:'Wants to explore volunteering + city programs for gardening groups. Follow up on Greenies involvement.'},
+  {id:'cm2',name:'Jill',connection:'Neighbor · helped with fridge + groceries + $100 gift card Apr 28',lastTouch:'Apr 28',tags:['Neighbor'],phone:'',note:'Possible reverse mortgage conversation via Josh/LT. Relationship first — no pressure.'},
+  {id:'cm3',name:'Ashton',connection:'Yard maintenance · met Apr 28 after Green Bliss',lastTouch:'Apr 28',tags:['Vendor','Community'],phone:'',note:'Potential cross-referral partner. Get areas covered + referral arrangement.'},
+  {id:'cm4',name:'Josh / LT',connection:'Lender + investor · co-prospecting on lending tips + new construction leads',lastTouch:'Apr 28',tags:['Lender','Investor'],phone:'',note:'Building a local property call list together. Follow up when call list is ready. Also explore reverse mortgage for Jill.'},
+  {id:'cm5',name:'Brandon Moran',connection:'Legacy contact · Chris helped him get started in RE',lastTouch:'Apr 28',tags:['Investor','Community'],phone:'',note:'Green Bliss rental setup + mom new construction buyer. Long-term relationship.'},
+  {id:'cm6',name:'Kelly Jennings',connection:'Pre-foreclosure program opportunity',lastTouch:'Apr 28',tags:['Community','Business'],phone:'',note:'Wants to build program helping pre-foreclosure homeowners. Connect with Adam West, Brian Hosh Cheddar, Riley Hexel.'},
+  {id:'cm7',name:'Isaac Linares',connection:'Linares Capital LLC · referral partner · Mill Path + Borregas',lastTouch:'Apr 21',tags:['Investor','Referral'],phone:'210-978-2841',note:'Owes Isaac lunch. Referral for Mill Path. ~$150K development interest in Borregas. Utility cost estimates pending for Borregas.'},
+  {id:'cm8',name:'Sallie Mae F.',connection:'Nextdoor · memory garden for daughter she lost',lastTouch:'Apr 15',tags:['Community','Garden'],phone:'',note:'Get to next plant share. Offer 3 starter plants. Ask permission for her story — Violet content potential.'}
+];
+
 // ← bump version here on every update
-const APP_VERSION = 'v0.21 · Apr 28';
+const APP_VERSION = 'v0.22 · Apr 28';
 
 // Known issues surfaced in the post-sync recap modal
 const APP_KNOWN_ISSUES = [
@@ -781,8 +792,12 @@ function renderAlerts(){
 function renderDeals(){
   const active=deals.filter(d=>d.cls!=='cls');
   const closed=deals.filter(d=>d.cls==='cls');
+  const maxStage=STAGES.length-1;
   document.getElementById('deal-list').innerHTML=active.map(d=>`
-    <div class="card ${d.cls}" onclick="openDeal('${d.id}')"><div class="card-row"><div><div class="card-title">${d.title} — ${d.loc}</div><div class="card-sub">${d.notes}</div></div><div style="display:flex;align-items:center;gap:6px">${d.cls==='urg'?'<span class="pd"></span>':''}<span class="chip chip-${d.chipC}">${d.chip}</span></div></div>
+    <div class="card ${d.cls}" onclick="openDeal('${d.id}')">
+    <div style="height:3px;background:var(--warm);border-radius:2px;margin-bottom:10px;overflow:hidden"><div style="height:100%;width:${Math.round((d.stage/maxStage)*100)}%;background:${d.cls==='urg'?'var(--rust)':d.cls==='act'?'var(--moss)':'var(--gold)'};border-radius:2px;transition:width .4s ease"></div></div>
+    <div class="card-row"><div><div class="card-title">${d.title} — ${d.loc}</div><div class="card-sub">${d.notes.split('·')[0].trim()}</div></div><div style="display:flex;align-items:center;gap:6px">${d.cls==='urg'?'<span class="pd"></span>':''}<span class="chip chip-${d.chipC}">${d.chip}</span></div></div>
+    <div style="font-size:10px;color:var(--muted);margin-top:4px">${STAGES[d.stage]} · Stage ${d.stage+1} of ${maxStage+1}</div>
     <div style="font-size:11px;color:var(--moss);font-weight:500;margin-top:8px;padding-top:8px;border-top:1px solid var(--parch)">➡ ${d.next.split('\n')[0]}</div>
     ${d.phone?`<div style="font-size:12px;color:var(--sky);margin-top:4px;font-weight:600"><a href="tel:${d.phone.replace(/\D/g,'')}" style="color:inherit;text-decoration:none">📞 ${d.phone}</a></div>`:''}</div>`).join('')
   +(closed.length?`<div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);padding:16px 0 8px;opacity:.6">✅ Closed (${closed.length})</div>`+closed.map(d=>`<div class="card hold" onclick="openDeal('${d.id}')" style="opacity:.45"><div class="card-row"><div class="card-title" style="text-decoration:line-through">${d.title}</div><span class="chip chip-g">Closed</span></div></div>`).join(''):'');
@@ -877,6 +892,26 @@ function renderVendors(){
       ${v.note?`<div class="v-note">${v.note}</div>`:''}
       ${v.phone?`<div class="v-phone"><a href="tel:${v.phone.replace(/\D/g,'')}" onclick="event.stopPropagation()">📞 ${v.phone}</a></div>`:''}</div>`).join('');
   });
+  const commEl=document.getElementById('vend-community');
+  if(commEl)commEl.innerHTML=community.map(c=>`
+    <div class="v-card" onclick="openCommunity('${c.id}')">
+      <div class="v-role">${c.tags.join(' · ')}</div>
+      <div class="v-name">${c.name}</div>
+      <div class="v-note">${c.connection}</div>
+      <div style="font-size:9px;color:var(--muted);margin-top:4px">Last touch: ${c.lastTouch}</div>
+      ${c.phone?`<div class="v-phone"><a href="tel:${c.phone.replace(/\D/g,'')}" onclick="event.stopPropagation()">📞 ${c.phone}</a></div>`:''}</div>`).join('');
+}
+
+function openCommunity(id){
+  const c=community.find(x=>x.id===id);if(!c)return;
+  document.getElementById('mBody').innerHTML=`
+    <div class="m-title">${c.name}</div>
+    <div class="m-type"><span>🌱</span>${c.tags.join(' · ')}</div>
+    <div class="d-field"><div class="d-label">Connection</div><div class="d-notes">${c.connection}</div></div>
+    <div class="d-field"><div class="d-label">Notes</div><div class="d-notes">${c.note}</div></div>
+    <div class="d-field"><div class="d-label">Last Touch</div><div class="d-val">${c.lastTouch}</div></div>
+    ${c.phone?`<div class="d-field"><div class="d-label">Phone</div><button onclick="confirmCall('${c.phone}','${c.name}')" class="d-phone" style="border:none;cursor:pointer">📞 ${c.phone}</button></div>`:''}`;
+  openModal();
 }
 
 
