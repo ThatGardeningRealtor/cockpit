@@ -423,8 +423,8 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
 
 
 <div class="stats">
-  <div class="st" onclick="showTab('deals')"><div class="st-n" id="dCnt">5</div><div class="st-l">Active Deals</div></div>
-  <div class="st" onclick="showTab('leads')"><div class="st-n" id="lCnt">4</div><div class="st-l">Live Leads</div></div>
+  <div class="st" onclick="toggleStatPop('deals')"><div class="st-n" id="dCnt">5</div><div class="st-l">Active Deals</div></div>
+  <div class="st" onclick="toggleStatPop('leads')"><div class="st-n" id="lCnt">4</div><div class="st-l">Live Leads</div></div>
   <div class="st"><div class="cc"><button class="cb" onclick="adjC(-1)">−</button><div class="cn" id="cCnt">0</div><button class="cb" onclick="adjC(1)">+</button></div><div class="cg">goal: 5 calls</div><div class="cprog"><div class="cfill" id="cFill" style="width:0%"></div></div></div>
 </div>
 <div class="qbar">
@@ -625,7 +625,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
 
 <script>
 // ← bump version here on every update
-const APP_VERSION = 'v0.18 · Apr 28';
+const APP_VERSION = 'v0.19 · Apr 28';
 
 // Known issues surfaced in the post-sync recap modal
 const APP_KNOWN_ISSUES = [
@@ -807,7 +807,9 @@ function renderTasks(){
       <div style="font-size:11px;color:var(--muted);margin-top:3px">${t.meta}</div>
       <span class="${t.tagC}" style="display:inline-block;font-size:9px;font-weight:700;padding:2px 8px;border-radius:10px;text-transform:uppercase;letter-spacing:.6px;margin-top:5px">${t.tag}</span>
       ${t.notes?'<div style="font-size:10px;color:var(--sage-c);margin-top:4px">📝 Has notes</div>':''}
-      ${!t.done?'<div class="swipe-hint">← swipe to complete</div>':''}</div></div>`).join('');
+      ${!t.done?'<div class="swipe-hint">← swipe to complete</div>':''}
+      ${!t.done?`<div onclick="event.stopPropagation();addToCalendar('${t.id}')" style="display:inline-flex;align-items:center;gap:4px;margin-top:6px;font-size:10px;font-weight:700;color:var(--sky);padding:3px 8px;border-radius:10px;border:1px solid var(--sky);background:rgba(74,138,181,.08);cursor:pointer">📅 Add to Calendar</div>`:''}
+      </div></div>`).join('');
   // Attach swipe listeners
   tasks.forEach(t=>{
     const card=document.getElementById('tc-'+t.id);
@@ -901,7 +903,7 @@ function openDeal(id){
   const statusBtns=statuses.map(s=>`<button onclick="setDealStatus('${id}','${s.v}')" style="padding:6px 10px;border-radius:6px;border:1.5px solid ${d.cls===s.v?'var(--moss)':'var(--border)'};background:${d.cls===s.v?'var(--moss)':'var(--card)'};color:${d.cls===s.v?'#fff':'var(--text)'};font-size:12px;cursor:pointer;margin:2px">${s.label}</button>`).join('');
   document.getElementById('mBody').innerHTML=`<div class="m-title">${d.title} — ${d.loc}</div><div class="m-type"><span style="font-size:16px">🏡</span>${d.type}</div>
     <div class="stg"><div class="stg-dots">${stgHTML}</div><div class="stg-labs">${labHTML}</div><div class="stg-cur">Current stage: ${STAGES[d.stage]}</div></div>
-    ${d.contact?`<div class="d-field"><div class="d-label">Contact</div><div class="d-val">${d.contact}</div>${d.phone?`<a href="tel:${d.phone.replace(/\D/g,'')}" class="d-phone">📞 ${d.phone}</a>`:''}</div>`:''}
+    ${d.contact?`<div class="d-field"><div class="d-label">Contact</div><div class="d-val">${d.contact}</div>${d.phone?`<button onclick="confirmCall('${d.phone}','${d.contact}')" class="d-phone" style="border:none;cursor:pointer">📞 ${d.phone}</button>`:''}</div>`:''}
     <div class="d-field"><div class="d-notes">${d.notes}</div></div>
     <div class="d-field"><div class="d-label">Status</div><div id="deal-status-row" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:6px">${statusBtns}</div></div>
     <div class="d-field"><div class="d-label">Next Action</div><textarea class="m-notes-area" id="dealNext" placeholder="What's the next step?">${d.next}</textarea><div style="font-size:10px;color:var(--muted);margin-top:4px">Updates the card's next step.</div></div>
@@ -941,7 +943,7 @@ function openLead(id){
   const statusBtns=statuses.map(s=>`<button onclick="setLeadStatus('${id}','${s.v}')" style="padding:6px 10px;border-radius:6px;border:1.5px solid ${l.cls===s.v?'var(--rust)':'var(--border)'};background:${l.cls===s.v?'var(--rust)':'var(--card)'};color:${l.cls===s.v?'#fff':'var(--text)'};font-size:12px;cursor:pointer;margin:2px">${s.label}</button>`).join('');
   document.getElementById('mBody').innerHTML=`<div class="m-title">${l.title}</div><div class="m-type"><span style="font-size:16px">${l.tag}</span>${l.type}</div>
     ${l.tags?`<div class="d-field"><div class="d-label">Tags</div><div class="tag-row">${tagsHTML(l.tags)}</div></div>`:''}
-    ${l.phone?`<div class="d-field"><div class="d-label">Phone</div><a href="tel:${l.phone.replace(/\D/g,'')}" class="d-phone">📞 ${l.phone}</a></div>`:''}
+    ${l.phone?`<div class="d-field"><div class="d-label">Phone</div><button onclick="confirmCall('${l.phone}','${l.title}')" class="d-phone" style="border:none;cursor:pointer">📞 ${l.phone}</button></div>`:''}
     <div class="d-field"><div class="d-label">Details</div><div class="d-notes">${l.detail}</div></div>
     <div class="d-field"><div class="d-label">Status</div><div id="lead-status-row" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:6px">${statusBtns}</div></div>
     <div class="d-field"><div class="d-label">Next Action</div><textarea class="m-notes-area" id="leadNext" placeholder="What's the next step?">${l.next}</textarea><div style="font-size:10px;color:var(--muted);margin-top:4px">Updates the card's next step.</div></div>
@@ -1284,6 +1286,37 @@ async function submitToTeam(rbId,rId,label,prefix,content){
     body.innerHTML=`<strong>Copied to clipboard ✅</strong><br><br><span style="font-size:12px;color:var(--muted)">Inbox save needs Dropbox folder access — tap the button again and select your <strong>TGR-AI-Team</strong> folder when prompted.<br><br>For now, paste into your Claude Desktop session — routes to ${label} automatically.</span><br><br><div style="background:var(--parch);border-radius:8px;padding:10px;font-size:11px;color:var(--muted);white-space:pre-wrap;margin-top:8px">${content}</div>`;
   }
   card.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function toggleStatPop(type){
+  const existing=document.getElementById('stat-pop');
+  if(existing){existing.remove();if(existing.dataset.type===type)return;}
+  const items=type==='deals'?deals.filter(d=>d.cls!=='cls'):leads.filter(l=>l.cls!=='cls');
+  const pop=document.createElement('div');
+  pop.id='stat-pop';pop.dataset.type=type;
+  pop.style.cssText='position:fixed;top:120px;left:0;right:0;background:var(--soil);z-index:450;padding:12px 16px;box-shadow:0 4px 20px rgba(0,0,0,.4);border-bottom:2px solid var(--moss);animation:fi .2s ease';
+  pop.innerHTML=`<div style="font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--sage-c);margin-bottom:8px">${type==='deals'?'Active Deals':'Live Leads'} <span style="float:right;cursor:pointer;opacity:.6" onclick="document.getElementById('stat-pop').remove()">✕</span></div>`+items.map(i=>`<div onclick="document.getElementById('stat-pop').remove();${type==='deals'?`openDeal('${i.id}')`:`openLead('${i.id}')`}" style="padding:7px 0;border-bottom:1px solid rgba(255,255,255,.06);cursor:pointer;display:flex;justify-content:space-between;align-items:center"><span style="font-size:12px;font-weight:600;color:var(--cream)">${i.title}</span><span class="chip chip-${i.chipC}" style="font-size:9px">${i.chip}</span></div>`).join('');
+  document.body.appendChild(pop);
+  setTimeout(()=>{document.addEventListener('touchstart',function h(e){if(!pop.contains(e.target)){pop.remove();document.removeEventListener('touchstart',h);}},{once:false});},100);
+}
+
+function addToCalendar(taskId){
+  const t=tasks.find(x=>x.id===taskId);if(!t)return;
+  const title=encodeURIComponent(t.title);
+  const details=encodeURIComponent(t.meta||'');
+  const now=new Date();
+  const start=now.getFullYear()+''+String(now.getMonth()+1).padStart(2,'0')+''+String(now.getDate()).padStart(2,'0');
+  const url=`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&dates=${start}/${start}`;
+  window.open(url,'_blank');
+}
+
+function confirmCall(phone,name){
+  const btn=event.currentTarget;
+  if(btn.dataset.confirmed==='1'){window.location.href='tel:'+phone.replace(/\D/g,'');btn.dataset.confirmed='0';btn.textContent='📞 '+phone;btn.style.background='var(--moss)';return;}
+  btn.dataset.confirmed='1';
+  btn.textContent='Tap again to call '+name;
+  btn.style.background='var(--gold)';
+  setTimeout(()=>{btn.dataset.confirmed='0';btn.textContent='📞 '+phone;btn.style.background='var(--moss)';},3000);
 }
 
 function togglePartner(){
