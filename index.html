@@ -625,7 +625,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
 
 <script>
 // ← bump version here on every update
-const APP_VERSION = 'v0.19 · Apr 28';
+const APP_VERSION = 'v0.20 · Apr 28';
 
 // Known issues surfaced in the post-sync recap modal
 const APP_KNOWN_ISSUES = [
@@ -757,7 +757,8 @@ function renderPriorities(){
 
 
 function renderPipelineSnap(){
-  document.getElementById('pipe-snap').innerHTML=deals.map(d=>`
+  const active=deals.filter(d=>d.cls!=='cls');
+  document.getElementById('pipe-snap').innerHTML=active.map(d=>`
     <div class="card ${d.cls}" onclick="openDeal('${d.id}')"><div class="card-row"><div><div class="card-title">${d.title}</div><div class="card-sub">${d.notes.split('·')[0].trim()}</div></div><span class="chip chip-${d.chipC}">${d.chip}</span></div></div>`).join('');
 }
 
@@ -777,10 +778,13 @@ function renderAlerts(){
 }
 
 function renderDeals(){
-  document.getElementById('deal-list').innerHTML=deals.map(d=>`
+  const active=deals.filter(d=>d.cls!=='cls');
+  const closed=deals.filter(d=>d.cls==='cls');
+  document.getElementById('deal-list').innerHTML=active.map(d=>`
     <div class="card ${d.cls}" onclick="openDeal('${d.id}')"><div class="card-row"><div><div class="card-title">${d.title} — ${d.loc}</div><div class="card-sub">${d.notes}</div></div><div style="display:flex;align-items:center;gap:6px">${d.cls==='urg'?'<span class="pd"></span>':''}<span class="chip chip-${d.chipC}">${d.chip}</span></div></div>
     <div style="font-size:11px;color:var(--moss);font-weight:500;margin-top:8px;padding-top:8px;border-top:1px solid var(--parch)">➡ ${d.next.split('\n')[0]}</div>
-    ${d.phone?`<div style="font-size:12px;color:var(--sky);margin-top:4px;font-weight:600"><a href="tel:${d.phone.replace(/\D/g,'')}" style="color:inherit;text-decoration:none">📞 ${d.phone}</a></div>`:''}</div>`).join('');
+    ${d.phone?`<div style="font-size:12px;color:var(--sky);margin-top:4px;font-weight:600"><a href="tel:${d.phone.replace(/\D/g,'')}" style="color:inherit;text-decoration:none">📞 ${d.phone}</a></div>`:''}</div>`).join('')
+  +(closed.length?`<div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);padding:16px 0 8px;opacity:.6">✅ Closed (${closed.length})</div>`+closed.map(d=>`<div class="card hold" onclick="openDeal('${d.id}')" style="opacity:.45"><div class="card-row"><div class="card-title" style="text-decoration:line-through">${d.title}</div><span class="chip chip-g">Closed</span></div></div>`).join(''):'');
 }
 
 
