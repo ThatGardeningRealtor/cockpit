@@ -637,18 +637,17 @@ const community=[
 ];
 
 // ← bump version here on every update
-const APP_VERSION = 'v0.22 · Apr 28';
+const APP_VERSION = 'v0.23 · Apr 29';
 
 // Known issues surfaced in the post-sync recap modal
-const APP_KNOWN_ISSUES = [
-  'Google Calendar not connected — calendar strip empty',
-];
+const APP_KNOWN_ISSUES = [];
 
 // ON-day batch tasks surfaced in the post-sync recap modal
 const APP_ON_DAY_TASKS = [
-  'Complete Google Calendar auth',
-  'Test full log→sync→read cycle',
-  'Add task from Tasks tab directly',
+  'Set tomorrow\'s 3 priorities before you close out',
+  'Log any mileage or expenses from today',
+  'Check Bold Trail for new leads or messages',
+  'Any field notes that need logging before morning?',
 ];
 
 const STAGES=['Pre-List','Listed','Offer','Under Contract','Title Clear','Closing','Closed'];
@@ -1757,12 +1756,9 @@ function showSyncRecap(dealCount,leadCount,hadMessage){
       <div class="d-label">Synced</div>
       <div class="d-val">${dealCount} deal${dealCount===1?'':'s'} with logs · ${leadCount} lead${leadCount===1?'':'s'} with logs${hadMessage?' · Sirhc message included':' · No Sirhc message'}</div>
     </div>
+    ${issuesHTML?`<div class="d-field"><div class="d-label">Known Issues</div>${issuesHTML}</div>`:''}
     <div class="d-field">
-      <div class="d-label">App Health — Known Issues</div>
-      ${issuesHTML||'<div class="m-log-entry" style="font-size:10px">No known issues.</div>'}
-    </div>
-    <div class="d-field">
-      <div class="d-label">ON Day Batch List</div>
+      <div class="d-label">Before You Close Out Today</div>
       ${tasksHTML}
     </div>
     <button onclick="closeModal()" style="width:100%;margin-top:8px;padding:12px;border-radius:12px;border:none;background:var(--moss);color:#fff;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">✓ Close</button>`;
