@@ -25,7 +25,7 @@
   --r:12px;--ease:.25s cubic-bezier(.4,0,.2,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:var(--text);min-height:100vh;font-size:14px;-webkit-font-smoothing:antialiased;padding-bottom:90px;overflow-x:hidden}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:var(--text);min-height:100vh;font-size:14px;-webkit-font-smoothing:antialiased;padding-bottom:24px;overflow-x:hidden}
 
 
 .hdr{background:linear-gradient(180deg,var(--soil),var(--soil-mid));padding:20px 20px 16px;position:sticky;top:0;z-index:100;border-bottom:3px solid var(--moss)}
@@ -142,12 +142,13 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
 .cp-posted{background:var(--warm);color:var(--muted)}
 
 
-.bnav{position:fixed;bottom:0;left:0;right:0;background:var(--soil);border-top:1px solid var(--bark);display:grid;grid-template-columns:repeat(5,1fr);z-index:500;padding-bottom:env(safe-area-inset-bottom);}
-.ni{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px 4px 6px;cursor:pointer;opacity:.55;transition:opacity var(--ease);position:relative;-webkit-tap-highlight-color:transparent;}
-.ni.on{opacity:1;}
-.ni-i{font-size:20px;line-height:1;}
-.ni-l{font-size:9px;font-weight:700;letter-spacing:.04em;margin-top:2px;text-transform:uppercase;color:var(--leaf);}
-.ni-badge{position:absolute;top:4px;right:calc(50% - 16px);min-width:16px;height:16px;border-radius:8px;background:#e53935;color:#fff;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 3px;}
+.tnav{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid rgba(255,255,255,.1);margin-top:10px}
+.tni{display:flex;flex-direction:column;align-items:center;padding:10px 4px 12px;cursor:pointer;opacity:.5;transition:opacity var(--ease),border-color var(--ease);position:relative;-webkit-tap-highlight-color:transparent;border-bottom:3px solid transparent}
+.tni.on{opacity:1;border-bottom-color:var(--moss)}
+.tni:active{opacity:.8}
+.tni-i{font-size:20px;line-height:1}
+.tni-l{font-size:9px;font-weight:700;letter-spacing:.5px;margin-top:3px;text-transform:uppercase;color:var(--leaf)}
+.tni-badge{position:absolute;top:7px;right:calc(50% - 15px);min-width:15px;height:15px;border-radius:8px;background:#e53935;color:#fff;font-size:8px;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 3px}
 
 
 .nav-drawer{position:fixed;top:0;left:0;height:100%;width:280px;background:var(--soil);z-index:600;transform:translateX(-100%);transition:transform .25s ease;display:flex;flex-direction:column;box-shadow:4px 0 24px rgba(0,0,0,.4);}
@@ -238,7 +239,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
 /* Command panel */
 .cpanel{position:fixed;bottom:0;left:0;right:0;background:var(--cream);border-radius:20px 20px 0 0;z-index:600;max-height:88vh;overflow-y:auto;transform:translateY(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);box-shadow:0 -8px 40px rgba(30,18,8,.25);overscroll-behavior:contain}
 .cpanel.open{transform:translateY(0)}
-.cp-tabs{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;padding:0 16px;margin-top:14px}
+.cp-tabs{display:grid;grid-template-columns:1fr 1fr 1fr;padding:0 16px;margin-top:14px}
 .cp-tab{padding:10px 0;text-align:center;font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;cursor:pointer;border-bottom:3px solid transparent;color:var(--muted);transition:all var(--ease)}
 .cp-tab.a-s{border-bottom-color:var(--moss);color:var(--moss)}
 .cp-tab.a-r{border-bottom-color:var(--gold);color:var(--gold-dim)}
@@ -413,7 +414,16 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
   </div>
 </div>
 
-<div class="hdr"><div class="hdr-top"><div style="display:flex;align-items:flex-start;gap:4px"><button onclick="openNav()" style="background:none;border:none;color:var(--leaf);font-size:24px;cursor:pointer;padding:4px 8px 4px 0;-webkit-tap-highlight-color:transparent;">☰</button><div><div class="brand">🌱 <em>That Gardening</em> Realtor</div><div class="greet" id="greet"></div></div></div><div style="display:flex;align-items:center;gap:8px"><button class="srch-icon" onclick="toggleSearch()" title="Search" style="font-size:22px;background:rgba(255,255,255,0.08);border-radius:8px;padding:6px 8px;">🔍</button><button onclick="openSettings()" style="background:rgba(255,255,255,0.08);border:none;border-radius:8px;padding:6px 8px;color:var(--leaf);font-size:22px;cursor:pointer;-webkit-tap-highlight-color:transparent;">⚙️</button><div class="dbadge ind" id="dbadge" onclick="openSchedule()" style="cursor:pointer">IN Day</div></div></div></div>
+<div class="hdr">
+<div class="hdr-top"><div style="display:flex;align-items:flex-start;gap:4px"><button onclick="openNav()" style="background:none;border:none;color:var(--leaf);font-size:24px;cursor:pointer;padding:4px 8px 4px 0;-webkit-tap-highlight-color:transparent;">☰</button><div><div class="brand">🌱 <em>That Gardening</em> Realtor</div><div class="greet" id="greet"></div></div></div><div style="display:flex;align-items:center;gap:8px"><button class="srch-icon" onclick="toggleSearch()" title="Search" style="font-size:22px;background:rgba(255,255,255,0.08);border-radius:8px;padding:6px 8px;">🔍</button><button onclick="openSettings()" style="background:rgba(255,255,255,0.08);border:none;border-radius:8px;padding:6px 8px;color:var(--leaf);font-size:22px;cursor:pointer;-webkit-tap-highlight-color:transparent;">⚙️</button><div class="dbadge ind" id="dbadge" onclick="openSchedule()" style="cursor:pointer">IN Day</div></div></div>
+<div class="tnav">
+  <div class="tni on" onclick="showTab('cock')" id="tn-cock"><div class="tni-i">🏠</div><div class="tni-l">Home</div></div>
+  <div class="tni" onclick="showTab('deals')" id="tn-deals"><span class="tni-badge" id="tnb-deals" style="display:none">0</span><div class="tni-i">🏡</div><div class="tni-l">Deals</div></div>
+  <div class="tni" onclick="showTab('leads')" id="tn-leads"><span class="tni-badge" id="tnb-leads" style="display:none">0</span><div class="tni-i">👥</div><div class="tni-l">Leads</div></div>
+  <div class="tni" onclick="showTab('tasks')" id="tn-tasks"><span class="tni-badge" id="tnb-tasks" style="display:none">0</span><div class="tni-i">📋</div><div class="tni-l">Tasks</div></div>
+  <div class="tni" onclick="openCmd('sirhc')" id="tn-log"><div class="tni-i">🤝</div><div class="tni-l">Log</div></div>
+</div>
+</div>
 <div class="srch-panel" id="srch-panel">
   <div class="srch-inner">
     <div class="srch-row"><span style="font-size:14px;opacity:.5">🔍</span><input class="srch-inp" id="srch-inp" placeholder="Search deals, leads, tasks, vendors…" autocomplete="off" oninput="runSearch(this.value)"><button class="srch-x" onclick="closeSearch()">✕</button></div>
@@ -437,7 +447,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
   <div id="last-synced-display">Not yet synced this session</div>
 </div>
 <!-- TABS -->
-<div id="t-cock" class="tab on"><div id="alert-bar"></div><div class="sec"><div class="sec-t">Today's 3 Priorities</div><div id="pri-list"></div><div class="sec-t" style="margin-top:20px">Pipeline Snapshot</div><div id="pipe-snap"></div><div class="sec-t" style="margin-top:20px">Today's Calendar <span style="font-size:10px;font-weight:400;opacity:.6">· tap event to open card</span></div><div id="gcal-strip"></div><div class="sec-t" style="margin-top:20px">Weekly Rhythm <span style="font-size:10px;font-weight:400;opacity:.6">· tap to edit</span></div><div id="week-grid" class="rg"></div><div class="sec-t" style="margin-top:20px;cursor:pointer" onclick="toggleDebrief()">End of Day Debrief <span style="font-size:10px;font-weight:400;opacity:.6">· tap to expand</span></div>
+<div id="t-cock" class="tab on"><div id="alert-bar"></div><div class="sec"><div class="sec-t">Today's Priorities</div><div id="pri-list"></div><div class="sec-t" style="margin-top:20px">Pipeline</div><div id="pipe-snap"></div><div class="sec-t" style="margin-top:20px">Content <span style="font-size:10px;font-weight:400;opacity:.6">· <button onclick="showTab('content')" style="background:none;border:none;color:var(--muted);font-size:10px;cursor:pointer;font-family:inherit;padding:0">see all</button></span></div><div id="cockpit-content-strip"></div><div style="background:var(--parch);border-radius:var(--r);padding:12px 14px;margin-top:16px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--sky);margin-bottom:10px">📊 Bold Trail Sync</div><div class="fg" style="margin-bottom:8px"><input class="fi" id="bt-name" placeholder="Contact name" style="margin-bottom:6px"><div style="display:flex;gap:6px"><input class="fi" id="bt-phone" type="tel" placeholder="Phone" style="flex:1"><select class="fsel" id="bt-status" style="flex:1"><option>Active</option><option>Hot</option><option>Nurture</option><option>Past Client</option><option>Dead</option></select></div></div><div class="fg" style="margin-bottom:8px"><textarea class="fta" id="bt-notes" placeholder="Notes from Bold Trail..." style="min-height:56px"></textarea></div><button class="sbtn sb-l" onclick="subBoldTrail()" style="padding:10px;font-size:12px">📊 Sync to Cockpit</button><div class="resp" id="bt-resp" style="border-left:4px solid var(--sky);display:none"><div class="resp-h"><div class="resp-av" style="background:var(--sky)">BT</div><div class="resp-n">Bold Trail</div></div><div class="resp-b" id="bt-rb"></div></div></div><div class="sec-t" style="margin-top:20px">Today's Calendar <span style="font-size:10px;font-weight:400;opacity:.6">· tap event to open card</span></div><div id="gcal-strip"></div><div class="sec-t" style="margin-top:20px">Weekly Rhythm <span style="font-size:10px;font-weight:400;opacity:.6">· tap to edit</span></div><div id="week-grid" class="rg"></div><div class="sec-t" style="margin-top:20px;cursor:pointer" onclick="toggleDebrief()">End of Day Debrief <span style="font-size:10px;font-weight:400;opacity:.6">· tap to expand</span></div>
 <div id="debrief-list" style="display:none">
   <div class="debrief-item" id="deb-sync">
     <input type="checkbox" onchange="debCheck('deb-sync',this)"> Sync to Sirhc
@@ -499,26 +509,19 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
     <div class="nav-drawer-brand">🌱 That Gardening Realtor</div>
     <div class="nav-drawer-sub">Chris Drawdy · eXp Realty</div>
   </div>
-  <div class="nav-item active" id="nd-cock" onclick="showTab('cock');closeNav()"><div class="nav-item-icon">🏠</div><div class="nav-item-label">Cockpit</div></div>
+  <div class="nav-item active" id="nd-cock" onclick="showTab('cock');closeNav()"><div class="nav-item-icon">🏠</div><div class="nav-item-label">Home</div></div>
   <div class="nav-item" id="nd-deals" onclick="showTab('deals');closeNav()"><div class="nav-item-icon">🏡</div><div class="nav-item-label">Deals</div><span class="nav-item-badge" id="badge-deals" style="display:none">0</span></div>
   <div class="nav-item" id="nd-leads" onclick="showTab('leads');closeNav()"><div class="nav-item-icon">👥</div><div class="nav-item-label">Leads</div><span class="nav-item-badge" id="badge-leads" style="display:none">0</span></div>
   <div class="nav-item" id="nd-tasks" onclick="showTab('tasks');closeNav()"><div class="nav-item-icon">📋</div><div class="nav-item-label">Tasks</div><span class="nav-item-badge" id="badge-tasks" style="display:none">0</span></div>
-  <div class="nav-item" id="nd-content" onclick="showTab('content');closeNav()"><div class="nav-item-icon">🎨</div><div class="nav-item-label">Content</div></div>
-  <div class="nav-item" id="nd-vendors" onclick="showTab('vendors');closeNav()"><div class="nav-item-icon">🔧</div><div class="nav-item-label">Vendors</div></div>
-  <div class="nav-item" id="nd-chat" onclick="showTab('chat');closeNav()"><div class="nav-item-icon">💬</div><div class="nav-item-label">Sirhc</div></div>
   <div style="border-top:1px solid rgba(255,255,255,.1);margin:8px 0;"></div>
-  <div class="nav-item" onclick="openCmd('sage');closeNav()"><div class="nav-item-icon">🌿</div><div class="nav-item-label">New Lead</div></div>
-  <div class="nav-item" onclick="openCmd('violet');closeNav()"><div class="nav-item-icon">🎨</div><div class="nav-item-label">Content</div></div>
-  <div class="nav-item" onclick="openCmd('lauren');closeNav()"><div class="nav-item-icon">📋</div><div class="nav-item-label">Lauren</div></div>
+  <div class="nav-item" id="nd-content" onclick="showTab('content');closeNav()"><div class="nav-item-icon">🎨</div><div class="nav-item-label">Content Pipeline</div></div>
+  <div class="nav-item" id="nd-vendors" onclick="showTab('vendors');closeNav()"><div class="nav-item-icon">🔧</div><div class="nav-item-label">Vendors</div></div>
+  <div class="nav-item" id="nd-loans" onclick="showTab('loans');closeNav()"><div class="nav-item-icon">📖</div><div class="nav-item-label">Loan Guides</div></div>
+  <div class="nav-item" id="nd-chat" onclick="showTab('chat');closeNav()"><div class="nav-item-icon">💬</div><div class="nav-item-label">Sirhc Chat</div></div>
 </div>
 
 
-<div class="bnav">
-  <div class="ni on" onclick="showTab('cock')" id="n-cock"><div class="ni-i">🏠</div><div class="ni-l">Cockpit</div></div>
-  <div class="ni" onclick="showTab('deals')" id="n-deals"><span class="ni-badge" id="nb-badge-deals" style="display:none">0</span><div class="ni-i">🏡</div><div class="ni-l">Deals</div></div>
-  <div class="ni" onclick="showTab('tasks')" id="n-tasks"><span class="ni-badge" id="nb-badge-tasks" style="display:none">0</span><div class="ni-i">📋</div><div class="ni-l">Tasks</div></div>
-  <div class="ni" onclick="openCmd('sirhc')" id="n-team"><div class="ni-i">🤝</div><div class="ni-l">Team</div></div>
-  <div class="ni" onclick="showTab('chat')" id="n-chat"><div class="ni-i">💬</div><div class="ni-l">Sirhc</div></div>
+<!-- bottom nav removed — nav is now in the top header strip -->
 </div>
 
 <!-- MODALS -->
@@ -556,10 +559,9 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
 <div class="cpanel" id="cPanel">
   <div class="m-hnd"><div class="m-bar"></div><button class="m-x" onclick="closeCmd()">✕</button></div>
   <div class="cp-tabs">
-    <div class="cp-tab a-s" id="ct-sage" onclick="showCT('sage')"><div class="cp-tab-i">🌿</div>Sage</div>
-    <div class="cp-tab" id="ct-sirhc" onclick="showCT('sirhc')"><div class="cp-tab-i">🔄</div>Sirhc</div>
-    <div class="cp-tab" id="ct-violet" onclick="showCT('violet')"><div class="cp-tab-i">🎨</div>Violet</div>
-    <div class="cp-tab" id="ct-lauren" onclick="showCT('lauren')"><div class="cp-tab-i">📋</div>Lauren</div>
+    <div class="cp-tab a-s" id="ct-sage" onclick="showCT('sage')"><div class="cp-tab-i">🌿</div>New Lead</div>
+    <div class="cp-tab" id="ct-sirhc" onclick="showCT('sirhc')"><div class="cp-tab-i">🔄</div>Log Update</div>
+    <div class="cp-tab" id="ct-violet" onclick="showCT('violet')"><div class="cp-tab-i">🎨</div>Content</div>
   </div>
   <!-- SAGE — multi-select tags -->
   <div class="cp-form on" id="f-sage">
@@ -574,13 +576,13 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
     <button class="sbtn sb-s" onclick="subSage()">🌿 Run Sage — Qualify Lead</button>
     <div class="resp rs" id="s-resp"><div class="resp-h"><div class="resp-av av-s">S</div><div class="resp-n">Sage</div></div><div class="resp-b" id="s-rb"></div></div>
   </div>
-  <!-- SIRHC -->
+  <!-- SIRHC LOG -->
   <div class="cp-form" id="f-sirhc">
-    <div class="cp-ft">Log Update</div><div class="cp-fs">Sirhc logs it, confirms changes, and gives the next move.</div>
-    <div class="fg"><label class="fl">Which deal or lead?</label><select class="fsel" id="r-deal"><option value="">Select...</option></select></div>
+    <div class="cp-ft">Log Update</div><div class="cp-fs">Pick a deal or lead, say what happened, mark the status. Done.</div>
+    <div class="fg"><label class="fl">Deal or Lead</label><select class="fsel" id="r-deal"><option value="">Select...</option></select></div>
     <div class="fg"><label class="fl">What happened?</label><textarea class="fta" id="r-upd" placeholder="Called lien holder, they said... / Got a quote back from..."></textarea></div>
-    <div class="fg"><label class="fl">Status Change</label><div class="chp" id="r-st"><div class="cho" onclick="tCh(this,'r')">No change</div><div class="cho" onclick="tCh(this,'r')">Moving forward</div><div class="cho" onclick="tCh(this,'r')">Blocked</div><div class="cho" onclick="tCh(this,'r')">Dead</div></div></div>
-    <button class="sbtn sb-r" onclick="subSirhc()">🔄 Log with Sirhc</button>
+    <div class="fg"><label class="fl">Status</label><div class="chp" id="r-st"><div class="cho" onclick="tCh(this,'r')">No change</div><div class="cho" onclick="tCh(this,'r')">Moving forward</div><div class="cho" onclick="tCh(this,'r')">Blocked</div><div class="cho" onclick="tCh(this,'r')">Dead</div></div></div>
+    <button class="sbtn sb-r" onclick="subSirhc()">🔄 Save Log Entry</button>
     <div class="resp rr" id="r-resp"><div class="resp-h"><div class="resp-av av-r">S</div><div class="resp-n">Sirhc</div></div><div class="resp-b" id="r-rb"></div></div>
   </div>
   <!-- VIOLET — with pipeline status -->
@@ -593,38 +595,13 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
     <div class="fg"><label class="fl">Topic or Idea</label><textarea class="fta" id="v-topic" placeholder="VA loans for veterans who think they can't buy... / Windcrest garden share update..."></textarea></div>
     <button class="sbtn sb-v" onclick="subViolet()">🎨 Draft with Violet</button>
     <div class="resp rv" id="v-resp"><div class="resp-h"><div class="resp-av av-v">V</div><div class="resp-n">Violet</div></div><div class="resp-b" id="v-rb"></div></div>
-  </div>
-
-  <!-- LAUREN -->
-  <div class="cp-form" id="f-lauren">
-    <div class="cp-ft">Lauren's Dashboard</div>
-    <div class="cp-fs">Bold Trail sync · content calendar · deal support.</div>
-
-    <!-- Bold Trail Sync -->
-    <div style="background:var(--parch);border-radius:var(--r);padding:14px;margin-bottom:16px">
-      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--sky);margin-bottom:10px">📊 Bold Trail Sync</div>
-      <div class="fg"><label class="fl">Contact Name</label><input class="fi" id="bt-name" placeholder="First and last name"></div>
-      <div class="fr">
-        <div class="fg"><label class="fl">Phone</label><input class="fi" id="bt-phone" type="tel" placeholder="210-555-1234"></div>
-        <div class="fg"><label class="fl">Status in BT</label><select class="fsel" id="bt-status"><option>Active</option><option>Hot</option><option>Nurture</option><option>Past Client</option><option>Dead</option></select></div>
+    <!-- Content pipeline preview -->
+    <div style="margin-top:20px;border-top:1px solid var(--warm);padding-top:14px">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+        <div style="font-size:10px;font-weight:700;letter-spacing:1px;color:var(--muted);text-transform:uppercase">📋 Content Pipeline</div>
+        <button onclick="showTab('content');closeCmd()" style="font-size:10px;font-weight:700;color:var(--violet);background:none;border:none;cursor:pointer;font-family:inherit">See all →</button>
       </div>
-      <div class="fg"><label class="fl">Last Activity</label><input class="fi" id="bt-activity" placeholder="e.g. Showed 3 homes, no offers"></div>
-      <div class="fg"><label class="fl">Notes from Bold Trail</label><textarea class="fta" id="bt-notes" placeholder="Any details, conversations, appointments..."></textarea></div>
-      <button class="sbtn sb-l" onclick="subBoldTrail()" style="margin-top:4px">📊 Sync to Cockpit</button>
-      <div class="resp" id="bt-resp" style="border-left:4px solid var(--sky)"><div class="resp-h"><div class="resp-av" style="background:var(--sky)">BT</div><div class="resp-n">Bold Trail Update</div></div><div class="resp-b" id="bt-rb"></div></div>
-    </div>
-
-    <!-- Content Calendar -->
-    <div style="background:var(--parch);border-radius:var(--r);padding:14px;margin-bottom:16px">
-      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--violet);margin-bottom:10px">🗓 Content Calendar</div>
-      <div id="lauren-content-list"></div>
-      <button class="sbtn sb-v" onclick="showTab('content');closeCmd()" style="margin-top:8px;font-size:12px;padding:10px">Open Content Pipeline →</button>
-    </div>
-
-    <!-- Active Deals Quick View -->
-    <div style="background:var(--parch);border-radius:var(--r);padding:14px">
-      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--moss);margin-bottom:10px">🏡 Active Deals</div>
-      <div id="lauren-deals-list"></div>
+      <div id="violet-pipeline-preview"></div>
     </div>
   </div>
 </div>
@@ -684,15 +661,15 @@ const leads=[
 
 
 const priorities=[
-  {id:'p1',title:'340 Sollock — broker call first, then three paths with sellers',sub:'Underwater $93K-$143K · short sale / VA assumption / cash to close',cls:'urg',done:false,notes:'Seller finance (Gilberto) dead. Talk to broker about short sale protocol and subbing out Devine listing BEFORE calling Matt/Chandler.',followUps:[{text:'Call broker — short sale protocol + Devine listing guidance',status:'pending'},{text:'Call Matt Chandler — present three paths',status:'pending'},{text:'Call Chandler Grulli — present three paths',status:'pending'}]},
-  {id:'p2',title:'Mill Path — Zoom walkthrough tomorrow, then listing agreement',sub:'Jose & Katherine reviewing paperwork tonight · June deadline · $259,900',cls:'act',done:false,notes:'Record Zoom walkthrough Apr 29 morning. Sellers review tonight. Then listing agreement → photos → MLS. Foundation crack pre-inspection (Coach Ricky Smith). Payoff discrepancy — sellers verify with lender.',followUps:[{text:'Record Zoom walkthrough Apr 29 morning',status:'pending'},{text:'Get listing agreement signed',status:'pending'},{text:'Schedule listing photos',status:'pending'},{text:'Request payoff statement from sellers',status:'pending'}]},
-  {id:'p3',title:'Tax info for wife — gather and send',sub:'Flagged urgent Apr 27 — still incomplete',cls:'urg',done:false,notes:'Needs to get done ASAP.',followUps:[{text:'Gather tax documents',status:'pending'},{text:'Send to Lauren',status:'pending'}]}
+  {id:'p4',title:'Mill Path — get listing agreement signed',sub:'Katie reviewing with husband · June deadline · $259,900 · payoff discrepancy pending',cls:'act',done:false,notes:'Payoff discrepancy: seller says $170K, records show $192K — verify with lender before signing. Foundation crack pre-inspection (Coach Ricky Smith). Photos and MLS next.',followUps:[{text:'Get listing agreement signed',status:'pending'},{text:'Verify payoff with lender',status:'pending'},{text:'Schedule listing photos',status:'pending'}]},
+  {id:'p5',title:'340 Sollock — call Matt & Chandler with three paths',sub:'Broker conversation done · underwater $93K-$143K · short sale / VA assumption / price cut',cls:'urg',done:false,notes:'Seller finance (Gilberto) dead. Three paths ready: A) Short sale $370K-$385K, B) VA assumption, C) Price reduction + cash to close. Call Matt Chandler first.',followUps:[{text:'Call Matt Chandler — 803-514-4693',status:'pending'},{text:'Call Chandler Grulli',status:'pending'}]},
+  {id:'p6',title:'Finish taxes — enter expenses, mileage, home office in TurboTax',sub:'85% done · owe ~$2K-$5K · do not file until reviewed together',cls:'urg',done:false,notes:'Business expenses, 4300 miles, 198 sq ft home office. Lauren needs to fix Lehrco 1099 and send ad spend totals. Review together before filing.',followUps:[{text:'Enter business expenses in TurboTax',status:'pending'},{text:'Enter mileage — 4300 miles',status:'pending'},{text:'Enter home office — 198 sq ft',status:'pending'},{text:'Lauren: fix Lehrco 1099',status:'pending'}]}
 ];
 
 
 const tasks=[
   {id:'t1',title:'Call lien holder — Coughran Rd',meta:'DONE — closed and funded Apr 27 ✓',tag:'Urgent',tagC:'tag-urgent',done:true,notes:'Fernando signed lien release Apr 21. Deal closed and funded Apr 27.',followUps:[{text:'Joy gift delivery + rug + trolley',status:'pending'},{text:'Thank Sam VanDenheuvel — explore lunch/coffee',status:'pending'},{text:'Thank Chelsey Bongiovi (Reliable Title)',status:'pending'}]},
-  {id:'t2',title:'Follow up Pamela M.',meta:'872-822-0656 · VA lender connection',tag:'Hot Lead',tagC:'tag-lead',done:false,notes:'',followUps:[{text:'Call Pamela',status:'pending'},{text:'Connect with VA-approved lender',status:'pending'}]},
+  {id:'t2b',title:'Follow up Pamela M.',meta:'872-822-0656 · sick grandkid today · call tomorrow',tag:'Hot Lead',tagC:'tag-lead',done:false,notes:'Spoke Apr 29 — sick grandkid. Warm conversation. Follow up Apr 30.',followUps:[{text:'Call Pamela — check on grandkid first',status:'pending'},{text:'Connect with VA-approved lender',status:'pending'}]},
   {id:'t3',title:'Call Kelly — 181 CR 7751 police report',meta:'Run police report by Kelly first · then schedule Matt site visit',tag:'Deal',tagC:'tag-deal',done:false,notes:'',followUps:[{text:'Call Kelly (bank)',status:'pending'},{text:'Schedule Matt Van Gorder site visit',status:'pending'},{text:'File police report — meet Deputy Munoz',status:'pending'}]},
   {id:'t4',title:'Follow up Kendall — 181 CR 7751',meta:'Quote overdue · decide whether to trust or run it yourself',tag:'Deal',tagC:'tag-deal',done:false,notes:'',followUps:[]},
   {id:'t5',title:'Call Gilberto — 340 Sollock seller finance',meta:'Confirm buyer is legit before updating Matt Chandler',tag:'Deal',tagC:'tag-deal',done:false,notes:'',followUps:[]},
@@ -762,14 +739,21 @@ function tagsHTML(tags){return tags?tags.map(t=>`<span class="mtag mtag-${t.toLo
 
 
 function renderPriorities(){
-  document.getElementById('pri-list').innerHTML=priorities.map((p,i)=>`
+  const active=priorities.filter(p=>!p.done);
+  const done=priorities.filter(p=>p.done);
+  const el=document.getElementById('pri-list');
+  let html=active.map((p,i)=>`
     <div class="card ${p.cls}" onclick="openPriority('${p.id}')" style="display:flex;gap:12px;align-items:flex-start;${i>0?'margin-top:8px':''}">
       <div style="font-family:'Playfair Display',serif;font-size:22px;opacity:.7;width:20px;flex-shrink:0;line-height:1">${i+1}</div>
       <div style="flex:1;min-width:0">
-        <div style="font-weight:600;font-size:13px;color:var(--soil);line-height:1.35;${p.done?'text-decoration:line-through;color:var(--muted)':''}">${p.title}</div>
+        <div style="font-weight:600;font-size:13px;color:var(--soil);line-height:1.35">${p.title}</div>
         <div style="font-size:11px;color:var(--muted);margin-top:3px;line-height:1.4">${p.sub}</div>
         ${p.notes?'<div style="font-size:10px;color:var(--sage-c);margin-top:4px">📝 Has notes</div>':''}
-      </div>${p.done?'<div style="color:var(--moss);font-size:16px;flex-shrink:0">✓</div>':''}</div>`).join('');
+      </div>
+    </div>`).join('');
+  if(!active.length)html='<div style="font-size:12px;color:var(--muted);padding:12px 0;font-style:italic">All priorities complete ✓</div>';
+  if(done.length)html+=`<div onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'" style="font-size:11px;color:var(--muted);padding:10px 0 4px;cursor:pointer;user-select:none">Done (${done.length}) ▾</div><div style="display:none">${done.map(p=>`<div class="card hold" style="opacity:.4;margin-top:6px"><div style="font-size:12px;text-decoration:line-through;color:var(--muted)">${p.title}</div></div>`).join('')}</div>`;
+  el.innerHTML=html;
 }
 
 
@@ -825,21 +809,27 @@ function renderLeads(){
 
 function renderTasks(){
   const container=document.getElementById('task-list');
-  container.innerHTML=tasks.map(t=>`
-    <div class="card" id="tc-${t.id}" onclick="openTask('${t.id}')" style="display:flex;align-items:flex-start;gap:12px;border-left-color:${t.done?'var(--muted)':t.tagC==='tag-urgent'?'var(--rust)':t.tagC==='tag-lead'?'var(--gold)':t.tagC==='tag-community'?'var(--moss)':'var(--sky)'};${t.done?'opacity:.45;':''}overflow:hidden;position:relative;touch-action:pan-y;">
-      <div style="width:20px;height:20px;border-radius:6px;border:2px solid ${t.done?'var(--moss)':'var(--sage-c)'};background:${t.done?'var(--moss)':'transparent'};display:flex;align-items:center;justify-content:center;font-size:12px;color:${t.done?'#fff':'transparent'};flex-shrink:0;margin-top:1px">✓</div>
-      <div style="flex:1;min-width:0"><div style="font-size:13px;font-weight:600;line-height:1.3;${t.done?'text-decoration:line-through;color:var(--muted)':''}">${t.title}</div>
-      <div style="font-size:11px;color:var(--muted);margin-top:3px">${t.meta}</div>
-      <span class="${t.tagC}" style="display:inline-block;font-size:9px;font-weight:700;padding:2px 8px;border-radius:10px;text-transform:uppercase;letter-spacing:.6px;margin-top:5px">${t.tag}</span>
-      ${t.notes?'<div style="font-size:10px;color:var(--sage-c);margin-top:4px">📝 Has notes</div>':''}
-      ${!t.done?'<div class="swipe-hint">← swipe to complete</div>':''}
-      ${!t.done?`<div onclick="event.stopPropagation();addToCalendar('${t.id}')" style="display:inline-flex;align-items:center;gap:4px;margin-top:6px;font-size:10px;font-weight:700;color:var(--sky);padding:3px 8px;border-radius:10px;border:1px solid var(--sky);background:rgba(74,138,181,.08);cursor:pointer">📅 Add to Calendar</div>`:''}
-      </div></div>`).join('');
-  // Attach swipe listeners
-  tasks.forEach(t=>{
+  const active=tasks.filter(t=>!t.done);
+  const done=tasks.filter(t=>t.done);
+  const cardHTML=t=>`
+    <div class="card" id="tc-${t.id}" onclick="openTask('${t.id}')" style="display:flex;align-items:flex-start;gap:12px;border-left-color:${t.tagC==='tag-urgent'?'var(--rust)':t.tagC==='tag-lead'?'var(--gold)':t.tagC==='tag-community'?'var(--moss)':'var(--sky)'};overflow:hidden;position:relative;touch-action:pan-y;">
+      <div style="width:20px;height:20px;border-radius:6px;border:2px solid var(--sage-c);background:transparent;display:flex;align-items:center;justify-content:center;font-size:12px;color:transparent;flex-shrink:0;margin-top:1px">✓</div>
+      <div style="flex:1;min-width:0">
+        <div style="font-size:13px;font-weight:600;line-height:1.3">${t.title}</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:3px">${t.meta}</div>
+        <span class="${t.tagC}" style="display:inline-block;font-size:9px;font-weight:700;padding:2px 8px;border-radius:10px;text-transform:uppercase;letter-spacing:.6px;margin-top:5px">${t.tag}</span>
+        ${t.notes?'<div style="font-size:10px;color:var(--sage-c);margin-top:4px">📝 Has notes</div>':''}
+        <div class="swipe-hint">← swipe to complete</div>
+        <div onclick="event.stopPropagation();addToCalendar('${t.id}')" style="display:inline-flex;align-items:center;gap:4px;margin-top:6px;font-size:10px;font-weight:700;color:var(--sky);padding:3px 8px;border-radius:10px;border:1px solid var(--sky);background:rgba(74,138,181,.08);cursor:pointer">📅 Add to Calendar</div>
+      </div>
+    </div>`;
+  let html=active.map(cardHTML).join('');
+  if(!active.length)html='<div style="font-size:12px;color:var(--muted);padding:16px 0;font-style:italic;text-align:center">All tasks cleared ✓</div>';
+  if(done.length)html+=`<div onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'" style="font-size:11px;color:var(--muted);padding:12px 0 4px;cursor:pointer;user-select:none">Done today (${done.length}) ▾</div><div style="display:none">${done.map(t=>`<div class="card hold" style="opacity:.35;margin-top:6px;display:flex;gap:10px;align-items:center"><div style="width:18px;height:18px;border-radius:5px;background:var(--moss);display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;flex-shrink:0">✓</div><div style="font-size:12px;text-decoration:line-through;color:var(--muted)">${t.title}</div></div>`).join('')}</div>`;
+  container.innerHTML=html;
+  active.forEach(t=>{
     const card=document.getElementById('tc-'+t.id);
-    if(!card)return;
-    attachSwipe(card,t.id);
+    if(card)attachSwipe(card,t.id);
   });
 }
 
@@ -1209,14 +1199,15 @@ function showTab(t){
   if(t==='chat'){
     document.getElementById('tab-chat').classList.add('on');
   } else {
-    document.getElementById('t-'+t).classList.add('on');
+    const el=document.getElementById('t-'+t);
+    if(el)el.classList.add('on');
   }
   const ndEl=document.getElementById('nd-'+t);
   if(ndEl)ndEl.classList.add('active');
-  // bottom nav active state
-  document.querySelectorAll('.ni').forEach(e=>e.classList.remove('on'));
-  const nEl=document.getElementById('n-'+t);
-  if(nEl)nEl.classList.add('on');
+  // top nav active state
+  document.querySelectorAll('.tni').forEach(e=>e.classList.remove('on'));
+  const tnEl=document.getElementById('tn-'+t);
+  if(tnEl)tnEl.classList.add('on');
   if(t!=='chat')window.scrollTo({top:0,behavior:'smooth'});
   if(t==='chat'){setTimeout(()=>scrollChatToTop(),100);populateChatDealSelect();}
 }
@@ -1240,11 +1231,13 @@ function closeCmd(){document.getElementById('cOv').classList.remove('open');docu
 function showCT(tab){
   document.querySelectorAll('.cp-form').forEach(f=>f.classList.remove('on'));
   document.querySelectorAll('.cp-tab').forEach(t=>t.className='cp-tab');
-  document.getElementById('f-'+tab).classList.add('on');
-  const cls={sage:'a-s',sirhc:'a-r',violet:'a-v',lauren:'a-l'}[tab]||'a-s';
-  document.getElementById('ct-'+tab).classList.add(cls);
-  if(tab==='lauren')renderLauren();
+  const formEl=document.getElementById('f-'+tab);
+  if(formEl)formEl.classList.add('on');
+  const cls={sage:'a-s',sirhc:'a-r',violet:'a-v'}[tab]||'a-s';
+  const tabEl=document.getElementById('ct-'+tab);
+  if(tabEl)tabEl.classList.add(cls);
   if(tab==='sirhc')populateDealSelect();
+  if(tab==='violet')renderVioletPipelinePreview();
 }
 
 function populateChatDealSelect(){
@@ -2115,18 +2108,17 @@ function clearUnsyncedFlag(){
 
 // ═══════════ v0.13 — BADGES ═══════════
 function renderBadges(){
-  // Deals: urg
   const dc=deals.filter(d=>d.cls==='urg').length;
-  const db=document.getElementById('badge-deals');
-  if(db){db.textContent=dc;db.style.display=dc>0?'flex':'none';}
-  // Leads: hot or urg
   const lc=leads.filter(l=>l.cls==='hot'||l.cls==='urg').length;
-  const lb=document.getElementById('badge-leads');
-  if(lb){lb.textContent=lc;lb.style.display=lc>0?'flex':'none';}
-  // Tasks: urgent tag and not done
   const tc=tasks.filter(t=>t.tagC==='tag-urgent'&&!t.done).length;
-  const tb=document.getElementById('badge-tasks');
-  if(tb){tb.textContent=tc;tb.style.display=tc>0?'flex':'none';}
+  // drawer badges
+  const db=document.getElementById('badge-deals');if(db){db.textContent=dc;db.style.display=dc>0?'flex':'none';}
+  const lb=document.getElementById('badge-leads');if(lb){lb.textContent=lc;lb.style.display=lc>0?'flex':'none';}
+  const tb=document.getElementById('badge-tasks');if(tb){tb.textContent=tc;tb.style.display=tc>0?'flex':'none';}
+  // top nav badges
+  const tdb=document.getElementById('tnb-deals');if(tdb){tdb.textContent=dc;tdb.style.display=dc>0?'flex':'none';}
+  const tlb=document.getElementById('tnb-leads');if(tlb){tlb.textContent=lc;tlb.style.display=lc>0?'flex':'none';}
+  const ttb=document.getElementById('tnb-tasks');if(ttb){ttb.textContent=tc;ttb.style.display=tc>0?'flex':'none';}
 }
 
 // ═══════════ v0.11 — SEARCH ═══════════
@@ -2363,14 +2355,56 @@ function checkSyncOnOpen(){
   setTimeout(()=>autoSync(),1500);
 }
 
+function resetDailyTasks(){
+  const today=new Date().toDateString();
+  const last=localStorage.getItem('tgr_task_reset_date');
+  if(last===today)return;
+  tasks.forEach(t=>{if(t.daily&&t.done)t.done=false;});
+  priorities.forEach(p=>{if(p.daily&&p.done)p.done=false;});
+  localStorage.setItem('tgr_task_reset_date',today);
+  saveData();
+}
+
+function renderVioletPipelinePreview(){
+  const el=document.getElementById('violet-pipeline-preview');
+  if(!el)return;
+  if(!contentPipeline.length){el.innerHTML='<div style="font-size:11px;color:var(--muted);font-style:italic">No ideas yet — add one above.</div>';return;}
+  el.innerHTML=contentPipeline.map(c=>{
+    const sc={Idea:'cp-idea',Drafting:'cp-draft',Ready:'cp-ready',Posted:'cp-posted'}[c.status]||'cp-idea';
+    return `<div class="cp-card" onclick="closeCmd();showTab('content')" style="margin-bottom:6px;padding:10px 12px">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+        <div style="font-size:12px;font-weight:600;color:var(--soil);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${c.title}</div>
+        <span class="cp-status ${sc}">${c.status}</span>
+      </div>
+      <div style="font-size:10px;color:var(--muted);margin-top:3px">${c.platforms?c.platforms.join(' · '):''}</div>
+    </div>`;
+  }).join('');
+}
+
+function renderCockpitContentStrip(){
+  const el=document.getElementById('cockpit-content-strip');
+  if(!el)return;
+  const items=contentPipeline.filter(c=>c.status!=='Posted').slice(0,3);
+  if(!items.length){el.innerHTML='<div style="font-size:11px;color:var(--muted);padding:8px 0;font-style:italic">No active content — tap Violet in Log to add ideas.</div>';return;}
+  el.innerHTML=items.map(c=>{
+    const sc={Idea:'cp-idea',Drafting:'cp-draft',Ready:'cp-ready'}[c.status]||'cp-idea';
+    return `<div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--card);border-radius:10px;box-shadow:var(--shad);margin-bottom:6px;cursor:pointer" onclick="showTab('content')">
+      <div style="width:8px;height:8px;border-radius:50%;background:var(--violet);flex-shrink:0"></div>
+      <div style="flex:1;font-size:12px;font-weight:600;color:var(--soil);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${c.title}</div>
+      <span class="cp-status ${sc}" style="flex-shrink:0">${c.status}</span>
+    </div>`;
+  }).join('');
+}
+
 function init(){
   loadData();
+  resetDailyTasks();
   resetDebrief();
   renderExpenseSummary();
   const h=new Date().getHours();
   document.getElementById('greet').textContent=h<5?"Burning midnight oil, Chris.":h<12?"Good morning, Chris. Let's grow.":h<17?"Good afternoon, Chris.":h<21?"Good evening, Chris.":"Late night hustle, Chris.";
   renderDayBadge();
-  renderCalStrip();renderAlerts();renderPriorities();renderPipelineSnap();renderDeals();renderLeads();renderTasks();renderVendors();renderLoans();renderContent();renderWeeklyRhythm();
+  renderCalStrip();renderAlerts();renderPriorities();renderPipelineSnap();renderDeals();renderLeads();renderTasks();renderVendors();renderLoans();renderContent();renderWeeklyRhythm();renderCockpitContentStrip();
   renderBadges();
   loadChatHistory();
   renderChatHistory();
