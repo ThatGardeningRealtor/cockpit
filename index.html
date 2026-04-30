@@ -1562,18 +1562,33 @@ function renderCalStrip(){
 // ═══════════ PERSISTENCE ═══════════
 // saveData is defined below near renderBadges so badges update on every save
 
+// Snapshot hardcoded defaults before loadData may overwrite them.
+// This lets us merge new items added in code into existing localStorage data.
+const _defaultPriorities=priorities.map(p=>Object.assign({},p));
+const _defaultTasks=tasks.map(t=>Object.assign({},t));
+const _defaultExpenses=expenses.map(e=>Object.assign({},e));
+
 function loadData(){
   try{
     const s=JSON.parse(localStorage.getItem('tgr_data'));
     if(!s)return;
     if(s.deals&&s.deals.length){deals.length=0;deals.push(...s.deals);}
     if(s.leads&&s.leads.length){leads.length=0;leads.push(...s.leads);}
-    if(s.tasks&&s.tasks.length){tasks.length=0;tasks.push(...s.tasks);}
-    if(s.priorities&&s.priorities.length){priorities.length=0;priorities.push(...s.priorities);}
+    if(s.tasks&&s.tasks.length){
+      tasks.length=0;tasks.push(...s.tasks);
+      _defaultTasks.forEach(dt=>{if(!tasks.find(t=>t.id===dt.id))tasks.push(dt);});
+    }
+    if(s.priorities&&s.priorities.length){
+      priorities.length=0;priorities.push(...s.priorities);
+      _defaultPriorities.forEach(dp=>{if(!priorities.find(p=>p.id===dp.id))priorities.push(dp);});
+    }
     if(s.vendors&&s.vendors.length){vendors.length=0;vendors.push(...s.vendors);}
     if(s.contentPipeline&&s.contentPipeline.length){contentPipeline.length=0;contentPipeline.push(...s.contentPipeline);}
     if(s.loanPrograms&&s.loanPrograms.length){loanPrograms.length=0;loanPrograms.push(...s.loanPrograms);}
-    if(s.expenses&&s.expenses.length){expenses.length=0;expenses.push(...s.expenses);}
+    if(s.expenses&&s.expenses.length){
+      expenses.length=0;expenses.push(...s.expenses);
+      _defaultExpenses.forEach(de=>{if(!expenses.find(e=>e.id===de.id))expenses.push(de);});
+    }
   }catch(e){}
 }
 
