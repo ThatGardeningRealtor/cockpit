@@ -142,7 +142,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
 .cp-posted{background:var(--warm);color:var(--muted)}
 
 
-.bnav{position:fixed;bottom:0;left:0;right:0;background:var(--soil);border-top:1px solid var(--bark);display:grid;grid-template-columns:repeat(4,1fr);z-index:500;padding-bottom:env(safe-area-inset-bottom);}
+.bnav{position:fixed;bottom:0;left:0;right:0;background:var(--soil);border-top:1px solid var(--bark);display:grid;grid-template-columns:repeat(5,1fr);z-index:500;padding-bottom:env(safe-area-inset-bottom);}
 .ni{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px 4px 6px;cursor:pointer;opacity:.55;transition:opacity var(--ease);position:relative;-webkit-tap-highlight-color:transparent;}
 .ni.on{opacity:1;}
 .ni-i{font-size:20px;line-height:1;}
@@ -475,9 +475,14 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
     </div>
     <button class="chat-clear-btn" onclick="clearChat()">Clear</button>
   </div>
-  <div class="chat-input-area">
-    <textarea class="chat-textarea" id="chat-input" placeholder="Message Sirhc..." rows="1" onkeydown="chatKeyDown(event)" oninput="autoResizeChat(this)"></textarea>
-    <button class="chat-send-btn" onclick="sendToSirhc()" title="Send">➤</button>
+  <div class="chat-input-area" style="flex-direction:column;align-items:stretch;gap:6px">
+    <select id="chat-deal-sel" style="width:100%;padding:6px 10px;border:1px solid var(--warm);border-radius:8px;font-family:inherit;font-size:11px;background:var(--parch);color:var(--muted)">
+      <option value="">💬 Just chatting — no deal</option>
+    </select>
+    <div style="display:flex;align-items:flex-end;gap:8px">
+      <textarea class="chat-textarea" id="chat-input" placeholder="Message Sirhc..." rows="1" onkeydown="chatKeyDown(event)" oninput="autoResizeChat(this)"></textarea>
+      <button class="chat-send-btn" onclick="sendToSirhc()" title="Send">➤</button>
+    </div>
   </div>
   <div class="chat-thinking" id="chat-thinking">Sirhc is thinking...</div>
   <div class="chat-msgs" id="chat-msgs">
@@ -512,6 +517,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
   <div class="ni on" onclick="showTab('cock')" id="n-cock"><div class="ni-i">🏠</div><div class="ni-l">Cockpit</div></div>
   <div class="ni" onclick="showTab('deals')" id="n-deals"><span class="ni-badge" id="nb-badge-deals" style="display:none">0</span><div class="ni-i">🏡</div><div class="ni-l">Deals</div></div>
   <div class="ni" onclick="showTab('tasks')" id="n-tasks"><span class="ni-badge" id="nb-badge-tasks" style="display:none">0</span><div class="ni-i">📋</div><div class="ni-l">Tasks</div></div>
+  <div class="ni" onclick="openCmd('sirhc')" id="n-team"><div class="ni-i">🤝</div><div class="ni-l">Team</div></div>
   <div class="ni" onclick="showTab('chat')" id="n-chat"><div class="ni-i">💬</div><div class="ni-l">Sirhc</div></div>
 </div>
 
@@ -1212,7 +1218,7 @@ function showTab(t){
   const nEl=document.getElementById('n-'+t);
   if(nEl)nEl.classList.add('on');
   if(t!=='chat')window.scrollTo({top:0,behavior:'smooth'});
-  if(t==='chat')setTimeout(()=>scrollChatToTop(),100);
+  if(t==='chat'){setTimeout(()=>scrollChatToTop(),100);populateChatDealSelect();}
 }
 
 function openNav(){
@@ -1239,6 +1245,16 @@ function showCT(tab){
   document.getElementById('ct-'+tab).classList.add(cls);
   if(tab==='lauren')renderLauren();
   if(tab==='sirhc')populateDealSelect();
+}
+
+function populateChatDealSelect(){
+  const sel=document.getElementById('chat-deal-sel');
+  if(!sel)return;
+  const cur=sel.value;
+  sel.innerHTML='<option value="">💬 Just chatting — no deal</option>';
+  (deals||[]).forEach(d=>{const label=d.address||d.title||'Unknown Deal';const opt=document.createElement('option');opt.value=label;opt.textContent=label;sel.appendChild(opt);});
+  (leads||[]).forEach(l=>{const label=l.title||l.name||'Unknown Lead';const opt=document.createElement('option');opt.value=label;opt.textContent=label;sel.appendChild(opt);});
+  if(cur)sel.value=cur;
 }
 
 function populateDealSelect(){
@@ -2242,6 +2258,18 @@ async function sendToSirhc(){
   input.value = '';
   autoResizeChat(input);
   appendChatMsg('user', q);
+  // Auto-log to deal/lead if one is selected in the dropdown
+  const _cSel=document.getElementById('chat-deal-sel');
+  const _cDeal=_cSel?_cSel.value:'';
+  if(_cDeal){
+    const _now=new Date();
+    const _ts=_now.toLocaleDateString('en-US',{month:'short',day:'numeric'})+' '+String(_now.getHours()).padStart(2,'0')+':'+String(_now.getMinutes()).padStart(2,'0');
+    const _entry={t:_ts,m:'[Chat] '+q};
+    const _needle=_cDeal.toLowerCase();
+    let _hit=deals.find(d=>(d.address||d.title||'').toLowerCase().includes(_needle)||_needle.includes((d.address||d.title||'').toLowerCase().slice(0,6)));
+    if(!_hit)_hit=leads.find(l=>(l.title||l.name||'').toLowerCase().includes(_needle)||_needle.includes((l.title||l.name||'').toLowerCase().slice(0,6)));
+    if(_hit){if(!_hit.logs)_hit.logs=[];_hit.logs.unshift(_entry);saveData();flagUnsyncedChanges();}
+  }
   setThinking(true);
   try{
     const res = await fetch('https://tgr-sirch.chris-293.workers.dev/', {
