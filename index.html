@@ -1575,6 +1575,7 @@ function renderCalStrip(){
 const _defaultPriorities=priorities.map(p=>Object.assign({},p));
 const _defaultTasks=tasks.map(t=>Object.assign({},t));
 const _defaultExpenses=expenses.map(e=>Object.assign({},e));
+const _DATA_VERSION='2026-05-05';
 
 function loadData(){
   try{
@@ -1586,9 +1587,11 @@ function loadData(){
       tasks.length=0;tasks.push(...s.tasks);
       _defaultTasks.forEach(dt=>{if(!tasks.find(t=>t.id===dt.id))tasks.push(dt);});
     }
-    if(s.priorities&&s.priorities.length){
+    if(s.priorities&&s.priorities.length&&s._dataVersion===_DATA_VERSION){
       priorities.length=0;priorities.push(...s.priorities);
       _defaultPriorities.forEach(dp=>{if(!priorities.find(p=>p.id===dp.id))priorities.push(dp);});
+    } else {
+      priorities.length=0;priorities.push(..._defaultPriorities);
     }
     if(s.vendors&&s.vendors.length){vendors.length=0;vendors.push(...s.vendors);}
     if(s.contentPipeline&&s.contentPipeline.length){contentPipeline.length=0;contentPipeline.push(...s.contentPipeline);}
@@ -2160,7 +2163,7 @@ document.addEventListener('touchstart',function(e){
 },{passive:true});
 
 function saveData(){
-  try{localStorage.setItem('tgr_data',JSON.stringify({deals,leads,tasks,priorities,vendors,contentPipeline,loanPrograms,expenses}));}catch(e){}
+  try{localStorage.setItem('tgr_data',JSON.stringify({deals,leads,tasks,priorities,vendors,contentPipeline,loanPrograms,expenses,_dataVersion:_DATA_VERSION}));}catch(e){}
   renderBadges();
   scheduleAutoSync();
 }
