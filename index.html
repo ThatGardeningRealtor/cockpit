@@ -1087,7 +1087,7 @@ function openContent(id){
 // ═══════════ ACTIONS ═══════════
 function togglePri(id){
   const p=priorities.find(x=>x.id===id);if(!p)return;
-  p.done=!p.done;saveData();
+  p.done=!p.done;saveData();renderPriorities();renderAlerts();
   const chk=document.getElementById('pri-chk'),lbl=document.getElementById('pri-chk-lbl');
   if(chk){chk.classList.toggle('dn',p.done);}
   if(lbl){lbl.textContent=p.done?'Completed':'Mark Complete';lbl.classList.toggle('struck',p.done);}
