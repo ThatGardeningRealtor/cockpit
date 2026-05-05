@@ -941,8 +941,7 @@ function openDeal(id){
     ${d.contact?`<div class="d-field"><div class="d-label">Contact</div><div class="d-val">${d.contact}</div>${d.phone?`<button onclick="confirmCall('${d.phone}','${d.contact}')" class="d-phone" style="border:none;cursor:pointer">📞 ${d.phone}</button>`:''}</div>`:''}
     <div class="d-field"><div class="d-notes">${d.notes}</div></div>
     <div class="d-field"><div class="d-label">Status</div><div id="deal-status-row" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:6px">${statusBtns}</div></div>
-    <div class="d-field"><div class="d-label">Next Action</div><textarea class="m-notes-area" id="dealNext" placeholder="What's the next step?">${d.next}</textarea><div style="font-size:10px;color:var(--muted);margin-top:4px">Updates the card's next step.</div></div>
-    <div class="d-field"><div class="d-label">Log Update</div><textarea class="m-notes-area" id="dealLog" placeholder="What happened? Any updates..." style="background:rgba(46,74,48,0.08);border-color:var(--moss)"></textarea><div style="font-size:10px;color:var(--muted);margin-top:4px">What just happened? This adds to the activity log.</div></div>
+    <div class="d-field"><div class="d-label">Log Update</div><textarea class="m-notes-area" id="dealLog" placeholder="What happened? Next steps? Drop it all here..." style="background:rgba(46,74,48,0.08);border-color:var(--moss)"></textarea><div style="font-size:10px;color:var(--muted);margin-top:4px">What just happened? This adds to the activity log.</div></div>
     <button class="m-save-btn" onclick="saveDeal('${id}')">💾 Save & Close</button>
     ${logHTML?`<div class="d-field" style="margin-top:16px"><div class="d-label" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'" style="cursor:pointer">Activity Log <span style="font-size:10px;opacity:.5">▾ tap to collapse</span></div><div>${logHTML}</div></div>`:''}`;
   openModal();
@@ -959,9 +958,7 @@ function setDealStatus(id,cls){
 
 function saveDeal(id){
   const d=deals.find(x=>x.id===id);if(!d)return;
-  const nextVal=document.getElementById('dealNext').value.trim();
   const logVal=document.getElementById('dealLog').value.trim();
-  if(nextVal)d.next=nextVal;
   if(logVal){const now=new Date();d.logs.unshift({t:now.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})+' '+now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'}),m:logVal});}
   saveData();
   renderAlerts();
@@ -981,8 +978,7 @@ function openLead(id){
     ${l.phone?`<div class="d-field"><div class="d-label">Phone</div><button onclick="confirmCall('${l.phone}','${l.title}')" class="d-phone" style="border:none;cursor:pointer">📞 ${l.phone}</button></div>`:''}
     <div class="d-field"><div class="d-label">Details</div><div class="d-notes">${l.detail}</div></div>
     <div class="d-field"><div class="d-label">Status</div><div id="lead-status-row" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:6px">${statusBtns}</div></div>
-    <div class="d-field"><div class="d-label">Next Action</div><textarea class="m-notes-area" id="leadNext" placeholder="What's the next step?">${l.next}</textarea><div style="font-size:10px;color:var(--muted);margin-top:4px">Updates the card's next step.</div></div>
-    <div class="d-field"><div class="d-label">Log Update</div><textarea class="m-notes-area" id="leadLog" placeholder="What happened? Any updates..." style="background:rgba(46,74,48,0.08);border-color:var(--moss)"></textarea><div style="font-size:10px;color:var(--muted);margin-top:4px">What just happened? This adds to the activity log.</div></div>
+    <div class="d-field"><div class="d-label">Log Update</div><textarea class="m-notes-area" id="leadLog" placeholder="What happened? Next steps? Drop it all here..." style="background:rgba(46,74,48,0.08);border-color:var(--moss)"></textarea><div style="font-size:10px;color:var(--muted);margin-top:4px">What just happened? This adds to the activity log.</div></div>
     <button class="m-save-btn" onclick="saveLead('${id}')">💾 Save & Close</button>
     ${logHTML?`<div class="d-field" style="margin-top:16px"><div class="d-label" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'" style="cursor:pointer">Activity Log <span style="font-size:10px;opacity:.5">▾ tap to collapse</span></div><div>${logHTML}</div></div>`:''}`;
   openModal();
@@ -998,9 +994,7 @@ function setLeadStatus(id,cls){
 
 function saveLead(id){
   const l=leads.find(x=>x.id===id);if(!l)return;
-  const nextVal=document.getElementById('leadNext').value.trim();
   const logVal=document.getElementById('leadLog').value.trim();
-  if(nextVal)l.next=nextVal;
   if(logVal){const now=new Date();l.logs.unshift({t:now.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})+' '+now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'}),m:logVal});}
   saveData();
   renderAlerts();
