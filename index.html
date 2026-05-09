@@ -1159,11 +1159,13 @@ function updateGitHubToken(){
 // ── Dropbox Integration ───────────────────────────────────────────────────────
 const _DBX_KEY='1ayzpz0iw8cxncy';
 const _DBX_SECRET='ers8j0dmaoxug3t';
-let _dbxToken=null;
-let _dbxTokenExpiry=0;
 
 async function _getDropboxToken(){
-  if(_dbxToken&&Date.now()<_dbxTokenExpiry)return _dbxToken;
+  // Use localStorage-cached access token if still valid (avoids CORS preflight on token endpoint)
+  const stored=localStorage.getItem('tgr_dbx_access');
+  const expiry=parseInt(localStorage.getItem('tgr_dbx_expiry')||'0');
+  if(stored&&Date.now()<expiry)return stored;
+  // Refresh
   const refresh=localStorage.getItem('tgr_dbx_refresh');
   if(!refresh)return null;
   try{
@@ -1171,17 +1173,12 @@ async function _getDropboxToken(){
     const res=await fetch('https://api.dropbox.com/oauth2/token',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body});
     const data=await res.json();
     if(data.access_token){
-      _dbxToken=data.access_token;
-      _dbxTokenExpiry=Date.now()+(3.5*60*60*1000); // cache for 3.5 hours
-      return _dbxToken;
+      localStorage.setItem('tgr_dbx_access',data.access_token);
+      localStorage.setItem('tgr_dbx_expiry',String(Date.now()+(3.5*60*60*1000)));
+      return data.access_token;
     }
     return null;
   }catch{return null;}
-}
-
-// Warm up the Dropbox token on load so first form save doesn't hit CORS preflight cold
-if(localStorage.getItem('tgr_dbx_refresh')){
-  setTimeout(()=>_getDropboxToken().catch(()=>{}),1500);
 }
 
 async function _dropboxWrite(path,content){
@@ -1215,6 +1212,10 @@ async function connectDropbox(){
     const data=await res.json();
     if(data.refresh_token){
       localStorage.setItem('tgr_dbx_refresh',data.refresh_token);
+      if(data.access_token){
+        localStorage.setItem('tgr_dbx_access',data.access_token);
+        localStorage.setItem('tgr_dbx_expiry',String(Date.now()+(3.5*60*60*1000)));
+      }
       if(btn)btn.textContent='🗂 Dropbox Connected ✅';
       showToast('Dropbox connected ✅ — inbox saves now go direct');
       closeSettings();
