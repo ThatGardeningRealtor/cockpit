@@ -543,6 +543,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
     <button id="install-btn" onclick="installApp()" style="display:none;width:100%;text-align:left;padding:14px 16px;margin-bottom:8px;border-radius:12px;border:1.5px solid var(--sky);background:rgba(74,138,181,.08);color:var(--sky);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">📲 Install App</button>
     <button onclick="forceUpdate()" style="width:100%;text-align:left;padding:14px 16px;margin-bottom:8px;border-radius:12px;border:1.5px solid var(--sky);background:rgba(74,138,181,.08);color:var(--sky);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">🔄 Force Update App</button>
     <button onclick="updateGitHubToken();closeSettings()" style="width:100%;text-align:left;padding:14px 16px;margin-bottom:8px;border-radius:12px;border:1.5px solid var(--moss);background:rgba(46,74,48,.08);color:var(--moss);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">🔑 Update GitHub Token</button>
+    <button onclick="connectDropbox()" style="width:100%;text-align:left;padding:14px 16px;margin-bottom:8px;border-radius:12px;border:1.5px solid var(--sky);background:rgba(74,138,181,.08);color:var(--sky);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit" id="dbx-connect-btn">🗂 Connect Dropbox</button>
     <button onclick="exportExpenses();closeSettings()" style="width:100%;text-align:left;padding:14px 16px;margin-bottom:8px;border-radius:12px;border:1.5px solid #b8972a;background:rgba(184,151,42,.06);color:#b8972a;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">📊 Export Tax Report</button>
     <button onclick="exportData();closeSettings()" style="width:100%;text-align:left;padding:14px 16px;margin-bottom:8px;border-radius:12px;border:1.5px solid var(--warm);background:var(--card);color:var(--muted);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">⬇ Export Backup</button>
     <button onclick="importData();closeSettings()" style="width:100%;text-align:left;padding:14px 16px;margin-bottom:8px;border-radius:12px;border:1.5px solid var(--warm);background:var(--card);color:var(--muted);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">⬆ Import Backup</button>
@@ -1155,6 +1156,61 @@ function updateGitHubToken(){
   showToast('Token saved ✓');
 }
 
+// ── Dropbox Integration ───────────────────────────────────────────────────────
+const _DBX_KEY='1ayzpz0iw8cxncy';
+const _DBX_SECRET='ers8j0dmaoxug3t';
+
+async function _getDropboxToken(){
+  const refresh=localStorage.getItem('tgr_dbx_refresh');
+  if(!refresh)return null;
+  try{
+    const body=`grant_type=refresh_token&refresh_token=${encodeURIComponent(refresh)}&client_id=${_DBX_KEY}&client_secret=${_DBX_SECRET}`;
+    const res=await fetch('https://api.dropbox.com/oauth2/token',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body});
+    const data=await res.json();
+    return data.access_token||null;
+  }catch{return null;}
+}
+
+async function _dropboxWrite(path,content){
+  const token=await _getDropboxToken();
+  if(!token)return false;
+  try{
+    const res=await fetch('https://content.dropboxapi.com/2/files/upload',{
+      method:'POST',
+      headers:{
+        'Authorization':`Bearer ${token}`,
+        'Content-Type':'application/octet-stream',
+        'Dropbox-API-Arg':JSON.stringify({path,mode:'overwrite',autorename:false})
+      },
+      body:content
+    });
+    const data=await res.json();
+    return!!data.name;
+  }catch{return false;}
+}
+
+async function connectDropbox(){
+  const btn=document.getElementById('dbx-connect-btn');
+  const existing=localStorage.getItem('tgr_dbx_refresh');
+  const label=existing?'Reconnect Dropbox — get a new code:':'Connect Dropbox — get a code:';
+  window.open(`https://www.dropbox.com/oauth2/authorize?client_id=${_DBX_KEY}&token_access_type=offline&scope=files.metadata.read%20files.content.read%20files.content.write&response_type=code`,'_blank');
+  const code=prompt('Dropbox opened in a new tab.\n\nClick Allow, then paste the code shown on screen:');
+  if(!code||!code.trim())return;
+  try{
+    const body=`code=${encodeURIComponent(code.trim())}&grant_type=authorization_code&client_id=${_DBX_KEY}&client_secret=${_DBX_SECRET}`;
+    const res=await fetch('https://api.dropbox.com/oauth2/token',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body});
+    const data=await res.json();
+    if(data.refresh_token){
+      localStorage.setItem('tgr_dbx_refresh',data.refresh_token);
+      if(btn)btn.textContent='🗂 Dropbox Connected ✅';
+      showToast('Dropbox connected ✅ — inbox saves now go direct');
+      closeSettings();
+    }else{
+      alert('Connection failed — code may have expired. Try again.');
+    }
+  }catch(e){alert('Dropbox error: '+e.message);}
+}
+
 function openSettings(){
   const vEl=document.getElementById('settings-version');
   if(vEl)vEl.textContent='Sirhc Cockpit '+APP_VERSION;
@@ -1319,6 +1375,11 @@ let _inboxHandle=null;
 const _isMobile=/Android|iPhone|iPad/i.test(navigator.userAgent);
 
 async function saveToInbox(filename,content){
+  // Dropbox first — works on mobile and desktop
+  if(localStorage.getItem('tgr_dbx_refresh')){
+    return await _dropboxWrite(`/TGR-AI-Team/team-inbox/${filename}`,content);
+  }
+  // Fall back to File System Access API (desktop only)
   if(!window.showDirectoryPicker||_isMobile)return false;
   try{
     if(!_inboxHandle){
@@ -1345,7 +1406,7 @@ async function submitToTeam(rbId,rId,label,prefix,content){
   if(saved){
     body.innerHTML=`<strong>Saved to inbox ✅</strong><br><br><span style="font-size:12px;color:var(--muted)">File: <code>${filename}</code><br>Sirhc will pick it up automatically — no paste needed.</span>`;
   } else {
-    body.innerHTML=`<strong>Copied to clipboard ✅</strong><br><br><span style="font-size:12px;color:var(--muted)">Inbox save needs Dropbox folder access — tap the button again and select your <strong>TGR-AI-Team</strong> folder when prompted.<br><br>For now, paste into your Claude Desktop session — routes to ${label} automatically.</span><br><br><div style="background:var(--parch);border-radius:8px;padding:10px;font-size:11px;color:var(--muted);white-space:pre-wrap;margin-top:8px">${content}</div>`;
+    body.innerHTML=`<strong>Copied to clipboard ✅</strong><br><br><span style="font-size:12px;color:var(--muted)">To save directly to Dropbox, tap <strong>Settings → Connect Dropbox</strong> — one-time setup, works on phone too.<br><br>For now, paste into your Claude session — routes to ${label} automatically.</span><br><br><div style="background:var(--parch);border-radius:8px;padding:10px;font-size:11px;color:var(--muted);white-space:pre-wrap;margin-top:8px">${content}</div>`;
   }
   card.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
@@ -1753,6 +1814,9 @@ async function _doGitHubPush(btn,content,token){
       const _syncDisp=document.getElementById('last-synced-display');
       if(_syncDisp)_syncDisp.textContent='Last synced: '+_syncTime;
       clearUnsyncedFlag();
+      // Trigger morning brief regeneration in background (~90s to complete)
+      fetch('https://api.github.com/repos/ThatGardeningRealtor/sirhc-agent/actions/workflows/sirhc-daily.yml/dispatches',{method:'POST',headers:{'Authorization':`token ${token}`,'Content-Type':'application/json','Accept':'application/vnd.github.v3+json'},body:JSON.stringify({ref:'main'})}).catch(()=>{});
+      showToast('Brief refreshing — ready in ~90s 🌿');
       setTimeout(()=>{btn.textContent='🌿 Sync to Sirhc';btn.style.background='';btn.style.color='';},4000);
       const _dealCount=(deals||[]).filter(d=>!d.cls&&d.logs&&d.logs.length).length;
       const _leadCount=(leads||[]).filter(l=>!l.cls&&l.logs&&l.logs.length).length;
