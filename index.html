@@ -1199,15 +1199,30 @@ async function _dropboxWrite(path,content){
   }catch{return false;}
 }
 
-async function connectDropbox(){
-  const btn=document.getElementById('dbx-connect-btn');
-  const existing=localStorage.getItem('tgr_dbx_refresh');
-  const label=existing?'Reconnect Dropbox — get a new code:':'Connect Dropbox — get a code:';
+function connectDropbox(){
   window.open(`https://www.dropbox.com/oauth2/authorize?client_id=${_DBX_KEY}&token_access_type=offline&scope=files.metadata.read%20files.content.read%20files.content.write&response_type=code`,'_blank');
-  const code=prompt('Dropbox opened in a new tab.\n\nClick Allow, then paste the code shown on screen:');
-  if(!code||!code.trim())return;
+  // Show in-app code entry panel
+  const existing=document.getElementById('dbx-code-panel');
+  if(existing)existing.remove();
+  const panel=document.createElement('div');
+  panel.id='dbx-code-panel';
+  panel.style.cssText='margin-top:12px;background:var(--parch);border-radius:12px;padding:14px;';
+  panel.innerHTML=`
+    <div style="font-size:11px;font-weight:700;color:var(--muted);margin-bottom:8px">Dropbox opened — click Allow, then paste the code here:</div>
+    <input id="dbx-code-input" type="text" placeholder="Paste code from Dropbox..." autocomplete="off" autocorrect="off" autocapitalize="off" style="width:100%;padding:10px 12px;border-radius:8px;border:1.5px solid var(--sky);background:#fff;font-size:13px;font-family:inherit;margin-bottom:8px;box-sizing:border-box">
+    <button onclick="submitDropboxCode()" style="width:100%;padding:11px;border-radius:10px;border:none;background:var(--sky);color:#fff;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">Connect ✓</button>`;
+  const btn=document.getElementById('dbx-connect-btn');
+  btn.after(panel);
+  setTimeout(()=>document.getElementById('dbx-code-input').focus(),300);
+}
+
+async function submitDropboxCode(){
+  const input=document.getElementById('dbx-code-input');
+  const code=(input&&input.value||'').trim();
+  if(!code){input.style.borderColor='var(--rust)';return;}
+  input.disabled=true;
   try{
-    const body=`code=${encodeURIComponent(code.trim())}&grant_type=authorization_code&client_id=${_DBX_KEY}&client_secret=${_DBX_SECRET}`;
+    const body=`code=${encodeURIComponent(code)}&grant_type=authorization_code&client_id=${_DBX_KEY}&client_secret=${_DBX_SECRET}`;
     const res=await fetch('https://api.dropbox.com/oauth2/token',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body});
     const data=await res.json();
     if(data.refresh_token){
@@ -1216,13 +1231,19 @@ async function connectDropbox(){
         localStorage.setItem('tgr_dbx_access',data.access_token);
         localStorage.setItem('tgr_dbx_expiry',String(Date.now()+(3.5*60*60*1000)));
       }
+      const panel=document.getElementById('dbx-code-panel');
+      if(panel)panel.remove();
+      const btn=document.getElementById('dbx-connect-btn');
       if(btn)btn.textContent='🗂 Dropbox Connected ✅';
       showToast('Dropbox connected ✅ — inbox saves now go direct');
       closeSettings();
     }else{
-      alert('Connection failed — code may have expired. Try again.');
+      input.disabled=false;
+      input.style.borderColor='var(--rust)';
+      input.value='';
+      input.placeholder='Code expired — get a new one and try again';
     }
-  }catch(e){alert('Dropbox error: '+e.message);}
+  }catch(e){input.disabled=false;showToast('Error: '+e.message);}
 }
 
 function openSettings(){
