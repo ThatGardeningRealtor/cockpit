@@ -1,8 +1,8 @@
-const CACHE = 'tgr-cockpit-v7';
-const ASSETS = ['/cockpit/', '/cockpit/index.html', '/cockpit/manifest.json'];
+const CACHE = 'tgr-cockpit-v8';
+const STATIC = ['/cockpit/manifest.json'];
 
 self.addEventListener('install', e => {
-  e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)));
+  e.waitUntil(caches.open(CACHE).then(c => c.addAll(STATIC)));
   self.skipWaiting();
 });
 
@@ -14,7 +14,13 @@ self.addEventListener('activate', e => {
 });
 
 self.addEventListener('fetch', e => {
+  // Always fetch index.html fresh from network — never cache it
+  if(e.request.url.includes('index.html') || e.request.url.endsWith('/cockpit/') || e.request.url.endsWith('/cockpit')){
+    e.respondWith(fetch(e.request).catch(() => caches.match('/cockpit/index.html')));
+    return;
+  }
+  // Cache-first for static assets (manifest, icons)
   e.respondWith(
-    fetch(e.request).catch(() => caches.match(e.request))
+    caches.match(e.request).then(cached => cached || fetch(e.request))
   );
 });
