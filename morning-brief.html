@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #F0EBE1; padding: 16px; color: #1a1008; }
+.wrap { max-width: 680px; margin: 0 auto; }
+.hdr { background: linear-gradient(135deg, #1E1208, #2E4A30); border-radius: 14px; padding: 20px 22px 16px; margin-bottom: 12px; color: white; }
+.hdr-date { font-size: 10px; color: #8FB892; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+.hdr-title { font-size: 22px; font-weight: 900; color: white; }
+.hdr-sub { font-size: 11px; color: #B8D8B0; margin-top: 3px; }
+.sec-label { font-size: 9px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: #6B8E6E; margin-bottom: 7px; margin-top: 16px; }
+.recap-box { background: #1E1208; border-radius: 10px; padding: 12px 14px; margin-bottom: 4px; }
+.recap-item { font-size: 11px; color: #B8D8B0; padding: 4px 0; display: flex; gap: 8px; align-items: flex-start; border-bottom: 1px solid #2E4A30; }
+.recap-item:last-child { border-bottom: none; }
+.recap-dot { font-size: 8px; margin-top: 3px; flex-shrink: 0; }
+.recap-text { flex: 1; line-height: 1.5; }
+.recap-text strong { color: #E8DCC8; font-weight: 700; }
+.p3-grid { display: flex; flex-direction: column; gap: 6px; }
+.p3-row { background: white; border-radius: 10px; padding: 11px 14px; display: flex; gap: 12px; align-items: center; }
+.p3-num { font-size: 22px; font-weight: 900; color: #D4A847; width: 24px; flex-shrink: 0; line-height: 1; }
+.p3-body { flex: 1; }
+.p3-t { font-size: 13px; font-weight: 800; color: #1a1008; margin-bottom: 2px; }
+.p3-s { font-size: 10px; color: #7A6A58; }
+.sched-table { width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; }
+.sched-table td { padding: 9px 12px; border-bottom: 1px solid #f0f0f0; font-size: 12px; }
+.sched-table tr:last-child td { border-bottom: none; }
+.sched-time { font-weight: 800; color: #888; font-size: 10px; white-space: nowrap; padding-right: 14px; width: 72px; }
+.sched-name { font-weight: 700; color: #1a1008; }
+.sched-note { color: #7A6A58; font-size: 10px; margin-top: 1px; }
+.cov-table { width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; }
+.cov-table tr { border-bottom: 1px solid #f5f0ea; }
+.cov-table tr:last-child { border-bottom: none; }
+.cov-table td { padding: 8px 12px; vertical-align: middle; }
+.cov-dot { width: 10px; padding-right: 0; }
+.cov-dot span { display: inline-block; width: 9px; height: 9px; border-radius: 50%; }
+.cov-dot span.green { background: #2E7D32; }
+.cov-dot span.amber { background: #D4A847; }
+.cov-dot span.red { background: #C62828; }
+.cov-cat { width: 42px; }
+.cov-badge { font-size: 8px; font-weight: 800; letter-spacing: 1px; padding: 2px 6px; border-radius: 6px; white-space: nowrap; }
+.cov-badge.deal { background: #e8f5e4; color: #2E7D32; }
+.cov-badge.lead { background: #e8f0fe; color: #1a56db; }
+.cov-badge.deck { background: #f5f0ea; color: #7A6A58; }
+.cov-name { font-size: 12px; font-weight: 700; color: #1a1008; }
+.cov-status { font-size: 10px; color: #7A6A58; }
+.cov-next { font-size: 9px; font-weight: 700; color: #6B8E6E; white-space: nowrap; text-align: right; }
+.hold-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+.hold-box { background: white; border-radius: 8px; padding: 9px 11px; }
+.hold-t { font-size: 11px; font-weight: 700; color: #1a1008; margin-bottom: 2px; }
+.hold-s { font-size: 10px; color: #7A6A58; }
+.foot { background: #1E1208; border-radius: 10px; padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; margin-top: 14px; }
+.foot-l { font-size: 12px; font-weight: 800; color: #B8D8B0; }
+.foot-r { font-size: 10px; color: #6B8E6E; text-align: right; line-height: 1.6; }
+.tag { font-size: 9px; font-weight: 700; padding: 1px 7px; border-radius: 8px; display: inline-block; margin-left: 5px; vertical-align: middle; }
+.tag.hot { background: #fde8e8; color: #C62828; }
+.tag.new { background: #e8f5e4; color: #2E7D32; }
+.tag.tmrw { background: #e8f0fe; color: #1a56db; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hdr">
+  <div class="hdr-date">Saturday · May 9, 2026 · Morning Brief</div>
+  <div class="hdr-title">🌱 Morning Brief</div>
+  <div class="hdr-sub">Mill Path goes live Wednesday — canvass the neighborhood today while you're in Devine dropping signs.</div>
+</div>
+
+<div class="sec-label">What Changed Since Yesterday</div>
+<div class="recap-box">
+  <div class="recap-item">
+    <div class="recap-dot">✅</div>
+    <div class="recap-text"><strong>Coughran Rd fully closed.</strong> Confirmed closed and funded April 27. Post-close gifts still pending — Joy basket, Sam VanDenheuvel lunch, Michael the notary basket, Chelsey Bongiovi thank you.</div>
+  </div>
+  <div class="recap-item">
+    <div class="recap-dot">🏡</div>
+    <div class="recap-text"><strong>10023 Mill Path listing agreement signed.</strong> Photos in from ATG. Going live Wednesday May 13. Neighborhood canvass planned before launch — knock on doors, drop sign and lockbox this week.</div>
+  </div>
+  <div class="recap-item">
+    <div class="recap-dot">🔨</div>
+    <div class="recap-text"><strong>181 CR 7751 — dumpsters dropping this weekend.</strong> Matt Toney / San Antonio Remodelers starting work. Chris swinging by when in Devine to check progress. Check clubhouse for local contractor references.</div>
+  </div>
+  <div class="recap-item">
+    <div class="recap-dot">🌾</div>
+    <div class="recap-text"><strong>Tilden 20ac — new prospect wants a showing tomorrow.</strong> Lady interested in subdividing or alternate use. Strategy communicated: land-only cash deal, buyer does what they want after close. Steve sent fresh photos — social content ready.</div>
+  </div>
+</div>
+
+<div class="sec-label">Today's 3 Priorities</div>
+<div class="p3-grid">
+  <div class="p3-row">
+    <div class="p3-num">1</div>
+    <div class="p3-body">
+      <div class="p3-t">Devine run — sign, lockbox, site check</div>
+      <div class="p3-s">Drop sign + lockbox at 340 Sollock and 10023 Mill Path. Swing by 181 CR 7751 to eyeball the dumpster drop. Check clubhouse for lawn and contractor refs. One trip, four birds.</div>
+    </div>
+  </div>
+  <div class="p3-row">
+    <div class="p3-num">2</div>
+    <div class="p3-body">
+      <div class="p3-t">Tilden showing prep — confirm tomorrow's prospect</div>
+      <div class="p3-s">Lady wants to show tomorrow — confirm time, send access instructions (no lock at gate), set expectations on land-only cash strategy. Text Steve a heads up.</div>
+    </div>
+  </div>
+  <div class="p3-row">
+    <div class="p3-num">3</div>
+    <div class="p3-body">
+      <div class="p3-t">Pamela Moore — follow up today</div>
+      <div class="p3-s">She was due a callback April 30. Warm lead, VA-eligible, $1,700/mo in rent. Call 210-942-0487. Ask about the grandkid first, then ease into the home conversation.</div>
+    </div>
+  </div>
+</div>
+
+<div class="sec-label">Today's Schedule</div>
+<table class="sched-table">
+  <tr>
+    <td class="sched-time">Dog Walk</td>
+    <td>
+      <div class="sched-name">Morning reset</div>
+      <div class="sched-note">Clear your head. Review the three priorities before you hit the road.</div>
+    </td>
+  </tr>
+  <tr>
+    <td class="sched-time">Morning</td>
+    <td>
+      <div class="sched-name">Confirm Tilden showing<span class="tag tmrw">TMRW</span></div>
+      <div class="sched-note">Text/call tomorrow's prospect. Confirm time. Send access info — no lock at gate, mind the critters. Text Steve Jimenez (903-288-6804) heads up.</div>
+    </td>
+  </tr>
+  <tr>
+    <td class="sched-time">Morning</td>
+    <td>
+      <div class="sched-name">Call Pamela Moore<span class="tag hot">URGENT</span></div>
+      <div class="sched-note">Call 210-942-0487. She was due a follow-up April 30. Ask about grandkid, ease into VA conversation. Military retirement = strong qualifier.</div>
+    </td>
+  </tr>
+  <tr>
+    <td class="sched-time">Afternoon</td>
+    <td>
+      <div class="sched-name">Devine run</div>
+      <div class="sched-note">Drop sign + lockbox: 340 Sollock Dr and 10023 Mill Path. Check 181 CR 7751 dumpster drop. Stop at clubhouse — ask for lawn and contractor references. Morales Tree Trimming (830-444-7804) and A.M. Lawn Care (830-444-2436) already contacted for Sollock grass.</div>
+    </td>
+  </tr>
+  <tr>
+    <td class="sched-time">Afternoon</td>
+    <td>
+      <div class="sched-name">Mill Path neighborhood canvass<span class="tag new">NEW CLIENT</span></div>
+      <div class="sched-note">Knock doors near 10023 Mill Path before Wednesday launch. Introduce yourself — neighbors sometimes become buyers or sellers. Plant the seed.</div>
+    </td>
+  </tr>
+  <tr>
+    <td class="sched-time">TBD</td>
+    <td>
+      <div class="sched-name">Process inbox updates</div>
+      <div class="sched-note">Three update files in team-inbox from yesterday evening (1801, 1923, 1924). Review and action.</div>
+    </td>
+  </tr>
+</table>
+
+<div class="sec-label">Coverage Board — Everything Sirhc Is Watching</div>
+<table class="cov-table">
+  <tr>
+    <td class="cov-dot"><span class="green"></span></td>
+    <td class="cov-cat"><span class="cov-badge deal">DEAL</span></td>
+    <td>
+      <div class="cov-name">10023 Mill Path — Listing</div>
+      <div class="cov-status">Agreement signed · ATG photos in · going live Wednesday May 13</div>
+    </td>
+    <td class="cov-next">Drop sign + lockbox · canvass neighborhood before launch</td>
+  </tr>
+  <tr>
+    <td class="cov-dot"><span class="green"></span></td>
+    <td class="cov-cat"><span class="cov-badge deal">DEAL</span></td>
+    <td>
+      <div class="cov-name">8449 Coughran Rd — CLOSED</div>
+      <div class="cov-status">Closed and funded April 27 ✅ · commission receipt unconfirmed</div>
+    </td>
+    <td class="cov-next">Confirm commission received · Joy gift basket + rug + trolley · thank Sam, Michael, Chelsey Bongiovi</td>
+  </tr>
+  <tr>
+    <td class="cov-dot"><span class="green"></span></td>
+    <td class="cov-cat"><span class="cov-badge deal">DEAL</span></td>
+    <td>
+      <div class="cov-name">Tilden 20ac — Steve Jimenez</div>
+      <div class="cov-status">Active marketing · new prospect wants showing tomorrow · strategy: land-only cash</div>
+    </td>
+    <td class="cov-next">Confirm tomorrow's showing · send access instructions · Steve Jimenez 903-288-6804</td>
+  </tr>
+  <tr>
+    <td class="cov-dot"><span class="amber"></span></td>
+    <td class="cov-cat"><span class="cov-badge deal">DEAL</span></td>
+    <td>
+      <div class="cov-name">181 CR 7751 — Priority Bank REO</div>
+      <div class="cov-status">Work starting — Matt Toney / San Antonio Remodelers dropping dumpsters this weekend</div>
+    </td>
+    <td class="cov-next">Swing by property when in Devine · check clubhouse for contractor refs · follow up with Marc (plumber) on quote</td>
+  </tr>
+  <tr>
+    <td class="cov-dot"><span class="red"></span></td>
+    <td class="cov-cat"><span class="cov-badge deal">DEAL</span></td>
+    <td>
+      <div class="cov-name">340 Sollock Dr — Gamez / Grulli</div>
+      <div class="cov-status">CRITICAL — underwater $93K–$143K · May 5 showing feedback needed · grass unresolved</div>
+    </td>
+    <td class="cov-next">Get feedback from showing agent · follow up with Matt & Chandler on three paths · drop sign/lockbox on Devine run</td>
+  </tr>
+  <tr>
+    <td class="cov-dot"><span class="amber"></span></td>
+    <td class="cov-cat"><span class="cov-badge deal">DEAL</span></td>
+    <td>
+      <div class="cov-name">00 Borregas — Elmendorf Land</div>
+      <div class="cov-status">Title defect confirmed · Van Hutchins preparing Correction Deed · Jennifer Ball leading fix</div>
+    </td>
+    <td class="cov-next">Pull listing agreement — confirm who signed · call sisters · get attorney fee estimate from Van Hutchins</td>
+  </tr>
+  <tr>
+    <td class="cov-dot"><span class="red"></span></td>
+    <td class="cov-cat"><span class="cov-badge lead">LEAD</span></td>
+    <td>
+      <div class="cov-name">Mike & Alice Howell — Buyers</div>
+      <div class="cov-status">Rental being sold — urgent · pivoting to new construction · no HOA</div>
+    </td>
+    <td class="cov-next">Confirm pre-approval amount with Zach Schaphorst · identify no-HOA new construction communities · clock is ticking</td>
+  </tr>
+  <tr>
+    <td class="cov-dot"><span class="amber"></span></td>
+    <td class="cov-cat"><span class="cov-badge lead">LEAD</span></td>
+    <td>
+      <div class="cov-name">Pamela Moore — VA Buyer</div>
+      <div class="cov-status">Warm · spoke April 29 · follow-up overdue · military retirement + $1,700/mo rent</div>
+    </td>
+    <td class="cov-next">Call 210-942-0487 today — ask about grandkid, ease into VA conversation</td>
+  </tr>
+  <tr>
+    <td class="cov-dot"><span class="amber"></span></td>
+    <td class="cov-cat"><span class="cov-badge lead">LEAD</span></td>
+    <td>
+      <div class="cov-name">Isaac Linares + Adam — Partners</div>
+      <div class="cov-status">Active cross-referral · Mill Path listed · Borregas development interest · EMD discrepancy open</div>
+    </td>
+    <td class="cov-next">Thank Isaac for Mill Path referral · follow up on Adam's EMD discrepancy (~$1,200) · Borregas owner finance option</td>
+  </tr>
+  <tr>
+    <td class="cov-dot"><span class="green"></span></td>
+    <td class="cov-cat"><span class="cov-badge lead">LEAD</span></td>
+    <td>
+      <div class="cov-name">Colton & Abby Brown — Seller + Contractor</div>
+      <div class="cov-status">Divorce · Moore TX renovation to finish and sell · Colton looking for work</div>
+    </td>
+    <td class="cov-next">Reach out — confirm listing timeline · offer 181 CR 7751 job · check if Moore TX needs referral agent</td>
+  </tr>
+  <tr>
+    <td class="cov-dot"><span class="amber"></span></td>
+    <td class="cov-cat"><span class="cov-badge lead">LEAD</span></td>
+    <td>
+      <div class="cov-name">Kurt — 9815 Conbes Neighbor</div>
+      <div class="cov-status">Watching nearby listing · under contract at $275K · wants offer intel</div>
+    </td>
+    <td class="cov-next">Follow up with listing agent · report back to Kurt · determine if buyer, seller, or curious</td>
+  </tr>
+  <tr>
+    <td class="cov-dot"><span class="amber"></span></td>
+    <td class="cov-cat"><span class="cov-badge lead">LEAD</span></td>
+    <td>
+      <div class="cov-name">Sallie Mae F. — Community Contact</div>
+      <div class="cov-status">Garden community connection · grief → healing → plants story · trust-based, long-term</div>
+    </td>
+    <td class="cov-next">Check in personally · ask permission to share her story for content</td>
+  </tr>
+  <tr>
+    <td class="cov-dot"><span class="amber"></span></td>
+    <td class="cov-cat"><span class="cov-badge lead">LEAD</span></td>
+    <td>
+      <div class="cov-name">Jahsia — Agent Prospect</div>
+      <div class="cov-status">18, finishing senior year · interested in real estate · referred by Julie</div>
+    </td>
+    <td class="cov-next">Get contact info from Julie · intro call on licensing path + eXp</td>
+  </tr>
+  <tr>
+    <td class="cov-dot"><span class="amber"></span></td>
+    <td class="cov-cat"><span class="cov-badge deck">DECK</span></td>
+    <td>
+      <div class="cov-name">Coughran Rd Commission</div>
+      <div class="cov-status">Closed April 27 — commission receipt not confirmed</div>
+    </td>
+    <td class="cov-next">Verify commission deposited · log in expense tracker</td>
+  </tr>
+  <tr>
+    <td class="cov-dot"><span class="amber"></span></td>
+    <td class="cov-cat"><span class="cov-badge deck">DECK</span></td>
+    <td>
+      <div class="cov-name">Team Inbox — 3 Unprocessed Updates</div>
+      <div class="cov-status">update_2026-05-09 files x3 (1801, 1923, 1924) sitting in team-inbox</div>
+    </td>
+    <td class="cov-next">Review and process this morning</td>
+  </tr>
+</table>
+
+<div class="sec-label">On Deck</div>
+<div class="hold-grid">
+  <div class="hold-box">
+    <div class="hold-t">Mill Path goes live — Wednesday May 13</div>
+    <div class="hold-s">Photos done · agreement signed · canvass neighborhood before launch · MLS setup this weekend</div>
+  </div>
+  <div class="hold-box">
+    <div class="hold-t">Tilden showing — Sunday May 10</div>
+    <div class="hold-s">Confirm time with prospect today · land-only cash strategy · Steve Jimenez 903-288-6804</div>
+  </div>
+  <div class="hold-box">
+    <div class="hold-t">340 Sollock — seller path decision needed</div>
+    <div class="hold-s">May 5 showing feedback pending · Matt & Chandler need to choose: short sale, VA assumption, or cash to close</div>
+  </div>
+  <div class="hold-box">
+    <div class="hold-t">181 CR 7751 — monitor rehab start</div>
+    <div class="hold-s">Dumpsters this weekend · swing by Devine · police report still open · Marc (plumber) quote still outstanding</div>
+  </div>
+  <div class="hold-box">
+    <div class="hold-t">Borregas title fix — Van Hutchins Correction Deed</div>
+    <div class="hold-s">Jennifer Ball driving it · pull listing agreement to confirm signers · call sisters this week</div>
+  </div>
+  <div class="hold-box">
+    <div class="hold-t">Coughran Rd post-close gifts</div>
+    <div class="hold-s">Joy basket + rug + trolley · Sam VanDenheuvel lunch/coffee · Michael notary basket · Chelsey Bongiovi thank you note</div>
+  </div>
+</div>
+
+<div class="foot">
+  <div class="foot-l">🌱 Sirhc · May 9, 2026</div>
+  <div class="foot-r">Chris Drawdy · eXp Realty<br>210-214-2673</div>
+</div>
+
+</div>
+</body>
+</html>
