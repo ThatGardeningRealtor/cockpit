@@ -6,92 +6,79 @@
 <style>
 body{font-family:-apple-system,sans-serif;background:#1E1208;color:#E8DCC8;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;padding:20px;box-sizing:border-box}
 .card{background:#2E4A30;border-radius:16px;padding:28px;max-width:400px;width:100%;text-align:center}
-h2{color:#8FB892;font-size:14px;letter-spacing:2px;text-transform:uppercase;margin:0 0 12px}
+h2{color:#8FB892;font-size:13px;letter-spacing:2px;text-transform:uppercase;margin:0 0 12px}
 p{font-size:13px;color:#B8D8B0;margin:8px 0;line-height:1.6}
-.btn{display:block;margin-top:20px;padding:14px;background:#2E7D32;color:white;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;cursor:pointer;border:none;width:100%;font-family:inherit}
+.btn{display:block;margin-top:20px;padding:14px;background:#2E7D32;color:white;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;cursor:pointer;border:none;width:100%;font-family:inherit;box-sizing:border-box}
 </style>
 </head>
 <body>
 <div class="card">
   <h2>Sirhc Data Sync</h2>
-  <p id="msg">Updating app data...</p>
+  <p id="msg">Writing current data...</p>
   <button class="btn" id="btn" style="display:none" onclick="location.href='https://thatgardeningrealtor.github.io/cockpit/'">Open App</button>
 </div>
 <script>
 try {
-  var raw = localStorage.getItem('tgr_data');
-  var s = raw ? JSON.parse(raw) : {deals:[],leads:[],tasks:[],priorities:[],vendors:[],contentPipeline:[],expenses:[]};
-  if(!s.deals) s.deals=[];
-  if(!s.leads) s.leads=[];
+  var existing = {};
+  try { existing = JSON.parse(localStorage.getItem('tgr_data')) || {}; } catch(e){}
 
-  function ud(id, chip, cls) {
-    var d = s.deals.find(function(x){return x.id===id;});
-    if(d){d.chip=chip;d.cls=cls;}
-  }
-  function hasDeal(id){return !!s.deals.find(function(x){return x.id===id;});}
-  function hasLead(id){return !!s.leads.find(function(x){return x.id===id;});}
+  var data = {
+    deals: [
+      {id:'d1',title:'8449 Coughran Rd',chip:'Closed & Funded',chipC:'muted',cls:'cls',stage:4,logs:[{t:'Apr 27',m:'Closed and funded. Deal complete.'}]},
+      {id:'d2',title:'181 CR 7751 — Priority Bank',chip:'Work Starting',chipC:'green',cls:'act',stage:1,logs:[{t:'May 9',m:'Matt Toney connected to Jerry Sadler. Dumpsters dropping this weekend. Swing by when in Devine.'}]},
+      {id:'d3',title:'340 Sollock Dr',chip:'Showing Done',chipC:'green',cls:'act',stage:1,logs:[{t:'May 9',m:'Showing May 5. Sign and lockbox dropping this week. Grass still unresolved. Need showing feedback before updating Matt and Chandler on next path.'}]},
+      {id:'d4',title:'Tilden TX 20ac',chip:'New Prospect',chipC:'gold',cls:'act',stage:1,logs:[{t:'May 9',m:'Steve sent new photos. New prospect wants to show and subdivide or alternate use. Land-only cash deal approach recommended.'}]},
+      {id:'d5',title:'Borregas — Elmendorf',chip:'Monitoring',chipC:'gold',cls:'act',stage:1,logs:[{t:'May 9',m:'Correction Deed in progress with Van Hutchins and ENV Title. Monitor.'}]},
+      {id:'d6',title:'10023 Mill Path',chip:'Live Wed May 13',chipC:'green',cls:'act',stage:1,logs:[{t:'May 9',m:'Listing agreement signed May 6. Photos in from ATG. Going live Wednesday May 13. Canvassing neighborhood. Sign and lockbox dropping.'}]},
+      {id:'d7',title:'Moran New Construction',chip:'Buyer Rep Signed',chipC:'green',cls:'act',stage:0,logs:[{t:'May 9',m:'Buyer rep signed May 7. Not set on one neighborhood. 50K down, target 1K per month payment. Pull options from all area builders. Lender intro before first builder visit.'}]}
+    ],
+    leads: [
+      {id:'l1',title:'Pamela M.',chip:'HOT',chipC:'red',logs:[{t:'Apr 29',m:'VA buyer. Spoke — sick grandkid. Warm conversation. Follow up.'}]},
+      {id:'l2',title:'Mike & Alice Howell',chip:'Urgent Buyer',chipC:'red',logs:[{t:'Apr 15',m:'Rental being sold. New construction, no HOA. Working with Zach on financing.'}]},
+      {id:'l3',title:'James Drause (Rhett)',chip:'Investor',chipC:'gold',logs:[{t:'',m:'Pull from Bold Trail. First call needed.'}]},
+      {id:'l4',title:'Sallie Mae F.',chip:'Community',chipC:'green',logs:[{t:'Apr 15',m:'Memory garden for daughter she lost. Very warm. Connected on Nextdoor.'}]},
+      {id:'l5',title:'Colton Brown',chip:'Seller Lead',chipC:'gold',logs:[{t:'Apr 15',m:'Divorce. Need to sell Moore TX home. Via Cynthia Dominguez.'}]},
+      {id:'l6',title:'Kurt — 9815 Conbes',chip:'Warm',chipC:'gold',logs:[{t:'Apr 15',m:'Interested in nearby listing at 275K.'}]},
+      {id:'l7',title:'Julie & Nick',chip:'Veteran Buyer',chipC:'gold',logs:[{t:'Apr 27',m:'Julie 100% disabled veteran. VA funding fee waived. Working with Zach.'}]},
+      {id:'l8',title:'Armando — Employee Buyer',chip:'New',chipC:'green',logs:[{t:'May 9',m:'Referred by David Roth. 50K down, 1K per month target. Not locked to one neighborhood. Get contact from David Roth. Lender intro before first builder visit.'}]},
+      {id:'l9',title:'Carroll Reese — Vacant Home',chip:'Warm',chipC:'gold',logs:[{t:'May 9',m:'Vacant 8 years. Reached out. Schedule call or walkthrough.'}]},
+      {id:'l10',title:'Isaac — Church Listing Leads',chip:'Warm',chipC:'gold',logs:[{t:'May 9',m:'1 to 2 listing opportunities from his church community.'}]},
+      {id:'l11',title:'Brandon Rental Relative',chip:'Warm',chipC:'gold',logs:[{t:'May 9',m:'Info in Brandon text. Rental info and PM options first.'}]},
+      {id:'l12',title:'Christina Shine — Tangle Tree',chip:'Garden',chipC:'green',logs:[{t:'May 9',m:'13810 Tangle Tree St. Met at garden. 90% complete, has realtor, pre-market opportunity. May sell as-is.'}]},
+      {id:'l13',title:'Miss Pat Neighbor — Son',chip:'Prospect',chipC:'gold',logs:[{t:'May 9',m:'Neighbor passed, son owns the house. Potential listing. Lead with empathy. Get info from Miss Pat first.'}]}
+    ],
+    priorities: [
+      {id:'p1',text:'Mill Path — go live Wednesday May 13',done:false},
+      {id:'p2',text:'Moran mom — lender intro before first builder visit',done:false},
+      {id:'p3',text:'Calls: David Roth 210-708-5644 + Pamela M. 872-822-0656',done:false},
+      {id:'p4',text:'340 Sollock — showing feedback + sign + get grass cut',done:false},
+      {id:'p5',text:'181 CR 7751 — dumpsters this weekend, swing by Devine',done:false}
+    ],
+    tasks: [
+      {id:'t1',title:'Call David Roth',meta:'210-708-5644 Lennar employee buyer',done:false,type:'Deal'},
+      {id:'t2',title:'Call Pamela M.',meta:'872-822-0656 VA buyer',done:false,type:'Hot Lead'},
+      {id:'t3',title:'Mill Path — photos up + go live',meta:'Notify Jose and Katy Arango',done:false,type:'Deal'},
+      {id:'t4',title:'Moran mom — lender intro',meta:'Must happen before first builder visit',done:false,type:'Deal'},
+      {id:'t5',title:'SSFCU — yearly bank statement',meta:'In-branch only, opens 9am. Needed for HELOC.',done:false,type:'Urgent'},
+      {id:'t6',title:'Joy gift basket — Coughran Rd',meta:'Thank Sam and Chelsey post-close',done:false,type:'Deal'}
+    ],
+    vendors: existing.vendors || [],
+    contentPipeline: [
+      {id:'c1',title:'New Construction Tour Grace Gardens',type:'Video',platforms:['TikTok','Instagram','YouTube'],status:'Filmed',hook:'',body:'',notes:'Footage from May 4. Lennar, DR Horton, MI Homes.'},
+      {id:'c2',title:'Lennar vs DR Horton vs MI Homes',type:'Video',platforms:['TikTok','YouTube'],status:'Idea',hook:'',body:'',notes:'Grace Gardens comparison from May 4 site visit.'},
+      {id:'c3',title:'What is a Garden Share Group',type:'Post',platforms:['Facebook','Nextdoor'],status:'Idea',hook:'',body:'',notes:'Inviting post for total beginners. From Sallie Mae conversation.'}
+    ],
+    expenses: existing.expenses || []
+  };
 
-  // Update existing deals
-  ud('d1','Closed & Funded','cls');
-  ud('d2','Work Starting','act');
-  ud('d3','Showing Done','act');
-  ud('d4','New Prospect','act');
-  ud('d5','Monitoring','act');
-
-  // Add Mill Path
-  if(!hasDeal('d6')){
-    s.deals.push({id:'d6',title:'10023 Mill Path',chip:'Live Wed May 13',cls:'act',
-      logs:[{t:'May 9',m:'Agreement signed. Photos in from ATG. Going live Wednesday May 13. Canvassing neighborhood first.'}]});
-  }
-
-  // Add Moran New Construction
-  if(!hasDeal('d7')){
-    s.deals.push({id:'d7',title:'Moran New Construction',chip:'Buyer Rep Signed',cls:'act',
-      logs:[{t:'May 9',m:'Brandon mom buyer rep signed May 7. Not set on one neighborhood or builder. 50K down, target 1K per month payment. Pull options from DR Horton, MI Homes, Lennar. Lender intro before first builder visit.'}]});
-  }
-
-  // Add missing leads
-  if(!hasLead('l7')){
-    s.leads.push({id:'l7',title:'Julie & Nick',chip:'Veteran',
-      logs:[{t:'Apr 27',m:'Julie 100% disabled veteran, VA funding fee waived. Nick trucker. Working with Zach on financing route.'}]});
-  }
-  if(!hasLead('l8')){
-    s.leads.push({id:'l8',title:'Armando Employee Buyer',chip:'New',
-      logs:[{t:'May 9',m:'Referred by David Roth. Employee buyer program. 50K down, 1K per month target. Not locked to one neighborhood. Get contact from David Roth. Lender intro before first builder visit.'}]});
-  }
-  if(!hasLead('l9')){
-    s.leads.push({id:'l9',title:'Carroll Reese Vacant Home',chip:'Warm',
-      logs:[{t:'May 9',m:'Vacant property 8 years. Reached out. Schedule call or walkthrough.'}]});
-  }
-  if(!hasLead('l10')){
-    s.leads.push({id:'l10',title:'Isaac Church Listing Leads',chip:'Warm',
-      logs:[{t:'May 9',m:'1 to 2 listing opportunities from his church community. Follow up with Isaac.'}]});
-  }
-  if(!hasLead('l11')){
-    s.leads.push({id:'l11',title:'Brandon Rental Relative',chip:'Warm',
-      logs:[{t:'May 9',m:'Info in Brandon text. Rental info and PM options first. Skyslope contracts after conversations.'}]});
-  }
-  if(!hasLead('l12')){
-    s.leads.push({id:'l12',title:'Christina Shine 13810 Tangle Tree',chip:'Garden',
-      logs:[{t:'May 9',m:'Met at garden event. 13810 Tangle Tree St. Property 90% complete. Has realtor but pre-market opportunity. May sell as-is.'}]});
-  }
-  if(!hasLead('l13')){
-    s.leads.push({id:'l13',title:'Miss Pat Neighbor Son',chip:'Prospect',
-      logs:[{t:'May 9',m:'Neighbor passed, son owns the house. Potential listing. Lead with empathy and community angle. Get more info from Miss Pat first.'}]});
-  }
-
-  // Reset priorities to current
-  s.priorities = [
-    {id:'p1',text:'Mill Path — go live Wednesday May 13. Photos in, agreement signed.',done:false},
-    {id:'p2',text:'Moran mom — lender intro before first builder visit. Buyer rep signed.',done:false},
-    {id:'p3',text:'Calls: David Roth 210-708-5644 and Pamela M. 872-822-0656',done:false},
-    {id:'p4',text:'340 Sollock — follow up with showing agent. Drop sign and lockbox. Get grass cut.',done:false},
-    {id:'p5',text:'181 CR 7751 — dumpsters dropping this weekend. Swing by when in Devine.',done:false}
-  ];
-
-  localStorage.setItem('tgr_data', JSON.stringify(s));
-  document.getElementById('msg').innerHTML = 'Done!<br><br>Deals: <strong>' + s.deals.length + '</strong> &nbsp;|&nbsp; Leads: <strong>' + s.leads.length + '</strong><br><br>Priorities reset to current week.';
-  document.getElementById('btn').style.display='block';
+  localStorage.setItem('tgr_data', JSON.stringify(data));
+  document.getElementById('msg').innerHTML =
+    'Done!<br><br>' +
+    '<strong>' + data.deals.length + '</strong> deals &nbsp;|&nbsp; ' +
+    '<strong>' + data.leads.length + '</strong> leads<br>' +
+    '<strong>' + data.priorities.length + '</strong> priorities &nbsp;|&nbsp; ' +
+    '<strong>' + data.tasks.length + '</strong> tasks';
+  document.getElementById('btn').style.display = 'block';
 } catch(e) {
   document.getElementById('msg').textContent = 'Error: ' + e.message;
 }
