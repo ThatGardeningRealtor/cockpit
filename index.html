@@ -1138,6 +1138,7 @@ function openModal(){document.getElementById('mOv').classList.add('open');docume
 function closeModal(){document.getElementById('mOv').classList.remove('open');document.getElementById('mModal').classList.remove('open')}
 async function forceUpdate(){
   if(!confirm('Clear app cache and reload to get the latest version?'))return;
+  localStorage.removeItem('tgr_data');
   try{
     if('serviceWorker' in navigator){
       const regs=await navigator.serviceWorker.getRegistrations();
