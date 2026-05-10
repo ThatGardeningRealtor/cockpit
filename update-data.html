@@ -68,16 +68,24 @@ try {
       {id:'c2',title:'Lennar vs DR Horton vs MI Homes',type:'Video',platforms:['TikTok','YouTube'],status:'Idea',hook:'',body:'',notes:'Grace Gardens comparison from May 4 site visit.'},
       {id:'c3',title:'What is a Garden Share Group',type:'Post',platforms:['Facebook','Nextdoor'],status:'Idea',hook:'',body:'',notes:'Inviting post for total beginners. From Sallie Mae conversation.'}
     ],
-    expenses: existing.expenses || []
+    expenses: existing.expenses || [],
+    loanPrograms: existing.loanPrograms || [],
+    _dataVersion: '2026-05-05'
   };
 
   localStorage.setItem('tgr_data', JSON.stringify(data));
+
+  // Verify the write landed
+  var check = JSON.parse(localStorage.getItem('tgr_data'));
+  var ok = check && check.deals && check.deals.length === data.deals.length && check._dataVersion === '2026-05-05';
+
   document.getElementById('msg').innerHTML =
-    'Done!<br><br>' +
+    (ok ? 'Done!' : 'Write error — try again') + '<br><br>' +
     '<strong>' + data.deals.length + '</strong> deals &nbsp;|&nbsp; ' +
     '<strong>' + data.leads.length + '</strong> leads<br>' +
     '<strong>' + data.priorities.length + '</strong> priorities &nbsp;|&nbsp; ' +
-    '<strong>' + data.tasks.length + '</strong> tasks';
+    '<strong>' + data.tasks.length + '</strong> tasks<br>' +
+    '<small style="color:#8FB892">version: ' + check._dataVersion + '</small>';
   document.getElementById('btn').style.display = 'block';
 } catch(e) {
   document.getElementById('msg').textContent = 'Error: ' + e.message;
