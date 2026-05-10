@@ -80,8 +80,17 @@ try {
       logs:[{t:'May 9',m:'Neighbor passed, son owns the house. Potential listing. Lead with empathy and community angle. Get more info from Miss Pat first.'}]});
   }
 
+  // Reset priorities to current
+  s.priorities = [
+    {id:'p1',text:'Mill Path — go live Wednesday May 13. Photos in, agreement signed.',done:false},
+    {id:'p2',text:'Moran mom — lender intro before first builder visit. Buyer rep signed.',done:false},
+    {id:'p3',text:'Calls: David Roth 210-708-5644 and Pamela M. 872-822-0656',done:false},
+    {id:'p4',text:'340 Sollock — follow up with showing agent. Drop sign and lockbox. Get grass cut.',done:false},
+    {id:'p5',text:'181 CR 7751 — dumpsters dropping this weekend. Swing by when in Devine.',done:false}
+  ];
+
   localStorage.setItem('tgr_data', JSON.stringify(s));
-  document.getElementById('msg').innerHTML = 'Done! <br><br>Deals: <strong>' + s.deals.length + '</strong> &nbsp;|&nbsp; Leads: <strong>' + s.leads.length + '</strong>';
+  document.getElementById('msg').innerHTML = 'Done!<br><br>Deals: <strong>' + s.deals.length + '</strong> &nbsp;|&nbsp; Leads: <strong>' + s.leads.length + '</strong><br><br>Priorities reset to current week.';
   document.getElementById('btn').style.display='block';
 } catch(e) {
   document.getElementById('msg').textContent = 'Error: ' + e.message;
