@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{font-family:-apple-system,sans-serif;background:#1E1208;color:#E8DCC8;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;padding:20px;box-sizing:border-box}
+.card{background:#2E4A30;border-radius:16px;padding:28px;max-width:400px;width:100%;text-align:center}
+h2{color:#8FB892;font-size:14px;letter-spacing:2px;text-transform:uppercase;margin:0 0 12px}
+p{font-size:13px;color:#B8D8B0;margin:8px 0;line-height:1.6}
+.btn{display:block;margin-top:20px;padding:14px;background:#2E7D32;color:white;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;cursor:pointer;border:none;width:100%;font-family:inherit}
+</style>
+</head>
+<body>
+<div class="card">
+  <h2>Sirhc Data Sync</h2>
+  <p id="msg">Updating app data...</p>
+  <button class="btn" id="btn" style="display:none" onclick="location.href='https://thatgardeningrealtor.github.io/cockpit/'">Open App</button>
+</div>
+<script>
+try {
+  var raw = localStorage.getItem('tgr_data');
+  var s = raw ? JSON.parse(raw) : {deals:[],leads:[],tasks:[],priorities:[],vendors:[],contentPipeline:[],expenses:[]};
+  if(!s.deals) s.deals=[];
+  if(!s.leads) s.leads=[];
+
+  function ud(id, chip, cls) {
+    var d = s.deals.find(function(x){return x.id===id;});
+    if(d){d.chip=chip;d.cls=cls;}
+  }
+  function hasDeal(id){return !!s.deals.find(function(x){return x.id===id;});}
+  function hasLead(id){return !!s.leads.find(function(x){return x.id===id;});}
+
+  // Update existing deals
+  ud('d1','Closed & Funded','cls');
+  ud('d2','Work Starting','act');
+  ud('d3','Showing Done','act');
+  ud('d4','New Prospect','act');
+  ud('d5','Monitoring','act');
+
+  // Add Mill Path
+  if(!hasDeal('d6')){
+    s.deals.push({id:'d6',title:'10023 Mill Path',chip:'Live Wed May 13',cls:'act',
+      logs:[{t:'May 9',m:'Agreement signed. Photos in from ATG. Going live Wednesday May 13. Canvassing neighborhood first.'}]});
+  }
+
+  // Add Moran New Construction
+  if(!hasDeal('d7')){
+    s.deals.push({id:'d7',title:'Moran New Construction',chip:'Buyer Rep Signed',cls:'act',
+      logs:[{t:'May 9',m:'Brandon mom buyer rep signed May 7. Not set on one neighborhood or builder. 50K down, target 1K per month payment. Pull options from DR Horton, MI Homes, Lennar. Lender intro before first builder visit.'}]});
+  }
+
+  // Add missing leads
+  if(!hasLead('l7')){
+    s.leads.push({id:'l7',title:'Julie & Nick',chip:'Veteran',
+      logs:[{t:'Apr 27',m:'Julie 100% disabled veteran, VA funding fee waived. Nick trucker. Working with Zach on financing route.'}]});
+  }
+  if(!hasLead('l8')){
+    s.leads.push({id:'l8',title:'Armando Employee Buyer',chip:'New',
+      logs:[{t:'May 9',m:'Referred by David Roth. Employee buyer program. 50K down, 1K per month target. Not locked to one neighborhood. Get contact from David Roth. Lender intro before first builder visit.'}]});
+  }
+  if(!hasLead('l9')){
+    s.leads.push({id:'l9',title:'Carroll Reese Vacant Home',chip:'Warm',
+      logs:[{t:'May 9',m:'Vacant property 8 years. Reached out. Schedule call or walkthrough.'}]});
+  }
+  if(!hasLead('l10')){
+    s.leads.push({id:'l10',title:'Isaac Church Listing Leads',chip:'Warm',
+      logs:[{t:'May 9',m:'1 to 2 listing opportunities from his church community. Follow up with Isaac.'}]});
+  }
+  if(!hasLead('l11')){
+    s.leads.push({id:'l11',title:'Brandon Rental Relative',chip:'Warm',
+      logs:[{t:'May 9',m:'Info in Brandon text. Rental info and PM options first. Skyslope contracts after conversations.'}]});
+  }
+  if(!hasLead('l12')){
+    s.leads.push({id:'l12',title:'Christina Shine 13810 Tangle Tree',chip:'Garden',
+      logs:[{t:'May 9',m:'Met at garden event. 13810 Tangle Tree St. Property 90% complete. Has realtor but pre-market opportunity. May sell as-is.'}]});
+  }
+  if(!hasLead('l13')){
+    s.leads.push({id:'l13',title:'Miss Pat Neighbor Son',chip:'Prospect',
+      logs:[{t:'May 9',m:'Neighbor passed, son owns the house. Potential listing. Lead with empathy and community angle. Get more info from Miss Pat first.'}]});
+  }
+
+  localStorage.setItem('tgr_data', JSON.stringify(s));
+  document.getElementById('msg').innerHTML = 'Done! <br><br>Deals: <strong>' + s.deals.length + '</strong> &nbsp;|&nbsp; Leads: <strong>' + s.leads.length + '</strong>';
+  document.getElementById('btn').style.display='block';
+} catch(e) {
+  document.getElementById('msg').textContent = 'Error: ' + e.message;
+}
+</script>
+</body>
+</html>
