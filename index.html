@@ -2503,8 +2503,31 @@ function renderCockpitContentStrip(){
   }).join('');
 }
 
+async function fetchAppData(){
+  try{
+    const url='https://raw.githubusercontent.com/ThatGardeningRealtor/cockpit-data/main/app-data.json?t='+Date.now();
+    const res=await fetch(url,{cache:'no-store'});
+    if(!res.ok)return;
+    const data=await res.json();
+    if(!data.generated)return;
+    const age=(Date.now()-new Date(data.generated).getTime())/(1000*60*60);
+    if(age>25)return; // skip if older than 25 hours
+    let changed=false;
+    if(data.deals&&data.deals.length){deals.length=0;deals.push(...data.deals);changed=true;}
+    if(data.leads&&data.leads.length){leads.length=0;leads.push(...data.leads);changed=true;}
+    if(data.priorities&&data.priorities.length){priorities.length=0;priorities.push(...data.priorities);changed=true;}
+    if(changed){
+      saveData();
+      renderDeals();renderLeads();renderPriorities();renderPipelineSnap();renderAlerts();
+      const disp=document.getElementById('last-synced-display');
+      if(disp)disp.textContent='Auto-synced from Sirhc ✓';
+    }
+  }catch(e){}
+}
+
 function init(){
   loadData();
+  fetchAppData();
   resetDailyTasks();
   resetDebrief();
   renderExpenseSummary();
