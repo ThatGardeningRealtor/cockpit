@@ -785,8 +785,8 @@ function renderAlerts(){
     ...urgTasks.map(t=>({title:t.title,next:t.meta||'Urgent task',fn:`openTask('${t.id}')`}))
   ];
   const html=all.map(a=>`<div class="alert" onclick="${a.fn}" style="cursor:pointer;-webkit-tap-highlight-color:transparent"><div class="pd"></div><div style="flex:1"><strong>${a.title}</strong>&nbsp;·&nbsp;${a.next}</div><span style="font-size:10px;opacity:.6;flex-shrink:0">tap →</span></div>`).join('');
-  document.getElementById('alert-bar').innerHTML=html;
-  document.getElementById('alert-bar-tasks').innerHTML=html;
+  const ab=document.getElementById('alert-bar');if(ab)ab.innerHTML=html;
+  const abt=document.getElementById('alert-bar-tasks');if(abt)abt.innerHTML=html;
 }
 
 function renderDeals(){
