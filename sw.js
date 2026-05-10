@@ -14,8 +14,8 @@ self.addEventListener('activate', e => {
 });
 
 self.addEventListener('fetch', e => {
-  // Always fetch index.html fresh from network — never cache it
-  if(e.request.url.includes('index.html') || e.request.url.endsWith('/cockpit/') || e.request.url.endsWith('/cockpit')){
+  // Always fetch HTML files fresh from network — never cache them
+  if(e.request.url.endsWith('.html') || e.request.url.endsWith('/cockpit/') || e.request.url.endsWith('/cockpit')){
     e.respondWith(fetch(e.request).catch(() => caches.match('/cockpit/index.html')));
     return;
   }
