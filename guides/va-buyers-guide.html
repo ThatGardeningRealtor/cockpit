@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VA Home Buyer's Guide | That Gardening Realtor</title>
+<style>
+  :root {
+    --soil:      #1E1208;
+    --cream:     #F5EFE4;
+    --parchment: #FAF6EF;
+    --moss:      #3D6B35;
+    --moss-lt:   #EBF2E8;
+    --rust:      #A0522D;
+    --rust-lt:   #F5ECE5;
+    --sky:       #4A7FA5;
+    --sky-lt:    #E8F1F8;
+    --muted:     #7A6A58;
+    --border:    #D9CFC0;
+    --gold:      #B8860B;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: #fff;
+    color: var(--soil);
+    font-size: 13px;
+    line-height: 1.65;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 48px 48px 64px;
+  }
+
+  /* Header */
+  .header {
+    border-bottom: 3px solid var(--moss);
+    padding-bottom: 20px;
+    margin-bottom: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+  }
+  .brand-mark { display: flex; align-items: center; gap: 10px; }
+  .brand-icon {
+    width: 44px; height: 44px;
+    background: var(--moss); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; flex-shrink: 0;
+  }
+  .brand-name { font-family: 'Georgia', serif; font-size: 15px; font-weight: bold; color: var(--soil); line-height: 1.2; }
+  .brand-sub  { font-size: 10px; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; margin-top: 2px; }
+  .header-right { text-align: right; font-size: 10px; color: var(--muted); line-height: 1.6; }
+
+  /* Doc title */
+  .doc-title { margin-bottom: 28px; }
+  .doc-title h1 { font-size: 22px; font-weight: bold; color: var(--soil); line-height: 1.25; margin-bottom: 4px; }
+  .doc-title .subtitle { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+
+  /* Context box */
+  .context-box {
+    background: var(--moss-lt);
+    border-left: 4px solid var(--moss);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin-bottom: 28px;
+    font-size: 12.5px;
+    color: var(--soil);
+    line-height: 1.7;
+  }
+
+  /* Section label */
+  .section-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Cards */
+  .card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .card-header {
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .card-header.green  { background: var(--moss-lt);  border-bottom: 1px solid #C8DEC4; }
+  .card-header.rust   { background: var(--rust-lt);  border-bottom: 1px solid #E8CFC0; }
+  .card-header.sky    { background: var(--sky-lt);   border-bottom: 1px solid #C0D8EC; }
+  .card-header.gold   { background: #FBF5E0;          border-bottom: 1px solid #E8D898; }
+  .card-header.soil   { background: var(--soil);      border-bottom: none; }
+
+  .card-icon {
+    width: 28px; height: 28px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; flex-shrink: 0;
+  }
+  .green .card-icon  { background: var(--moss);  color: #fff; }
+  .rust  .card-icon  { background: var(--rust);  color: #fff; }
+  .sky   .card-icon  { background: var(--sky);   color: #fff; }
+  .gold  .card-icon  { background: var(--gold);  color: #fff; }
+  .soil  .card-icon  { background: rgba(255,255,255,0.15); }
+
+  .card-title { font-size: 13.5px; font-weight: bold; color: var(--soil); line-height: 1.2; }
+  .soil .card-title { color: #fff; }
+  .card-tag   { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 2px; }
+  .soil .card-tag { color: rgba(255,255,255,0.6); }
+
+  .card-body {
+    padding: 16px 20px;
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--soil);
+  }
+  .card-body p { margin-bottom: 10px; }
+  .card-body p:last-child { margin-bottom: 0; }
+
+  /* Mini table */
+  .mini-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 11.5px;
+  }
+  .mini-table th {
+    background: var(--parchment);
+    color: var(--muted);
+    text-align: left;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 10px;
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .mini-table td {
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--border);
+    color: var(--soil);
+  }
+  .mini-table tr:last-child td { border-bottom: none; }
+  .mini-table .win td { background: var(--moss-lt); font-weight: bold; }
+  .mini-table .flag td:last-child { color: var(--rust); font-weight: bold; }
+
+  /* Benefit grid */
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 12px 0;
+  }
+  .benefit-item {
+    background: var(--parchment);
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 11px;
+    border-left: 3px solid var(--moss);
+  }
+  .benefit-label { color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 3px; }
+  .benefit-val   { color: var(--soil); font-weight: bold; line-height: 1.4; }
+
+  /* Impact chips */
+  .impact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 12px 0;
+  }
+  .impact-item {
+    background: var(--parchment);
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 11px;
+  }
+  .impact-label { color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 2px; }
+  .impact-val   { color: var(--soil); font-weight: bold; }
+  .impact-val.good { color: var(--moss); }
+  .impact-val.warn { color: var(--gold); }
+
+  /* Callout */
+  .callout {
+    background: var(--parchment);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 12px 0;
+    font-style: italic;
+  }
+
+  /* Dark Q&A block */
+  .dark-block {
+    background: var(--soil);
+    color: var(--cream);
+    border-radius: 12px;
+    padding: 28px 28px;
+    margin: 28px 0;
+  }
+  .dark-block h2 { font-size: 14px; color: #fff; margin-bottom: 18px; letter-spacing: 0.02em; }
+  .dark-q { margin-bottom: 16px; }
+  .dark-q .q { font-size: 12px; font-weight: bold; color: #C8DEB4; margin-bottom: 6px; }
+  .dark-q .a { font-size: 11.5px; color: var(--cream); line-height: 1.65; padding-left: 12px; border-left: 2px solid #3D6B35; }
+  .dark-q:last-child { margin-bottom: 0; }
+
+  /* Checklist */
+  .checklist { list-style: none; margin: 10px 0; }
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 12px;
+    padding: 7px 0;
+    border-bottom: 1px dotted var(--border);
+    line-height: 1.5;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .check-box {
+    width: 16px; height: 16px; min-width: 16px;
+    border: 1.5px solid var(--border);
+    border-radius: 3px;
+    margin-top: 1px;
+  }
+
+  /* Divider */
+  hr { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+
+  /* Footer */
+  .footer {
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .footer-left { font-size: 11px; color: var(--muted); line-height: 1.7; }
+  .footer-left strong { color: var(--soil); }
+  .footer-right { font-size: 9.5px; color: var(--muted); line-height: 1.6; max-width: 300px; text-align: right; font-style: italic; }
+
+  @media print {
+    body { font-size: 11.5px; }
+    .page { padding: 32px 40px 48px; }
+    .card { break-inside: avoid; }
+    .dark-block { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="brand-mark">
+      <div class="brand-icon">🌱</div>
+      <div>
+        <div class="brand-name">That Gardening Realtor</div>
+        <div class="brand-sub">Chris Drawdy · eXp Realty · San Antonio TX</div>
+      </div>
+    </div>
+    <div class="header-right">
+      (210) 214-2673<br>
+      chris@getrealtytx.com<br>
+      2026
+    </div>
+  </div>
+
+  <!-- Title -->
+  <div class="doc-title">
+    <h1>The VA Home Buyer's Guide</h1>
+    <div class="subtitle">Plain-English guide for military families buying in San Antonio</div>
+  </div>
+
+  <!-- Intro -->
+  <div class="context-box">
+    I work with a lot of military families here in San Antonio — JBSA, Lackland, Ft. Sam Houston, Randolph, Camp Bullis. The same thing comes up over and over: <em>"We didn't know we could do that."</em> This guide is here to fix that. No sales pitch. Just the full picture of what you've earned and how to use it.
+  </div>
+
+  <!-- WHO QUALIFIES -->
+  <div class="section-label">Eligibility</div>
+  <div class="card">
+    <div class="card-header green">
+      <div class="card-icon">✓</div>
+      <div>
+        <div class="card-title">Who Qualifies</div>
+        <div class="card-tag">Active duty · veterans · Guard/Reserve · surviving spouses</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <table class="mini-table">
+        <tr><th>Service Type</th><th>Requirement</th></tr>
+        <tr><td>Active Duty</td><td>90 days of service + approval to move off base</td></tr>
+        <tr><td>Veteran</td><td>Honorable discharge · lifetime benefit</td></tr>
+        <tr><td>Guard / Reserve</td><td>90 days continuous active service, TDY/deployment, Title 10 orders, OR 6 years total service</td></tr>
+        <tr><td>Surviving Spouse</td><td>May qualify — confirm with lender</td></tr>
+        <tr><td>VA Disability Rating</td><td>Counts as qualifying income AND waives the funding fee entirely</td></tr>
+      </table>
+      <p style="font-size:11px;color:var(--muted);margin-top:4px;">Active duty: lenders gross up your BAH by 25% for affordability — your buying power is likely higher than you expect. Need 1 year retainability to use the loan. Guard/Reserve: full-time civilian employment (40 hrs/week) also required.</p>
+    </div>
+  </div>
+
+  <!-- CORE BENEFITS -->
+  <div class="section-label" style="margin-top:28px;">What the VA Loan Does</div>
+  <div class="card">
+    <div class="card-header green">
+      <div class="card-icon">★</div>
+      <div>
+        <div class="card-title">Core Benefits</div>
+        <div class="card-tag">What makes this loan different from everything else</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="benefit-grid">
+        <div class="benefit-item">
+          <div class="benefit-label">Down Payment</div>
+          <div class="benefit-val">Zero required · 100% financing</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-label">PMI</div>
+          <div class="benefit-val">None · saves $100–$200+/mo vs. conventional</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-label">Interest Rate</div>
+          <div class="benefit-val">Typically lower than conventional loans</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-label">Seller Concessions</div>
+          <div class="benefit-val">Up to 4% of purchase price toward closing costs</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-label">Loan Limit</div>
+          <div class="benefit-val">No hard cap · $766,550 standard (SA) before Jumbo rules</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-label">Credit Score</div>
+          <div class="benefit-val">No VA minimum · lenders typically set 580–620+</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-label">Assumable</div>
+          <div class="benefit-val">Anyone can take over your loan and rate when you sell</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-label">Lifetime Benefit</div>
+          <div class="benefit-val">Use it over and over — it never expires</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DOWN PAYMENT MATH -->
+  <div class="section-label" style="margin-top:28px;">The Money Decision</div>
+  <div class="card">
+    <div class="card-header sky">
+      <div class="card-icon">$</div>
+      <div>
+        <div class="card-title">The Down Payment Decision — Real Numbers</div>
+        <div class="card-tag">What to do with $7,500 at a $250,000 purchase price</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>The most common question I get: <em>"Should I put money down to lower my payment?"</em> Short answer: put that money toward buying down your interest rate instead.</p>
+      <table class="mini-table">
+        <tr><th>Scenario</th><th>What You Do With $7,500</th><th>Rate</th><th>Monthly Payment</th></tr>
+        <tr><td>Nothing down</td><td>Nothing</td><td>6.5%</td><td>$1,814/mo</td></tr>
+        <tr><td>3% down</td><td>Down payment</td><td>6.5%</td><td>$1,766/mo</td></tr>
+        <tr class="win"><td>0% down + rate buy</td><td>Rate buy-down</td><td>5.5%</td><td>$1,650/mo ✓ Best</td></tr>
+      </table>
+      <div class="callout">The rate buy-down saves $164/month — more than 3% down ever would. Over 5 years that's nearly $10,000 back in your pocket. In most cases, money toward your rate, a renovation, or a fence beats a down payment every time.</div>
+    </div>
+  </div>
+
+  <!-- FUNDING FEE -->
+  <div class="card">
+    <div class="card-header gold">
+      <div class="card-icon">%</div>
+      <div>
+        <div class="card-title">VA Funding Fee</div>
+        <div class="card-tag">Replaces PMI · rolls into the loan · no cash out of pocket</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <table class="mini-table">
+        <tr><th>Purchase — First Use</th><th>Down Payment</th><th>Fee</th></tr>
+        <tr><td>First Use</td><td>Less than 5%</td><td>2.15%</td></tr>
+        <tr><td>First Use</td><td>5–9.9%</td><td>1.5%</td></tr>
+        <tr><td>First Use</td><td>10%+</td><td>1.25%</td></tr>
+        <tr><td>Subsequent Use</td><td>Less than 5%</td><td>3.3%</td></tr>
+        <tr><td>IRRRL (streamline refi)</td><td>—</td><td>0.5%</td></tr>
+        <tr><td>Loan Assumption</td><td>—</td><td>0.5%</td></tr>
+      </table>
+      <p style="font-size:11.5px;margin-top:8px;"><strong>Waived entirely</strong> if you have a VA disability rating of 10% or higher — even if your claim is still in progress. Once approved, the fee is reimbursed.</p>
+    </div>
+  </div>
+
+  <!-- CLOSING COSTS -->
+  <div class="card">
+    <div class="card-header green">
+      <div class="card-icon">📋</div>
+      <div>
+        <div class="card-title">What You'll Actually Need at Closing</div>
+        <div class="card-tag">Budget for these · most can be covered by seller concessions</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <table class="mini-table">
+        <tr><th>Cost</th><th>Estimate</th></tr>
+        <tr><td>Inspection + Appraisal</td><td>~$1,000 combined</td></tr>
+        <tr><td>Earnest Money Deposit</td><td>~1% of purchase price or less (refundable)</td></tr>
+        <tr><td>Closing Costs</td><td>2.5–3.5% of loan amount</td></tr>
+        <tr><td>VA Funding Fee</td><td>1.25–2.15% first use (rolls into loan)</td></tr>
+      </table>
+      <p style="margin-top:8px;"><strong>The move:</strong> Ask the seller to cover your closing costs. They can pay up to 4% of the purchase price. Anything above 4% goes toward a rate buy-down. Seller concessions can also pay off personal debt — credit cards, car loans, RVs. This is one of the most underused benefits in the entire program.</p>
+    </div>
+  </div>
+
+  <!-- USING IT AGAIN -->
+  <div class="section-label" style="margin-top:28px;">Using Your Benefit More Than Once</div>
+  <div class="card">
+    <div class="card-header sky">
+      <div class="card-icon">↺</div>
+      <div>
+        <div class="card-title">You Can Use This Loan Over and Over</div>
+        <div class="card-tag">Entitlement restores · multiple VA loans open at once · PCS exception</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>Your VA benefit never expires. Full entitlement restores when your prior VA loan is paid off and the property is sold. You can also have <strong>multiple VA loans open at the same time</strong>, subject to your county's loan cap.</p>
+      <p><strong>PCS exception:</strong> If you receive orders, you may be able to rent your current home and buy again with VA before the standard one-year mark. Talk to a VA-approved lender — this is one of the most underused exceptions in the program.</p>
+    </div>
+  </div>
+
+  <!-- WEALTH BUILDING -->
+  <div class="section-label" style="margin-top:28px;">Building Wealth with Your VA Loan</div>
+
+  <div class="card">
+    <div class="card-header green">
+      <div class="card-icon">🌱</div>
+      <div>
+        <div class="card-title">Strategy 1 — The Farm</div>
+        <div class="card-tag">Buy · live 1 year · rent · repeat</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>Buy a primary residence with your VA loan. Live there one year or until PCS orders. Rent it out — hire a property manager or list on Zillow. Buy your next home with your VA loan. Repeat. Every house becomes a rental. Every rental builds equity. You keep farming.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header sky">
+      <div class="card-icon">🏘</div>
+      <div>
+        <div class="card-title">Strategy 2 — House Hacking</div>
+        <div class="card-tag">2–4 unit property · live in one · rent the rest</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>VA loans allow purchases up to 4-unit properties — as long as you live in one unit. Up to 75% of rental income counts toward your qualification (6 months cash reserves required). Tenants cover most or all of the mortgage while you build equity. For single service members: roommates cover the payment, you own the asset.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header gold">
+      <div class="card-icon">📈</div>
+      <div>
+        <div class="card-title">Strategy 3 — Equity to Next Investment</div>
+        <div class="card-tag">HELOC or cash-out refi after equity builds</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>After 3–5 years you may have $50–100K in equity. A HELOC gives you a line of credit to use as a down payment on a rental property. A cash-out refi lets you pull equity if rates drop and roll it into your next investment. Use intentionally — a HELOC is a second mortgage and must be repaid.</p>
+    </div>
+  </div>
+
+  <!-- ASSUMABLE LOAN -->
+  <div class="section-label" style="margin-top:28px;">Selling Your VA Home Later</div>
+  <div class="card">
+    <div class="card-header rust">
+      <div class="card-icon">🔒</div>
+      <div>
+        <div class="card-title">The Assumable Loan Advantage</div>
+        <div class="card-tag">Anyone can assume your rate when you sell</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>99% of VA loans are assumable. When you sell, <strong>any buyer</strong> — not just veterans — can take over your loan balance and your locked-in interest rate. If you bought at 3% and the market is at 7%, your rate becomes a major selling advantage. Buyers will pay more for your home just to take over that payment.</p>
+      <div class="impact-grid">
+        <div class="impact-item">
+          <div class="impact-label">Non-veteran assumes</div>
+          <div class="impact-val warn">Your entitlement stays tied up until they sell or refi</div>
+        </div>
+        <div class="impact-item">
+          <div class="impact-label">Veteran assumes</div>
+          <div class="impact-val good">Entitlement transfers · yours is freed immediately</div>
+        </div>
+      </div>
+      <p style="font-size:11px;color:var(--muted);margin-top:4px;">Gap between sales price and loan balance must be covered with cash or secondary financing. Timeline: 2–6 months to process.</p>
+    </div>
+  </div>
+
+  <!-- SPECIALTY PROGRAMS -->
+  <div class="section-label" style="margin-top:28px;">Specialty VA Programs</div>
+
+  <div class="card">
+    <div class="card-header sky">
+      <div class="card-icon">🏗</div>
+      <div>
+        <div class="card-title">VA One-Time Close Construction Loan</div>
+        <div class="card-tag">Buy land + build in one loan · no payments during construction</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>Finance land and construction together — single closing, no payments while your home is being built. Can build: single family, barndominium, multifamily (up to 4 units), tiny home, manufactured home, ADUs, garages, pools. Builder must be VA-approved. Typically requires 620–640+ credit score. Budget for architectural plans and closing costs upfront.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header gold">
+      <div class="card-icon">🔧</div>
+      <div>
+        <div class="card-title">VA Renovation Loan</div>
+        <div class="card-tag">Purchase + repairs in one loan</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>Finance a home and its repairs in a single loan — great for properties that need work. Repair cap typically $50–75K. Eligible: kitchen, bath, HVAC, roof, flooring, mold remediation, accessibility upgrades. All repairs completed within 120 days by a VA-approved contractor. Home must appraise at purchase price + repair cost.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header green">
+      <div class="card-icon">↓</div>
+      <div>
+        <div class="card-title">VA IRRRL — Streamline Refinance</div>
+        <div class="card-tag">Already in a VA loan · no appraisal · no credit check</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>When rates drop, the IRRRL is your fast lane. No appraisal, no credit check, no income verification. Roll closing costs into the loan. Must have made 6 on-time payments first. Payment must decrease. Rule of thumb: a 1%+ rate drop is worth it. Can be done unlimited times.</p>
+    </div>
+  </div>
+
+  <!-- MYTHS -->
+  <div class="dark-block">
+    <h2>Common VA Loan Myths — Busted</h2>
+    <div class="dark-q">
+      <div class="q">"I can only use my VA loan once."</div>
+      <div class="a">False. It's a lifetime benefit. Use it over and over as long as entitlement is available.</div>
+    </div>
+    <div class="dark-q">
+      <div class="q">"Sellers won't accept VA offers."</div>
+      <div class="a">In today's San Antonio market, a well-structured VA offer is competitive. The right agent knows how to write it.</div>
+    </div>
+    <div class="dark-q">
+      <div class="q">"I need perfect credit."</div>
+      <div class="a">The VA sets no minimum. Most lenders require 580–620+. Many veterans qualify with less-than-perfect credit.</div>
+    </div>
+    <div class="dark-q">
+      <div class="q">"I can't buy a fixer-upper."</div>
+      <div class="a">That's what the VA Renovation Loan is for.</div>
+    </div>
+    <div class="dark-q">
+      <div class="q">"I have to live in the home forever."</div>
+      <div class="a">Live there one year, then rent it out and buy again. That's the farm strategy.</div>
+    </div>
+    <div class="dark-q">
+      <div class="q">"A VA appraisal will kill the deal."</div>
+      <div class="a">VA appraisals check safety and habitability — minimum property requirements. For a standard move-in ready home, this rarely causes issues.</div>
+    </div>
+  </div>
+
+  <!-- CHECKLIST -->
+  <div class="section-label" style="margin-top:28px;">Your Next Steps</div>
+  <div style="background:var(--parchment);border:1px solid var(--border);border-radius:10px;padding:20px 24px;margin-bottom:24px;">
+    <ul class="checklist">
+      <li><div class="check-box"></div><span><strong>Pull your Certificate of Eligibility</strong> — VA.gov, takes minutes. Your lender or I can help if you run into a snag.</span></li>
+      <li><div class="check-box"></div><span><strong>Check your disability rating</strong> — even a 10% rating waives the funding fee entirely.</span></li>
+      <li><div class="check-box"></div><span><strong>Get pre-approved</strong> — use a VA-approved lender who works with military buyers regularly.</span></li>
+      <li><div class="check-box"></div><span><strong>Know your BAH</strong> — lenders gross it up 25%, so your actual buying power is higher than you might think.</span></li>
+      <li><div class="check-box"></div><span><strong>Choose your target area</strong> — near JBSA? Windcrest, Schertz, Converse, and Universal City are all within easy range.</span></li>
+      <li><div class="check-box"></div><span><strong>Think long-term</strong> — even a 2-year assignment can become your first rental property if you plan ahead.</span></li>
+    </ul>
+  </div>
+
+  <!-- CTA -->
+  <div style="background:var(--moss-lt);border:1px solid #C8DEC4;border-radius:8px;padding:16px 20px;margin-bottom:20px;font-size:12px;color:var(--soil);line-height:1.75;">
+    I work with military families all over San Antonio. I know the neighborhoods near JBSA, I know VA contracts, and I'm not going to pressure you into anything. If you want to know what you could buy, where, and what it would actually cost you each month — let's have a conversation. No obligation, just clarity.
+  </div>
+
+  <div style="background:var(--parchment);border:1px solid var(--border);border-radius:8px;padding:12px 16px;margin-bottom:20px;font-size:10px;color:var(--muted);line-height:1.7;text-align:center;">
+    This guide is for educational purposes only. Loan terms, rates, and qualification requirements vary by lender. Work with a VA-approved lender for loan-specific guidance. This is not legal, tax, or financial advice.
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-left">
+      <strong>Chris Drawdy</strong><br>
+      That Gardening Realtor · eXp Realty<br>
+      (210) 214-2673 · chris@getrealtytx.com<br>
+      Windcrest · Terrell Hills · Alamo Heights
+    </div>
+    <div class="footer-right">
+      Sources: U.S. Dept. of Veterans Affairs VA Home Loan Guaranty Buyer's Guide (April 2022) · The Sharpest VA Loan Guide by Ian Raysor · Chris Drawdy field experience, San Antonio TX
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
