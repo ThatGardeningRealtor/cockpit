@@ -981,6 +981,7 @@ function saveDeal(id){
   renderAlerts();
   renderDeals();
   closeModal();
+  if(logVal)appendDailyLog(`🏡 Deal: ${d.title} — ${logVal}`);
   showToast(logVal?'Logged & saved ✓':'Saved ✓');
 }
 
@@ -1017,6 +1018,7 @@ function saveLead(id){
   renderAlerts();
   renderLeads();
   closeModal();
+  if(logVal)appendDailyLog(`🌱 Lead: ${l.title} — ${logVal}`);
   showToast(logVal?'Logged & saved ✓':'Saved ✓');
 }
 
@@ -1105,6 +1107,7 @@ function openContent(id){
 function togglePri(id){
   const p=priorities.find(x=>x.id===id);if(!p)return;
   p.done=!p.done;saveData();renderPriorities();renderAlerts();
+  if(p.done)appendDailyLog(`✅ Priority Complete: ${p.title}`);
   const chk=document.getElementById('pri-chk'),lbl=document.getElementById('pri-chk-lbl');
   if(chk){chk.classList.toggle('dn',p.done);}
   if(lbl){lbl.textContent=p.done?'Completed':'Mark Complete';lbl.classList.toggle('struck',p.done);}
@@ -1112,6 +1115,7 @@ function togglePri(id){
 function toggleTaskDone(id){
   const t=tasks.find(x=>x.id===id);if(!t)return;
   t.done=!t.done;saveData();renderAlerts();
+  if(t.done)appendDailyLog(`✅ Task Complete: ${t.title}`);
   const chk=document.getElementById('task-chk'),lbl=document.getElementById('task-chk-lbl');
   if(chk){chk.classList.toggle('dn',t.done);}
   if(lbl){lbl.textContent=t.done?'Completed':'Mark Complete';lbl.classList.toggle('struck',t.done);}
@@ -1128,8 +1132,29 @@ function toggleFU(collection,id,idx){
   if(dot){dot.className=`m-fu-dot ${fu.status}`;}
   if(txt){txt.style.textDecoration=fu.status==='done'?'line-through':'none';txt.style.color=fu.status==='done'?'var(--muted)':'';}
 }
-function savePri(id){const p=priorities.find(x=>x.id===id);if(p){const n=document.getElementById('priNotes');if(n)p.notes=n.value;saveData();}closeModal();renderPriorities()}
-function saveTask(id){const t=tasks.find(x=>x.id===id);if(!t)return;const n=document.getElementById('taskNotes');if(n)t.notes=n.value;const logVal=document.getElementById('taskLog');const hasLog=logVal&&logVal.value.trim();if(hasLog){if(!t.logs)t.logs=[];const now=new Date();t.logs.unshift({t:now.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})+' '+now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'}),m:logVal.value.trim()});}saveData();closeModal();renderTasks();renderAlerts();showToast(t.done?'Task complete ✓':(hasLog?'Logged & saved ✓':'Saved ✓'));}
+function savePri(id){
+  const p=priorities.find(x=>x.id===id);
+  if(p){
+    const n=document.getElementById('priNotes');
+    if(n){const newNotes=n.value.trim();if(newNotes&&newNotes!==p.notes)appendDailyLog(`📌 Priority Note: ${p.title} — ${newNotes}`);p.notes=n.value;}
+    saveData();
+  }
+  closeModal();renderPriorities();
+}
+function saveTask(id){
+  const t=tasks.find(x=>x.id===id);if(!t)return;
+  const n=document.getElementById('taskNotes');if(n)t.notes=n.value;
+  const logVal=document.getElementById('taskLog');
+  const hasLog=logVal&&logVal.value.trim();
+  if(hasLog){
+    if(!t.logs)t.logs=[];
+    const now=new Date();
+    t.logs.unshift({t:now.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})+' '+now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'}),m:logVal.value.trim()});
+    appendDailyLog(`📋 Task: ${t.title} — ${logVal.value.trim()}`);
+  }
+  saveData();closeModal();renderTasks();renderAlerts();
+  showToast(t.done?'Task complete ✓':(hasLog?'Logged & saved ✓':'Saved ✓'));
+}
 function saveVendor(id){const v=vendors.find(x=>x.id===id);if(v){const n=document.getElementById('vendNotes');if(n)v.notes=n.value;saveData();}closeModal()}
 function setContentStatus(id,status){
   const c=contentPipeline.find(x=>x.id===id);if(!c)return;
@@ -1439,6 +1464,20 @@ async function saveToInbox(filename,content){
     await w.write(content);await w.close();
     return true;
   }catch(e){return false;}
+}
+
+async function appendDailyLog(line){
+  if(!localStorage.getItem('tgr_dbx_refresh'))return;
+  const now=new Date();
+  const ymd=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0');
+  const storKey='tgr_dlog_'+ymd.replace(/-/g,'');
+  const ts=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
+  let entries=[];try{entries=JSON.parse(localStorage.getItem(storKey)||'[]');}catch{}
+  entries.push(ts+' · '+line);
+  localStorage.setItem(storKey,JSON.stringify(entries));
+  const dateLabel=now.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
+  const body=`[SIRHC — DAILY LOG · ${dateLabel}]\n\n`+entries.join('\n');
+  _dropboxWrite(`/TGR-AI-Team/team-inbox/update_${ymd}.txt`,body);
 }
 
 async function submitToTeam(rbId,rId,label,prefix,content){
