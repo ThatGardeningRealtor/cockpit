@@ -544,6 +544,11 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
     <button onclick="forceUpdate()" style="width:100%;text-align:left;padding:14px 16px;margin-bottom:8px;border-radius:12px;border:1.5px solid var(--sky);background:rgba(74,138,181,.08);color:var(--sky);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">🔄 Force Update App</button>
     <button onclick="updateGitHubToken();closeSettings()" style="width:100%;text-align:left;padding:14px 16px;margin-bottom:8px;border-radius:12px;border:1.5px solid var(--moss);background:rgba(46,74,48,.08);color:var(--moss);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">🔑 Update GitHub Token</button>
     <button onclick="connectDropbox()" style="width:100%;text-align:left;padding:14px 16px;margin-bottom:8px;border-radius:12px;border:1.5px solid var(--sky);background:rgba(74,138,181,.08);color:var(--sky);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit" id="dbx-connect-btn">🗂 Connect Dropbox</button>
+    <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted);margin:16px 0 8px">Google Calendar</div>
+    <input id="gcal-client-id" type="text" placeholder="Google Client ID" autocomplete="off" autocorrect="off" autocapitalize="off" style="width:100%;padding:10px 12px;border-radius:8px;border:1.5px solid var(--warm);background:#fff;font-size:12px;font-family:inherit;margin-bottom:6px;box-sizing:border-box">
+    <input id="gcal-client-secret" type="password" placeholder="Google Client Secret" autocomplete="off" style="width:100%;padding:10px 12px;border-radius:8px;border:1.5px solid var(--warm);background:#fff;font-size:12px;font-family:inherit;margin-bottom:6px;box-sizing:border-box">
+    <button onclick="connectGoogleCalendar()" style="width:100%;text-align:left;padding:14px 16px;margin-bottom:4px;border-radius:12px;border:1.5px solid #34a853;background:rgba(52,168,83,.08);color:#2d9147;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit" id="gcal-connect-btn">📅 Connect Google Calendar</button>
+    <div id="gcal-status-line" style="font-size:11px;color:var(--muted);margin-bottom:12px;padding:0 4px"></div>
     <button onclick="exportExpenses();closeSettings()" style="width:100%;text-align:left;padding:14px 16px;margin-bottom:8px;border-radius:12px;border:1.5px solid #b8972a;background:rgba(184,151,42,.06);color:#b8972a;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">📊 Export Tax Report</button>
     <button onclick="exportData();closeSettings()" style="width:100%;text-align:left;padding:14px 16px;margin-bottom:8px;border-radius:12px;border:1.5px solid var(--warm);background:var(--card);color:var(--muted);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">⬇ Export Backup</button>
     <button onclick="importData();closeSettings()" style="width:100%;text-align:left;padding:14px 16px;margin-bottom:8px;border-radius:12px;border:1.5px solid var(--warm);background:var(--card);color:var(--muted);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">⬆ Import Backup</button>
@@ -959,7 +964,10 @@ function openDeal(id){
     <div class="d-field"><div class="d-notes">${d.notes}</div></div>
     <div class="d-field"><div class="d-label">Status</div><div id="deal-status-row" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:6px">${statusBtns}</div></div>
     <div class="d-field"><div class="d-label">Log Update</div><textarea class="m-notes-area" id="dealLog" placeholder="What happened? Next steps? Drop it all here..." style="background:rgba(46,74,48,0.08);border-color:var(--moss)"></textarea><div style="font-size:10px;color:var(--muted);margin-top:4px">What just happened? This adds to the activity log.</div></div>
-    <button class="m-save-btn" onclick="saveDeal('${id}')">💾 Save & Close</button>
+    <div style="display:flex;gap:8px;margin-top:4px">
+      <button class="m-save-btn" onclick="saveDeal('${id}')">💾 Save & Close</button>
+      <button onclick="openScheduleModal('${d.title.replace(/'/g,"\\'")}','${(d.next||'').replace(/'/g,"\\'")}','${d.id}','deal')" style="flex:0 0 auto;padding:13px 16px;border:none;border-radius:12px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;cursor:pointer;background:rgba(74,138,181,.12);color:var(--sky)">📅</button>
+    </div>
     ${logHTML?`<div class="d-field" style="margin-top:16px"><div class="d-label" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'" style="cursor:pointer">Activity Log <span style="font-size:10px;opacity:.5">▾ tap to collapse</span></div><div>${logHTML}</div></div>`:''}`;
   openModal();
 }
@@ -997,7 +1005,10 @@ function openLead(id){
     <div class="d-field"><div class="d-label">Details</div><div class="d-notes">${l.detail}</div></div>
     <div class="d-field"><div class="d-label">Status</div><div id="lead-status-row" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:6px">${statusBtns}</div></div>
     <div class="d-field"><div class="d-label">Log Update</div><textarea class="m-notes-area" id="leadLog" placeholder="What happened? Next steps? Drop it all here..." style="background:rgba(46,74,48,0.08);border-color:var(--moss)"></textarea><div style="font-size:10px;color:var(--muted);margin-top:4px">What just happened? This adds to the activity log.</div></div>
-    <button class="m-save-btn" onclick="saveLead('${id}')">💾 Save & Close</button>
+    <div style="display:flex;gap:8px;margin-top:4px">
+      <button class="m-save-btn" onclick="saveLead('${id}')">💾 Save & Close</button>
+      <button onclick="openScheduleModal('Call: ${l.title.replace(/'/g,"\\'")}','${(l.next||'').replace(/'/g,"\\'")}','${l.id}','lead')" style="flex:0 0 auto;padding:13px 16px;border:none;border-radius:12px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;cursor:pointer;background:rgba(74,138,181,.12);color:var(--sky)">📅</button>
+    </div>
     ${logHTML?`<div class="d-field" style="margin-top:16px"><div class="d-label" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'" style="cursor:pointer">Activity Log <span style="font-size:10px;opacity:.5">▾ tap to collapse</span></div><div>${logHTML}</div></div>`:''}`;
   openModal();
 }
@@ -1286,6 +1297,22 @@ async function submitDropboxCode(){
 function openSettings(){
   const vEl=document.getElementById('settings-version');
   if(vEl)vEl.textContent='Sirhc Cockpit '+APP_VERSION;
+  // Restore saved client ID (secret stays hidden)
+  const idEl=document.getElementById('gcal-client-id');
+  if(idEl&&!idEl.value)idEl.value=localStorage.getItem('tgr_gcal_client_id')||'';
+  // Show connection status + refresh token for copying to GitHub Secrets
+  const statusEl=document.getElementById('gcal-status-line');
+  if(statusEl){
+    const refresh=localStorage.getItem('tgr_gcal_refresh');
+    const btn=document.getElementById('gcal-connect-btn');
+    if(refresh){
+      if(btn)btn.textContent='📅 Google Calendar Connected ✅';
+      statusEl.innerHTML=`<span style="color:#2d9147;font-weight:600">Connected.</span> Copy refresh token for GitHub Secrets: <button onclick="navigator.clipboard.writeText('${refresh}');showToast('Copied!')" style="font-size:10px;padding:2px 8px;border-radius:6px;border:1px solid #ccc;background:#f5f5f5;cursor:pointer;font-family:inherit">Copy Token</button>`;
+    } else {
+      if(btn)btn.textContent='📅 Connect Google Calendar';
+      statusEl.textContent='Not connected. Enter Client ID + Secret above, then tap connect.';
+    }
+  }
   document.getElementById('settingsOv').classList.add('open');
   document.getElementById('settingsModal').classList.add('open');
 }
@@ -1690,19 +1717,140 @@ function cycleDay(i){
 }
 
 // ═══════════ CALENDAR ═══════════
-// calEvents array — populated by Google Calendar integration once connected.
-// Format: {time:'9:00 AM', title:'Howell — New construction showing', linkedId:'l2', linkedType:'lead'}
-// Until GCal is connected, this array drives placeholder state.
 const calEvents=[];
+const _GCAL_REDIRECT='https://thatgardeningrealtor.github.io/cockpit/';
+const _GCAL_SCOPE='https://www.googleapis.com/auth/calendar';
+
+async function _getGcalToken(){
+  const stored=localStorage.getItem('tgr_gcal_access');
+  const expiry=parseInt(localStorage.getItem('tgr_gcal_expiry')||'0');
+  if(stored&&Date.now()<expiry)return stored;
+  const refresh=localStorage.getItem('tgr_gcal_refresh');
+  if(!refresh)return null;
+  const clientId=localStorage.getItem('tgr_gcal_client_id');
+  const clientSecret=localStorage.getItem('tgr_gcal_client_secret');
+  if(!clientId||!clientSecret)return null;
+  try{
+    const body=`grant_type=refresh_token&refresh_token=${encodeURIComponent(refresh)}&client_id=${encodeURIComponent(clientId)}&client_secret=${encodeURIComponent(clientSecret)}`;
+    const res=await fetch('https://oauth2.googleapis.com/token',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body});
+    const data=await res.json();
+    if(data.access_token){
+      localStorage.setItem('tgr_gcal_access',data.access_token);
+      localStorage.setItem('tgr_gcal_expiry',String(Date.now()+(data.expires_in-60)*1000));
+      return data.access_token;
+    }
+    return null;
+  }catch{return null;}
+}
+
+async function exchangeGcalCode(code){
+  const clientId=localStorage.getItem('tgr_gcal_client_id');
+  const clientSecret=localStorage.getItem('tgr_gcal_client_secret');
+  if(!clientId||!clientSecret)return;
+  try{
+    const body=`code=${encodeURIComponent(code)}&client_id=${encodeURIComponent(clientId)}&client_secret=${encodeURIComponent(clientSecret)}&redirect_uri=${encodeURIComponent(_GCAL_REDIRECT)}&grant_type=authorization_code`;
+    const res=await fetch('https://oauth2.googleapis.com/token',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body});
+    const data=await res.json();
+    if(data.access_token){
+      localStorage.setItem('tgr_gcal_access',data.access_token);
+      localStorage.setItem('tgr_gcal_expiry',String(Date.now()+(data.expires_in-60)*1000));
+      if(data.refresh_token)localStorage.setItem('tgr_gcal_refresh',data.refresh_token);
+      showToast('Google Calendar connected ✅');
+      fetchCalendarEvents();
+    }
+  }catch(e){console.warn('GCal code exchange failed:',e);}
+}
+
+function connectGoogleCalendar(){
+  const idInput=document.getElementById('gcal-client-id');
+  const secInput=document.getElementById('gcal-client-secret');
+  const clientId=(idInput?.value.trim())||localStorage.getItem('tgr_gcal_client_id');
+  const clientSecret=(secInput?.value.trim())||localStorage.getItem('tgr_gcal_client_secret');
+  if(!clientId||!clientSecret){showToast('Enter Client ID and Client Secret first.');return;}
+  localStorage.setItem('tgr_gcal_client_id',clientId);
+  localStorage.setItem('tgr_gcal_client_secret',clientSecret);
+  const url=`https://accounts.google.com/o/oauth2/v2/auth?client_id=${encodeURIComponent(clientId)}&redirect_uri=${encodeURIComponent(_GCAL_REDIRECT)}&response_type=code&scope=${encodeURIComponent(_GCAL_SCOPE)}&access_type=offline&prompt=consent`;
+  window.location.href=url;
+}
+
+async function fetchCalendarEvents(){
+  const token=await _getGcalToken();
+  if(!token){renderCalStrip();return;}
+  try{
+    const start=new Date();start.setHours(0,0,0,0);
+    const end=new Date(start);end.setDate(end.getDate()+1);
+    const url=`https://www.googleapis.com/calendar/v3/calendars/primary/events?timeMin=${encodeURIComponent(start.toISOString())}&timeMax=${encodeURIComponent(end.toISOString())}&singleEvents=true&orderBy=startTime&maxResults=20`;
+    const res=await fetch(url,{headers:{Authorization:`Bearer ${token}`}});
+    const data=await res.json();
+    calEvents.length=0;
+    (data.items||[]).forEach(ev=>{
+      const timeStr=ev.start?.dateTime?new Date(ev.start.dateTime).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'}):'All day';
+      calEvents.push({time:timeStr,title:ev.summary||'(No title)',location:ev.location||'',gcalId:ev.id});
+    });
+    renderCalStrip();
+  }catch(e){console.warn('GCal fetch:',e);renderCalStrip();}
+}
+
+async function createCalendarEvent(title,description,startISO,durationMin){
+  const token=await _getGcalToken();
+  if(!token){
+    const s=startISO.replace(/[-:.]/g,'').replace('T','T').slice(0,15)+'00Z';
+    const e=new Date(new Date(startISO).getTime()+durationMin*60000).toISOString().replace(/[-:.]/g,'').slice(0,15)+'00Z';
+    window.open(`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&details=${encodeURIComponent(description)}&dates=${s}/${e}`,'_blank');
+    return false;
+  }
+  try{
+    const endISO=new Date(new Date(startISO).getTime()+durationMin*60000).toISOString();
+    const body=JSON.stringify({summary:title,description,start:{dateTime:startISO},end:{dateTime:endISO}});
+    const res=await fetch('https://www.googleapis.com/calendar/v3/calendars/primary/events',{method:'POST',headers:{Authorization:`Bearer ${token}`,'Content-Type':'application/json'},body});
+    const data=await res.json();
+    if(data.id){showToast('Added to Google Calendar ✅');fetchCalendarEvents();return true;}
+    return false;
+  }catch{return false;}
+}
+
+function openScheduleModal(title,description,linkedId,linkedType){
+  const now=new Date();
+  const dateStr=now.toISOString().slice(0,10);
+  const timeStr=String(now.getHours()).padStart(2,'0')+':00';
+  document.getElementById('mBody').innerHTML=`
+    <div class="m-title">Schedule Event</div>
+    <div class="d-field"><div class="d-label">Title</div><input class="fi" id="sch-title" value="${title.replace(/"/g,'&quot;')}"></div>
+    <div class="d-field"><div class="d-label">Date</div><input type="date" class="fi" id="sch-date" value="${dateStr}"></div>
+    <div class="d-field"><div class="d-label">Time</div><input type="time" class="fi" id="sch-time" value="${timeStr}"></div>
+    <div class="d-field"><div class="d-label">Duration</div>
+      <select class="fsel" id="sch-dur">
+        <option value="30">30 min</option><option value="60" selected>1 hour</option><option value="90">1.5 hours</option><option value="120">2 hours</option><option value="180">3 hours</option>
+      </select>
+    </div>
+    <div class="d-field"><div class="d-label">Notes</div><textarea class="m-notes-area" id="sch-notes">${description.replace(/</g,'&lt;')}</textarea></div>
+    <button class="m-save-btn" onclick="submitScheduleEvent('${linkedId}','${linkedType}')">📅 Add to Calendar</button>`;
+  openModal();
+}
+
+async function submitScheduleEvent(linkedId,linkedType){
+  const title=document.getElementById('sch-title').value.trim();
+  const date=document.getElementById('sch-date').value;
+  const time=document.getElementById('sch-time').value;
+  const dur=parseInt(document.getElementById('sch-dur').value);
+  const notes=document.getElementById('sch-notes').value.trim();
+  if(!title||!date||!time){showToast('Title, date, and time required.');return;}
+  const startISO=`${date}T${time}:00`;
+  const ok=await createCalendarEvent(title,notes,startISO,dur);
+  if(ok){
+    closeModal();
+    appendDailyLog(`📅 Scheduled: ${title} on ${date} at ${time}`);
+  }
+}
 
 function renderCalStrip(){
   const el=document.getElementById('gcal-strip');if(!el)return;
   if(!calEvents.length){
+    const connected=!!localStorage.getItem('tgr_gcal_refresh');
     el.innerHTML=`<div style="background:var(--card);border-radius:var(--r);padding:14px 16px;box-shadow:var(--shad);text-align:center">
       <div style="font-size:20px;margin-bottom:6px">📅</div>
-      <div style="font-size:12px;font-weight:600;color:var(--soil);margin-bottom:4px">Google Calendar not connected yet</div>
-      <div style="font-size:11px;color:var(--muted);line-height:1.5;margin-bottom:12px">Check <strong>owners-inbox/gcal-setup-morning.md</strong> for 5-minute setup instructions.</div>
-      <div style="font-size:11px;color:var(--sky);font-weight:600">Or use Lauren → Bold Trail Sync to manually push contacts →</div>
+      <div style="font-size:12px;font-weight:600;color:var(--soil);margin-bottom:4px">${connected?'No events today':'Google Calendar not connected'}</div>
+      ${!connected?`<button onclick="openSettings()" style="margin-top:6px;padding:8px 18px;border-radius:20px;border:1.5px solid var(--sky);background:rgba(74,138,181,.1);color:var(--sky);font-size:12px;font-weight:700;cursor:pointer;font-family:inherit">Connect in Settings →</button>`:''}
     </div>`;
     return;
   }
@@ -2571,6 +2719,13 @@ async function fetchAppData(){
 }
 
 function init(){
+  // Handle Google Calendar OAuth callback (?code=xxx in URL)
+  const _urlParams=new URLSearchParams(window.location.search);
+  const _gcalCode=_urlParams.get('code');
+  if(_gcalCode&&localStorage.getItem('tgr_gcal_client_id')){
+    history.replaceState({},'',window.location.pathname);
+    exchangeGcalCode(_gcalCode);
+  }
   loadData();
   fetchAppData();
   resetDailyTasks();
@@ -2579,7 +2734,7 @@ function init(){
   const h=new Date().getHours();
   document.getElementById('greet').textContent=h<5?"Burning midnight oil, Chris.":h<12?"Good morning, Chris. Let's grow.":h<17?"Good afternoon, Chris.":h<21?"Good evening, Chris.":"Late night hustle, Chris.";
   renderDayBadge();
-  renderCalStrip();renderAlerts();renderPriorities();renderPipelineSnap();renderDeals();renderLeads();renderTasks();renderVendors();renderLoans();renderContent();renderWeeklyRhythm();renderCockpitContentStrip();
+  fetchCalendarEvents();renderAlerts();renderPriorities();renderPipelineSnap();renderDeals();renderLeads();renderTasks();renderVendors();renderLoans();renderContent();renderWeeklyRhythm();renderCockpitContentStrip();
   renderBadges();
   loadChatHistory();
   renderChatHistory();
