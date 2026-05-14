@@ -447,24 +447,14 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
   <div id="last-synced-display">Not yet synced this session</div>
 </div>
 <!-- TABS -->
-<div id="t-cock" class="tab on"><div class="sec"><div class="sec-t">Today's Priorities</div><div id="pri-list"></div><div class="sec-t" style="margin-top:20px">Pipeline</div><div id="pipe-snap"></div><div class="sec-t" style="margin-top:20px">Content <span style="font-size:10px;font-weight:400;opacity:.6">· <button onclick="showTab('content')" style="background:none;border:none;color:var(--muted);font-size:10px;cursor:pointer;font-family:inherit;padding:0">see all</button></span></div><div id="cockpit-content-strip"></div><div style="background:var(--parch);border-radius:var(--r);padding:12px 14px;margin-top:16px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--sky);margin-bottom:10px">📊 Bold Trail Sync</div><div class="fg" style="margin-bottom:8px"><input class="fi" id="bt-name" placeholder="Contact name" style="margin-bottom:6px"><div style="display:flex;gap:6px"><input class="fi" id="bt-phone" type="tel" placeholder="Phone" style="flex:1"><select class="fsel" id="bt-status" style="flex:1"><option>Active</option><option>Hot</option><option>Nurture</option><option>Past Client</option><option>Dead</option></select></div></div><div class="fg" style="margin-bottom:8px"><textarea class="fta" id="bt-notes" placeholder="Notes from Bold Trail..." style="min-height:56px"></textarea></div><button class="sbtn sb-l" onclick="subBoldTrail()" style="padding:10px;font-size:12px">📊 Sync to Cockpit</button><div class="resp" id="bt-resp" style="border-left:4px solid var(--sky);display:none"><div class="resp-h"><div class="resp-av" style="background:var(--sky)">BT</div><div class="resp-n">Bold Trail</div></div><div class="resp-b" id="bt-rb"></div></div></div><div class="sec-t" style="margin-top:20px">Today's Calendar <span style="font-size:10px;font-weight:400;opacity:.6">· tap event to open card</span></div><div id="gcal-strip"></div><div class="sec-t" style="margin-top:20px">Weekly Rhythm <span style="font-size:10px;font-weight:400;opacity:.6">· tap to edit</span></div><div id="week-grid" class="rg"></div><div class="sec-t" style="margin-top:20px;cursor:pointer" onclick="toggleDebrief()">End of Day Debrief <span style="font-size:10px;font-weight:400;opacity:.6">· tap to expand</span></div>
-<div id="debrief-list" style="display:none">
-  <div class="debrief-item" id="deb-sync">
-    <input type="checkbox" onchange="debCheck('deb-sync',this)"> Sync to Sirhc
+<div id="t-cock" class="tab on"><div class="sec"><div class="sec-t">Today's Priorities</div><div id="pri-list"></div><div class="sec-t" style="margin-top:20px">Pipeline</div><div id="pipe-snap"></div><div class="sec-t" style="margin-top:20px">Content <span style="font-size:10px;font-weight:400;opacity:.6">· <button onclick="showTab('content')" style="background:none;border:none;color:var(--muted);font-size:10px;cursor:pointer;font-family:inherit;padding:0">see all</button></span></div><div id="cockpit-content-strip"></div><div style="background:var(--parch);border-radius:var(--r);padding:12px 14px;margin-top:16px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--sky);margin-bottom:10px">📊 Bold Trail Sync</div><div class="fg" style="margin-bottom:8px"><input class="fi" id="bt-name" placeholder="Contact name" style="margin-bottom:6px"><div style="display:flex;gap:6px"><input class="fi" id="bt-phone" type="tel" placeholder="Phone" style="flex:1"><select class="fsel" id="bt-status" style="flex:1"><option>Active</option><option>Hot</option><option>Nurture</option><option>Past Client</option><option>Dead</option></select></div></div><div class="fg" style="margin-bottom:8px"><textarea class="fta" id="bt-notes" placeholder="Notes from Bold Trail..." style="min-height:56px"></textarea></div><button class="sbtn sb-l" onclick="subBoldTrail()" style="padding:10px;font-size:12px">📊 Sync to Cockpit</button><div class="resp" id="bt-resp" style="border-left:4px solid var(--sky);display:none"><div class="resp-h"><div class="resp-av" style="background:var(--sky)">BT</div><div class="resp-n">Bold Trail</div></div><div class="resp-b" id="bt-rb"></div></div></div><div class="sec-t" style="margin-top:20px">Today's Calendar <span style="font-size:10px;font-weight:400;opacity:.6">· tap event to open card</span></div><div id="gcal-strip"></div><div class="sec-t" style="margin-top:20px">Weekly Rhythm <span style="font-size:10px;font-weight:400;opacity:.6">· tap to edit</span></div><div id="week-grid" class="rg"></div><div style="margin-top:20px;cursor:pointer;background:linear-gradient(135deg,var(--soil),var(--bark));border-radius:var(--r);padding:14px 16px;display:flex;align-items:center;justify-content:space-between;-webkit-tap-highlight-color:transparent" onclick="openDebriefWizard()">
+  <div>
+    <div style="font-family:'Playfair Display',serif;font-size:14px;color:var(--sprout);font-weight:700">End of Day Debrief</div>
+    <div style="font-size:10px;color:var(--sage-c);margin-top:2px;opacity:.8">Deals · leads · tomorrow's 3 — tap to start</div>
   </div>
-  <div class="debrief-item" id="deb-upload">
-    <input type="checkbox" onchange="debCheck('deb-upload',this)"> Upload index.html to GitHub (if Rex built today)
-  </div>
-  <div class="debrief-item" id="deb-priorities">
-    <input type="checkbox" onchange="debCheck('deb-priorities',this)"> Set tomorrow's 3 priorities
-  </div>
-  <div class="debrief-item" id="deb-calls">
-    <input type="checkbox" onchange="debCheck('deb-calls',this)"> Log today's calls
-  </div>
-  <div class="debrief-item" id="deb-followup">
-    <input type="checkbox" onchange="debCheck('deb-followup',this)"> Any follow-ups to schedule?
-  </div>
+  <div style="font-size:22px">🌙</div>
 </div>
+<div id="debrief-list"></div>
 <div class="qc"><div class="qt">"Plant the seed. Water it daily. Trust the season."</div><div class="qa">— Sirhc</div></div></div></div><div class="spacer"></div></div>
 
 
@@ -2625,22 +2615,131 @@ function renderChatHistory(){
   msgsEl.scrollTop = 0;
 }
 
-// ═══════════ End of Day Debrief ═══════════
-function toggleDebrief(){
-  const el = document.getElementById('debrief-list');
-  el.style.display = el.style.display === 'none' ? 'block' : 'none';
+// ═══════════ End of Day Debrief Wizard ═══════════
+let _debState=null;
+
+function toggleDebrief(){openDebriefWizard();}
+function debCheck(){}
+function resetDebrief(){}
+
+function openDebriefWizard(){
+  const activeDeals=deals.filter(d=>d.cls!=='cls');
+  const activeLeads=leads.filter(l=>l.cls!=='dead'&&l.cls!=='cold');
+  const items=[
+    ...activeDeals.map(d=>({id:d.id,type:'deal',title:d.title+(d.loc?' — '+d.loc:''),sub:d.next?d.next.split('\n')[0]:''})),
+    ...activeLeads.map(l=>({id:l.id,type:'lead',title:l.title,sub:l.next||''}))
+  ];
+  _debState={step:0,items,notes:[],priorities:['','','']};
+  _debRender();
+  openModal();
 }
-function debCheck(id, cb){
-  document.getElementById(id).style.opacity = cb.checked ? '0.4' : '1';
+
+function _debRender(){
+  const s=_debState;
+  const total=s.items.length+1;
+  if(s.step===0){
+    document.getElementById('mBody').innerHTML=`
+      <div class="m-title">End of Day</div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:16px">Quick walk through your active deals and leads — drop a note on anything that moved today. Skip what didn't.</div>
+      <div style="background:var(--parch);border-radius:10px;padding:12px 14px;margin-bottom:20px;font-size:11px;color:var(--muted)">
+        ${s.items.filter(i=>i.type==='deal').length} active deals &nbsp;·&nbsp; ${s.items.filter(i=>i.type==='lead').length} leads &nbsp;·&nbsp; ~2 min
+      </div>
+      <button class="m-save-btn" onclick="_debNext()">Let's go →</button>`;
+    return;
+  }
+  if(s.step<=s.items.length){
+    const item=s.items[s.step-1];
+    const existing=s.notes.find(n=>n.id===item.id);
+    const prog=Math.round((s.step/total)*100);
+    document.getElementById('mBody').innerHTML=`
+      <div style="height:4px;background:var(--warm);border-radius:2px;margin-bottom:16px;overflow:hidden"><div style="height:100%;width:${prog}%;background:var(--moss);border-radius:2px;transition:width .3s ease"></div></div>
+      <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:6px">${item.type==='deal'?'🏡 Deal':'🌱 Lead'} &nbsp;·&nbsp; ${s.step} of ${total}</div>
+      <div class="m-title" style="font-size:16px;margin-bottom:6px">${item.title}</div>
+      ${item.sub?`<div style="font-size:11px;color:var(--moss);font-weight:600;margin-bottom:16px">➡ ${item.sub}</div>`:''}
+      <div class="d-field"><div class="d-label">Anything to log today?</div>
+        <textarea class="m-notes-area" id="deb-note" placeholder="What happened, what moved, what's next..." style="min-height:110px">${existing?existing.note:''}</textarea>
+      </div>
+      <div style="display:flex;gap:8px;margin-top:4px">
+        <button onclick="_debSkip()" style="flex:1;padding:13px;border:1.5px solid var(--warm);border-radius:12px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;cursor:pointer;background:transparent;color:var(--muted)">Skip</button>
+        <button onclick="_debSaveAndNext()" class="m-save-btn" style="flex:2;margin-top:0">Next →</button>
+      </div>`;
+    setTimeout(()=>{const ta=document.getElementById('deb-note');if(ta&&!ta.value)ta.focus();},120);
+    return;
+  }
+  if(s.step===s.items.length+1){
+    document.getElementById('mBody').innerHTML=`
+      <div style="height:4px;background:var(--warm);border-radius:2px;margin-bottom:16px;overflow:hidden"><div style="height:100%;width:95%;background:var(--moss);border-radius:2px"></div></div>
+      <div class="m-title">Tomorrow's Top 3</div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:20px">Set these tonight — not in the morning.</div>
+      ${[0,1,2].map(i=>`
+        <div class="d-field" style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+          <div style="font-size:28px;font-weight:900;color:var(--gold);flex-shrink:0;width:20px;text-align:center">${i+1}</div>
+          <input class="fi" id="deb-pri-${i}" placeholder="Priority ${i+1}..." value="${s.priorities[i]}" style="margin:0;flex:1">
+        </div>`).join('')}
+      <button class="m-save-btn" onclick="_debFinish()" style="margin-top:12px">Wrap it up ✓</button>`;
+    setTimeout(()=>{const p=document.getElementById('deb-pri-0');if(p&&!p.value)p.focus();},120);
+    return;
+  }
 }
-function resetDebrief(){
-  ['deb-sync','deb-upload','deb-priorities','deb-calls','deb-followup'].forEach(id=>{
-    const el = document.getElementById(id);
-    if(!el) return;
-    const cb = el.querySelector('input[type=checkbox]');
-    if(cb) cb.checked = false;
-    el.style.opacity = '1';
-  });
+
+function _debNext(){_debState.step++;_debRender();}
+function _debSkip(){_debState.step++;_debRender();}
+
+function _debSaveAndNext(){
+  const note=document.getElementById('deb-note')?.value.trim();
+  const item=_debState.items[_debState.step-1];
+  if(note){
+    _debState.notes=_debState.notes.filter(n=>n.id!==item.id);
+    _debState.notes.push({...item,note});
+  }
+  _debState.step++;
+  _debRender();
+}
+
+async function _debFinish(){
+  const s=_debState;
+  s.priorities=[0,1,2].map(i=>document.getElementById('deb-pri-'+i)?.value.trim()||'');
+
+  // Log each note into deal/lead activity logs + daily log
+  const now=new Date();
+  const ts=now.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})+' '+now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
+  for(const item of s.notes){
+    const target=item.type==='deal'?deals.find(d=>d.id===item.id):leads.find(l=>l.id===item.id);
+    if(target){if(!target.logs)target.logs=[];target.logs.unshift({t:ts,m:'[EOD] '+item.note});}
+    appendDailyLog(`${item.type==='deal'?'🏡':'🌱'} EOD ${item.type==='deal'?'Deal':'Lead'}: ${item.title} — ${item.note}`);
+  }
+  if(s.priorities.some(p=>p)){
+    appendDailyLog('📋 Tomorrow\'s priorities: '+s.priorities.filter(p=>p).map((p,i)=>`${i+1}. ${p}`).join(' · '));
+  }
+  saveData();
+
+  // Write structured recap file to team-inbox
+  const ymd=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0');
+  const dateLabel=now.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
+  const timeStr=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
+  const dealNotes=s.notes.filter(n=>n.type==='deal');
+  const leadNotes=s.notes.filter(n=>n.type==='lead');
+  let recap=`[SIRHC — EOD RECAP · ${dateLabel}]\nSubmitted: ${timeStr}\n\n`;
+  if(dealNotes.length){recap+=`DEAL UPDATES:\n`;dealNotes.forEach(n=>{recap+=`${n.title}: ${n.note}\n`;});recap+='\n';}
+  if(leadNotes.length){recap+=`LEAD UPDATES:\n`;leadNotes.forEach(n=>{recap+=`${n.title}: ${n.note}\n`;});recap+='\n';}
+  if(s.priorities.some(p=>p)){recap+=`TOMORROW'S PRIORITIES:\n`;s.priorities.filter(p=>p).forEach((p,i)=>{recap+=`${i+1}. ${p}\n`;});}
+  if(localStorage.getItem('tgr_dbx_refresh')){
+    _dropboxWrite(`/TGR-AI-Team/team-inbox/recap_${ymd}.txt`,recap);
+  }
+
+  // Done screen
+  const count=s.notes.length;
+  document.getElementById('mBody').innerHTML=`
+    <div style="text-align:center;padding:24px 0">
+      <div style="font-size:44px;margin-bottom:14px">🌱</div>
+      <div class="m-title">Day's done.</div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.7;margin-top:10px;margin-bottom:24px">
+        ${count} update${count!==1?'s':''} logged.${s.priorities.some(p=>p)?'<br>Tomorrow\'s 3 are set.':''}<br>Sirhc picks it all up at 4am.
+      </div>
+      <button class="m-save-btn" onclick="closeModal()">Close</button>
+    </div>`;
+  renderDeals();renderLeads();renderPriorities();flagUnsyncedChanges();
+  _debState=null;
 }
 
 function checkSyncOnOpen(){
