@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Colton &amp; Abby — 485 W FM 462, Moore TX</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 13px;
+  color: #1a1008;
+  background: #fff;
+  padding: 32px 40px;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+/* HEADER */
+.doc-header {
+  border-bottom: 4px solid #2e4a30;
+  padding-bottom: 14px;
+  margin-bottom: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.doc-header h1 { font-size: 20px; color: #2e4a30; font-family: -apple-system, sans-serif; }
+.doc-header p { font-size: 11px; color: #666; margin-top: 3px; }
+.doc-contact { text-align: right; font-size: 11px; color: #444; line-height: 1.7; }
+.doc-contact strong { font-size: 12px; display: block; color: #1a1008; }
+
+/* PROPERTY BAND */
+.prop-band {
+  background: #1e1208;
+  color: #e8dcc8;
+  border-radius: 8px;
+  padding: 18px 24px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  align-items: stretch;
+}
+.pb-main { flex: 1; min-width: 200px; }
+.pb-main h2 { font-size: 18px; font-weight: 900; color: #fff; font-family: -apple-system, sans-serif; }
+.pb-main p { font-size: 11px; color: #8fb892; margin-top: 4px; }
+.pb-stats { display: flex; gap: 0; flex-wrap: wrap; border-left: 1px solid rgba(255,255,255,.12); margin-left: 18px; padding-left: 18px; align-items: center; }
+.pb-stat { padding: 0 14px; border-right: 1px solid rgba(255,255,255,.1); text-align: center; }
+.pb-stat:last-child { border-right: none; }
+.pb-stat .sv { font-size: 16px; font-weight: 900; color: #fff; font-family: -apple-system, sans-serif; }
+.pb-stat .sl { font-size: 10px; color: #8fb892; text-transform: uppercase; letter-spacing: .7px; margin-top: 2px; }
+
+/* INTRO NOTE */
+.intro-note {
+  background: #f4f0e8;
+  border-left: 4px solid #2e4a30;
+  padding: 16px 20px;
+  font-size: 13px;
+  color: #333;
+  line-height: 1.8;
+  margin-bottom: 28px;
+  border-radius: 0 6px 6px 0;
+}
+
+/* SECTION LABELS */
+.section-title {
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #2e4a30;
+  border-bottom: 1px solid #c8dbc5;
+  padding-bottom: 5px;
+  margin-bottom: 12px;
+  margin-top: 24px;
+  font-family: -apple-system, sans-serif;
+}
+
+/* COMPS */
+.comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 10px; }
+@media(max-width:600px) { .comp-grid { grid-template-columns: 1fr; } }
+.comp-card { border-radius: 6px; padding: 14px 16px; }
+.comp-card.sold { background: #eaf3e8; border-left: 3px solid #2e7d32; }
+.comp-card.stale { background: #fff9f3; border-left: 3px solid #e65100; }
+.comp-lbl { font-size: 10px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 5px; font-family: -apple-system, sans-serif; }
+.comp-card.sold .comp-lbl { color: #2e7d32; }
+.comp-card.stale .comp-lbl { color: #e65100; }
+.comp-addr { font-weight: 700; font-size: 14px; margin-bottom: 4px; }
+.comp-detail { font-size: 12px; color: #555; line-height: 1.8; }
+.comp-price { font-size: 20px; font-weight: 900; margin-top: 8px; font-family: -apple-system, sans-serif; }
+.comp-card.sold .comp-price { color: #2e7d32; }
+.comp-card.stale .comp-price { color: #e65100; }
+.comp-note { font-size: 11px; font-style: italic; margin-top: 6px; color: #555; line-height: 1.5; }
+
+.market-stats { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 6px; }
+.mstat { flex: 1; min-width: 130px; background: #f4f0e8; padding: 12px; border-top: 2px solid #2e4a30; }
+.mstat .mv { font-size: 19px; font-weight: 900; color: #2e4a30; font-family: -apple-system, sans-serif; }
+.mstat .ml { font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: .5px; margin-top: 2px; font-family: -apple-system, sans-serif; }
+
+/* SCENARIO TABLE */
+table.net-table { width: 100%; border-collapse: collapse; font-size: 12.5px; margin-bottom: 6px; }
+.net-table thead th { background: #2e4a30; color: #fff; padding: 8px 10px; text-align: left; font-size: 11px; letter-spacing: .4px; font-weight: normal; font-family: -apple-system, sans-serif; }
+.net-table tbody td { padding: 7px 10px; border-bottom: 1px solid #e8e8e0; }
+.net-table tbody tr:nth-child(even) td { background: #f7f7f3; }
+.net-table tbody tr.rec td { background: #eaf3e8; font-weight: 700; color: #1e4a1a; }
+.neg { color: #c62828; }
+.pos { color: #2e7d32; }
+.warn { color: #d4a847; font-weight: 700; }
+.table-note { font-size: 10.5px; color: #888; font-style: italic; margin-top: 4px; line-height: 1.6; }
+
+/* CALCULATOR */
+.calc-wrap {
+  background: #1e1208;
+  border-radius: 10px;
+  padding: 22px 24px;
+  margin-top: 16px;
+  color: #e8dcc8;
+}
+.calc-wrap h3 {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #8fb892;
+  margin-bottom: 16px;
+  font-family: -apple-system, sans-serif;
+}
+.calc-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+@media(max-width:580px) { .calc-grid { grid-template-columns: 1fr; } }
+.calc-field label { display: block; font-size: 10px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; color: #8fb892; margin-bottom: 5px; font-family: -apple-system, sans-serif; }
+.calc-field input {
+  width: 100%;
+  padding: 9px 12px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 6px;
+  font-size: 15px;
+  color: #fff;
+  font-family: -apple-system, sans-serif;
+}
+.calc-field input:focus { outline: none; border-color: #8fb892; background: rgba(255,255,255,.12); }
+.calc-field .hint { font-size: 10px; color: #6b8e6e; margin-top: 3px; }
+
+.result-rows { margin-top: 4px; }
+.rline { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,.07); font-size: 13px; }
+.rline:last-child { border-bottom: none; }
+.rline.total { padding-top: 14px; margin-top: 8px; border-top: 2px solid #3d7a3a; border-bottom: none; font-size: 18px; font-weight: 900; }
+.rn { color: #b8d8b0; }
+.rv { font-weight: 700; color: #e8dcc8; }
+.rline.deduct .rv { color: #e88a8a; }
+.rline.total .rn { color: #fff; }
+.rline.total .rv { color: #4caf50; }
+.rline.total .rv.neg { color: #e88a8a; }
+.calc-foot { font-size: 10px; color: #6b8e6e; margin-top: 12px; line-height: 1.7; }
+
+.short-alert {
+  background: rgba(198,40,40,.15);
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #ff8a80;
+  line-height: 1.6;
+}
+
+/* SCENARIO CHIPS */
+.cond-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+.cond-chip {
+  flex: 1;
+  min-width: 130px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all .15s;
+  text-align: center;
+  font-family: -apple-system, sans-serif;
+}
+.cond-chip:hover { transform: translateY(-1px); }
+.cond-chip.c1 { background: rgba(198,40,40,.15); border-color: rgba(198,40,40,.4); }
+.cond-chip.c2 { background: rgba(212,168,71,.12); border-color: rgba(212,168,71,.4); }
+.cond-chip.c3 { background: rgba(46,125,50,.15); border-color: rgba(46,125,50,.4); }
+.cond-chip.sel { box-shadow: 0 0 0 2px rgba(255,255,255,.3); }
+.chip-lbl { font-size: 10px; font-weight: 800; letter-spacing: .8px; text-transform: uppercase; margin-bottom: 3px; }
+.c1 .chip-lbl { color: #ff8a80; }
+.c2 .chip-lbl { color: #d4a847; }
+.c3 .chip-lbl { color: #8fb892; }
+.chip-price { font-size: 16px; font-weight: 900; color: #fff; }
+.chip-note { font-size: 10px; color: rgba(255,255,255,.5); margin-top: 2px; }
+
+/* PATH FORWARD */
+.path-items { padding-left: 0; list-style: none; }
+.path-item { display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px dashed #ddd; }
+.path-item:last-child { border-bottom: none; }
+.path-num {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: #2e4a30; color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 900; font-size: 12px; flex-shrink: 0; margin-top: 1px;
+  font-family: -apple-system, sans-serif;
+}
+.path-body h4 { font-size: 13px; font-weight: 700; margin-bottom: 3px; }
+.path-body p { font-size: 12px; color: #555; line-height: 1.7; }
+
+/* ALERT BOXES */
+.alert { border-radius: 6px; padding: 12px 16px; font-size: 12.5px; margin-bottom: 10px; line-height: 1.7; }
+.alert.green { background: #eaf3e8; border-left: 4px solid #2e7d32; color: #1a3a1a; }
+.alert.amber { background: #fff8ed; border-left: 4px solid #d4a847; color: #6b4c1e; }
+.alert.red { background: #fde8e8; border-left: 4px solid #c62828; color: #7a1010; }
+.alert.blue { background: #e8f0fe; border-left: 4px solid #1a56db; color: #0d2b7a; }
+
+/* FOOTER */
+.doc-footer {
+  margin-top: 32px;
+  border-top: 1px solid #c8dbc5;
+  padding-top: 10px;
+  font-size: 10px;
+  color: #888;
+  text-align: center;
+  line-height: 1.7;
+}
+
+@media print {
+  body { padding: 18px 26px 48px; font-size: 12px; }
+  .calc-wrap { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .alert { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  @page { margin: 0.5in; size: letter; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="doc-header">
+  <div>
+    <h1>That Gardening Realtor</h1>
+    <p>eXp Realty &nbsp;·&nbsp; San Antonio TX</p>
+  </div>
+  <div class="doc-contact">
+    <strong>Chris Drawdy</strong>
+    TX License #790317<br>
+    (210) 942-0487<br>
+    chris@getrealtytx.com
+  </div>
+</div>
+
+<!-- PROPERTY BAND -->
+<div class="prop-band">
+  <div class="pb-main">
+    <h2>485 W FM 462, Moore TX 78057</h2>
+    <p>Colton &amp; Abigail Brown &nbsp;·&nbsp; Frio County &nbsp;·&nbsp; Pearsall ISD &nbsp;·&nbsp; May 15, 2026</p>
+  </div>
+  <div class="pb-stats">
+    <div class="pb-stat"><div class="sv">3 / 2</div><div class="sl">Bed / Bath</div></div>
+    <div class="pb-stat"><div class="sv">1,809</div><div class="sl">Sq Ft</div></div>
+    <div class="pb-stat"><div class="sv">4.05</div><div class="sl">Acres</div></div>
+    <div class="pb-stat"><div class="sv">Brick</div><div class="sl">Construction</div></div>
+  </div>
+</div>
+
+<!-- INTRO NOTE -->
+<div class="intro-note">
+  Colton and Abby -- this document puts everything we covered together in one place. The market data, your numbers at different price points, and a live calculator you can use to run any scenario you want. There is no pressure here and no deadline. The goal is simple: when you are ready to move, you will know exactly what to expect and exactly what needs to happen first.
+</div>
+
+<!-- MARKET SECTION -->
+<div class="section-title">What the Market Looks Like Out Here</div>
+<p style="font-size:12.5px;color:#333;margin-bottom:12px;line-height:1.8;">Rural Frio County is a thin market -- there are not many homes that have sold recently near Moore. To find comparable properties we had to look within about 10 miles. Here is what came up and what each one tells us.</p>
+<div class="comp-grid">
+  <div class="comp-card sold">
+    <div class="comp-lbl">Recently Sold — Sept 2025</div>
+    <div class="comp-addr">101 CR 779, Devine TX</div>
+    <div class="comp-detail">
+      3 bed / 2 bath &nbsp;|&nbsp; 1,596 sqft &nbsp;|&nbsp; 5 acres<br>
+      Renovated &nbsp;|&nbsp; Hardwood &amp; tile floors<br>
+      Went under contract in 28 days &nbsp;|&nbsp; No concessions
+    </div>
+    <div class="comp-price">$354,900</div>
+    <div class="comp-note">This is the clearest signal we have. A similar rural brick property, priced right and in good condition, sold fast and sold strong. That is what happens when condition and price line up.</div>
+  </div>
+  <div class="comp-card stale">
+    <div class="comp-lbl">Still Active — On Market 246 Days</div>
+    <div class="comp-addr">944 CR 769, Devine TX</div>
+    <div class="comp-detail">
+      4 bed / 2 bath &nbsp;|&nbsp; 2,083 sqft &nbsp;|&nbsp; 3 acres<br>
+      Listed at $315,000 since Sept 2025<br>
+      No offers in over 8 months
+    </div>
+    <div class="comp-price">$315,000</div>
+    <div class="comp-note">This one tells a different story. It has been sitting because buyers are not meeting the price. That is a signal we do not want to repeat.</div>
+  </div>
+</div>
+<div class="comp-grid" style="margin-top:10px;">
+  <div class="comp-card" style="background:#e8f0fe;border-left:3px solid #1a56db;grid-column:1/-1;">
+    <div class="comp-lbl" style="color:#1a56db;">Active — New to Market (11 Days)</div>
+    <div class="comp-addr">1213 CR 1670, Moore TX</div>
+    <div class="comp-detail">
+      Rural property &nbsp;|&nbsp; Moore TX &nbsp;|&nbsp; Same market area as your home<br>
+      Listed 11 days ago &nbsp;|&nbsp; Still active &nbsp;|&nbsp; No offers yet
+    </div>
+    <div class="comp-price" style="color:#1a56db;">$409,900</div>
+    <div class="comp-note" style="color:#333;">This one is priced aggressively. It is in the same Moore area as your property and is new enough that we do not yet know if buyers will meet that price. We are watching it. If it sells at or near ask, it changes the ceiling for your home -- but we do not price to a hope. We price to what has actually closed.</div>
+  </div>
+</div>
+
+<div class="market-stats" style="margin-top:12px;">
+  <div class="mstat"><div class="mv">136</div><div class="ml">Avg Days on Market (78057)</div></div>
+  <div class="mstat"><div class="mv">~1</div><div class="ml">Home Sold per Month</div></div>
+  <div class="mstat"><div class="mv">$188–202</div><div class="ml">$/Sqft Range, Moore TX</div></div>
+  <div class="mstat"><div class="mv">4.05 ac</div><div class="ml">Your Lot — Above Area Median</div></div>
+</div>
+<p class="table-note" style="margin-top:6px;">Your home is a site-built brick property on 4.05 acres. That puts it above the median for this area. The sold comp at Devine sets the ceiling. Condition and pricing determine where you land inside that range.</p>
+
+<!-- SCENARIO TABLE -->
+<div class="section-title">Your Numbers at a Glance</div>
+<p style="font-size:12.5px;color:#333;margin-bottom:12px;line-height:1.8;">Your mortgage payoff is approximately $257,000. Every scenario below starts there. The renovation status is the biggest factor -- it determines who can buy your home and therefore what price is realistic.</p>
+<table class="net-table">
+  <thead>
+    <tr>
+      <th>Renovation Status</th>
+      <th>Est. Sale Price</th>
+      <th>Est. Selling Costs</th>
+      <th>Net After Payoff</th>
+      <th>Buyer Pool</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Incomplete</td>
+      <td>$235K&ndash;$250K</td>
+      <td>~$20,800&ndash;$21,200</td>
+      <td class="neg">-$43K to -$33K</td>
+      <td class="neg">Cash only</td>
+    </tr>
+    <tr>
+      <td>Mostly Complete</td>
+      <td>$265K&ndash;$280K</td>
+      <td>~$22,000&ndash;$22,600</td>
+      <td class="neg warn">-$14K to ~$0</td>
+      <td class="warn">Conv. possible</td>
+    </tr>
+    <tr class="rec">
+      <td>Fully Renovated</td>
+      <td>$285K&ndash;$295K</td>
+      <td>~$22,800&ndash;$23,200</td>
+      <td class="pos">~$5K to ~$15K</td>
+      <td class="pos">Full pool (VA, FHA, Conv.)</td>
+    </tr>
+  </tbody>
+</table>
+<p class="table-note">Based on ~6% commission, est. title/closing ~$1,750&ndash;$2,000, and Frio County tax proration. Payoff confirmed at $255,578 as of Feb 2026 -- est. ~$257,000 today. Get a current payoff letter from your lender before signing a listing agreement.</p>
+
+<!-- INTERACTIVE CALCULATOR -->
+<div class="calc-wrap">
+  <h3>Live Net Sheet &mdash; Adjust the Numbers</h3>
+
+  <div class="cond-row">
+    <div class="cond-chip c1 sel" id="chip1" onclick="loadScenario(245000, 'c1', 1)">
+      <div class="chip-lbl">Incomplete</div>
+      <div class="chip-price">$245,000</div>
+      <div class="chip-note">Cash / investor only</div>
+    </div>
+    <div class="cond-chip c2" id="chip2" onclick="loadScenario(265000, 'c2', 2)">
+      <div class="chip-lbl">Mostly Done</div>
+      <div class="chip-price">$265,000</div>
+      <div class="chip-note">Conventional possible</div>
+    </div>
+    <div class="cond-chip c3" id="chip3" onclick="loadScenario(285000, 'c3', 3)">
+      <div class="chip-lbl">Fully Renovated</div>
+      <div class="chip-price">$285,000</div>
+      <div class="chip-note">Full buyer pool</div>
+    </div>
+  </div>
+
+  <div class="calc-grid">
+    <div class="calc-field">
+      <label>Sale Price</label>
+      <input type="number" id="sp" value="245000" oninput="calc()">
+      <div class="hint">Type any number to run your scenario</div>
+    </div>
+    <div class="calc-field">
+      <label>Mortgage Payoff</label>
+      <input type="number" id="po" value="257000" oninput="calc()">
+      <div class="hint">Feb 2026: $255,578 &nbsp;|&nbsp; Est. today ~$257K</div>
+    </div>
+    <div class="calc-field">
+      <label>Commission %</label>
+      <input type="number" id="cm" value="6" step="0.5" oninput="calc()">
+      <div class="hint">Total both sides</div>
+    </div>
+  </div>
+  <div class="calc-grid">
+    <div class="calc-field">
+      <label>Seller Concessions</label>
+      <input type="number" id="sc" value="0" oninput="calc()">
+      <div class="hint">If buyer asks for closing help</div>
+    </div>
+    <div class="calc-field">
+      <label>Est. Annual Taxes</label>
+      <input type="number" id="tx" value="3500" oninput="calc()">
+      <div class="hint">Frio County estimate</div>
+    </div>
+    <div class="calc-field">
+      <label>Months Until Close</label>
+      <input type="number" id="mo" value="7" min="1" max="12" oninput="calc()">
+      <div class="hint">Used for tax proration</div>
+    </div>
+  </div>
+
+  <div class="result-rows" id="results">...</div>
+
+  <div class="calc-foot">
+    Estimates only &nbsp;·&nbsp; Confirm payoff with lender &nbsp;·&nbsp; Confirm closing costs with title company at contract<br>
+    VA loan payoffs may include additional fees &nbsp;·&nbsp; Tax proration based on estimated Frio County annual taxes
+  </div>
+</div>
+
+<!-- RECOMMENDED PRICING -->
+<div class="section-title">Where We Would Price It</div>
+<p style="font-size:12.5px;color:#333;margin-bottom:14px;line-height:1.8;">Based on the comps and the thin market out here, here is the honest pricing range once the renovation is complete. These are not guesses -- they are based on what has actually sold and what is sitting.</p>
+
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px;">
+  <div style="background:#f4f0e8;border-top:3px solid #888;border-radius:6px;padding:14px;text-align:center;">
+    <div style="font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#666;margin-bottom:6px;font-family:-apple-system,sans-serif;">Conservative</div>
+    <div style="font-size:22px;font-weight:900;color:#1a1008;font-family:-apple-system,sans-serif;">$275,000</div>
+    <div style="font-size:11px;color:#666;margin-top:5px;line-height:1.5;">Attracts investors and cash buyers &nbsp;|&nbsp; Faster close &nbsp;|&nbsp; Leaves little after payoff</div>
+  </div>
+  <div style="background:#eaf3e8;border-top:3px solid #2e4a30;border-radius:6px;padding:14px;text-align:center;box-shadow:0 0 0 2px #2e4a30;">
+    <div style="font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#2e4a30;margin-bottom:6px;font-family:-apple-system,sans-serif;">Recommended Start</div>
+    <div style="font-size:22px;font-weight:900;color:#2e4a30;font-family:-apple-system,sans-serif;">$295,000</div>
+    <div style="font-size:11px;color:#2e4a30;margin-top:5px;line-height:1.5;">Full buyer pool &nbsp;|&nbsp; Room to negotiate &nbsp;|&nbsp; Best shot at walking with something</div>
+  </div>
+  <div style="background:#fff8ed;border-top:3px solid #d4a847;border-radius:6px;padding:14px;text-align:center;">
+    <div style="font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#d4a847;margin-bottom:6px;font-family:-apple-system,sans-serif;">Aggressive</div>
+    <div style="font-size:22px;font-weight:900;color:#1a1008;font-family:-apple-system,sans-serif;">$315,000</div>
+    <div style="font-size:11px;color:#666;margin-top:5px;line-height:1.5;">Top of range &nbsp;|&nbsp; Price reduction risk if no offers by day 30 &nbsp;|&nbsp; Watch Moore comp</div>
+  </div>
+</div>
+<p class="table-note">All three assume renovation is complete and home shows well. Renovation incomplete drops the realistic range to $235K&ndash;$265K with cash buyers only.</p>
+
+<!-- OPTIONS -->
+<div class="section-title">Your Three Options</div>
+<p style="font-size:12.5px;color:#333;margin-bottom:14px;line-height:1.8;">None of these paths are perfect, but one of them is the right fit depending on your timeline and what matters most right now.</p>
+
+<div style="border-radius:8px;background:#e8f0fe;border-left:4px solid #1a56db;padding:16px 18px;margin-bottom:10px;">
+  <div style="font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#1a56db;margin-bottom:8px;font-family:-apple-system,sans-serif;">Option A &nbsp;&middot;&nbsp; Finish the Renovation, Then List</div>
+  <p style="font-size:13px;color:#333;line-height:1.7;margin:0;">Complete the remaining work first. This opens the property to every buyer -- conventional, VA, FHA -- and puts you in the best position to hit a price that covers the payoff with something left over. Adds time upfront but gives you the strongest outcome. Recommended starting price: <strong>$295,000</strong>.</p>
+  <div style="font-size:11px;font-weight:700;color:#1a56db;margin-top:8px;">Best for: getting the most out of the sale &nbsp;|&nbsp; Timeline: finish renovation, then 30&ndash;45 days to close</div>
+</div>
+
+<div style="border-radius:8px;background:#fff8ed;border-left:4px solid #d4a847;padding:16px 18px;margin-bottom:10px;">
+  <div style="font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#d4a847;margin-bottom:8px;font-family:-apple-system,sans-serif;">Option B &nbsp;&middot;&nbsp; List As-Is, Price for the Market</div>
+  <p style="font-size:13px;color:#333;line-height:1.7;margin:0;">List now in current condition, priced to attract cash buyers in the $235K&ndash;$250K range. This is faster but the price is lower -- which means having an honest conversation with your lender about the payoff gap. That conversation is worth having sooner rather than later if this is the path.</p>
+  <div style="font-size:11px;font-weight:700;color:#d4a847;margin-top:8px;">Best for: moving quickly &nbsp;|&nbsp; Timeline: list now, close in 30&ndash;45 days &nbsp;|&nbsp; May require lender cooperation</div>
+</div>
+
+<div style="border-radius:8px;background:#f5f0ea;border-left:4px solid #8a6a3a;padding:16px 18px;margin-bottom:14px;">
+  <div style="font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#8a6a3a;margin-bottom:8px;font-family:-apple-system,sans-serif;">Option C &nbsp;&middot;&nbsp; Off-Market / Investor Sale</div>
+  <p style="font-size:13px;color:#333;line-height:1.7;margin:0;">A direct sale to a buyer in my network who is actively looking in this area. No showings, no waiting, fast close, as-is. The trade-off is price -- at this payoff balance an investor offer would likely still leave a gap to the lender. Same honest conversation applies.</p>
+  <div style="font-size:11px;font-weight:700;color:#8a6a3a;margin-top:8px;">Best for: certainty and speed over proceeds &nbsp;|&nbsp; Timeline: 14&ndash;21 days to close &nbsp;|&nbsp; Cash, as-is</div>
+</div>
+
+<!-- PATH FORWARD -->
+<div class="section-title">Your Path Forward</div>
+<p style="font-size:12.5px;color:#333;margin-bottom:14px;line-height:1.8;">The renovation is the key. Every step forward on that work is a step toward a stronger outcome at closing. Here is the sequence that gets you there.</p>
+
+<div class="path-items">
+  <div class="path-item">
+    <div class="path-num">1</div>
+    <div class="path-body">
+      <h4>Determine what is left on the renovation</h4>
+      <p>Kitchen, bathrooms, structural -- what is done and what is still in progress? This is the single biggest factor in your price and buyer pool. Finishing critical items (kitchen, baths, any mechanical) opens the door to conventional, VA, and FHA buyers. That is where the better prices live.</p>
+    </div>
+  </div>
+  <div class="path-item">
+    <div class="path-num">2</div>
+    <div class="path-body">
+      <h4>Request an updated payoff letter from your lender</h4>
+      <p>The February figure has changed by now. You need the current exact payoff amount before signing a listing agreement -- this is the number that determines what you walk away with at closing. Call your lender at loanadministration.com and request a formal payoff statement.</p>
+    </div>
+  </div>
+  <div class="path-item">
+    <div class="path-num">3</div>
+    <div class="path-body">
+      <h4>Decide: finish first, or list as-is?</h4>
+      <p>Finishing the renovation gives you the widest buyer pool and the best shot at a price that covers the payoff with something left over. Listing as-is limits you to cash buyers and likely means a gap conversation with your lender. Neither path is wrong -- but you should go in with clear eyes about what each one means for your numbers.</p>
+    </div>
+  </div>
+  <div class="path-item">
+    <div class="path-num">4</div>
+    <div class="path-body">
+      <h4>Sign the listing agreement and schedule professional photos</h4>
+      <p>When the home is ready to show, I will have the listing agreement ready. Professional photos make a real difference for rural properties -- buyers cannot drive out to look without a reason, and great photos create that reason.</p>
+    </div>
+  </div>
+  <div class="path-item">
+    <div class="path-num">5</div>
+    <div class="path-body">
+      <h4>Go live, get under contract, close</h4>
+      <p>Full MLS exposure across all platforms. I handle negotiations on your behalf. A well-priced home in this area that shows clean goes under contract in 30 to 45 days. Closing follows 30 to 45 days after that.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ATTACHED DOCS NOTE -->
+<div class="section-title">What Is Attached</div>
+<div class="alert blue" style="margin-bottom:8px;">
+  <strong>CMA — Comparable Market Analysis</strong><br>
+  Pulled directly from the MLS on May 15, 2026. Every sale and active listing within 10 miles. This is the same data buyers' agents pull when writing offers.
+</div>
+<div class="alert blue">
+  <strong>RPR Market Report — 485 W FM 462</strong><br>
+  Property report from the Realtors Property Resource database -- property facts, market trends, and automated value estimates from the national REALTOR&reg; system.
+</div>
+
+<!-- CLOSING WORD -->
+<div class="section-title">A Note Before You Go</div>
+<div class="alert green">
+  You both have a clear path in front of you. The numbers are not perfect right now -- but finishing the renovation closes most of that gap and puts you in a genuinely strong position. Every step forward matters. When you are ready to pull the trigger, I am ready to move fast. Until then, use the calculator above, talk it through, and reach out with any questions. There are no wrong questions here.<br><br>
+  <strong>Chris Drawdy &nbsp;|&nbsp; That Gardening Realtor &nbsp;|&nbsp; eXp Realty</strong><br>
+  (210) 942-0487 &nbsp;|&nbsp; chris@getrealtytx.com
+</div>
+
+<div class="doc-footer">
+  Prepared for Colton &amp; Abigail Brown &nbsp;·&nbsp; 485 W FM 462, Moore TX 78057 &nbsp;·&nbsp; May 15, 2026<br>
+  Chris Drawdy &nbsp;·&nbsp; That Gardening Realtor &nbsp;·&nbsp; eXp Realty &nbsp;·&nbsp; (210) 942-0487 &nbsp;·&nbsp; chris@getrealtytx.com<br>
+  This is a comparative market overview and should not be considered an appraisal. All figures are estimates based on available market data.
+</div>
+
+<script>
+function loadScenario(price, cls, num) {
+  document.getElementById('sp').value = price;
+  document.querySelectorAll('.cond-chip').forEach(c => c.classList.remove('sel'));
+  document.getElementById('chip' + num).classList.add('sel');
+  calc();
+}
+
+function fmt(n) {
+  return (n < 0 ? '-$' : '$') + Math.abs(Math.round(n)).toLocaleString();
+}
+
+function calc() {
+  const sale    = parseFloat(document.getElementById('sp').value) || 0;
+  const payoff  = parseFloat(document.getElementById('po').value) || 0;
+  const commPct = parseFloat(document.getElementById('cm').value) || 6;
+  const conc    = parseFloat(document.getElementById('sc').value) || 0;
+  const annTax  = parseFloat(document.getElementById('tx').value) || 3500;
+  const months  = parseFloat(document.getElementById('mo').value) || 7;
+
+  const commission  = sale * (commPct / 100);
+  const titleIns    = sale < 250000 ? 1500 : sale < 280000 ? 1750 : sale < 320000 ? 2000 : 2300;
+  const closingFees = 1350;
+  const taxPro      = annTax * (months / 12);
+  const totalCosts  = commission + titleIns + closingFees + taxPro + conc;
+  const gross       = sale - totalCosts;
+  const net         = gross - payoff;
+  const isShort     = net < 0;
+
+  const shortBlock = isShort ? `
+    <div class="short-alert">
+      <strong>Short payoff situation:</strong> At this price, you would need to bring ${fmt(Math.abs(net))} to the closing table OR get your lender's approval for a short payoff. This is a conversation worth having with them sooner rather than later -- it does not close every door, but it changes the strategy.
+    </div>` : '';
+
+  document.getElementById('results').innerHTML = `
+    <div class="rline"><span class="rn">Sale Price</span><span class="rv">${fmt(sale)}</span></div>
+    <div class="rline deduct"><span class="rn">Commission (${commPct}%)</span><span class="rv">(${fmt(commission)})</span></div>
+    <div class="rline deduct"><span class="rn">Owner's Title Insurance (est.)</span><span class="rv">(${fmt(titleIns)})</span></div>
+    <div class="rline deduct"><span class="rn">Closing / Escrow / Recording (est.)</span><span class="rv">(${fmt(closingFees)})</span></div>
+    <div class="rline deduct"><span class="rn">Tax Proration (${months} of 12 months)</span><span class="rv">(${fmt(taxPro)})</span></div>
+    ${conc > 0 ? `<div class="rline deduct"><span class="rn">Seller Concessions</span><span class="rv">(${fmt(conc)})</span></div>` : ''}
+    <div class="rline" style="border-top:1px solid rgba(255,255,255,.15);margin-top:4px;padding-top:10px">
+      <span class="rn" style="color:#fff;font-weight:700">Gross Proceeds (before payoff)</span>
+      <span class="rv" style="color:#4caf50;font-weight:800">${fmt(gross)}</span>
+    </div>
+    <div class="rline deduct"><span class="rn">Mortgage Payoff (VA loan est.)</span><span class="rv">(${fmt(payoff)})</span></div>
+    <div class="rline total">
+      <span class="rn">Net to You at Closing</span>
+      <span class="rv ${isShort ? 'neg' : ''}">${fmt(net)}</span>
+    </div>
+    ${shortBlock}
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:14px;font-size:11px;color:#8fb892;font-family:-apple-system,sans-serif">
+      <div><strong style="color:#e8dcc8">Total Selling Costs</strong><br>${fmt(totalCosts)}<br>(${((totalCosts/sale)*100).toFixed(1)}% of sale)</div>
+      <div><strong style="color:#e8dcc8">Price Per Sq Ft</strong><br>${fmt(sale/1809)}/sqft<br>Moore avg: ~$195/sqft</div>
+      <div><strong style="color:#e8dcc8">Breakeven Price</strong><br>~$281,000<br>to net $0 after payoff</div>
+    </div>
+  `;
+}
+
+calc();
+</script>
+</body>
+</html>
