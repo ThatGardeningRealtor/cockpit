@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>181 CR 7751 — Listing Agreement Overview</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 14px;
+  color: #1a1008;
+  background: #fff;
+  padding: 32px 40px;
+  max-width: 780px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.doc-header {
+  border-bottom: 3px solid #2e4a30;
+  padding-bottom: 12px;
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.doc-header h1 { font-size: 18px; color: #2e4a30; font-family: -apple-system, sans-serif; }
+.doc-header p { font-size: 11px; color: #666; margin-top: 3px; }
+.doc-contact { text-align: right; font-size: 11px; color: #444; line-height: 1.7; }
+.doc-contact strong { display: block; color: #1a1008; font-size: 12px; }
+
+.intro { font-size: 14px; color: #333; margin-bottom: 24px; line-height: 1.8; }
+
+.section-title {
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #2e4a30;
+  border-bottom: 1px solid #c8dbc5;
+  padding-bottom: 5px;
+  margin-bottom: 14px;
+  margin-top: 24px;
+  font-family: -apple-system, sans-serif;
+}
+
+.key-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 6px; }
+.key-table td { padding: 8px 10px; border-bottom: 1px solid #ece8e0; }
+.key-table td:first-child { color: #555; width: 45%; }
+.key-table td:last-child { font-weight: 700; color: #1a1008; }
+.key-table tr:last-child td { border-bottom: none; }
+
+.comp-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 6px; }
+@media(max-width:600px) { .comp-row { grid-template-columns: 1fr; } }
+.comp-card { border-radius: 6px; padding: 13px 15px; }
+.comp-card.sold { background: #eaf3e8; border-left: 3px solid #2e7d32; }
+.comp-card.pending { background: #fef9e7; border-left: 3px solid #b8860b; }
+.comp-card.active { background: #f4f0e8; border-left: 3px solid #2e4a30; }
+.comp-card .label { font-size: 10px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: #2e4a30; margin-bottom: 5px; font-family: -apple-system, sans-serif; }
+.comp-card .amount { font-size: 18px; font-weight: 900; color: #1a1008; font-family: -apple-system, sans-serif; margin-bottom: 4px; }
+.comp-card .detail { font-size: 11px; color: #555; line-height: 1.6; }
+
+.price-highlight {
+  background: #2e4a30;
+  color: #fff;
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin: 14px 0 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.price-highlight .ph-label { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; opacity: 0.75; font-family: -apple-system, sans-serif; }
+.price-highlight .ph-amount { font-size: 30px; font-weight: 900; font-family: -apple-system, sans-serif; }
+.price-highlight .ph-note { font-size: 12px; opacity: 0.8; font-style: italic; }
+
+.comp-card.pending .label,
+.comp-card.active .label { color: #2e4a30; }
+
+.timeline-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; font-size: 13px; }
+@media(max-width:520px) { .timeline-grid { grid-template-columns: 1fr; } }
+.tl-item { padding: 7px 0; border-bottom: 1px dashed #ddd; }
+.tl-item .tl-label { color: #666; font-size: 12px; margin-bottom: 1px; }
+.tl-item .tl-val { font-weight: 700; color: #1a1008; }
+
+.note-box {
+  background: #f4f0e8;
+  border-left: 4px solid #2e4a30;
+  padding: 14px 18px;
+  font-size: 13px;
+  color: #333;
+  line-height: 1.8;
+  border-radius: 0 6px 6px 0;
+  margin-top: 6px;
+}
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; font-size: 13px; }
+@media(max-width:520px) { .two-col { grid-template-columns: 1fr; } }
+.tc-item { padding: 7px 0; border-bottom: 1px dashed #ddd; }
+.tc-item .tc-l { color: #666; font-size: 12px; margin-bottom: 1px; }
+.tc-item .tc-v { font-weight: 700; color: #1a1008; }
+
+.doc-footer {
+  margin-top: 32px;
+  border-top: 1px solid #c8dbc5;
+  padding-top: 10px;
+  font-size: 10px;
+  color: #888;
+  text-align: center;
+  line-height: 1.7;
+}
+
+@media print {
+  body { padding: 18px 26px; }
+  @page { margin: 0.5in; size: letter; }
+}
+</style>
+</head>
+<body>
+
+<div class="doc-header">
+  <div>
+    <h1>That Gardening Realtor</h1>
+    <p>eXp Realty &nbsp;·&nbsp; San Antonio TX</p>
+  </div>
+  <div class="doc-contact">
+    <strong>Chris Drawdy</strong>
+    TX License #790317<br>
+    (210) 942-0487<br>
+    chris@getrealtytx.com
+  </div>
+</div>
+
+<p class="intro">Ray and Jerry, here is a plain-language rundown of the listing agreement for 181 CR 7751 before you execute. This also includes the comparable sales that support the pricing recommendation. Look it over and let me know if anything needs to be adjusted before we move forward.</p>
+
+<div class="section-title">Property Details</div>
+<table class="key-table">
+  <tr><td>Address</td><td>181 CR 7751, Devine, TX 78016</td></tr>
+  <tr><td>County</td><td>Medina County</td></tr>
+  <tr><td>Subdivision</td><td>Devine Hills</td></tr>
+  <tr><td>Year Built</td><td>2012</td></tr>
+  <tr><td>Size</td><td>1,022 sq ft &nbsp;·&nbsp; 2 bed / 2 bath / 1 half bath</td></tr>
+  <tr><td>Lot</td><td>3.62 acres</td></tr>
+  <tr><td>Construction</td><td>Cement fiber exterior</td></tr>
+  <tr><td>CAD Assessed Value</td><td>$268,750</td></tr>
+  <tr><td>Seller</td><td>Priority Bank FSB (REO)</td></tr>
+</table>
+
+<div class="section-title">Comparable Sales — Pricing Support</div>
+
+<div class="comp-row">
+  <div class="comp-card sold">
+    <div class="label">Solds — Average</div>
+    <div class="amount">$299,967</div>
+    <div class="detail">3 comparable closed sales<br>Medina County / Devine area</div>
+  </div>
+  <div class="comp-card pending">
+    <div class="label">Pending</div>
+    <div class="amount">$299,000</div>
+    <div class="detail">1 comparable under contract<br>Active in MLS</div>
+  </div>
+  <div class="comp-card active">
+    <div class="label">Active Competition</div>
+    <div class="amount">$315,000</div>
+    <div class="detail">1 comparable currently listed<br>Priced above our recommendation</div>
+  </div>
+</div>
+
+<div class="price-highlight">
+  <div>
+    <div class="ph-label">Recommended List Price</div>
+    <div class="ph-amount">$299,966</div>
+  </div>
+  <div class="ph-note">Based on post-renovation condition &nbsp;·&nbsp; Price to be confirmed when work is complete</div>
+</div>
+
+<div class="section-title">Listing Agreement Summary</div>
+<table class="key-table">
+  <tr><td>List Price</td><td>$299,966 (confirmed at activation)</td></tr>
+  <tr><td>Listing Start</td><td>Date of execution</td></tr>
+  <tr><td>Listing End</td><td>December 31, 2026</td></tr>
+  <tr><td>MLS Filing</td><td>Held — activated when renovation is complete</td></tr>
+  <tr><td>Protection Period</td><td>30 days after expiration</td></tr>
+  <tr><td>Total Commission</td><td>6%</td></tr>
+  <tr><td>Listing Side</td><td>3% — Chris Drawdy / eXp Realty</td></tr>
+  <tr><td>Co-op (Buyer's Agent)</td><td>3% — offered to cooperating agents via MLS</td></tr>
+  <tr><td>Seller's Disclosure</td><td>REO exemption — Texas Property Code §5.008</td></tr>
+</table>
+
+<div class="section-title">Renovation Status</div>
+<div class="two-col">
+  <div class="tc-item"><div class="tc-l">General Contractor</div><div class="tc-v">HouzzPro / San Antonio Remodeling (Matt Toney)</div></div>
+  <div class="tc-item"><div class="tc-l">Renovation Budget</div><div class="tc-v">~$54,877 (approved scope)</div></div>
+  <div class="tc-item"><div class="tc-l">Work Status</div><div class="tc-v">Active — demo complete, drywall staged</div></div>
+  <div class="tc-item"><div class="tc-l">Electric</div><div class="tc-v">Medina Electric Cooperative — new meter install pending</div></div>
+  <div class="tc-item"><div class="tc-l">Water</div><div class="tc-v">East Medina County SUD — reconnect in process</div></div>
+  <div class="tc-item"><div class="tc-l">List Target</div><div class="tc-v">When renovation is complete (TBD)</div></div>
+</div>
+
+<div class="section-title">Key Contacts</div>
+<table class="key-table">
+  <tr><td>Listing Agent</td><td>Chris Drawdy &nbsp;·&nbsp; (210) 942-0487 &nbsp;·&nbsp; chris@getrealtytx.com</td></tr>
+  <tr><td>Priority Bank — Signer</td><td>Ray Stidham &nbsp;·&nbsp; ray.stidham@prioritybank.com</td></tr>
+  <tr><td>Priority Bank — Special Projects</td><td>Jerry Sadler &nbsp;·&nbsp; jerry.sadler@prioritybank.com &nbsp;·&nbsp; (479) 966-7970</td></tr>
+  <tr><td>Priority Bank — CC</td><td>Kelly Jennings &nbsp;·&nbsp; kelly.jennings@prioritybank.com</td></tr>
+  <tr><td>Bank Counsel</td><td>Debra Geiger &nbsp;·&nbsp; debgeiger@hauschco.com</td></tr>
+</table>
+
+<div class="section-title">A Few Things Worth Noting</div>
+<div class="note-box">
+  <strong>Pricing:</strong> The $299,966 recommendation is based on post-renovation comparable sales. We will revisit and confirm the final list price once work is complete and the property is ready to activate in MLS.<br><br>
+  <strong>REO / Seller's Disclosure:</strong> As a foreclosure property, Priority Bank is exempt from the standard Texas Seller's Disclosure under Property Code §5.008. The disclosure form is included in the packet with applicable items marked accordingly.<br><br>
+  <strong>MLS Hold:</strong> The listing agreement is executed now to protect all parties, but the property will not be filed in MLS until renovation is complete and we are ready to show. This gives the renovation timeline full flexibility without an expired listing on record.<br><br>
+  <strong>Extension:</strong> If work runs long and December 31 approaches, we can execute a simple amendment to extend the term.
+</div>
+
+<div class="section-title">Questions or Adjustments</div>
+<p style="font-size:13px;color:#333;">If anything in the agreement does not match your expectations, flag it before Ray executes and I will get it corrected. Once we are signed we can always amend, but cleaner to catch it now. Call or text anytime.</p>
+
+<div class="doc-footer">
+  181 CR 7751 · Devine TX 78016 &nbsp;·&nbsp; Chris Drawdy &nbsp;·&nbsp; That Gardening Realtor &nbsp;·&nbsp; eXp Realty &nbsp;·&nbsp; (210) 942-0487 &nbsp;·&nbsp; chris@getrealtytx.com
+</div>
+
+</body>
+</html>
