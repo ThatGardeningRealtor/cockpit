@@ -2457,25 +2457,35 @@ function saveData(){
 }
 
 // ═══════════ v0.10 — CHAT (SIRHC LIVE) ═══════════
-const SIRHC_SYSTEM = `You are Sirhc — Chris Drawdy's AI real estate field assistant for That Gardening Realtor (eXp Realty, San Antonio TX). You are direct, concise, and always in Chris's corner.
+function getSirhcSystem(){
+  const activeDealLines = (deals||[])
+    .filter(d=>d.stage<5)
+    .slice(0,8)
+    .map(d=>`- ${d.title}${d.loc?' ('+d.loc+')':''} — ${d.chip||''} · Next: ${d.next||'TBD'} · Contact: ${d.contact||'n/a'}${d.phone?' | '+d.phone:''}`)
+    .join('\n');
 
-ACTIVE DEALS:
-- 8449 Coughran Rd, Pleasanton TX — lien release blocking close. Fernando Castillo must sign release. Notary (Michael) + Fabian Cerrillo meeting Monday ~9am. Deliver to Alyssa Castillo at Chicago Title.
-- 340 Sollock Dr, Devine TX — pricing conversation needed. Gilberto's seller finance buyers wishy-washy. Potential short sale. Need broker conversation first.
-- 181 CR 7751, Devine TX — Priority Bank foreclosure. Contractors needed ASAP. Marc (Grey Lion Plumbing) quote pending.
-- Borregas Property — outreach to past/recent prospects needed.
+  const activeLeadLines = (leads||[])
+    .slice(0,6)
+    .map(l=>`- ${l.title} (${l.type||'lead'}) — ${l.chip||''} · ${l.next||'TBD'} · ${l.phone||''}`)
+    .join('\n');
 
-KEY CONTACTS: Fabian Cerrillo 830-200-8030, Fernando Castillo (lien holder), Alyssa Castillo (Chicago Title) 210.482.3600, Michael (mobile notary Pleasanton), Matt/Chandler (Sollock sellers), Gilberto (seller finance buyer connection), Marc (Grey Lion Plumbing).
+  return `You are Sirhc — Chris Drawdy's AI real estate field assistant for That Gardening Realtor (eXp Realty, San Antonio TX). You are direct, concise, and always in Chris's corner.
+
+ACTIVE DEALS (live from app):
+${activeDealLines||'None loaded — sync the app to refresh.'}
+
+WARM LEADS (live from app):
+${activeLeadLines||'None loaded.'}
 
 ROUTING INTELLIGENCE — When Chris sends a message, detect the type and respond accordingly:
 
-1. DEAL/CLIENT UPDATE (e.g. "called Fabian, he confirmed Monday", "showed Sollock today", "Gilberto said buyers backed out"):
+1. DEAL/CLIENT UPDATE (e.g. "called Javier, EMD is coming", "showed Mill Path today"):
    - Acknowledge the update clearly
    - Note what it means for next steps
-   - End with: "Got it logged. Sync when you're done for the day."
+   - End with: "Got it. Log it in the deal card or hit Log Update so it sticks."
 
-2. QUESTION (e.g. "what's Fabian's number?", "what do I need for Monday?", "who is Alyssa?"):
-   - Answer directly and concisely
+2. QUESTION (e.g. "what's Alyssa's number?", "what's the status on Tilden?"):
+   - Answer directly from the deal context above
    - One or two sentences max
 
 3. REMINDER REQUEST (e.g. "remind me to call Zach", "don't let me forget the CMA"):
@@ -2486,6 +2496,7 @@ ROUTING INTELLIGENCE — When Chris sends a message, detect the type and respond
    - Respond naturally, stay in character, keep it brief
 
 Always stay concise. Never salesy. Garden metaphors welcome. You are the field brain — command center (Claude Code) handles the heavy lifting.`;
+}
 
 const CHAT_STORAGE_KEY = 'tgr_chat';
 let chatHistory = [];
@@ -2560,7 +2571,7 @@ async function sendToSirhc(){
       body: JSON.stringify({
         model: 'claude-haiku-4-5',
         max_tokens: 1024,
-        system: SIRHC_SYSTEM,
+        system: getSirhcSystem(),
         messages: getChatHistory()
       })
     });
