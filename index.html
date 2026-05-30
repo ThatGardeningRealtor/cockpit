@@ -361,7 +361,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
 /* ── v0.13 Nav Drawer active styles handled by .nav-item.active above ── */
 
 /* ── v0.10 Chat Tab ── */
-#tab-chat{display:none;flex-direction:column;height:calc(100vh - 120px)}
+#tab-chat{display:none;flex-direction:column;height:calc(100vh - 120px);overflow:hidden}
 #tab-chat.on{display:flex;animation:fi .3s ease}
 .chat-msgs{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:8px}
 .chat-bubble-user{align-self:flex-end;background:var(--moss);color:var(--sprout);border-radius:16px 16px 4px 16px;padding:10px 14px;max-width:80%;font-size:13px;line-height:1.5;word-break:break-word}
@@ -475,6 +475,10 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
     </div>
     <button class="chat-clear-btn" onclick="clearChat()">Clear</button>
   </div>
+  <div class="chat-msgs" id="chat-msgs">
+    <div class="chat-bubble-sirhc">Hey Chris. What's the move?</div>
+  </div>
+  <div class="chat-thinking" id="chat-thinking">Sirhc is thinking...</div>
   <div class="chat-input-area" style="flex-direction:column;align-items:stretch;gap:6px">
     <select id="chat-deal-sel" style="width:100%;padding:6px 10px;border:1px solid var(--warm);border-radius:8px;font-family:inherit;font-size:11px;background:var(--parch);color:var(--muted)">
       <option value="">💬 Just chatting — no deal</option>
@@ -483,10 +487,6 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:va
       <textarea class="chat-textarea" id="chat-input" placeholder="Message Sirhc..." rows="1" onkeydown="chatKeyDown(event)" oninput="autoResizeChat(this)"></textarea>
       <button class="chat-send-btn" onclick="sendToSirhc()" title="Send">➤</button>
     </div>
-  </div>
-  <div class="chat-thinking" id="chat-thinking">Sirhc is thinking...</div>
-  <div class="chat-msgs" id="chat-msgs">
-    <div class="chat-bubble-sirhc">Hey Chris. What's the move?</div>
   </div>
 </div>
 
@@ -2528,13 +2528,13 @@ function appendChatMsg(role, text){
   const div = document.createElement('div');
   div.className = role === 'user' ? 'chat-bubble-user' : 'chat-bubble-sirhc';
   div.textContent = safeText;
-  msgsEl.insertBefore(div, msgsEl.firstChild);
-  msgsEl.scrollTop = 0;
+  msgsEl.appendChild(div);
+  msgsEl.scrollTop = msgsEl.scrollHeight;
 }
 
-function scrollChatToTop(){
+function scrollChatToBottom(){
   const msgsEl = document.getElementById('chat-msgs');
-  if(msgsEl) msgsEl.scrollTop = 0;
+  if(msgsEl) msgsEl.scrollTop = msgsEl.scrollHeight;
 }
 
 function setThinking(on){
