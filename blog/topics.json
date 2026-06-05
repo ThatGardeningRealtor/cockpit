@@ -268,9 +268,7 @@
       ],
       "focus": "Price trends, inventory shifts, interest rate impact, best time to buy or sell in SA market",
       "publishedAt": "2026-06-05T15:44:15.144Z"
-    }
-  ],
-  "queue": [
+    },
     {
       "slug": "is-now-good-time-buy-home-san-antonio",
       "title": "Is Now a Good Time to Buy a Home in San Antonio? An Honest 2026 Assessment",
@@ -280,7 +278,8 @@
         "San Antonio real estate timing",
         "buy house now San Antonio"
       ],
-      "focus": "Honest market assessment — rates, inventory, prices, and what the numbers actually say for SA buyers"
+      "focus": "Honest market assessment — rates, inventory, prices, and what the numbers actually say for SA buyers",
+      "publishedAt": "2026-06-05T16:04:04.856Z"
     },
     {
       "slug": "san-antonio-vs-austin-where-to-buy-2026",
@@ -291,7 +290,8 @@
         "buy home Austin or San Antonio",
         "SA vs ATX housing market"
       ],
-      "focus": "Honest comparison — prices, growth, lifestyle, commute, value per dollar between the two cities"
+      "focus": "Honest comparison — prices, growth, lifestyle, commute, value per dollar between the two cities",
+      "publishedAt": "2026-06-05T16:05:45.153Z"
     },
     {
       "slug": "interest-rates-san-antonio-homebuyers-2026",
@@ -302,8 +302,11 @@
         "mortgage rates San Antonio 2026",
         "should I wait for rates San Antonio"
       ],
-      "focus": "How rate changes affect buying power, monthly payments, and strategy for SA buyers"
-    },
+      "focus": "How rate changes affect buying power, monthly payments, and strategy for SA buyers",
+      "publishedAt": "2026-06-05T16:07:41.083Z"
+    }
+  ],
+  "queue": [
     {
       "slug": "how-to-win-multiple-offer-san-antonio",
       "title": "How to Win a Multiple Offer Situation in San Antonio: What Actually Works",
