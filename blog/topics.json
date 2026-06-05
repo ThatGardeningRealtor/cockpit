@@ -230,9 +230,7 @@
       ],
       "focus": "Windcrest gardening culture, community events, Chris's personal angle, why gardeners love it",
       "publishedAt": "2026-06-05T15:26:37.517Z"
-    }
-  ],
-  "queue": [
+    },
     {
       "slug": "assumable-mortgage-san-antonio",
       "title": "Assumable Mortgages in San Antonio: How to Lock In a 3% Rate in a 7% Market",
@@ -243,7 +241,8 @@
         "low interest rate home San Antonio",
         "VA assumable loan San Antonio"
       ],
-      "focus": "How assumable mortgages work, VA and FHA only, how to find them, math comparison, negotiating"
+      "focus": "How assumable mortgages work, VA and FHA only, how to find them, math comparison, negotiating",
+      "publishedAt": "2026-06-05T15:40:34.041Z"
     },
     {
       "slug": "military-homebuying-san-antonio",
@@ -255,7 +254,8 @@
         "VA loan Lackland AFB",
         "military relocation San Antonio"
       ],
-      "focus": "VA loans for JBSA military, BAH, PCS moves, neighborhoods near bases, timeline, Chris's veteran community"
+      "focus": "VA loans for JBSA military, BAH, PCS moves, neighborhoods near bases, timeline, Chris's veteran community",
+      "publishedAt": "2026-06-05T15:42:27.354Z"
     },
     {
       "slug": "san-antonio-housing-market-trends-2025-2026",
@@ -266,8 +266,11 @@
         "San Antonio home prices 2025 2026",
         "SA real estate outlook"
       ],
-      "focus": "Price trends, inventory shifts, interest rate impact, best time to buy or sell in SA market"
-    },
+      "focus": "Price trends, inventory shifts, interest rate impact, best time to buy or sell in SA market",
+      "publishedAt": "2026-06-05T15:44:15.144Z"
+    }
+  ],
+  "queue": [
     {
       "slug": "is-now-good-time-buy-home-san-antonio",
       "title": "Is Now a Good Time to Buy a Home in San Antonio? An Honest 2026 Assessment",
