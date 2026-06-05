@@ -304,9 +304,7 @@
       ],
       "focus": "How rate changes affect buying power, monthly payments, and strategy for SA buyers",
       "publishedAt": "2026-06-05T16:07:41.083Z"
-    }
-  ],
-  "queue": [
+    },
     {
       "slug": "how-to-win-multiple-offer-san-antonio",
       "title": "How to Win a Multiple Offer Situation in San Antonio: What Actually Works",
@@ -316,7 +314,8 @@
         "how to win bidding war San Antonio",
         "competitive offer San Antonio"
       ],
-      "focus": "Real strategies that win — escalation clauses, appraisal gaps, inspection waivers, relationship with listing agent"
+      "focus": "Real strategies that win — escalation clauses, appraisal gaps, inspection waivers, relationship with listing agent",
+      "publishedAt": "2026-06-05T16:24:47.848Z"
     },
     {
       "slug": "san-antonio-property-taxes-explained",
@@ -328,7 +327,8 @@
         "Texas property tax homestead exemption",
         "protest property tax Texas"
       ],
-      "focus": "How TX property taxes work, homestead exemption, how to protest, what to expect in each neighborhood"
+      "focus": "How TX property taxes work, homestead exemption, how to protest, what to expect in each neighborhood",
+      "publishedAt": "2026-06-05T16:26:35.439Z"
     },
     {
       "slug": "home-inspection-san-antonio-what-to-expect",
@@ -339,8 +339,11 @@
         "what does home inspector check Texas",
         "San Antonio home inspection cost"
       ],
-      "focus": "What inspectors look for in SA homes, common issues in this climate, how to read the report, repair negotiation"
-    },
+      "focus": "What inspectors look for in SA homes, common issues in this climate, how to read the report, repair negotiation",
+      "publishedAt": "2026-06-05T16:28:31.195Z"
+    }
+  ],
+  "queue": [
     {
       "slug": "selling-home-san-antonio-2026-guide",
       "title": "How to Sell Your Home in San Antonio in 2026: A Step-by-Step Seller Guide",
