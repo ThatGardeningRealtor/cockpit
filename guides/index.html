@@ -1,80 +1,181 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Home Buyer Guides — That Gardening Realtor</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Home Buyer Guides — That Gardening Realtor · San Antonio TX</title>
+<meta name="description" content="The most complete collection of San Antonio home buyer guides. VA, USDA, FHA, physician loans, assumable mortgages, land loans, Texas VLB — every option explained.">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#F0EBE1;color:#1a1008}
-.hdr{background:linear-gradient(135deg,#1E1208,#2E4A30);padding:28px 20px 24px;color:white;text-align:center}
-.hdr-badge{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#8FB892;margin-bottom:8px}
-.hdr-title{font-size:26px;font-weight:900;color:white;margin-bottom:6px}
-.hdr-sub{font-size:13px;color:#B8D8B0;line-height:1.6}
-.wrap{max-width:680px;margin:0 auto;padding:20px 16px}
-.guide-card{background:white;border-radius:12px;padding:18px;margin-bottom:12px;display:flex;gap:14px;align-items:center;text-decoration:none;color:inherit;border-left:4px solid #2E7D32}
-.guide-card:hover{background:#f8f4ee}
-.guide-icon{font-size:28px;flex-shrink:0}
-.guide-title{font-size:15px;font-weight:800;color:#1a1008;margin-bottom:3px}
-.guide-sub{font-size:12px;color:#7A6A58;line-height:1.5}
-.guide-arrow{font-size:16px;color:#6B8E6E;flex-shrink:0;margin-left:auto}
-.cta{background:#1E1208;border-radius:12px;padding:20px;text-align:center;margin-top:6px}
-.cta p{color:#B8D8B0;font-size:13px;margin-bottom:10px}
-.cta a{display:inline-block;background:#2E7D32;color:white;padding:12px 24px;border-radius:10px;font-weight:700;font-size:14px;text-decoration:none}
+  :root{--soil:#1E1208;--moss:#3D6B35;--moss-dk:#2A4D25;--bg:#F0EBE1;--border:#D9CFC0;--muted:#7A6A58}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--soil)}
+  /* Header */
+  .hdr{background:linear-gradient(160deg,var(--soil) 0%,#1A3318 55%,var(--moss) 100%);padding:36px 20px 30px;color:#fff;text-align:center;position:relative;overflow:hidden}
+  .hdr::after{content:'🌱';position:absolute;font-size:200px;opacity:.04;right:-30px;bottom:-40px;line-height:1;pointer-events:none}
+  .hdr-badge{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:10px}
+  .hdr-title{font-size:28px;font-weight:900;color:#fff;margin-bottom:8px;line-height:1.2}
+  .hdr-title span{color:#A8D494}
+  .hdr-sub{font-size:13px;color:rgba(255,255,255,.7);line-height:1.6;max-width:440px;margin:0 auto 16px}
+  .hdr-note{font-size:11px;color:rgba(255,255,255,.45);font-style:italic}
+  /* Nav strip */
+  .nav-strip{background:#fff;border-bottom:1px solid var(--border);padding:10px 20px;display:flex;justify-content:space-between;align-items:center}
+  .nav-brand{font-size:12px;font-weight:700;color:var(--soil);text-decoration:none}
+  .nav-cta{background:var(--moss);color:#fff;text-decoration:none;padding:6px 14px;border-radius:5px;font-size:12px;font-weight:700}
+  /* Content */
+  .wrap{max-width:720px;margin:0 auto;padding:24px 16px 60px}
+  .section-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--moss);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+  /* Guide cards */
+  .guide-card{background:#fff;border-radius:10px;padding:16px 18px;margin-bottom:10px;display:flex;gap:14px;align-items:center;text-decoration:none;color:inherit;border:1px solid var(--border);border-left:4px solid var(--moss);transition:box-shadow .15s,transform .12s}
+  .guide-card:hover{box-shadow:0 4px 14px rgba(0,0,0,.07);transform:translateX(2px)}
+  .guide-card.highlight{border-left-color:#B8860B;background:linear-gradient(90deg,#FDFAF3,#fff)}
+  .guide-icon{font-size:26px;flex-shrink:0;width:36px;text-align:center}
+  .guide-info{flex:1}
+  .guide-title{font-size:14px;font-weight:800;color:var(--soil);margin-bottom:3px;line-height:1.25}
+  .guide-sub{font-size:11.5px;color:var(--muted);line-height:1.5}
+  .guide-badge{font-size:9px;font-weight:700;background:#B8860B;color:#fff;padding:2px 7px;border-radius:10px;margin-left:6px;vertical-align:middle;letter-spacing:.04em;text-transform:uppercase}
+  .guide-arrow{font-size:18px;color:var(--moss);flex-shrink:0;margin-left:4px;font-weight:300}
+  /* CTA */
+  .cta{background:var(--soil);border-radius:10px;padding:20px;text-align:center;margin-top:20px}
+  .cta p{color:rgba(255,255,255,.7);font-size:13px;margin-bottom:12px}
+  .cta a{display:inline-block;background:var(--moss);color:#fff;padding:11px 24px;border-radius:7px;font-weight:700;font-size:14px;text-decoration:none}
+  /* Footer */
+  .foot{text-align:center;margin-top:20px;font-size:11px;color:var(--muted)}
+  .foot a{color:var(--muted);text-decoration:none}
+  @media(max-width:500px){.hdr-title{font-size:22px}.nav-strip{padding:8px 14px}}
 </style>
 </head>
 <body>
+
+<div class="nav-strip">
+  <a href="/cockpit/" class="nav-brand">🌱 That Gardening Realtor</a>
+  <a href="tel:2109420487" class="nav-cta">📞 210-942-0487</a>
+</div>
+
 <div class="hdr">
   <div class="hdr-badge">That Gardening Realtor · San Antonio TX</div>
-  <div class="hdr-title">🌱 Home Buyer Guides</div>
-  <div class="hdr-sub">Free resources to help San Antonio buyers understand<br>every option available to them.</div>
+  <div class="hdr-title">Home Buyer <span>Guides</span></div>
+  <div class="hdr-sub">Every loan program, financing option, and buyer resource — explained clearly. Free. No pressure.</div>
+  <div class="hdr-note">Most buyers know about 2-3 of these. The rest could change what's possible for you.</div>
 </div>
+
 <div class="wrap">
+
+  <div class="section-label">Zero Down Programs</div>
 
   <a class="guide-card" href="va-buyers-guide.html">
     <div class="guide-icon">🎖</div>
-    <div>
+    <div class="guide-info">
       <div class="guide-title">VA Home Buyer Guide</div>
-      <div class="guide-sub">Zero down · No PMI · Lifetime benefit · For veterans, active military, Guard &amp; Reserve</div>
+      <div class="guide-sub">Zero down · No PMI · Lifetime benefit · Veterans, active military, Guard &amp; Reserve, surviving spouses</div>
     </div>
     <div class="guide-arrow">›</div>
   </a>
 
   <a class="guide-card" href="usda-buyers-guide.html">
     <div class="guide-icon">🌾</div>
-    <div>
+    <div class="guide-info">
       <div class="guide-title">USDA Home Buyer Guide</div>
-      <div class="guide-sub">Zero down · Suburban SA · Schertz, Cibolo, Floresville, Devine and more</div>
+      <div class="guide-sub">Zero down · Schertz, Cibolo, Floresville, Devine, Castroville and suburban SA areas</div>
     </div>
     <div class="guide-arrow">›</div>
   </a>
 
   <a class="guide-card" href="down-payment-assistance.html">
-    <div class="guide-icon">🏡</div>
-    <div>
-      <div class="guide-title">Down Payment Assistance</div>
-      <div class="guide-sub">TSAHC, SETH GoldStar, City of SA HAP — up to $30K toward your home</div>
+    <div class="guide-icon">💰</div>
+    <div class="guide-info">
+      <div class="guide-title">Down Payment Assistance Guide</div>
+      <div class="guide-sub">TSAHC, SETH GoldStar, City HAP — stack programs to get close to zero out of pocket</div>
     </div>
     <div class="guide-arrow">›</div>
   </a>
+
+  <div class="section-label">Hidden Programs — Most Buyers Never Know These Exist</div>
+
+  <a class="guide-card highlight" href="va-renovation-loan-guide.html">
+    <div class="guide-icon">🔨</div>
+    <div class="guide-info">
+      <div class="guide-title">VA Renovation Loan <span class="guide-badge">Hidden Gem</span></div>
+      <div class="guide-sub">Buy a fixer-upper AND finance the repairs with zero down · VA eligible buyers only · Most agents don't know this exists</div>
+    </div>
+    <div class="guide-arrow">›</div>
+  </a>
+
+  <a class="guide-card highlight" href="texas-vlb-veterans-land-board-guide.html">
+    <div class="guide-icon">⭐</div>
+    <div class="guide-info">
+      <div class="guide-title">Texas Veterans Land Board (VLB) <span class="guide-badge">Texas Only</span></div>
+      <div class="guide-sub">3 separate programs for Texas veterans: home loans, land loans (5+ acres), home improvement loans — all below-market rates</div>
+    </div>
+    <div class="guide-arrow">›</div>
+  </a>
+
+  <a class="guide-card highlight" href="assumable-mortgage-guide.html">
+    <div class="guide-icon">🔄</div>
+    <div class="guide-info">
+      <div class="guide-title">Assumable Mortgage Guide <span class="guide-badge">Rate Lock</span></div>
+      <div class="guide-sub">Take over a seller's 3% VA or FHA loan in a 7% market · Save $600–$800/month · Most buyers have no idea this is possible</div>
+    </div>
+    <div class="guide-arrow">›</div>
+  </a>
+
+  <a class="guide-card highlight" href="land-buyers-guide.html">
+    <div class="guide-icon">🏞️</div>
+    <div class="guide-info">
+      <div class="guide-title">Land Buyer's Guide <span class="guide-badge">South Texas</span></div>
+      <div class="guide-sub">Utilities, road access, structures, lender gotchas, and financing options for rural and recreational land</div>
+    </div>
+    <div class="guide-arrow">›</div>
+  </a>
+
+  <div class="section-label">Professional &amp; Specialty Programs</div>
+
+  <a class="guide-card" href="loan-programs.html#physician">
+    <div class="guide-icon">🩺</div>
+    <div class="guide-info">
+      <div class="guide-title">Physician / Professional Loan</div>
+      <div class="guide-sub">MD, DO, DDS, DVM, PharmD, PA, NP · No PMI · Student loans excluded · Zero to 10% down</div>
+    </div>
+    <div class="guide-arrow">›</div>
+  </a>
+
+  <a class="guide-card" href="loan-programs.html#teacher">
+    <div class="guide-icon">🏫</div>
+    <div class="guide-info">
+      <div class="guide-title">Teacher &amp; First Responder Program</div>
+      <div class="guide-sub">Below-market rate + DPA grant for Texas teachers, police, fire, EMS, and corrections officers</div>
+    </div>
+    <div class="guide-arrow">›</div>
+  </a>
+
+  <a class="guide-card" href="loan-programs.html#itin">
+    <div class="guide-icon">🆔</div>
+    <div class="guide-info">
+      <div class="guide-title">ITIN / Non-Traditional Borrower Loan</div>
+      <div class="guide-sub">For ITIN holders, DACA recipients, and self-employed borrowers — buy a home without a Social Security Number</div>
+    </div>
+    <div class="guide-arrow">›</div>
+  </a>
+
+  <div class="section-label">Standard Programs</div>
 
   <a class="guide-card" href="loan-programs.html">
     <div class="guide-icon">📋</div>
-    <div>
-      <div class="guide-title">All Loan Programs</div>
-      <div class="guide-sub">Every home loan option for SA buyers — zero down, low down, FHA, VA, USDA, specialty</div>
+    <div class="guide-info">
+      <div class="guide-title">All 15 Loan Programs — Complete Reference</div>
+      <div class="guide-sub">FHA, Conventional, Jumbo, 203k Rehab, One-Time Close Construction, and all programs in one place</div>
     </div>
     <div class="guide-arrow">›</div>
   </a>
 
-<div class="cta">
-  <p>Not sure which program is right for you? Let's figure it out together — no pressure, just answers.</p>
-  <a href="tel:2102142673">📞 Call Chris — 210-214-2673</a>
-</div>
+  <div class="cta">
+    <p>Not sure which program fits your situation? Most buyers qualify for more than they think. Let's find out.</p>
+    <a href="tel:2109420487">📞 Call Chris — 210-942-0487</a>
+  </div>
 
-<div style="text-align:center;margin-top:16px;font-size:11px;color:#9a8a78">
-  Chris Drawdy · That Gardening Realtor · eXp Realty<br>
-  chris@getrealtytx.com · GetRealtyTX.com
-</div>
+  <div class="foot">
+    <p>Chris Drawdy · That Gardening Realtor · eXp Realty · San Antonio TX</p>
+    <p style="margin-top:4px"><a href="mailto:chris.drawdy@exprealty.com">chris.drawdy@exprealty.com</a> · <a href="https://getrealtytx.com">getrealtytx.com</a> · <a href="https://g.page/r/CSZbkkhpTab3EBM/review">Leave a Review</a></p>
+  </div>
 </div>
 </body>
 </html>

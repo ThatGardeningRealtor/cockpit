@@ -24,17 +24,18 @@
   .nav-link:hover{color:var(--green)}
   .nav-cta{background:var(--green);color:#fff;text-decoration:none;padding:6px 14px;border-radius:5px;font-size:12px;font-weight:700}
 
-  /* Page title */
-  .page-head{padding:32px 24px 20px;text-align:center;background:var(--bg)}
-  .page-head h1{font-size:24px;font-weight:800;color:var(--ink);margin-bottom:6px}
-  .page-head h1 em{font-style:normal;color:var(--green)}
-  .page-head p{font-size:13px;color:var(--muted);max-width:440px;margin:0 auto}
+  /* Page title / hero */
+  .page-head{padding:40px 24px 28px;text-align:center;background:linear-gradient(160deg,var(--green-dk) 0%,#1A3318 50%,#3D6B35 100%);position:relative;overflow:hidden}
+  .page-head::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+  .page-head h1{font-size:26px;font-weight:800;color:#fff;margin-bottom:8px;position:relative}
+  .page-head h1 em{font-style:normal;color:#A8D494}
+  .page-head p{font-size:13px;color:rgba(255,255,255,.72);max-width:440px;margin:0 auto;position:relative;line-height:1.6}
 
   /* Filters */
-  .filters{padding:0 20px 16px;display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;background:var(--bg)}
-  .filters::-webkit-scrollbar{display:none}
-  .pill{background:rgba(255,255,255,.7);border:1px solid var(--border);border-radius:20px;padding:5px 13px;font-size:12px;font-weight:500;color:var(--muted);cursor:pointer;white-space:nowrap;flex-shrink:0}
+  .filters{padding:14px 20px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap;background:var(--bg);border-bottom:1px solid var(--border)}
+  .pill{background:rgba(255,255,255,.8);border:1px solid var(--border);border-radius:20px;padding:5px 14px;font-size:12px;font-weight:500;color:var(--muted);cursor:pointer;white-space:nowrap}
   .pill:hover,.pill.active{background:var(--green);border-color:var(--green);color:#fff}
+  @media(max-width:500px){.filters{justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}.filters::-webkit-scrollbar{display:none}.pill{flex-shrink:0}}
 
   /* Grid */
   .wrap{max-width:1080px;margin:0 auto;padding:4px 20px 64px}
@@ -44,7 +45,7 @@
   /* Cards */
   .card{background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;transition:box-shadow .15s,transform .12s}
   .card:hover{box-shadow:0 6px 22px rgba(0,0,0,.09);transform:translateY(-2px)}
-  .card-banner{height:110px;padding:16px 18px;display:flex;flex-direction:column;justify-content:flex-end;position:relative}
+  .card-banner{height:130px;padding:16px 18px;display:flex;flex-direction:column;justify-content:flex-end;position:relative}
   .card-banner.cat-neighborhood{background:linear-gradient(145deg,#1E3318,#3D6B35)}
   .card-banner.cat-financing{background:linear-gradient(145deg,#0E2A44,#1A5C8A)}
   .card-banner.cat-land{background:linear-gradient(145deg,#2E1A08,#7A4520)}
