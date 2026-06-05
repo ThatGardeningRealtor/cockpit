@@ -191,9 +191,7 @@
       ],
       "focus": "Current SA market conditions, price trends, inventory, best time to buy/sell, neighborhood breakdowns",
       "publishedAt": "2026-06-05T14:30:37.159Z"
-    }
-  ],
-  "queue": [
+    },
     {
       "slug": "selling-home-san-antonio-guide",
       "title": "How to Sell Your Home in San Antonio in 2026: A Step-by-Step Guide",
@@ -204,7 +202,8 @@
         "San Antonio home selling guide",
         "list home San Antonio"
       ],
-      "focus": "Complete seller roadmap, pricing strategy, prep, listing, offers, closing — SA market specific"
+      "focus": "Complete seller roadmap, pricing strategy, prep, listing, offers, closing — SA market specific",
+      "publishedAt": "2026-06-05T15:23:07.320Z"
     },
     {
       "slug": "new-construction-san-antonio-guide",
@@ -216,7 +215,8 @@
         "new build homes San Antonio",
         "builder incentives San Antonio"
       ],
-      "focus": "New construction process, using your own agent, builder incentives, upgrades vs credits, warranties"
+      "focus": "New construction process, using your own agent, builder incentives, upgrades vs credits, warranties",
+      "publishedAt": "2026-06-05T15:24:59.785Z"
     },
     {
       "slug": "windcrest-gardens-community-san-antonio",
@@ -228,8 +228,11 @@
         "outdoor community San Antonio",
         "garden neighborhood San Antonio"
       ],
-      "focus": "Windcrest gardening culture, community events, Chris's personal angle, why gardeners love it"
-    },
+      "focus": "Windcrest gardening culture, community events, Chris's personal angle, why gardeners love it",
+      "publishedAt": "2026-06-05T15:26:37.517Z"
+    }
+  ],
+  "queue": [
     {
       "slug": "assumable-mortgage-san-antonio",
       "title": "Assumable Mortgages in San Antonio: How to Lock In a 3% Rate in a 7% Market",
