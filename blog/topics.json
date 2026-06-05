@@ -74,7 +74,7 @@
         "San Antonio first time buyer 2026"
       ],
       "focus": "Complete roadmap for first-time buyers in SA, programs available, process, mistakes to avoid",
-      "publishedAt": "2026-06-05T14:07:22.689Z"
+      "publishedAt": "2026-06-05T14:14:31.164Z"
     },
     {
       "slug": "down-payment-assistance-san-antonio-tsahc-seth-hap",
@@ -87,7 +87,7 @@
         "buy home no down payment San Antonio"
       ],
       "focus": "All DPA programs in SA, how to stack them, who qualifies, real examples",
-      "publishedAt": "2026-06-05T14:09:08.961Z"
+      "publishedAt": "2026-06-05T14:16:18.392Z"
     },
     {
       "slug": "buying-land-south-texas-guide",
@@ -100,7 +100,7 @@
         "recreational land Texas"
       ],
       "focus": "Complete land buying guide, utility costs, road access, structures, lender gotchas, due diligence",
-      "publishedAt": "2026-06-05T14:11:07.472Z"
+      "publishedAt": "2026-06-05T14:18:19.050Z"
     },
     {
       "slug": "best-neighborhoods-gardeners-san-antonio",
@@ -113,7 +113,7 @@
         "That Gardening Realtor San Antonio"
       ],
       "focus": "Neighborhoods with space to garden, community gardens, soil quality, HOA rules, outdoor lifestyle",
-      "publishedAt": "2026-06-05T14:12:49.549Z"
+      "publishedAt": "2026-06-05T14:20:02.625Z"
     },
     {
       "slug": "no-down-payment-home-san-antonio",
@@ -125,10 +125,8 @@
         "no money down house San Antonio"
       ],
       "focus": "VA, USDA, DPA stacking, gift funds, seller concessions — real paths to zero out of pocket",
-      "publishedAt": "2026-06-05T14:14:33.054Z"
-    }
-  ],
-  "queue": [
+      "publishedAt": "2026-06-05T14:21:50.771Z"
+    },
     {
       "slug": "physician-loan-san-antonio",
       "title": "Physician Loans in San Antonio: How Doctors, Dentists, and Vets Can Buy Without the Usual Rules",
@@ -139,7 +137,8 @@
         "no PMI loan doctor San Antonio",
         "veterinarian home loan Texas"
       ],
-      "focus": "Physician loan programs, who qualifies (MD DO DDS DVM PA NP), student loan exclusion, how it works"
+      "focus": "Physician loan programs, who qualifies (MD DO DDS DVM PA NP), student loan exclusion, how it works",
+      "publishedAt": "2026-06-05T14:23:41.971Z"
     },
     {
       "slug": "living-in-schertz-tx-neighborhood-guide",
@@ -151,7 +150,8 @@
         "homes for sale Schertz Texas",
         "Schertz TX community"
       ],
-      "focus": "Schertz military community (JBSA nearby), schools, growth, USDA eligible areas, commute"
+      "focus": "Schertz military community (JBSA nearby), schools, growth, USDA eligible areas, commute",
+      "publishedAt": "2026-06-05T14:25:16.864Z"
     },
     {
       "slug": "living-in-cibolo-tx-neighborhood-guide",
@@ -163,7 +163,8 @@
         "homes for sale Cibolo Texas",
         "Cibolo TX community"
       ],
-      "focus": "Cibolo rapid growth, new construction, USDA eligibility, schools, community feel"
+      "focus": "Cibolo rapid growth, new construction, USDA eligibility, schools, community feel",
+      "publishedAt": "2026-06-05T14:26:55.070Z"
     },
     {
       "slug": "how-to-choose-realtor-san-antonio",
@@ -175,7 +176,8 @@
         "top real estate agent San Antonio",
         "San Antonio REALTOR recommendations"
       ],
-      "focus": "What questions to ask, red flags, how community-first agents differ, what makes a great SA realtor"
+      "focus": "What questions to ask, red flags, how community-first agents differ, what makes a great SA realtor",
+      "publishedAt": "2026-06-05T14:28:45.785Z"
     },
     {
       "slug": "san-antonio-real-estate-market-2026",
@@ -187,8 +189,11 @@
         "San Antonio home prices 2026",
         "is it a good time to buy San Antonio"
       ],
-      "focus": "Current SA market conditions, price trends, inventory, best time to buy/sell, neighborhood breakdowns"
-    },
+      "focus": "Current SA market conditions, price trends, inventory, best time to buy/sell, neighborhood breakdowns",
+      "publishedAt": "2026-06-05T14:30:37.159Z"
+    }
+  ],
+  "queue": [
     {
       "slug": "selling-home-san-antonio-guide",
       "title": "How to Sell Your Home in San Antonio in 2026: A Step-by-Step Guide",
