@@ -62,9 +62,7 @@
       ],
       "focus": "USDA eligible areas around SA, income limits, how to qualify, zero down reality",
       "publishedAt": "2026-06-05T13:49:49.519Z"
-    }
-  ],
-  "queue": [
+    },
     {
       "slug": "first-time-homebuyer-guide-san-antonio-2026",
       "title": "First-Time Home Buyer Guide: San Antonio TX 2026 — Everything You Need to Know",
@@ -75,7 +73,8 @@
         "first time buyer programs Texas",
         "San Antonio first time buyer 2026"
       ],
-      "focus": "Complete roadmap for first-time buyers in SA, programs available, process, mistakes to avoid"
+      "focus": "Complete roadmap for first-time buyers in SA, programs available, process, mistakes to avoid",
+      "publishedAt": "2026-06-05T14:07:22.689Z"
     },
     {
       "slug": "down-payment-assistance-san-antonio-tsahc-seth-hap",
@@ -87,7 +86,8 @@
         "free down payment San Antonio",
         "buy home no down payment San Antonio"
       ],
-      "focus": "All DPA programs in SA, how to stack them, who qualifies, real examples"
+      "focus": "All DPA programs in SA, how to stack them, who qualifies, real examples",
+      "publishedAt": "2026-06-05T14:09:08.961Z"
     },
     {
       "slug": "buying-land-south-texas-guide",
@@ -99,7 +99,8 @@
         "raw land financing Texas",
         "recreational land Texas"
       ],
-      "focus": "Complete land buying guide, utility costs, road access, structures, lender gotchas, due diligence"
+      "focus": "Complete land buying guide, utility costs, road access, structures, lender gotchas, due diligence",
+      "publishedAt": "2026-06-05T14:11:07.472Z"
     },
     {
       "slug": "best-neighborhoods-gardeners-san-antonio",
@@ -111,7 +112,8 @@
         "community gardens San Antonio",
         "That Gardening Realtor San Antonio"
       ],
-      "focus": "Neighborhoods with space to garden, community gardens, soil quality, HOA rules, outdoor lifestyle"
+      "focus": "Neighborhoods with space to garden, community gardens, soil quality, HOA rules, outdoor lifestyle",
+      "publishedAt": "2026-06-05T14:12:49.549Z"
     },
     {
       "slug": "no-down-payment-home-san-antonio",
@@ -122,8 +124,11 @@
         "zero down home loan San Antonio",
         "no money down house San Antonio"
       ],
-      "focus": "VA, USDA, DPA stacking, gift funds, seller concessions — real paths to zero out of pocket"
-    },
+      "focus": "VA, USDA, DPA stacking, gift funds, seller concessions — real paths to zero out of pocket",
+      "publishedAt": "2026-06-05T14:14:33.054Z"
+    }
+  ],
+  "queue": [
     {
       "slug": "physician-loan-san-antonio",
       "title": "Physician Loans in San Antonio: How Doctors, Dentists, and Vets Can Buy Without the Usual Rules",
