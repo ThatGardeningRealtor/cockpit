@@ -341,42 +341,6 @@
       ],
       "focus": "What inspectors look for in SA homes, common issues in this climate, how to read the report, repair negotiation",
       "publishedAt": "2026-06-05T16:28:31.195Z"
-    }
-  ],
-  "queue": [
-    {
-      "slug": "selling-home-san-antonio-2026-guide",
-      "title": "How to Sell Your Home in San Antonio in 2026: A Step-by-Step Seller Guide",
-      "category": "selling",
-      "keywords": [
-        "selling home San Antonio",
-        "how to list house San Antonio",
-        "San Antonio home selling process 2026"
-      ],
-      "focus": "Complete seller roadmap from prep through closing — pricing, staging, listing, offers, negotiations, close"
-    },
-    {
-      "slug": "new-construction-san-antonio-what-builders-wont-tell-you",
-      "title": "Buying New Construction in San Antonio: What the Builder Won't Tell You",
-      "category": "buying",
-      "keywords": [
-        "new construction San Antonio",
-        "buying new home San Antonio builder",
-        "builder incentives San Antonio 2026"
-      ],
-      "focus": "Using your own agent with a builder, upgrade traps, incentive negotiation, warranty coverage, what to inspect"
-    },
-    {
-      "slug": "san-antonio-military-homebuying-jbsa-guide",
-      "title": "Military Home Buying in San Antonio: The Complete Guide for JBSA Families",
-      "category": "buying",
-      "keywords": [
-        "military home buying San Antonio",
-        "JBSA real estate",
-        "VA loan Lackland AFB",
-        "PCS San Antonio"
-      ],
-      "focus": "VA loans, BAH, PCS timelines, neighborhoods near Lackland and JBSA, how to buy fast on military orders"
     },
     {
       "slug": "gardening-curb-appeal-before-listing-san-antonio",
@@ -387,7 +351,8 @@
         "landscaping before selling home Texas",
         "South Texas garden home value"
       ],
-      "focus": "What SA buyers notice first, drought-tolerant plants that boost value, low-cost curb appeal wins in this climate"
+      "focus": "What SA buyers notice first, drought-tolerant plants that boost value, low-cost curb appeal wins in this climate",
+      "publishedAt": "2026-06-05T18:00:00.000Z"
     },
     {
       "slug": "community-gardens-san-antonio-windcrest",
@@ -398,7 +363,8 @@
         "Windcrest gardening community",
         "outdoor spaces families San Antonio"
       ],
-      "focus": "Community gardens, plant swaps, garden clubs, and outdoor spaces that make SA neighborhoods special"
+      "focus": "Community gardens, plant swaps, garden clubs, and outdoor spaces that make SA neighborhoods special",
+      "publishedAt": "2026-06-05T18:00:00.000Z"
     },
     {
       "slug": "hack-your-hoa-garden-rules-raised-beds-texas",
@@ -411,7 +377,8 @@
         "fig tree raised bed HOA",
         "That Gardening Realtor San Antonio"
       ],
-      "focus": "Practical, specific HOA workarounds for Texas gardeners — raised beds with open bottoms (no bottom = not in ground), the Texas Garden Guy fig tree method from Houston, native plant exemptions, edible landscaping rules, how to read HOA docs for loopholes. Fun, empowering, real advice."
+      "focus": "Practical, specific HOA workarounds for Texas gardeners — raised beds with open bottoms (no bottom = not in ground), the Texas Garden Guy fig tree method from Houston, native plant exemptions, edible landscaping rules, how to read HOA docs for loopholes. Fun, empowering, real advice.",
+      "publishedAt": "2026-06-05T18:00:00.000Z"
     },
     {
       "slug": "fig-trees-san-antonio-grow-and-sell",
@@ -423,7 +390,8 @@
         "edible landscaping San Antonio",
         "That Gardening Realtor figs"
       ],
-      "focus": "Growing figs in SA climate, best varieties for heat, how to plant, when to harvest, how a fig tree in the yard is a selling point for buyers who garden. The lifestyle angle on productive landscapes."
+      "focus": "Growing figs in SA climate, best varieties for heat, how to plant, when to harvest, how a fig tree in the yard is a selling point for buyers who garden. The lifestyle angle on productive landscapes.",
+      "publishedAt": "2026-06-05T18:00:00.000Z"
     },
     {
       "slug": "best-native-plants-san-antonio-yards",
@@ -435,8 +403,11 @@
         "Texas native landscaping",
         "low maintenance yard San Antonio"
       ],
-      "focus": "Native and adapted plants that thrive in SA heat and drought — Texas sage, Esperanza, lantana, agarita, native grasses, edible natives. What looks great, needs no water, and adds value before listing."
-    },
+      "focus": "Native and adapted plants that thrive in SA heat and drought — Texas sage, Esperanza, lantana, agarita, native grasses, edible natives. What looks great, needs no water, and adds value before listing.",
+      "publishedAt": "2026-06-05T18:00:00.000Z"
+    }
+  ],
+  "queue": [
     {
       "slug": "raised-bed-gardening-san-antonio-soil-heat",
       "title": "Raised Bed Gardening in San Antonio: Soil, Heat, and What Actually Works Here",
