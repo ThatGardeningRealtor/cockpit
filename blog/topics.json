@@ -405,9 +405,7 @@
       ],
       "focus": "Native and adapted plants that thrive in SA heat and drought — Texas sage, Esperanza, lantana, agarita, native grasses, edible natives. What looks great, needs no water, and adds value before listing.",
       "publishedAt": "2026-06-05T18:00:00.000Z"
-    }
-  ],
-  "queue": [
+    },
     {
       "slug": "raised-bed-gardening-san-antonio-soil-heat",
       "title": "Raised Bed Gardening in San Antonio: Soil, Heat, and What Actually Works Here",
@@ -418,7 +416,8 @@
         "gardening South Texas heat",
         "That Gardening Realtor raised beds"
       ],
-      "focus": "The specific challenges of SA gardening (caliche soil, extreme heat, alkaline pH), how raised beds solve all of them, best soil mix for SA, what vegetables actually produce in this climate, seasonal timing for South Texas."
+      "focus": "The specific challenges of SA gardening (caliche soil, extreme heat, alkaline pH), how raised beds solve all of them, best soil mix for SA, what vegetables actually produce in this climate, seasonal timing for South Texas.",
+      "publishedAt": "2026-06-06T08:33:09.960Z"
     },
     {
       "slug": "curb-appeal-gardening-before-listing-sa",
@@ -430,7 +429,8 @@
         "garden home value San Antonio",
         "listing prep landscaping SA"
       ],
-      "focus": "What SA buyers see first, drought-tolerant plants that look great without water, low-cost high-impact changes (mulch, native plants, container pops of color), what to avoid. The gardener agent perspective on what moves buyers emotionally at the curb."
+      "focus": "What SA buyers see first, drought-tolerant plants that look great without water, low-cost high-impact changes (mulch, native plants, container pops of color), what to avoid. The gardener agent perspective on what moves buyers emotionally at the curb.",
+      "publishedAt": "2026-06-06T08:35:06.556Z"
     },
     {
       "slug": "community-gardens-san-antonio-guide",
@@ -442,8 +442,11 @@
         "urban farming San Antonio",
         "Windcrest gardening community"
       ],
-      "focus": "Community gardens across SA, how to find one near you, the social and neighborhood impact, why neighborhoods with garden culture have stronger community bonds — and why That Gardening Realtor believes this is how real estate should work."
-    },
+      "focus": "Community gardens across SA, how to find one near you, the social and neighborhood impact, why neighborhoods with garden culture have stronger community bonds — and why That Gardening Realtor believes this is how real estate should work.",
+      "publishedAt": "2026-06-06T08:36:43.853Z"
+    }
+  ],
+  "queue": [
     {
       "slug": "growing-food-south-texas-vegetables-fruits",
       "title": "Growing Food in South Texas: The Best Vegetables, Herbs, and Fruit for San Antonio's Climate",
