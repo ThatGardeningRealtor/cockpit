@@ -444,9 +444,7 @@
       ],
       "focus": "Community gardens across SA, how to find one near you, the social and neighborhood impact, why neighborhoods with garden culture have stronger community bonds — and why That Gardening Realtor believes this is how real estate should work.",
       "publishedAt": "2026-06-06T08:36:43.853Z"
-    }
-  ],
-  "queue": [
+    },
     {
       "slug": "growing-food-south-texas-vegetables-fruits",
       "title": "Growing Food in South Texas: The Best Vegetables, Herbs, and Fruit for San Antonio's Climate",
@@ -457,7 +455,8 @@
         "what to grow San Antonio",
         "edible garden San Antonio"
       ],
-      "focus": "Seasonal planting guide for SA — what grows in fall/winter/spring/summer in this climate, best vegetables (tomatoes, peppers, greens, okra), herbs that love SA heat, fruit trees that produce here. Practical guide from someone who has done this."
+      "focus": "Seasonal planting guide for SA — what grows in fall/winter/spring/summer in this climate, best vegetables (tomatoes, peppers, greens, okra), herbs that love SA heat, fruit trees that produce here. Practical guide from someone who has done this.",
+      "publishedAt": "2026-06-07T08:54:58.888Z"
     },
     {
       "slug": "garden-adds-home-value-san-antonio",
@@ -469,7 +468,8 @@
         "outdoor living home value SA",
         "curb appeal value San Antonio"
       ],
-      "focus": "The real ROI of landscaping — what studies show, what SA buyers respond to, the difference between high-maintenance and low-maintenance landscapes, how to stage outdoor spaces, the community garden connection to neighborhood values."
+      "focus": "The real ROI of landscaping — what studies show, what SA buyers respond to, the difference between high-maintenance and low-maintenance landscapes, how to stage outdoor spaces, the community garden connection to neighborhood values.",
+      "publishedAt": "2026-06-07T08:56:49.418Z"
     },
     {
       "slug": "option-period-texas-explained",
@@ -480,8 +480,11 @@
         "Texas option period explained",
         "option fee Texas contract"
       ],
-      "focus": "What the option period is, how long and how much, what unrestricted termination means, how buyers use it strategically, what happens to the fee, how sellers think about it"
-    },
+      "focus": "What the option period is, how long and how much, what unrestricted termination means, how buyers use it strategically, what happens to the fee, how sellers think about it",
+      "publishedAt": "2026-06-07T08:58:27.352Z"
+    }
+  ],
+  "queue": [
     {
       "slug": "earnest-money-texas-how-it-works",
       "title": "Earnest Money in Texas: What Happens to It If the Deal Falls Through",
