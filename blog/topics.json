@@ -482,9 +482,7 @@
       ],
       "focus": "What the option period is, how long and how much, what unrestricted termination means, how buyers use it strategically, what happens to the fee, how sellers think about it",
       "publishedAt": "2026-06-07T08:58:27.352Z"
-    }
-  ],
-  "queue": [
+    },
     {
       "slug": "earnest-money-texas-how-it-works",
       "title": "Earnest Money in Texas: What Happens to It If the Deal Falls Through",
@@ -494,7 +492,8 @@
         "what happens earnest money Texas",
         "lose earnest money Texas"
       ],
-      "focus": "What EMD is, how much is standard in SA, who holds it, when you get it back vs lose it, the difference between option fee and EMD, real scenarios"
+      "focus": "What EMD is, how much is standard in SA, who holds it, when you get it back vs lose it, the difference between option fee and EMD, real scenarios",
+      "publishedAt": "2026-06-08T10:50:39.068Z"
     },
     {
       "slug": "texas-non-disclosure-state-home-prices",
@@ -505,7 +504,8 @@
         "home sale prices Texas",
         "finding sold prices Texas"
       ],
-      "focus": "What non-disclosure means, why you cannot look up exact sale prices on Zillow in TX, how buyers and agents actually find comps, why this matters when pricing a home"
+      "focus": "What non-disclosure means, why you cannot look up exact sale prices on Zillow in TX, how buyers and agents actually find comps, why this matters when pricing a home",
+      "publishedAt": "2026-06-08T10:52:29.224Z"
     },
     {
       "slug": "appraisal-comes-in-low-options-texas",
@@ -516,8 +516,11 @@
         "appraisal gap Texas",
         "renegotiate after low appraisal Texas"
       ],
-      "focus": "The 4 options when appraisal is below purchase price, appraisal gap coverage clauses, how to challenge an appraisal, what sellers can do"
-    },
+      "focus": "The 4 options when appraisal is below purchase price, appraisal gap coverage clauses, how to challenge an appraisal, what sellers can do",
+      "publishedAt": "2026-06-08T10:54:09.562Z"
+    }
+  ],
+  "queue": [
     {
       "slug": "seller-concessions-closing-costs-san-antonio",
       "title": "How to Get the Seller to Pay Your Closing Costs in San Antonio",
