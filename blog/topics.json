@@ -518,9 +518,7 @@
       ],
       "focus": "The 4 options when appraisal is below purchase price, appraisal gap coverage clauses, how to challenge an appraisal, what sellers can do",
       "publishedAt": "2026-06-08T10:54:09.562Z"
-    }
-  ],
-  "queue": [
+    },
     {
       "slug": "seller-concessions-closing-costs-san-antonio",
       "title": "How to Get the Seller to Pay Your Closing Costs in San Antonio",
@@ -530,7 +528,8 @@
         "seller pay closing costs Texas",
         "seller credits Texas"
       ],
-      "focus": "What seller concessions are, how much is typical in SA market, how to structure the offer, when sellers agree vs refuse"
+      "focus": "What seller concessions are, how much is typical in SA market, how to structure the offer, when sellers agree vs refuse",
+      "publishedAt": "2026-06-09T09:40:49.199Z"
     },
     {
       "slug": "pre-qualified-vs-pre-approved-difference",
@@ -541,7 +540,8 @@
         "mortgage pre-approval Texas",
         "how to get pre-approved San Antonio"
       ],
-      "focus": "Why pre-qual is nearly worthless in today market, what pre-approval actually requires, full underwriting vs conditional, how sellers see these differently"
+      "focus": "Why pre-qual is nearly worthless in today market, what pre-approval actually requires, full underwriting vs conditional, how sellers see these differently",
+      "publishedAt": "2026-06-09T09:42:29.738Z"
     },
     {
       "slug": "buyers-agent-costs-nothing-texas",
@@ -552,8 +552,11 @@
         "do I need a buyer agent San Antonio",
         "listing agent represent buyer Texas"
       ],
-      "focus": "How buyer agent compensation works in Texas post-NAR settlement, why the listing agent legally represents the seller, what dual agency means, why having your own agent protects you at zero cost"
-    },
+      "focus": "How buyer agent compensation works in Texas post-NAR settlement, why the listing agent legally represents the seller, what dual agency means, why having your own agent protects you at zero cost",
+      "publishedAt": "2026-06-09T09:44:03.135Z"
+    }
+  ],
+  "queue": [
     {
       "slug": "title-insurance-texas-explained",
       "title": "Title Insurance in Texas: What You Are Actually Paying For and Why It Matters",
