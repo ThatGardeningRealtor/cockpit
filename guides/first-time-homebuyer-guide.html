@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>First-Time Home Buyer's Guide | That Gardening Realtor</title>
+<style>
+  :root {
+    --soil:      #1E1208;
+    --cream:     #F5EFE4;
+    --parchment: #FAF6EF;
+    --moss:      #3D6B35;
+    --moss-lt:   #EBF2E8;
+    --rust:      #A0522D;
+    --rust-lt:   #F5ECE5;
+    --sky:       #4A7FA5;
+    --sky-lt:    #E8F1F8;
+    --muted:     #7A6A58;
+    --border:    #D9CFC0;
+    --gold:      #B8860B;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: #fff;
+    color: var(--soil);
+    font-size: 13px;
+    line-height: 1.65;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 48px 48px 64px;
+  }
+
+  /* Header */
+  .header {
+    border-bottom: 3px solid var(--moss);
+    padding-bottom: 20px;
+    margin-bottom: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+  }
+  .brand-mark { display: flex; align-items: center; gap: 10px; }
+  .brand-icon {
+    width: 44px; height: 44px;
+    background: var(--moss); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; flex-shrink: 0;
+  }
+  .brand-name { font-family: 'Georgia', serif; font-size: 15px; font-weight: bold; color: var(--soil); line-height: 1.2; }
+  .brand-sub  { font-size: 10px; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; margin-top: 2px; }
+  .header-right { text-align: right; font-size: 10px; color: var(--muted); line-height: 1.6; }
+
+  /* Doc title */
+  .doc-title { margin-bottom: 28px; }
+  .doc-title h1 { font-size: 22px; font-weight: bold; color: var(--soil); line-height: 1.25; margin-bottom: 4px; }
+  .doc-title .subtitle { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+
+  /* Context box */
+  .context-box {
+    background: var(--moss-lt);
+    border-left: 4px solid var(--moss);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin-bottom: 28px;
+    font-size: 12.5px;
+    color: var(--soil);
+    line-height: 1.7;
+  }
+
+  /* Section label */
+  .section-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Cards */
+  .card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .card-header {
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .card-header.green  { background: var(--moss-lt);  border-bottom: 1px solid #C8DEC4; }
+  .card-header.rust   { background: var(--rust-lt);  border-bottom: 1px solid #E8CFC0; }
+  .card-header.sky    { background: var(--sky-lt);   border-bottom: 1px solid #C0D8EC; }
+  .card-header.gold   { background: #FBF5E0;          border-bottom: 1px solid #E8D898; }
+  .card-header.soil   { background: var(--soil);      border-bottom: none; }
+
+  .card-icon {
+    width: 28px; height: 28px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; flex-shrink: 0;
+  }
+  .green .card-icon  { background: var(--moss);  color: #fff; }
+  .rust  .card-icon  { background: var(--rust);  color: #fff; }
+  .sky   .card-icon  { background: var(--sky);   color: #fff; }
+  .gold  .card-icon  { background: var(--gold);  color: #fff; }
+  .soil  .card-icon  { background: rgba(255,255,255,0.15); }
+
+  .card-title { font-size: 13.5px; font-weight: bold; color: var(--soil); line-height: 1.2; }
+  .soil .card-title { color: #fff; }
+  .card-tag   { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 2px; }
+  .soil .card-tag { color: rgba(255,255,255,0.6); }
+
+  .card-body {
+    padding: 16px 20px;
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--soil);
+  }
+  .card-body p { margin-bottom: 10px; }
+  .card-body p:last-child { margin-bottom: 0; }
+  .card-body ul { margin: 0 0 10px 18px; }
+  .card-body ul:last-child { margin-bottom: 0; }
+  .card-body li { margin-bottom: 4px; }
+
+  /* Mini table */
+  .mini-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 11.5px;
+  }
+  .mini-table th {
+    background: var(--parchment);
+    color: var(--muted);
+    text-align: left;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 10px;
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .mini-table td {
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--border);
+    color: var(--soil);
+  }
+  .mini-table tr:last-child td { border-bottom: none; }
+  .mini-table .win td { background: var(--moss-lt); font-weight: bold; }
+
+  /* Benefit grid */
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 12px 0;
+  }
+  .benefit-item {
+    background: var(--parchment);
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 11px;
+    border-left: 3px solid var(--moss);
+  }
+  .benefit-label { color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 3px; }
+  .benefit-val   { color: var(--soil); font-weight: bold; line-height: 1.4; }
+
+  /* Callout */
+  .callout {
+    background: var(--parchment);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 12px 0;
+    font-style: italic;
+  }
+
+  /* Dark Q&A block */
+  .dark-block {
+    background: var(--soil);
+    color: var(--cream);
+    border-radius: 12px;
+    padding: 28px 28px;
+    margin: 28px 0;
+  }
+  .dark-block h2 { font-size: 14px; color: #fff; margin-bottom: 18px; letter-spacing: 0.02em; }
+  .dark-q { margin-bottom: 16px; }
+  .dark-q .q { font-size: 12px; font-weight: bold; color: #C8DEB4; margin-bottom: 6px; }
+  .dark-q .a { font-size: 11.5px; color: var(--cream); line-height: 1.65; padding-left: 12px; border-left: 2px solid #3D6B35; }
+  .dark-q:last-child { margin-bottom: 0; }
+
+  /* Checklist */
+  .checklist { list-style: none; margin: 10px 0; }
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 12px;
+    padding: 7px 0;
+    border-bottom: 1px dotted var(--border);
+    line-height: 1.5;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .check-box {
+    width: 16px; height: 16px; min-width: 16px;
+    border: 1.5px solid var(--border);
+    border-radius: 3px;
+    margin-top: 1px;
+  }
+
+  /* Roadmap steps */
+  .roadmap { counter-reset: step; margin: 12px 0; }
+  .roadmap-item {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px dotted var(--border);
+  }
+  .roadmap-item:last-child { border-bottom: none; }
+  .roadmap-num {
+    counter-increment: step;
+    width: 22px; height: 22px; min-width: 22px;
+    border-radius: 50%;
+    background: var(--moss);
+    color: #fff;
+    font-size: 11px;
+    font-weight: bold;
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 1px;
+  }
+  .roadmap-num::before { content: counter(step); }
+  .roadmap-title { font-size: 12px; font-weight: bold; color: var(--soil); margin-bottom: 2px; }
+  .roadmap-sub { font-size: 11px; color: var(--muted); line-height: 1.5; }
+
+  /* Divider */
+  hr { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+
+  /* Footer */
+  .footer {
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .footer-left { font-size: 11px; color: var(--muted); line-height: 1.7; }
+  .footer-left strong { color: var(--soil); }
+  .footer-right { font-size: 9.5px; color: var(--muted); line-height: 1.6; max-width: 300px; text-align: right; font-style: italic; }
+
+  @media print {
+    body { font-size: 11.5px; }
+    .page { padding: 32px 40px 48px; }
+    .card { break-inside: avoid; }
+    .dark-block { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="brand-mark">
+      <div class="brand-icon">🌱</div>
+      <div>
+        <div class="brand-name">That Gardening Realtor</div>
+        <div class="brand-sub">Chris Drawdy · eXp Realty · San Antonio TX</div>
+      </div>
+    </div>
+    <div class="header-right">
+      (210) 214-2673<br>
+      chris.drawdy@exprealty.com<br>
+      2026
+    </div>
+  </div>
+
+  <!-- Title -->
+  <div class="doc-title">
+    <h1>A Guide to Buying Your First Home</h1>
+    <div class="subtitle">First-Time Home Buyer Edition</div>
+  </div>
+
+  <!-- Intro -->
+  <div class="context-box">
+    Buying your first home is exciting, but let's be real, it can also feel overwhelming. Every first-time buyer has the same questions: am I making the right decision, can I really afford this, what if something goes wrong? This guide walks through the things that actually matter, in plain language, so you can feel confident about your next step. No pressure, no sales pitch.
+  </div>
+
+  <!-- IT'S OKAY TO FEEL NERVOUS -->
+  <div class="section-label">Getting Started</div>
+  <div class="card">
+    <div class="card-header green">
+      <div class="card-icon">🌱</div>
+      <div>
+        <div class="card-title">It's Okay to Feel Nervous</div>
+        <div class="card-tag">Every first-time buyer has these thoughts</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>The important thing is to focus on what you can control. By partnering with a local agent and a trusted lender, you can get a clear picture of what you can borrow, what your monthly payment would be, and how the rate impacts it.</p>
+      <p><strong>Repairs:</strong> An inspection during the buying process gives you a clear look at the home's condition before you commit. If something is really nagging at you, your agent can ask the seller for a home warranty to cover major systems like HVAC.</p>
+      <p><strong>Stretching your budget:</strong> A little bit of a stretch is normal, most first-time buyers cut back on extras for a while. But if you wouldn't have enough left over for gas and groceries, that's a sign to look at a different price point. As your career and income grow, that stretch gets easier.</p>
+    </div>
+  </div>
+
+  <!-- CHECKLIST -->
+  <div class="section-label" style="margin-top:28px;">Your Homebuying Checklist</div>
+  <div style="background:var(--parchment);border:1px solid var(--border);border-radius:10px;padding:20px 24px;margin-bottom:24px;">
+    <p style="font-weight:bold;font-size:12px;margin-bottom:8px;">Assemble Your Team</p>
+    <ul class="checklist">
+      <li><div class="check-box"></div><span>A local real estate agent</span></li>
+      <li><div class="check-box"></div><span>A trusted lender</span></li>
+    </ul>
+    <p style="font-weight:bold;font-size:12px;margin:16px 0 8px;">Prep Your Finances</p>
+    <ul class="checklist">
+      <li><div class="check-box"></div><span>Save money for your down payment</span></li>
+      <li><div class="check-box"></div><span>Look into down payment assistance programs</span></li>
+      <li><div class="check-box"></div><span>Check your credit score</span></li>
+      <li><div class="check-box"></div><span>Maintain good credit</span></li>
+      <li><div class="check-box"></div><span>Talk to a lender about your mortgage options and what you'll need for closing costs</span></li>
+      <li><div class="check-box"></div><span>Figure out your homebuying budget</span></li>
+    </ul>
+    <p style="font-weight:bold;font-size:12px;margin:16px 0 8px;">Gather Your Documents</p>
+    <ul class="checklist">
+      <li><div class="check-box"></div><span>W-2s and tax documents (past 2 years)</span></li>
+      <li><div class="check-box"></div><span>Recent pay stubs (past 1-2 months)</span></li>
+      <li><div class="check-box"></div><span>Bank and investment account statements (past 1-3 months)</span></li>
+      <li><div class="check-box"></div><span>Copy of your driver's license</span></li>
+      <li><div class="check-box"></div><span>Residential history (past 2 years)</span></li>
+      <li><div class="check-box"></div><span>Statements for outstanding debts (student loans, auto loans, etc.)</span></li>
+      <li><div class="check-box"></div><span>Proof of supplemental income (bonuses, side work, etc.)</span></li>
+    </ul>
+  </div>
+
+  <!-- KEY TERMS -->
+  <div class="section-label">Key Terms You Should Know Before Buying</div>
+  <div class="card">
+    <div class="card-header sky">
+      <div class="card-icon">📖</div>
+      <div>
+        <div class="card-title">Plain-English Glossary</div>
+        <div class="card-tag">Sources: FTC, First American</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="benefit-grid">
+        <div class="benefit-item"><div class="benefit-label">Affordability</div><div class="benefit-val">Whether your income qualifies you for a typical home at current prices and rates</div></div>
+        <div class="benefit-item"><div class="benefit-label">Appraisal</div><div class="benefit-val">A third-party report on a home's estimated value, used by lenders</div></div>
+        <div class="benefit-item"><div class="benefit-label">Closing Costs</div><div class="benefit-val">Fees to complete the transaction, paid at closing</div></div>
+        <div class="benefit-item"><div class="benefit-label">Credit Score</div><div class="benefit-val">A 300-850 number based on your credit history</div></div>
+        <div class="benefit-item"><div class="benefit-label">Down Payment</div><div class="benefit-val">Typically 3.5-20% of price, some 0% down programs exist</div></div>
+        <div class="benefit-item"><div class="benefit-label">Equity</div><div class="benefit-val">The difference between your home's value and what you owe</div></div>
+        <div class="benefit-item"><div class="benefit-label">Inspection Contingency</div><div class="benefit-val">A contract clause requiring a home inspection</div></div>
+        <div class="benefit-item"><div class="benefit-label">Mortgage</div><div class="benefit-val">A loan using your home as collateral, typically price minus down payment</div></div>
+        <div class="benefit-item"><div class="benefit-label">Mortgage Rate</div><div class="benefit-val">The interest rate you pay to borrow for your home</div></div>
+        <div class="benefit-item"><div class="benefit-label">Pre-Approval</div><div class="benefit-val">A lender letter showing what they're willing to lend you</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHY BUYING PAYS OFF -->
+  <div class="section-label" style="margin-top:28px;">Renting vs. Owning</div>
+  <div class="card">
+    <div class="card-header green">
+      <div class="card-icon">📈</div>
+      <div>
+        <div class="card-title">Why Buying Still Pays Off in the Long Run</div>
+        <div class="card-tag">Source: First American</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>When you rent, your payment goes to your landlord and it's gone. When you own, part of your payment comes back to you as equity, the wealth you build as your home appreciates and you pay down the loan.</p>
+      <p>First American compared renting and owning across four time periods (2006, 2015, 2019, and 2022) factoring in mortgage payments, taxes, insurance, repairs, and maintenance against the equity gained. In every period, renters lost money over time and homeowners gained it. The longer you own, the wider the gap.</p>
+      <div class="callout">Affordability is starting to improve. Mortgage rates have come down, prices are softening, and incomes have been rising. Buying isn't suddenly easy, but it's easier than it was a few months ago.</div>
+    </div>
+  </div>
+
+  <!-- CREDIT SCORE MYTH -->
+  <div class="section-label" style="margin-top:28px;">The Credit Score Myth</div>
+  <div class="card">
+    <div class="card-header gold">
+      <div class="card-icon">📊</div>
+      <div>
+        <div class="card-title">You Don't Need Perfect Credit to Buy a Home</div>
+        <div class="card-tag">Source: NY Fed, FICO</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>2 out of every 5 Americans believe you need excellent credit to qualify for a mortgage. Not true. The median credit score for all buyers is 775, but the median score in the lowest 10% of buyers is around 650.</p>
+      <div class="benefit-grid">
+        <div class="benefit-item"><div class="benefit-label">Median Score, All Buyers</div><div class="benefit-val">775</div></div>
+        <div class="benefit-item"><div class="benefit-label">Lowest 10% of Buyer Scores</div><div class="benefit-val">~650</div></div>
+      </div>
+      <p>FICO itself says there's no single "cutoff score" used by all lenders. A portion of buyers are getting approved with scores in the 600s. If credit has been the reason you've been waiting, it might be time to take another look.</p>
+    </div>
+  </div>
+
+  <!-- STUDENT LOANS -->
+  <div class="card">
+    <div class="card-header sky">
+      <div class="card-icon">🎓</div>
+      <div>
+        <div class="card-title">Don't Let Student Loans Hold You Back</div>
+        <div class="card-tag">Source: NAR, Chase</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>72% of people with student loans think their debt will delay buying a home. But according to NAR, 33% of first-time buyers had student loan debt and still qualified. Student loans are generally treated like any other debt on your credit report, such as credit cards or auto loans. If your income is steady and your finances are solid, homeownership can still be within reach.</p>
+    </div>
+  </div>
+
+  <!-- DOWN PAYMENTS -->
+  <div class="section-label" style="margin-top:28px;">Down Payments</div>
+  <div class="card">
+    <div class="card-header green">
+      <div class="card-icon">💰</div>
+      <div>
+        <div class="card-title">What You Really Need to Know About Down Payments</div>
+        <div class="card-tag">Source: NAR</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <table class="mini-table">
+        <tr><th>Misconception</th><th>Reality</th></tr>
+        <tr><td>"I have to put 20% down"</td><td>Median down payment for first-time buyers is closer to 10%</td></tr>
+        <tr class="win"><td>Some loan programs</td><td>Require as little as 3.5%, or even 0% down</td></tr>
+      </table>
+      <p>80% of first-time buyers qualify for down payment assistance, but only 13% actually use it. The average program provides a benefit of roughly $18,000. Ask about what you may qualify for, the money may already be on the table.</p>
+    </div>
+  </div>
+
+  <!-- PRE-APPROVAL -->
+  <div class="section-label" style="margin-top:28px;">Pre-Approval</div>
+  <div class="card">
+    <div class="card-header sky">
+      <div class="card-icon">✓</div>
+      <div>
+        <div class="card-title">Why Pre-Approval Should Be Your First Step</div>
+        <div class="card-tag">Not an afterthought</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>Pre-approval means a lender has reviewed your income, assets, credit, debts, and savings, and told you how much they're willing to lend. It's a reality check for your search so you can shop with confidence.</p>
+      <ul>
+        <li><strong>Clarity:</strong> Know what you can afford before falling in love with something out of reach</li>
+        <li><strong>Confidence:</strong> Sellers take pre-approved offers seriously</li>
+        <li><strong>Control:</strong> If rates drop, you're already a step ahead</li>
+      </ul>
+      <p>Pre-approval doesn't mean you're buying tomorrow, it just means you'll be ready when the time comes. Most are good for 60-90 days and can be refreshed easily.</p>
+    </div>
+  </div>
+
+  <!-- AM I READY -->
+  <div class="dark-block">
+    <h2>Am I Ready to Buy? 5 Questions to Help You Decide</h2>
+    <div class="dark-q">
+      <div class="q">1. Do you have a stable job?</div>
+      <div class="a">A reliable income gives you peace of mind for a purchase this size.</div>
+    </div>
+    <div class="dark-q">
+      <div class="q">2. Have you figured out what you can afford?</div>
+      <div class="a">A trusted lender can walk you through pre-approval, current rates, monthly payment estimates, and closing costs.</div>
+    </div>
+    <div class="dark-q">
+      <div class="q">3. Do you have an emergency fund?</div>
+      <div class="a">You'll want a financial cushion to cover several months of expenses, including your mortgage, in case of job loss or a medical emergency.</div>
+    </div>
+    <div class="dark-q">
+      <div class="q">4. How long do you plan to live there?</div>
+      <div class="a">Five years is a comfortable mark for recouping upfront costs through equity. If you're planning to move again soon, that's worth factoring in.</div>
+    </div>
+    <div class="dark-q">
+      <div class="q">5. Do you have a team of real estate professionals in place?</div>
+      <div class="a">A trusted local agent and lender can help you decide if you're ready to make your move, or what to get in order first.</div>
+    </div>
+  </div>
+
+  <!-- THINGS TO AVOID -->
+  <div class="section-label">After You Apply</div>
+  <div class="card">
+    <div class="card-header rust">
+      <div class="card-icon">⚠</div>
+      <div>
+        <div class="card-title">Things to Avoid After Applying for a Mortgage</div>
+        <div class="card-tag">Consistency is the name of the game</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <ul>
+        <li>Don't change bank accounts</li>
+        <li>Don't apply for new credit or close any credit accounts</li>
+        <li>Don't deposit large amounts of cash before speaking with your lender</li>
+        <li>Don't co-sign loans for anyone</li>
+        <li>Don't make any large purchases</li>
+      </ul>
+      <p><strong>Before doing anything financial in nature, talk to your lender first.</strong></p>
+    </div>
+  </div>
+
+  <!-- STRETCH OPTIONS -->
+  <div class="section-label" style="margin-top:28px;">Stretch Your Options, Not Your Budget</div>
+  <div class="card">
+    <div class="card-header gold">
+      <div class="card-icon">🏠</div>
+      <div>
+        <div class="card-title">Three Ways to Make Affordability Work</div>
+        <div class="card-tag">Sources: StorageCafe, Redfin, Money.com</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p><strong>Fixer-uppers:</strong> Homes that need some work typically run about 29% less than move-in-ready options, a solid choice if you're handy or willing to invest in sweat equity.</p>
+      <p><strong>Townhomes:</strong> Average townhome costs around $363K versus $446K for a detached single-family home, more room in the budget without giving up ownership.</p>
+      <p><strong>Pooling resources:</strong> Buying with a friend or family member combines incomes and can help you qualify for more, while splitting the mortgage and bills.</p>
+    </div>
+  </div>
+
+  <!-- ROADMAP -->
+  <div class="section-label" style="margin-top:28px;">Your Roadmap to Homeownership</div>
+  <div style="background:var(--parchment);border:1px solid var(--border);border-radius:10px;padding:20px 24px;margin-bottom:24px;">
+    <div class="roadmap">
+      <div class="roadmap-item"><div class="roadmap-num"></div><div><div class="roadmap-title">Assemble Your Team</div><div class="roadmap-sub">Find a local agent and a trusted lender to guide you through the process</div></div></div>
+      <div class="roadmap-item"><div class="roadmap-num"></div><div><div class="roadmap-title">Check Your Credit</div><div class="roadmap-sub">Take steps to improve it as needed, a higher score unlocks better options and rates</div></div></div>
+      <div class="roadmap-item"><div class="roadmap-num"></div><div><div class="roadmap-title">Stack Up Your Savings</div><div class="roadmap-sub">Know what you're saving for, and ask about assistance programs you may qualify for</div></div></div>
+      <div class="roadmap-item"><div class="roadmap-num"></div><div><div class="roadmap-title">Get Pre-Approved</div><div class="roadmap-sub">Find out what you can borrow before you start house hunting</div></div></div>
+      <div class="roadmap-item"><div class="roadmap-num"></div><div><div class="roadmap-title">Go House Hunting</div><div class="roadmap-sub">Explore neighborhoods and home styles with your agent, keep an open mind</div></div></div>
+      <div class="roadmap-item"><div class="roadmap-num"></div><div><div class="roadmap-title">Make an Offer</div><div class="roadmap-sub">Your agent helps craft a competitive offer and negotiates on your behalf</div></div></div>
+      <div class="roadmap-item"><div class="roadmap-num"></div><div><div class="roadmap-title">Get an Inspection and Appraisal</div><div class="roadmap-sub">Confirm the home is in good shape and priced fairly, renegotiate if needed</div></div></div>
+      <div class="roadmap-item"><div class="roadmap-num"></div><div><div class="roadmap-title">Make It Official</div><div class="roadmap-sub">Closing day, sign your paperwork and grab the keys</div></div></div>
+      <div class="roadmap-item"><div class="roadmap-num"></div><div><div class="roadmap-title">Move into Your New Home</div><div class="roadmap-sub">Send in the movers and make your house a home</div></div></div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div style="background:var(--moss-lt);border:1px solid #C8DEC4;border-radius:8px;padding:16px 20px;margin-bottom:20px;font-size:12px;color:var(--soil);line-height:1.75;">
+    Buying your first home is a big decision, and it's okay to feel a little nervous about it. That's normal. If you want to talk through where you stand, what's possible, or just have questions answered with no pressure, let's connect.
+  </div>
+
+  <div style="background:var(--parchment);border:1px solid var(--border);border-radius:8px;padding:12px 16px;margin-bottom:20px;font-size:10px;color:var(--muted);line-height:1.7;text-align:center;">
+    This guide is for educational purposes only and is not legal, tax, or financial advice. Loan terms, rates, and qualification requirements vary by lender. Sources: FTC, First American, NY Fed, FICO, NAR, Chase, StorageCafe, Redfin, Money.com, CNET, Experian, Zillow.
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-left">
+      <strong>Chris Drawdy</strong><br>
+      That Gardening Realtor · eXp Realty<br>
+      (210) 214-2673 · chris.drawdy@exprealty.com<br>
+      San Antonio, TX
+    </div>
+    <div class="footer-right">
+      Equal Housing Opportunity. First-Time Home Buyer Guide Edition, 2026.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
