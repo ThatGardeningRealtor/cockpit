@@ -554,9 +554,7 @@
       ],
       "focus": "How buyer agent compensation works in Texas post-NAR settlement, why the listing agent legally represents the seller, what dual agency means, why having your own agent protects you at zero cost",
       "publishedAt": "2026-06-09T09:44:03.135Z"
-    }
-  ],
-  "queue": [
+    },
     {
       "slug": "title-insurance-texas-explained",
       "title": "Title Insurance in Texas: What You Are Actually Paying For and Why It Matters",
@@ -566,7 +564,8 @@
         "what is title insurance Texas",
         "owner policy vs lender policy"
       ],
-      "focus": "What title insurance covers, owner vs lender policy, why it is a one-time cost, what happens without it, real scenarios where it saves buyers"
+      "focus": "What title insurance covers, owner vs lender policy, why it is a one-time cost, what happens without it, real scenarios where it saves buyers",
+      "publishedAt": "2026-06-11T10:20:16.168Z"
     },
     {
       "slug": "pmi-explained-when-it-goes-away",
@@ -578,7 +577,8 @@
         "when does PMI go away",
         "cancel PMI Texas"
       ],
-      "focus": "What PMI is, when it triggers, cost per $100k, automatic termination at 20% equity, how to request early cancellation, FHA MIP difference, strategies to avoid it"
+      "focus": "What PMI is, when it triggers, cost per $100k, automatic termination at 20% equity, how to request early cancellation, FHA MIP difference, strategies to avoid it",
+      "publishedAt": "2026-06-11T10:21:08.592Z"
     },
     {
       "slug": "property-tax-exemptions-texas-homeowners",
@@ -590,8 +590,11 @@
         "Bexar County homestead exemption",
         "protest property tax Texas"
       ],
-      "focus": "Homestead exemption how to file and value, over-65 freeze, disability exemption, veteran exemptions, how to protest your appraisal and win, Bexar County specific process"
-    },
+      "focus": "Homestead exemption how to file and value, over-65 freeze, disability exemption, veteran exemptions, how to protest your appraisal and win, Bexar County specific process",
+      "publishedAt": "2026-06-11T10:22:09.695Z"
+    }
+  ],
+  "queue": [
     {
       "slug": "home-inspection-vs-appraisal-difference",
       "title": "Home Inspection vs. Appraisal: Most Buyers Confuse These and It Costs Them",
