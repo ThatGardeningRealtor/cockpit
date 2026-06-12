@@ -592,9 +592,7 @@
       ],
       "focus": "Homestead exemption how to file and value, over-65 freeze, disability exemption, veteran exemptions, how to protest your appraisal and win, Bexar County specific process",
       "publishedAt": "2026-06-11T10:22:09.695Z"
-    }
-  ],
-  "queue": [
+    },
     {
       "slug": "home-inspection-vs-appraisal-difference",
       "title": "Home Inspection vs. Appraisal: Most Buyers Confuse These and It Costs Them",
@@ -604,7 +602,8 @@
         "difference inspection appraisal",
         "who orders appraisal Texas"
       ],
-      "focus": "What each one is, who orders it, who pays, what they find vs determine, why you need both, what happens when each reveals a problem"
+      "focus": "What each one is, who orders it, who pays, what they find vs determine, why you need both, what happens when each reveals a problem",
+      "publishedAt": "2026-06-12T10:08:35.065Z"
     },
     {
       "slug": "bridge-loan-sell-and-buy-same-time",
@@ -615,7 +614,8 @@
         "buy before selling home Texas",
         "contingency offer San Antonio"
       ],
-      "focus": "Bridge loans what they are and cost, contingency offers how they work, timing strategies, sale of home addendum in TX contracts"
+      "focus": "Bridge loans what they are and cost, contingency offers how they work, timing strategies, sale of home addendum in TX contracts",
+      "publishedAt": "2026-06-12T10:09:36.936Z"
     },
     {
       "slug": "1031-exchange-texas-investors-explained",
@@ -626,8 +626,11 @@
         "capital gains real estate Texas",
         "1031 exchange San Antonio investor"
       ],
-      "focus": "What a 1031 exchange is, the rules 45 and 180 day deadlines, how investors grow portfolios tax-deferred, examples with numbers, what anyone selling investment property needs to know"
-    },
+      "focus": "What a 1031 exchange is, the rules 45 and 180 day deadlines, how investors grow portfolios tax-deferred, examples with numbers, what anyone selling investment property needs to know",
+      "publishedAt": "2026-06-12T10:10:21.265Z"
+    }
+  ],
+  "queue": [
     {
       "slug": "capital-gains-exclusion-home-sale-texas",
       "title": "The $250,000 Tax Exclusion When You Sell Your Home — What Most Texas Sellers Do Not Know",
