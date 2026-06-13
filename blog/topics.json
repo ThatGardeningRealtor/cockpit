@@ -628,9 +628,7 @@
       ],
       "focus": "What a 1031 exchange is, the rules 45 and 180 day deadlines, how investors grow portfolios tax-deferred, examples with numbers, what anyone selling investment property needs to know",
       "publishedAt": "2026-06-12T10:10:21.265Z"
-    }
-  ],
-  "queue": [
+    },
     {
       "slug": "capital-gains-exclusion-home-sale-texas",
       "title": "The $250,000 Tax Exclusion When You Sell Your Home — What Most Texas Sellers Do Not Know",
@@ -640,7 +638,8 @@
         "250k exclusion home sale",
         "primary residence tax exclusion Texas"
       ],
-      "focus": "The primary residence exclusion, 2-of-5-year rule, what triggers taxes, what counts as improvements to reduce gain, Texas no state income tax but federal applies"
+      "focus": "The primary residence exclusion, 2-of-5-year rule, what triggers taxes, what counts as improvements to reduce gain, Texas no state income tax but federal applies",
+      "publishedAt": "2026-06-13T08:55:49.220Z"
     },
     {
       "slug": "as-is-clause-texas-explained",
@@ -651,7 +650,8 @@
         "as-is clause Texas",
         "buying as-is home Texas"
       ],
-      "focus": "As-is in Texas still allows inspection and termination during option period, what sellers are disclosing vs not, why as-is is a negotiating position not a legal protection"
+      "focus": "As-is in Texas still allows inspection and termination during option period, what sellers are disclosing vs not, why as-is is a negotiating position not a legal protection",
+      "publishedAt": "2026-06-13T08:56:34.760Z"
     },
     {
       "slug": "closing-disclosure-what-to-review",
@@ -662,8 +662,11 @@
         "what to check closing disclosure",
         "closing costs breakdown Texas"
       ],
-      "focus": "What the CD is, when you get it, line by line what to check, cash to close calculation, common errors to catch, prepaid items vs closing costs"
-    },
+      "focus": "What the CD is, when you get it, line by line what to check, cash to close calculation, common errors to catch, prepaid items vs closing costs",
+      "publishedAt": "2026-06-13T08:57:22.719Z"
+    }
+  ],
+  "queue": [
     {
       "slug": "buying-home-after-bankruptcy-foreclosure",
       "title": "Buying a Home After Bankruptcy or Foreclosure in Texas — The Waiting Periods Nobody Tells You",
