@@ -664,9 +664,7 @@
       ],
       "focus": "What the CD is, when you get it, line by line what to check, cash to close calculation, common errors to catch, prepaid items vs closing costs",
       "publishedAt": "2026-06-13T08:57:22.719Z"
-    }
-  ],
-  "queue": [
+    },
     {
       "slug": "buying-home-after-bankruptcy-foreclosure",
       "title": "Buying a Home After Bankruptcy or Foreclosure in Texas — The Waiting Periods Nobody Tells You",
@@ -676,7 +674,8 @@
         "foreclosure waiting period home loan",
         "Chapter 7 home loan Texas"
       ],
-      "focus": "FHA waiting periods, VA, USDA, conventional timelines, how the clock starts, extenuating circumstances exceptions, what to do during the waiting period"
+      "focus": "FHA waiting periods, VA, USDA, conventional timelines, how the clock starts, extenuating circumstances exceptions, what to do during the waiting period",
+      "publishedAt": "2026-06-14T09:31:13.967Z"
     },
     {
       "slug": "first-time-buyer-if-owned-before",
@@ -687,7 +686,8 @@
         "first time buyer 3 year rule Texas",
         "qualify first time buyer again"
       ],
-      "focus": "The 3-year rule, what programs this unlocks, who this applies to: divorced, relocated, downsized renters"
+      "focus": "The 3-year rule, what programs this unlocks, who this applies to: divorced, relocated, downsized renters",
+      "publishedAt": "2026-06-14T09:31:59.873Z"
     },
     {
       "slug": "pcs-military-relocation-san-antonio-buying",
@@ -699,8 +699,11 @@
         "buying home military orders Texas",
         "JBSA home buying"
       ],
-      "focus": "VA loan on a PCS timeline, BAH considerations, virtual tours and remote buying, contingencies to protect you, neighborhoods near Lackland and JBSA, timeline compression strategies"
-    },
+      "focus": "VA loan on a PCS timeline, BAH considerations, virtual tours and remote buying, contingencies to protect you, neighborhoods near Lackland and JBSA, timeline compression strategies",
+      "publishedAt": "2026-06-14T09:33:04.612Z"
+    }
+  ],
+  "queue": [
     {
       "slug": "short-sale-foreclosure-buying-san-antonio",
       "title": "Buying a Short Sale or Foreclosure in San Antonio — Realistic Expectations and How the Process Works",
