@@ -701,9 +701,7 @@
       ],
       "focus": "VA loan on a PCS timeline, BAH considerations, virtual tours and remote buying, contingencies to protect you, neighborhoods near Lackland and JBSA, timeline compression strategies",
       "publishedAt": "2026-06-14T09:33:04.612Z"
-    }
-  ],
-  "queue": [
+    },
     {
       "slug": "short-sale-foreclosure-buying-san-antonio",
       "title": "Buying a Short Sale or Foreclosure in San Antonio — Realistic Expectations and How the Process Works",
@@ -714,7 +712,8 @@
         "REO property San Antonio",
         "bank owned home Texas"
       ],
-      "focus": "What short sales and foreclosures are, real timeline months not weeks, inspection limitations, as-is reality, pricing vs value, where to find them, what Priority Bank REO experience taught us"
+      "focus": "What short sales and foreclosures are, real timeline months not weeks, inspection limitations, as-is reality, pricing vs value, where to find them, what Priority Bank REO experience taught us",
+      "publishedAt": "2026-06-15T12:00:29.987Z"
     },
     {
       "slug": "debt-to-income-ratio-home-buying-texas",
@@ -726,7 +725,8 @@
         "improve DTI ratio",
         "how much can I borrow San Antonio"
       ],
-      "focus": "What DTI is, front vs back end, limits by loan type FHA VA conventional, how to calculate yours, what counts as debt, strategies to lower DTI fast before applying"
+      "focus": "What DTI is, front vs back end, limits by loan type FHA VA conventional, how to calculate yours, what counts as debt, strategies to lower DTI fast before applying",
+      "publishedAt": "2026-06-15T12:01:30.982Z"
     },
     {
       "slug": "cosigner-vs-co-borrower-mortgage-texas",
@@ -737,8 +737,11 @@
         "co-borrower vs cosigner",
         "non-occupant co-borrower Texas"
       ],
-      "focus": "Legal and financial difference, how each affects both parties, FHA non-occupant co-borrower rules, when lenders allow it, exit strategies"
-    },
+      "focus": "Legal and financial difference, how each affects both parties, FHA non-occupant co-borrower rules, when lenders allow it, exit strategies",
+      "publishedAt": "2026-06-15T12:02:20.335Z"
+    }
+  ],
+  "queue": [
     {
       "slug": "what-is-escrow-texas-home-buying",
       "title": "What Is Escrow in a Texas Real Estate Transaction — And Why It Protects Everyone",
