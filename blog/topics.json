@@ -739,9 +739,7 @@
       ],
       "focus": "Legal and financial difference, how each affects both parties, FHA non-occupant co-borrower rules, when lenders allow it, exit strategies",
       "publishedAt": "2026-06-15T12:02:20.335Z"
-    }
-  ],
-  "queue": [
+    },
     {
       "slug": "what-is-escrow-texas-home-buying",
       "title": "What Is Escrow in a Texas Real Estate Transaction — And Why It Protects Everyone",
@@ -751,7 +749,8 @@
         "escrow account Texas home buying",
         "how does escrow work Texas"
       ],
-      "focus": "Two types of escrow: closing escrow and mortgage escrow, how each works, who manages it, what happens to funds, property tax and insurance escrow accounts after closing"
+      "focus": "Two types of escrow: closing escrow and mortgage escrow, how each works, who manages it, what happens to funds, property tax and insurance escrow accounts after closing",
+      "publishedAt": "2026-06-16T11:07:28.249Z"
     },
     {
       "slug": "real-talk-first-3-years-real-estate-agent",
@@ -763,7 +762,8 @@
         "surviving first years real estate",
         "real estate agent struggles"
       ],
-      "focus": "The honest truth about years 1-3 — income gaps, isolation, bad mentors, imposter syndrome, eating dirt. What actually gets agents through it. The mindset shift from surviving to growing. Written from personal experience."
+      "focus": "The honest truth about years 1-3 — income gaps, isolation, bad mentors, imposter syndrome, eating dirt. What actually gets agents through it. The mindset shift from surviving to growing. Written from personal experience.",
+      "publishedAt": "2026-06-16T11:08:26.436Z"
     },
     {
       "slug": "broken-mentorship-system-real-estate",
@@ -775,8 +775,11 @@
         "why real estate agents quit",
         "real estate agent support"
       ],
-      "focus": "Why most new agents are handed a license and left alone. The gap between what brokerages promise and what they deliver. What real mentorship actually looks like vs being treated as a number. The agents who quit were not the wrong people — they were failed by the system."
-    },
+      "focus": "Why most new agents are handed a license and left alone. The gap between what brokerages promise and what they deliver. What real mentorship actually looks like vs being treated as a number. The agents who quit were not the wrong people — they were failed by the system.",
+      "publishedAt": "2026-06-16T11:09:12.605Z"
+    }
+  ],
+  "queue": [
     {
       "slug": "further-faster-together-real-estate-team-growth",
       "title": "Further Faster Together: Why the Best Real Estate Growth Happens in Community",
