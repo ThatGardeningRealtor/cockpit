@@ -777,9 +777,7 @@
       ],
       "focus": "Why most new agents are handed a license and left alone. The gap between what brokerages promise and what they deliver. What real mentorship actually looks like vs being treated as a number. The agents who quit were not the wrong people — they were failed by the system.",
       "publishedAt": "2026-06-16T11:09:12.605Z"
-    }
-  ],
-  "queue": [
+    },
     {
       "slug": "further-faster-together-real-estate-team-growth",
       "title": "Further Faster Together: Why the Best Real Estate Growth Happens in Community",
@@ -790,7 +788,8 @@
         "mastermind real estate agents",
         "eXp Realty community agent growth"
       ],
-      "focus": "The mastermind model — sharing knowledge freely to grow exponentially together. Why competition mindset kills growth and community mindset accelerates it. Jerome Gardner story. What it looks like to genuinely lift other agents."
+      "focus": "The mastermind model — sharing knowledge freely to grow exponentially together. Why competition mindset kills growth and community mindset accelerates it. Jerome Gardner story. What it looks like to genuinely lift other agents.",
+      "publishedAt": "2026-06-17T10:52:04.910Z"
     },
     {
       "slug": "how-to-find-real-mentor-real-estate",
@@ -802,7 +801,8 @@
         "bad mentor real estate",
         "real estate broker support"
       ],
-      "focus": "Red flags of a mentor who is just checking a box. What a real mentorship relationship looks like. Questions to ask before aligning with a team or brokerage. How to course-correct if you are already with the wrong group. You can survive a bad mentor."
+      "focus": "Red flags of a mentor who is just checking a box. What a real mentorship relationship looks like. Questions to ask before aligning with a team or brokerage. How to course-correct if you are already with the wrong group. You can survive a bad mentor.",
+      "publishedAt": "2026-06-17T10:53:00.675Z"
     },
     {
       "slug": "real-estate-agent-right-reasons",
@@ -814,8 +814,11 @@
         "real estate agent realistic expectations",
         "is real estate right for me"
       ],
-      "focus": "The difference between people who get into real estate for the right reasons vs the wrong ones. What the right reasons actually look like in practice. The patience required. The reality of the early years. Why the ones who make it are the ones who genuinely want to serve people."
-    },
+      "focus": "The difference between people who get into real estate for the right reasons vs the wrong ones. What the right reasons actually look like in practice. The patience required. The reality of the early years. Why the ones who make it are the ones who genuinely want to serve people.",
+      "publishedAt": "2026-06-17T10:53:57.477Z"
+    }
+  ],
+  "queue": [
     {
       "slug": "exp-realty-agent-attraction-what-it-means",
       "title": "eXp Realty Agent Attraction Model Explained — What It Actually Means for Your Business",
