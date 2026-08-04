@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5023 Pine Lake Dr — Seller Summary</title>
+<style>
+  :root {
+    --green: #4a7c59;
+    --green-light: #eef5f0;
+    --green-border: #4a7c59;
+    --text: #2b2b2b;
+    --muted: #6b6b6b;
+    --fill: #fff3cd;
+    --fill-border: #e6b800;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: var(--text);
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 32px 20px 60px;
+    line-height: 1.5;
+    background: #fff;
+  }
+  .brand {
+    font-size: 14px;
+    color: var(--green);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin-bottom: 4px;
+  }
+  h1 {
+    font-size: 28px;
+    margin: 0 0 4px;
+  }
+  .subline {
+    color: var(--muted);
+    font-size: 15px;
+    margin-bottom: 24px;
+  }
+  .agent-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    background: var(--green-light);
+    border-left: 4px solid var(--green-border);
+    padding: 14px 18px;
+    border-radius: 6px;
+    margin-bottom: 32px;
+    font-size: 14px;
+  }
+  .agent-row div strong { display: block; margin-bottom: 2px; }
+  h2 {
+    font-size: 19px;
+    margin: 36px 0 14px;
+    border-bottom: 2px solid var(--green-light);
+    padding-bottom: 8px;
+  }
+  .card {
+    border-left: 4px solid var(--green-border);
+    background: var(--green-light);
+    border-radius: 6px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+  }
+  .snapshot-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .snapshot-grid .card { text-align: center; }
+  .snapshot-grid .big { font-size: 22px; font-weight: 700; color: var(--green); }
+  .snapshot-grid .label { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .fill {
+    background: var(--fill);
+    border: 1px dashed var(--fill-border);
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-weight: 600;
+    font-size: 0.95em;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin: 12px 0;
+  }
+  th, td {
+    text-align: left;
+    padding: 10px 8px;
+    border-bottom: 1px solid #e2e2e2;
+  }
+  th { color: var(--muted); font-weight: 600; font-size: 12px; text-transform: uppercase; }
+  tr.recommended { background: var(--green-light); font-weight: 600; }
+  .note {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+  .options { display: flex; flex-direction: column; gap: 12px; }
+  .option-title { font-weight: 700; font-size: 15px; }
+  .option-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-left: 8px;
+  }
+  .tag-recommended { background: var(--green); color: #fff; }
+  .tag-caution { background: #f0e6c8; color: #7a5c00; }
+  .tag-fast { background: #dbe7ff; color: #1a3f8f; }
+  .cta {
+    margin-top: 32px;
+    padding: 18px;
+    background: var(--green-light);
+    border-radius: 6px;
+    text-align: center;
+  }
+  .signoff { margin-top: 14px; font-weight: 600; }
+  footer {
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 1px solid #e2e2e2;
+    font-size: 12px;
+    color: var(--muted);
+    text-align: center;
+  }
+  .todo-banner {
+    background: var(--fill);
+    border: 1px solid var(--fill-border);
+    border-radius: 6px;
+    padding: 14px 18px;
+    font-size: 13px;
+    margin-bottom: 28px;
+  }
+  .todo-banner strong { display: block; margin-bottom: 6px; }
+  a { color: var(--green); text-decoration: none; border-bottom: 1px solid var(--green-border); }
+  a:hover { opacity: 0.75; }
+  .reports-line { font-size: 13px; color: var(--muted); margin-top: 10px; }
+  .reports-line a { margin-right: 4px; }
+  .calc-card { padding: 20px; }
+  .calc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+  .calc-grid label {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    gap: 6px;
+  }
+  .calc-grid input {
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    padding: 8px 10px;
+    border: 1px solid #cfcfcf;
+    border-radius: 5px;
+    background: #fff;
+  }
+  .calc-grid input:focus {
+    outline: none;
+    border-color: var(--green-border);
+  }
+  .calc-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    border-top: 1px solid #d8e4dc;
+    padding-top: 16px;
+  }
+  .calc-result { text-align: center; }
+  .calc-label {
+    display: block;
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .calc-value {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .calc-result.highlight .calc-value { color: var(--green); }
+</style>
+</head>
+<body>
+
+  <div class="brand">🌱 That Gardening Realtor · Seller Summary</div>
+  <h1>5023 Pine Lake Dr</h1>
+  <div class="subline">San Antonio, TX 78244 · Woodlake Park Unit-5 · 3 Bed / 2.5 Bath · 2,085 sqft · Built 1995</div>
+
+  <div class="todo-banner">
+    <strong>Let's confirm together:</strong>
+    The calculator below uses an estimated mortgage payoff based on the VA loan taken 8/21/2020, and a placeholder for the solar loan balance. Once we have your exact numbers, we'll plug them in and see real figures on the spot.
+  </div>
+
+  <div class="agent-row">
+    <div>
+      <strong>Jerome Gardner</strong>
+      eXp Realty · Schertz / Cibolo, TX<br>
+      (210) 758-7343 · jerome.gardner@exprealty.com<br>
+      TX Lic #846422-SA
+    </div>
+    <div>
+      <strong>Chris Drawdy</strong>
+      eXp Realty · San Antonio TX<br>
+      (210) 214-2673 · chris.drawdy@exprealty.com<br>
+      TX Lic #790317-SA
+    </div>
+  </div>
+
+  <h2>What the Market Is Saying</h2>
+  <table>
+    <tr><th>Source</th><th>Value</th><th>Range</th></tr>
+    <tr><td><a href="https://drive.google.com/file/d/1zZmwzlF-fziLuRrUhMLxc55IBkXaMaI_/view?usp=drivesdk">Bexar CAD (2026 Assessed)</a></td><td>$242,270</td><td>$196,940 – $264,000 (5-yr, '21–'23)</td></tr>
+    <tr><td><a href="https://drive.google.com/file/d/1_-ASOdZ9GWI3wWuGVgy13y9jjmhkI-A_/view?usp=drivesdk">RPR RVM</a> (updated 8/2/2026)</td><td>$267,730</td><td>$243.6K – $291.8K</td></tr>
+    <tr><td><a href="https://drive.google.com/file/d/1_-ASOdZ9GWI3wWuGVgy13y9jjmhkI-A_/view?usp=drivesdk">RPR CMA Value</a></td><td>$232,739</td><td>$185K – $266K</td></tr>
+    <tr><td><a href="https://drive.google.com/file/d/1vUEniw7pfTmFa_h77XKU6I-jBx6r0X3O/view?usp=drivesdk">Zillow Zestimate</a></td><td>$237,200</td><td>—</td></tr>
+    <tr><td><a href="https://drive.google.com/file/d/1FAZ4p9WmegwDOlKeF201uZj4vFDhODfu/view?usp=drivesdk">MLS CMA — Sold Comps</a> (8 properties)</td><td>$231,263 avg</td><td>$185K – $266K</td></tr>
+    <tr><td><a href="https://drive.google.com/file/d/1FAZ4p9WmegwDOlKeF201uZj4vFDhODfu/view?usp=drivesdk">MLS CMA — Pending Comp</a> (4302 Somerville Bay)</td><td>$249,000</td><td>—</td></tr>
+    <tr><td><a href="https://drive.google.com/file/d/1OTKenDiJsmT_IWk_ucCSqfBRGWZAsP_k/view?usp=drivesdk">Purchase Price</a> (2019)</td><td>$186,000</td><td>List $185,000 → Sold $186,000</td></tr>
+  </table>
+  <p class="note">Consensus range across all sources: <strong>$185K – $268K</strong>, clustering around <strong>$232K – $242K</strong>. Sold comps average $98.56/sqft; at that rate the subject's 2,085 sqft prices near $205K, though the RVM and pending comp both trend higher. Reconcile with today's walkthrough condition before finalizing.</p>
+  <p class="reports-line">Full reports: <a href="https://drive.google.com/file/d/1EMcUF2zOyBZt5DwHPRKSQ5292uXu4cO7/view?usp=drivesdk">County Property Report</a> · <a href="https://drive.google.com/file/d/1zZmwzlF-fziLuRrUhMLxc55IBkXaMaI_/view?usp=drivesdk">Tax Report</a> · <a href="https://drive.google.com/file/d/1_-ASOdZ9GWI3wWuGVgy13y9jjmhkI-A_/view?usp=drivesdk">RPR CMA</a> · <a href="https://drive.google.com/file/d/1FAZ4p9WmegwDOlKeF201uZj4vFDhODfu/view?usp=drivesdk">MLS CMA</a> · <a href="https://drive.google.com/file/d/1vUEniw7pfTmFa_h77XKU6I-jBx6r0X3O/view?usp=drivesdk">Zillow</a> · <a href="https://drive.google.com/file/d/1OTKenDiJsmT_IWk_ucCSqfBRGWZAsP_k/view?usp=drivesdk">Previous Sale (MLS)</a></p>
+
+  <h2>Comparable Properties</h2>
+  <table>
+    <tr><th>Address</th><th>MLS #</th><th>Days on Market</th><th>Sold Price</th><th>$/SqFt</th><th>Close Date</th><th>RPR Photos</th></tr>
+    <tr><td>5011 Wood Glen Dr</td><td>1971717</td><td>18</td><td>$245,000</td><td>$135.06</td><td>7/23/2026</td><td><a href="https://drive.google.com/file/d/1_-ASOdZ9GWI3wWuGVgy13y9jjmhkI-A_/view?usp=drivesdk">RPR p.21</a></td></tr>
+    <tr><td>5153 Dagger Flts</td><td>1967226</td><td>24</td><td>$185,000</td><td>$72.89</td><td>6/22/2026</td><td><a href="https://drive.google.com/file/d/1_-ASOdZ9GWI3wWuGVgy13y9jjmhkI-A_/view?usp=drivesdk">RPR p.27</a></td></tr>
+    <tr><td>3702 Candlebluff Dr</td><td>1870175</td><td>27</td><td>$199,700</td><td>$98.76</td><td>5/29/2026</td><td><a href="https://drive.google.com/file/d/1_-ASOdZ9GWI3wWuGVgy13y9jjmhkI-A_/view?usp=drivesdk">RPR p.23</a></td></tr>
+    <tr><td>6459 Marlin Flts</td><td>1932703</td><td>39</td><td>$257,000</td><td>$101.26</td><td>3/19/2026</td><td><a href="https://drive.google.com/file/d/1_-ASOdZ9GWI3wWuGVgy13y9jjmhkI-A_/view?usp=drivesdk">RPR p.29</a></td></tr>
+    <tr><td>4813 Lost Tree</td><td>1931226</td><td>101</td><td>$240,000</td><td>$94.67</td><td>4/24/2026</td><td><a href="https://drive.google.com/file/d/1_-ASOdZ9GWI3wWuGVgy13y9jjmhkI-A_/view?usp=drivesdk">RPR p.19</a></td></tr>
+    <tr><td>6163 Brandys Farm</td><td>1914123</td><td>104</td><td>$222,400</td><td>$92.66</td><td>3/2/2026</td><td><a href="https://drive.google.com/file/d/1_-ASOdZ9GWI3wWuGVgy13y9jjmhkI-A_/view?usp=drivesdk">RPR p.25</a></td></tr>
+    <tr><td>4910 Larkhill Farm</td><td>1917800</td><td>154</td><td>$266,000</td><td>$106.40</td><td>6/19/2026</td><td><a href="https://drive.google.com/file/d/1_-ASOdZ9GWI3wWuGVgy13y9jjmhkI-A_/view?usp=drivesdk">RPR p.31</a></td></tr>
+    <tr><td>4507 River Brook Dr</td><td>1894408</td><td>270</td><td>$235,000</td><td>$96.94</td><td>6/9/2026</td><td><a href="https://drive.google.com/file/d/1_-ASOdZ9GWI3wWuGVgy13y9jjmhkI-A_/view?usp=drivesdk">RPR p.17</a></td></tr>
+    <tr><td>4302 Somerville Bay <span class="option-tag tag-caution">Pending</span></td><td>1994715</td><td>26</td><td>$249,000 (list)</td><td>$102.72</td><td>—</td><td><a href="https://drive.google.com/file/d/1FAZ4p9WmegwDOlKeF201uZj4vFDhODfu/view?usp=drivesdk">MLS CMA</a></td></tr>
+  </table>
+  <p class="note">Sorted by days on market, fastest sales first — the strongest signal of what the market will actually bear at that price. 5011 Wood Glen Dr and 5153 Dagger Flts sold in under a month; 4507 River Brook Dr took 270 days, which likely reflects a pricing miss rather than true market value. Photos and full comp adjustment grids (bed/bath, lot size, year built, condition) are in the <a href="https://drive.google.com/file/d/1_-ASOdZ9GWI3wWuGVgy13y9jjmhkI-A_/view?usp=drivesdk">RPR CMA report</a> at the pages noted above. MLS #s pull up directly in connectMLS for the full listing history if needed.</p>
+
+  <h2>Equity & Net Proceeds Calculator</h2>
+  <div class="card calc-card">
+    <div class="calc-grid">
+      <label>Market Value
+        <input type="number" id="marketValue" value="242000" step="1000">
+      </label>
+      <label>List Price
+        <input type="number" id="listPrice" value="245000" step="1000">
+      </label>
+      <label>Mortgage Payoff
+        <input type="number" id="mortgagePayoff" value="165000" step="1000">
+      </label>
+      <label>Solar Loan Payoff
+        <input type="number" id="solarPayoff" value="45000" step="1000">
+      </label>
+      <label>Closing Costs %
+        <input type="number" id="closingPct" value="10" step="0.5">
+      </label>
+    </div>
+    <div class="calc-results">
+      <div class="calc-result">
+        <span class="calc-label">Total Payoff</span>
+        <span id="outTotalPayoff" class="calc-value">$210,000</span>
+      </div>
+      <div class="calc-result">
+        <span class="calc-label">Estimated Equity</span>
+        <span id="outEquity" class="calc-value">$32,000</span>
+      </div>
+      <div class="calc-result">
+        <span class="calc-label">Closing Costs</span>
+        <span id="outClosing" class="calc-value">$24,500</span>
+      </div>
+      <div class="calc-result highlight">
+        <span class="calc-label">Est. Net to You</span>
+        <span id="outNet" class="calc-value">$10,500</span>
+      </div>
+    </div>
+  </div>
+  <p class="note">Mortgage payoff is estimated from the actual $191,550 VA loan taken 8/21/2020. Solar loan balance still needs confirmation. Feel free to adjust any field above, try your own numbers, test a different list price, and watch the results update live. Net sheet to be prepared in partnership with Chicago Title — Alyssa Castillo &amp; Carlos Sanchez, Licensed Escrow Officers, 15727 Anthem Parkway Suite 210, San Antonio TX 78249.</p>
+
+  <h2>Your Options</h2>
+  <div class="options">
+    <div class="card">
+      <span class="option-title">List on the Market</span><span class="option-tag tag-recommended">Recommended</span>
+      <p>Price it right, attract qualified buyers, maximize what you walk away with. With solid equity and a realistic price point, this is the clearest path to closing clean and moving forward. Timeline: 30–60 days to contract.</p>
+    </div>
+    <div class="card">
+      <span class="option-title">Wait and Watch</span><span class="option-tag tag-caution">Caution</span>
+      <p>The market is stable now but not guaranteed to improve. Holding longer means continued carrying costs — mortgage, taxes, insurance, maintenance. Only makes sense if there's a specific reason to wait.</p>
+    </div>
+    <div class="card">
+      <span class="option-title">Sell Off-Market / Investor</span><span class="option-tag tag-fast">Quick Exit</span>
+      <p>Fastest path — typically 7–21 days to close, no showings, no repairs. Trade-off is a lower offer, usually 10–15% below market. Best for someone who values speed and certainty over top dollar.</p>
+    </div>
+  </div>
+
+  <div class="cta">
+    You've built real equity in this property. The next step is a 20-minute conversation to walk through the numbers, answer your questions, and put together a plan that makes sense for where you're headed.
+    <div class="signoff">Chris Drawdy</div>
+  </div>
+
+  <h2>Things to Walk Through Together</h2>
+  <div class="card">
+    <ul style="margin:0; padding-left:18px;">
+      <li>What's the exact mortgage payoff, and what's the current solar loan balance? We'll plug both into the calculator above.</li>
+      <li>Does the solar loan show as a UCC-1 filing on title? Worth checking with Chicago Title early so there are no surprises at closing.</li>
+      <li>Does today's walkthrough change how the home compares to the market data above?</li>
+      <li>Once we see real net proceeds in the calculator, let's talk through pricing and commission structure together.</li>
+    </ul>
+  </div>
+
+  <footer>
+    That Gardening Realtor · eXp Realty, LLC · TX Broker Lic #603392<br>
+    Managing Broker: Karen Richards, TX Lic #508111 · 888.519.7431 · tx.broker@exprealty.com<br>
+    Chris Drawdy, TX Sales Agent Lic #790317-SA · Prepared August 2026 · 5023 Pine Lake Dr, San Antonio TX 78244 · For informational purposes only.
+  </footer>
+
+<script>
+  function formatCurrency(n) {
+    var sign = n < 0 ? '-' : '';
+    return sign + '$' + Math.round(Math.abs(n)).toLocaleString('en-US');
+  }
+  function recalcPineLake() {
+    var marketValue = parseFloat(document.getElementById('marketValue').value) || 0;
+    var listPrice = parseFloat(document.getElementById('listPrice').value) || 0;
+    var mortgage = parseFloat(document.getElementById('mortgagePayoff').value) || 0;
+    var solar = parseFloat(document.getElementById('solarPayoff').value) || 0;
+    var closingPct = parseFloat(document.getElementById('closingPct').value) || 0;
+
+    var totalPayoff = mortgage + solar;
+    var equity = marketValue - totalPayoff;
+    var closingCosts = listPrice * (closingPct / 100);
+    var net = listPrice - closingCosts - totalPayoff;
+
+    document.getElementById('outTotalPayoff').textContent = formatCurrency(totalPayoff);
+    document.getElementById('outEquity').textContent = formatCurrency(equity);
+    document.getElementById('outClosing').textContent = formatCurrency(closingCosts);
+    document.getElementById('outNet').textContent = formatCurrency(net);
+  }
+  document.addEventListener('DOMContentLoaded', function () {
+    ['marketValue', 'listPrice', 'mortgagePayoff', 'solarPayoff', 'closingPct'].forEach(function (id) {
+      document.getElementById(id).addEventListener('input', recalcPineLake);
+    });
+    recalcPineLake();
+  });
+</script>
+
+</body>
+</html>
