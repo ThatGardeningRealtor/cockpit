@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{font-family:-apple-system,sans-serif;background:#1E1208;color:#E8DCC8;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;padding:20px;box-sizing:border-box}
+.card{background:#2E4A30;border-radius:16px;padding:28px;max-width:400px;width:100%;text-align:center}
+h2{color:#8FB892;font-size:13px;letter-spacing:2px;text-transform:uppercase;margin:0 0 12px}
+p{font-size:13px;color:#B8D8B0;margin:8px 0;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="card">
+  <h2>Sirhc Data Reset</h2>
+  <p id="msg">Clearing old data...</p>
+</div>
+<script>
+localStorage.removeItem('tgr_data');
+document.getElementById('msg').textContent = 'Done — loading fresh data now...';
+setTimeout(function(){ location.href = 'https://thatgardeningrealtor.github.io/cockpit/'; }, 1000);
+</script>
+</body>
+</html>

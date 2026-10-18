@@ -1,0 +1,490 @@
+[
+  {
+    "slug": "lessons-from-3-years-eating-dirt-real-estate",
+    "title": "3 Years of Eating Dirt: What I Learned the Hard Way About Building a Real Estate Business",
+    "category": "expert",
+    "date": "June 18, 2026",
+    "readTime": "13 min read"
+  },
+  {
+    "slug": "exp-realty-agent-attraction-what-it-means",
+    "title": "eXp Realty Agent Attraction Model Explained — What It Actually Means for Your Business",
+    "category": "expert",
+    "date": "June 18, 2026",
+    "readTime": "12 min read"
+  },
+  {
+    "slug": "real-estate-agent-right-reasons",
+    "title": "Getting Into Real Estate for the Right Reasons — And Building the Patience to Last",
+    "category": "expert",
+    "date": "June 17, 2026",
+    "readTime": "14 min read"
+  },
+  {
+    "slug": "how-to-find-real-mentor-real-estate",
+    "title": "How to Find a Real Mentor in Real Estate (And What to Do If You Got Stuck With the Wrong One)",
+    "category": "expert",
+    "date": "June 17, 2026",
+    "readTime": "13 min read"
+  },
+  {
+    "slug": "further-faster-together-real-estate-team-growth",
+    "title": "Further Faster Together: Why the Best Real Estate Growth Happens in Community",
+    "category": "expert",
+    "date": "June 17, 2026",
+    "readTime": "15 min read"
+  },
+  {
+    "slug": "broken-mentorship-system-real-estate",
+    "title": "The Broken Mentorship System in Real Estate — And Why So Many Good Agents Quit",
+    "category": "expert",
+    "date": "June 16, 2026",
+    "readTime": "12 min read"
+  },
+  {
+    "slug": "real-talk-first-3-years-real-estate-agent",
+    "title": "Real Talk: What Nobody Tells You About Your First 3 Years as a Real Estate Agent",
+    "category": "expert",
+    "date": "June 16, 2026",
+    "readTime": "13 min read"
+  },
+  {
+    "slug": "what-is-escrow-texas-home-buying",
+    "title": "What Is Escrow in a Texas Real Estate Transaction — And Why It Protects Everyone",
+    "category": "expert",
+    "date": "June 16, 2026",
+    "readTime": "10 min read"
+  },
+  {
+    "slug": "cosigner-vs-co-borrower-mortgage-texas",
+    "title": "Cosigner vs. Co-Borrower on a Texas Mortgage — The Difference That Changes Everything",
+    "category": "financing",
+    "date": "June 15, 2026",
+    "readTime": "12 min read"
+  },
+  {
+    "slug": "debt-to-income-ratio-home-buying-texas",
+    "title": "Debt-to-Income Ratio: The Number That Decides How Much Home You Can Actually Buy",
+    "category": "financing",
+    "date": "June 15, 2026",
+    "readTime": "14 min read"
+  },
+  {
+    "slug": "short-sale-foreclosure-buying-san-antonio",
+    "title": "Buying a Short Sale or Foreclosure in San Antonio — Realistic Expectations and How the Process Works",
+    "category": "buying",
+    "date": "June 15, 2026",
+    "readTime": "13 min read"
+  },
+  {
+    "slug": "pcs-military-relocation-san-antonio-buying",
+    "title": "PCS Move to San Antonio: How Military Families Buy a Home Fast Without Getting Burned",
+    "category": "buying",
+    "date": "June 14, 2026",
+    "readTime": "15 min read"
+  },
+  {
+    "slug": "first-time-buyer-if-owned-before",
+    "title": "You Might Qualify as a First-Time Home Buyer Even If You Have Owned Before — The Rule Most People Miss",
+    "category": "buying",
+    "date": "June 14, 2026",
+    "readTime": "11 min read"
+  },
+  {
+    "slug": "buying-home-after-bankruptcy-foreclosure",
+    "title": "Buying a Home After Bankruptcy or Foreclosure in Texas — The Waiting Periods Nobody Tells You",
+    "category": "buying",
+    "date": "June 14, 2026",
+    "readTime": "11 min read"
+  },
+  {
+    "slug": "closing-disclosure-what-to-review",
+    "title": "The Closing Disclosure: What to Review Before You Sign and Numbers That Can Surprise You",
+    "category": "expert",
+    "date": "June 13, 2026",
+    "readTime": "11 min read"
+  },
+  {
+    "slug": "as-is-clause-texas-explained",
+    "title": "What As-Is Really Means in a Texas Real Estate Contract — It Is Not What Most Buyers Think",
+    "category": "expert",
+    "date": "June 13, 2026",
+    "readTime": "10 min read"
+  },
+  {
+    "slug": "capital-gains-exclusion-home-sale-texas",
+    "title": "The $250,000 Tax Exclusion When You Sell Your Home — What Most Texas Sellers Do Not Know",
+    "category": "selling",
+    "date": "June 13, 2026",
+    "readTime": "12 min read"
+  },
+  {
+    "slug": "1031-exchange-texas-investors-explained",
+    "title": "What Is a 1031 Exchange and How Texas Investors Use It to Defer Capital Gains Tax",
+    "category": "expert",
+    "date": "June 12, 2026",
+    "readTime": "11 min read"
+  },
+  {
+    "slug": "bridge-loan-sell-and-buy-same-time",
+    "title": "How to Buy a New Home Before Selling Your Current One — Bridge Loans and Contingencies in Texas",
+    "category": "buying",
+    "date": "June 12, 2026",
+    "readTime": "15 min read"
+  },
+  {
+    "slug": "home-inspection-vs-appraisal-difference",
+    "title": "Home Inspection vs. Appraisal: Most Buyers Confuse These and It Costs Them",
+    "category": "buying",
+    "date": "June 12, 2026",
+    "readTime": "11 min read"
+  },
+  {
+    "slug": "property-tax-exemptions-texas-homeowners",
+    "title": "Texas Property Tax Exemptions Most Homeowners Are Missing — Save Hundreds Every Year",
+    "category": "expert",
+    "date": "June 11, 2026",
+    "readTime": "15 min read"
+  },
+  {
+    "slug": "pmi-explained-when-it-goes-away",
+    "title": "PMI: What It Costs, When It Starts, and Exactly How to Get Rid of It",
+    "category": "financing",
+    "date": "June 11, 2026",
+    "readTime": "12 min read"
+  },
+  {
+    "slug": "title-insurance-texas-explained",
+    "title": "Title Insurance in Texas: What You Are Actually Paying For and Why It Matters",
+    "category": "expert",
+    "date": "June 11, 2026",
+    "readTime": "10 min read"
+  },
+  {
+    "slug": "buyers-agent-costs-nothing-texas",
+    "title": "Your Buyer Agent Costs You Nothing — And Why Going Direct to the Listing Agent Is a Mistake",
+    "category": "buying",
+    "date": "June 9, 2026",
+    "readTime": "13 min read"
+  },
+  {
+    "slug": "pre-qualified-vs-pre-approved-difference",
+    "title": "Pre-Qualified vs. Pre-Approved: The Difference That Can Cost You the House You Want",
+    "category": "buying",
+    "date": "June 9, 2026",
+    "readTime": "13 min read"
+  },
+  {
+    "slug": "seller-concessions-closing-costs-san-antonio",
+    "title": "How to Get the Seller to Pay Your Closing Costs in San Antonio",
+    "category": "buying",
+    "date": "June 9, 2026",
+    "readTime": "13 min read"
+  },
+  {
+    "slug": "appraisal-comes-in-low-options-texas",
+    "title": "What Happens When the Appraisal Comes In Low — Your 4 Options as a Buyer or Seller in Texas",
+    "category": "expert",
+    "date": "June 8, 2026",
+    "readTime": "13 min read"
+  },
+  {
+    "slug": "texas-non-disclosure-state-home-prices",
+    "title": "Texas Is a Non-Disclosure State — What That Means When Buying or Selling a Home",
+    "category": "expert",
+    "date": "June 8, 2026",
+    "readTime": "14 min read"
+  },
+  {
+    "slug": "earnest-money-texas-how-it-works",
+    "title": "Earnest Money in Texas: What Happens to It If the Deal Falls Through",
+    "category": "expert",
+    "date": "June 8, 2026",
+    "readTime": "14 min read"
+  },
+  {
+    "slug": "option-period-texas-explained",
+    "title": "The Option Period in Texas: What It Is, What It Costs, and How to Use It Strategically",
+    "category": "expert",
+    "date": "June 7, 2026",
+    "readTime": "14 min read"
+  },
+  {
+    "slug": "garden-adds-home-value-san-antonio",
+    "title": "How a Well-Planned Garden Can Add 0,000 to Your San Antonio Home's Value",
+    "category": "lifestyle",
+    "date": "June 7, 2026",
+    "readTime": "13 min read"
+  },
+  {
+    "slug": "growing-food-south-texas-vegetables-fruits",
+    "title": "Growing Food in South Texas: The Best Vegetables, Herbs, and Fruit for San Antonio's Climate",
+    "category": "lifestyle",
+    "date": "June 7, 2026",
+    "readTime": "14 min read"
+  },
+  {
+    "slug": "community-gardens-san-antonio-guide",
+    "title": "Community Gardens in San Antonio: Where to Find Them, How to Join, and Why They Build Better Neighborhoods",
+    "category": "lifestyle",
+    "date": "June 6, 2026",
+    "readTime": "13 min read"
+  },
+  {
+    "slug": "curb-appeal-gardening-before-listing-sa",
+    "title": "Curb Appeal Gardening Before You List in San Antonio: What Buyers Notice in the First 10 Seconds",
+    "category": "lifestyle",
+    "date": "June 6, 2026",
+    "readTime": "14 min read"
+  },
+  {
+    "slug": "raised-bed-gardening-san-antonio-soil-heat",
+    "title": "Raised Bed Gardening in San Antonio: Soil, Heat, and What Actually Works Here",
+    "category": "lifestyle",
+    "date": "June 6, 2026",
+    "readTime": "15 min read"
+  },
+  {
+    "slug": "home-inspection-san-antonio-what-to-expect",
+    "title": "What to Expect From a Home Inspection in San Antonio: A Buyer's Complete Guide",
+    "category": "expert",
+    "date": "June 5, 2026",
+    "readTime": "15 min read"
+  },
+  {
+    "slug": "san-antonio-property-taxes-explained",
+    "title": "San Antonio Property Taxes Explained: What Every Buyer and Homeowner Needs to Know",
+    "category": "expert",
+    "date": "June 5, 2026",
+    "readTime": "13 min read"
+  },
+  {
+    "slug": "how-to-win-multiple-offer-san-antonio",
+    "title": "How to Win a Multiple Offer Situation in San Antonio: What Actually Works",
+    "category": "expert",
+    "date": "June 5, 2026",
+    "readTime": "14 min read"
+  },
+  {
+    "slug": "san-antonio-housing-market-trends-2025-2026",
+    "title": "San Antonio Housing Market: What Changed in 2025 and What to Expect in 2026",
+    "category": "market",
+    "date": "June 5, 2026",
+    "readTime": "13 min read"
+  },
+  {
+    "slug": "military-homebuying-san-antonio",
+    "title": "Military Home Buying in San Antonio: The Complete Guide for JBSA Families",
+    "category": "buying",
+    "date": "June 3, 2026",
+    "readTime": "14 min read"
+  },
+  {
+    "slug": "assumable-mortgage-san-antonio",
+    "title": "Assumable Mortgages in San Antonio: How to Lock In a 3% Rate in a 7% Market",
+    "category": "financing",
+    "date": "May 31, 2026",
+    "readTime": "13 min read"
+  },
+  {
+    "slug": "windcrest-gardens-community-san-antonio",
+    "title": "Windcrest and the Garden Community: Why This San Antonio Neighborhood Attracts Outdoor Lovers",
+    "category": "lifestyle",
+    "date": "May 29, 2026",
+    "readTime": "12 min read"
+  },
+  {
+    "slug": "new-construction-san-antonio-guide",
+    "title": "Buying New Construction in San Antonio 2026: What the Builder Won't Tell You",
+    "category": "buying",
+    "date": "May 26, 2026",
+    "readTime": "14 min read"
+  },
+  {
+    "slug": "selling-home-san-antonio-guide",
+    "title": "How to Sell Your Home in San Antonio in 2026: A Step-by-Step Guide",
+    "category": "selling",
+    "date": "May 23, 2026",
+    "readTime": "13 min read"
+  },
+  {
+    "slug": "san-antonio-real-estate-market-2026",
+    "title": "San Antonio Real Estate Market 2026: What Buyers and Sellers Need to Know Right Now",
+    "category": "market",
+    "date": "June 1, 2026",
+    "readTime": "6 min read",
+    "excerpt": "Current market conditions, price trends, and what buyers and sellers need to know right now in San Antonio."
+  },
+  {
+    "slug": "how-to-choose-realtor-san-antonio",
+    "title": "How to Choose the Right Real Estate Agent in San Antonio TX: What to Look For in 2026",
+    "category": "expert",
+    "date": "May 22, 2026",
+    "readTime": "7 min read",
+    "excerpt": "The questions to ask, the red flags to watch for, and what separates a great agent from a mediocre one in this market."
+  },
+  {
+    "slug": "living-in-cibolo-tx-neighborhood-guide",
+    "title": "Living in Cibolo, TX: What Makes This Fast-Growing Town Worth Your Attention",
+    "category": "neighborhood",
+    "date": "May 9, 2026",
+    "readTime": "5 min read",
+    "excerpt": "One of the fastest-growing towns in Texas — here is why families are choosing Cibolo and what to expect when you get here."
+  },
+  {
+    "slug": "living-in-schertz-tx-neighborhood-guide",
+    "title": "Living in Schertz, TX: A Complete Guide for Home Buyers and Families",
+    "category": "neighborhood",
+    "date": "April 28, 2026",
+    "readTime": "8 min read",
+    "excerpt": "Close to JBSA, full of character, and USDA-eligible. Everything buyers need to know about Schertz, TX."
+  },
+  {
+    "slug": "physician-loan-san-antonio",
+    "title": "Physician Loans in San Antonio: How Doctors, Dentists, and Vets Can Buy Without the Usual Rules",
+    "category": "financing",
+    "date": "April 14, 2026",
+    "readTime": "6 min read",
+    "excerpt": "Doctors, dentists, and veterinarians can buy more home with less money down — here is how physician loans work in San Antonio."
+  },
+  {
+    "slug": "no-down-payment-home-san-antonio",
+    "title": "How to Buy a Home in San Antonio With No Down Payment: 5 Real Options in 2026",
+    "category": "financing",
+    "date": "March 31, 2026",
+    "readTime": "7 min read",
+    "excerpt": "Five real paths to buying a home in San Antonio without a down payment — including programs most buyers have never heard of."
+  },
+  {
+    "slug": "best-neighborhoods-gardeners-san-antonio",
+    "title": "Best Neighborhoods for Gardeners and Outdoor Living in San Antonio TX",
+    "category": "lifestyle",
+    "date": "March 17, 2026",
+    "readTime": "5 min read",
+    "excerpt": "The neighborhoods with the best soil, the most outdoor space, and the strongest gardening culture in San Antonio."
+  },
+  {
+    "slug": "buying-land-south-texas-guide",
+    "title": "Buying Land in South Texas: Utilities, Access, Structures, and Financing — What Nobody Tells You",
+    "category": "land",
+    "date": "March 4, 2026",
+    "readTime": "9 min read",
+    "excerpt": "What nobody tells you about buying land in South Texas — utilities, access, structures, lenders, and the questions to ask before you sign."
+  },
+  {
+    "slug": "down-payment-assistance-san-antonio-tsahc-seth-hap",
+    "title": "Down Payment Assistance in San Antonio 2026: TSAHC, SETH GoldStar, and City HAP Explained",
+    "category": "financing",
+    "date": "February 18, 2026",
+    "readTime": "6 min read",
+    "excerpt": "TSAHC, SETH GoldStar, and City HAP can stack to cover your down payment and closing costs — here is exactly how."
+  },
+  {
+    "slug": "first-time-homebuyer-guide-san-antonio-2026",
+    "title": "First-Time Home Buyer Guide: San Antonio TX 2026 — Everything You Need to Know",
+    "category": "buying",
+    "date": "February 3, 2026",
+    "readTime": "7 min read",
+    "excerpt": "The complete roadmap for first-time buyers in San Antonio — from credit and pre-approval through closing day."
+  },
+  {
+    "slug": "usda-loans-san-antonio-schertz-cibolo-devine",
+    "title": "USDA Loans in San Antonio 2026: Zero Down Homes in Schertz, Cibolo, Devine and Beyond",
+    "category": "financing",
+    "date": "January 20, 2026",
+    "readTime": "8 min read",
+    "excerpt": "Zero down payment in Schertz, Cibolo, Floresville, Devine, and more — USDA loans are the hidden gem for San Antonio suburban buyers."
+  },
+  {
+    "slug": "va-loans-san-antonio-2026-complete-guide",
+    "title": "VA Loans in San Antonio 2026: Everything Veterans Need to Know About Buying a Home",
+    "category": "financing",
+    "date": "January 6, 2026",
+    "readTime": "5 min read",
+    "excerpt": "Everything San Antonio veterans need to know about VA loans — zero down, no PMI, assumable rates, and how to use the benefit here."
+  },
+  {
+    "slug": "living-in-alamo-heights-san-antonio",
+    "title": "Living in Alamo Heights, TX: Schools, Lifestyle, and Real Estate Guide 2026",
+    "category": "neighborhood",
+    "date": "December 19, 2025",
+    "readTime": "6 min read",
+    "excerpt": "One of San Antonio most sought-after neighborhoods — what makes Alamo Heights special and what buyers need to know."
+  },
+  {
+    "slug": "living-in-terrell-hills-san-antonio",
+    "title": "Living in Terrell Hills, San Antonio: What Buyers Need to Know",
+    "category": "neighborhood",
+    "date": "December 4, 2025",
+    "readTime": "7 min read",
+    "excerpt": "Historic charm, prime location, and some of the most beautiful homes in San Antonio. The Terrell Hills buyer guide."
+  },
+  {
+    "slug": "living-in-windcrest-tx-neighborhood-guide",
+    "title": "Living in Windcrest, TX (78239): A Complete Neighborhood Guide for Home Buyers",
+    "category": "neighborhood",
+    "date": "November 20, 2025",
+    "readTime": "8 min read",
+    "excerpt": "Gated, community-focused, and surprisingly affordable — Windcrest 78239 is one of San Antonio best-kept secrets for families."
+  },
+  {
+    "slug": "gardening-curb-appeal-before-listing-san-antonio",
+    "title": "Curb Appeal and Gardening Before You List: What Sells Homes Faster in San Antonio",
+    "category": "lifestyle",
+    "keywords": [
+      "curb appeal San Antonio",
+      "landscaping before selling home Texas",
+      "South Texas garden home value"
+    ],
+    "excerpt": "What SA buyers notice in the first 10 seconds, drought-tolerant plants that boost value, and low-cost curb appeal wins specific to this climate.",
+    "publishedAt": "2026-06-05"
+  },
+  {
+    "slug": "hack-your-hoa-garden-rules-raised-beds-texas",
+    "title": "How to Hack Your HOA's Yard Rules: Raised Beds, Open Bottoms, and Legal Garden Workarounds in Texas",
+    "category": "lifestyle",
+    "keywords": [
+      "HOA garden rules Texas",
+      "raised garden beds HOA",
+      "gardening HOA Texas workaround"
+    ],
+    "excerpt": "Practical HOA workarounds for Texas gardeners — the open-bottom loophole, container fig trees, native plant exemptions, and how to read your CC&Rs.",
+    "publishedAt": "2026-06-05"
+  },
+  {
+    "slug": "fig-trees-san-antonio-grow-and-sell",
+    "title": "Fig Trees in San Antonio: How to Grow Them, When They Produce, and Why Buyers Love Them",
+    "category": "lifestyle",
+    "keywords": [
+      "fig trees San Antonio",
+      "growing figs South Texas",
+      "edible landscaping San Antonio"
+    ],
+    "excerpt": "Figs thrive in SA heat, produce two crops per year, and can genuinely move buyers who care about productive landscapes.",
+    "publishedAt": "2026-06-05"
+  },
+  {
+    "slug": "best-native-plants-san-antonio-yards",
+    "title": "Best Native Plants for San Antonio Yards: What Grows Without Fighting the Climate",
+    "category": "lifestyle",
+    "keywords": [
+      "native plants San Antonio",
+      "drought tolerant plants San Antonio",
+      "Texas native landscaping"
+    ],
+    "excerpt": "Native and adapted plants for SA heat and alkaline soil — shrubs, perennials, grasses, and where to buy them locally.",
+    "publishedAt": "2026-06-05"
+  },
+  {
+    "slug": "community-gardens-san-antonio-windcrest",
+    "title": "Community Gardens and Green Spaces Near Windcrest and San Antonio: A Local Guide",
+    "category": "lifestyle",
+    "keywords": [
+      "community gardens San Antonio",
+      "Windcrest gardening community",
+      "outdoor spaces families San Antonio"
+    ],
+    "excerpt": "Where to find community gardens near Windcrest and across SA, how to get involved, and why garden culture builds better neighborhoods.",
+    "publishedAt": "2026-06-05"
+  }
+]

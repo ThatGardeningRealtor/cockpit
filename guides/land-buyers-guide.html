@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Land Buyer's Guide | That Gardening Realtor</title>
+<style>
+  :root {
+    --soil:      #1E1208;
+    --cream:     #F5EFE4;
+    --parchment: #FAF6EF;
+    --moss:      #3D6B35;
+    --moss-lt:   #EBF2E8;
+    --rust:      #A0522D;
+    --rust-lt:   #F5ECE5;
+    --sky:       #4A7FA5;
+    --sky-lt:    #E8F1F8;
+    --muted:     #7A6A58;
+    --border:    #D9CFC0;
+    --gold:      #B8860B;
+    --gold-lt:   #FBF5E0;
+    --warn:      #8B0000;
+    --warn-lt:   #FFF0F0;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Georgia', 'Times New Roman', serif; background: #fff; color: var(--soil); font-size: 13px; line-height: 1.65; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { max-width: 760px; margin: 0 auto; padding: 48px 48px 64px; }
+
+  .header { border-bottom: 3px solid var(--moss); padding-bottom: 20px; margin-bottom: 32px; display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; }
+  .brand-mark { display: flex; align-items: center; gap: 10px; }
+  .brand-icon { width: 44px; height: 44px; background: var(--moss); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+  .brand-name { font-family: 'Georgia', serif; font-size: 15px; font-weight: bold; color: var(--soil); line-height: 1.2; }
+  .brand-sub { font-size: 10px; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; margin-top: 2px; }
+  .header-right { text-align: right; font-size: 10px; color: var(--muted); line-height: 1.6; }
+
+  .doc-title { margin-bottom: 28px; }
+  .doc-title h1 { font-size: 22px; font-weight: bold; color: var(--soil); line-height: 1.25; margin-bottom: 4px; }
+  .doc-title .subtitle { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+
+  .context-box { background: var(--moss-lt); border-left: 4px solid var(--moss); border-radius: 0 8px 8px 0; padding: 16px 20px; margin-bottom: 28px; font-size: 12.5px; color: var(--soil); line-height: 1.7; }
+  .warn-box { background: var(--warn-lt); border-left: 4px solid var(--warn); border-radius: 0 8px 8px 0; padding: 16px 20px; margin-bottom: 20px; font-size: 12.5px; line-height: 1.7; }
+  .gold-box { background: var(--gold-lt); border-left: 4px solid var(--gold); border-radius: 0 8px 8px 0; padding: 16px 20px; margin-bottom: 20px; font-size: 12.5px; line-height: 1.7; }
+
+  .section-label { font-size: 9px; font-weight: bold; letter-spacing: 0.12em; text-transform: uppercase; color: var(--moss); margin-bottom: 6px; }
+  h2 { font-size: 15px; font-weight: bold; color: var(--soil); margin-bottom: 10px; line-height: 1.3; }
+  h3 { font-size: 13px; font-weight: bold; color: var(--rust); margin-bottom: 6px; }
+  p { margin-bottom: 12px; }
+
+  .section { margin-bottom: 32px; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 28px 0; }
+
+  .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+  .card { background: var(--parchment); border: 1px solid var(--border); border-radius: 8px; padding: 14px; }
+  .card-title { font-size: 12px; font-weight: bold; color: var(--soil); margin-bottom: 6px; }
+  .card-body { font-size: 11px; color: var(--muted); line-height: 1.6; }
+
+  .cost-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 12px; }
+  .cost-table th { background: var(--soil); color: #fff; padding: 8px 10px; text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .cost-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); }
+  .cost-table tr:last-child td { border-bottom: none; }
+  .cost-table .hi { color: var(--warn); font-weight: bold; }
+  .cost-table .lo { color: var(--moss); font-weight: bold; }
+
+  .lender-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 11.5px; }
+  .lender-table th { background: var(--moss); color: #fff; padding: 8px 10px; text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .lender-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .lender-table tr:last-child td { border-bottom: none; }
+  .lender-table tr:nth-child(even) td { background: var(--parchment); }
+
+  .checklist { list-style: none; margin-bottom: 16px; }
+  .checklist li { padding: 5px 0 5px 24px; position: relative; font-size: 12px; border-bottom: 1px solid var(--border); }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li::before { content: '☐'; position: absolute; left: 0; color: var(--moss); font-size: 14px; top: 3px; }
+
+  .tip { background: var(--sky-lt); border-left: 3px solid var(--sky); padding: 10px 14px; border-radius: 0 6px 6px 0; font-size: 11.5px; margin-bottom: 12px; }
+  .tip strong { color: var(--sky); }
+
+  .cta { background: var(--soil); color: var(--cream); border-radius: 10px; padding: 24px 28px; margin-top: 36px; }
+  .cta h3 { color: #fff; font-size: 15px; margin-bottom: 8px; }
+  .cta p { color: #B8D0A0; font-size: 12px; margin-bottom: 4px; }
+  .cta .contact { color: #fff; font-size: 13px; font-weight: bold; margin-top: 12px; }
+
+  @media (max-width: 600px) {
+    .page { padding: 24px 20px 48px; }
+    .card-grid { grid-template-columns: 1fr; }
+    .header { flex-direction: column; align-items: flex-start; }
+    .cost-table, .lender-table { font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="brand-mark">
+      <div class="brand-icon">🌱</div>
+      <div>
+        <div class="brand-name">That Gardening Realtor</div>
+        <div class="brand-sub">Chris Drawdy · eXp Realty · San Antonio TX</div>
+      </div>
+    </div>
+    <div class="header-right">
+      210-214-2673<br>
+      chris.drawdy@exprealty.com<br>
+      getrealtytx.com
+    </div>
+  </div>
+
+  <div class="doc-title">
+    <h1>Land Buyer's Guide</h1>
+    <div class="subtitle">Utilities · Access · Structures · Financing — What You Need to Know Before You Buy</div>
+  </div>
+
+  <div class="context-box">
+    Buying land is completely different from buying a home. The financing is harder, the due diligence is more technical, and the wrong assumptions can cost you thousands before you break ground. This guide covers the questions most buyers don't think to ask — until it's too late.
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <div class="section-label">Why Land Is Different</div>
+    <h2>Land Loans Don't Work Like Home Loans</h2>
+    <p>Most conventional lenders won't touch raw land at all. Banks that do typically require 20–30% down, shorter loan terms (10–15 years), and higher interest rates. The reason is simple: if you default on a home, the lender has a livable asset they can sell. If you default on raw land, they have a field.</p>
+    <p>The good news: there are specialist lenders built specifically for land — and knowing which one fits your situation makes all the difference.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-title">🏦 Specialist Land Lenders</div>
+        <div class="card-body">Capital Farm Credit, Texas Farm Credit, Texas Veterans Land Board. These lenders understand land and have products designed for it. They are your first call, not a bank.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">🚫 What Most Lenders Won't Finance</div>
+        <div class="card-body">Raw land with no improvements, land with a mobile or manufactured home not on permanent foundation, lots under 5 acres through VLB, agricultural land through conventional lenders.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <div class="section-label">The 4 Utility Questions</div>
+    <h2>Utilities Make or Break a Land Deal</h2>
+    <p>Before you fall in love with a piece of land, answer these four questions. They affect your total cost, your financing options, and how livable the property actually is.</p>
+
+    <h3>1. Water — Well, Rural Co-op, or Municipal?</h3>
+    <p>Municipal water is the easiest and most lender-friendly. A rural water district co-op is common in South Texas and usually requires a connection fee plus monthly minimums. A private well is your responsibility — and your expense.</p>
+    <div class="gold-box"><strong>Cost to know:</strong> Drilling a new water well in South Texas typically runs $8,000–$20,000+ depending on depth and soil. Some areas require going 300+ feet. Always get a water well report on any property that already has a well.</div>
+
+    <h3>2. Electric — How Far to the Pole?</h3>
+    <p>If a power line runs along the road in front of the property, connection costs are manageable. If the nearest line is a quarter-mile away, you're looking at a significant infrastructure cost — or going solar/generator.</p>
+    <div class="gold-box"><strong>Cost to know:</strong> Electric co-op extension fees in rural Texas run $8–$12 per foot from the nearest transformer. A property 500 feet from the pole = $4,000–$6,000 before you flip a switch. Ask the co-op for an estimate before closing.</div>
+
+    <h3>3. Septic vs. Sewer</h3>
+    <p>Most rural properties will require a septic system. Lenders that require improvements before closing may require a working septic. A new conventional septic system in South Texas runs $10,000–$20,000. An aerobic system (required in some counties near water) runs $15,000–$30,000.</p>
+
+    <h3>4. Road Access — Is It Legal and Year-Round?</h3>
+    <p>The property needs legal access — either direct frontage on a public road, or a recorded easement. A caliche or dirt road is fine for most land loans but adds context on usability in wet weather.</p>
+    <div class="tip"><strong>Ask before you offer:</strong> Is the road access deeded, recorded, or just by agreement? An unrecorded access agreement is not bankable and can prevent you from getting a loan or title insurance.</div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <div class="section-label">Structures & Financing</div>
+    <h2>How Structures Affect Your Loan — and What to Do About It</h2>
+
+    <div class="warn-box"><strong>The Capital Farm Credit Rule:</strong> Do not mention a mobile home or manufactured home to Capital Farm Credit if you plan to place one on the property after closing. Their land loan product does not allow it and you risk loan denial or recall. Buy the land, then place the structure — or use a different lender.</div>
+
+    <h3>Mobile and Manufactured Homes</h3>
+    <p>A manufactured home on a permanent foundation (HUD-certified, title retired, affixed to the land) is treated as real property and can be financed as part of the land. A mobile home on blocks or piers is personal property — and lenders treat it very differently, often refusing to count it as collateral.</p>
+
+    <div class="tip"><strong>The workaround:</strong> Buy the land with a pure land loan. Once you own the land, place the structure. Then if you want to refinance into a single permanent loan, convert the manufactured home to real property (retire the title, put it on a permanent foundation) and refinance through FHA Title II or Fannie Mae MH Advantage.</div>
+
+    <h3>Existing Barns, Sheds, and Improvements</h3>
+    <p>Barns, fencing, water troughs, and working improvements generally add value and don't hurt financing. A habitable structure (even a small cabin) may trigger lenders to require a home appraisal alongside the land appraisal — which can be a good thing if it adds value.</p>
+
+    <h3>One-Time Close Construction</h3>
+    <p>If you want to buy land AND build a home in one transaction, a One-Time Close (OTC) construction loan lets you do it. One closing, one set of costs, rate locked before construction begins. Available as FHA (3.5% down), VA (zero down for veterans), or conventional.</p>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <div class="section-label">Lender Comparison</div>
+    <h2>Which Lender Is Right for Your Situation</h2>
+
+    <table class="lender-table">
+      <tr>
+        <th>Lender</th>
+        <th>Down</th>
+        <th>Term</th>
+        <th>Best For</th>
+        <th>Watch Out</th>
+      </tr>
+      <tr>
+        <td><strong>Capital Farm Credit</strong></td>
+        <td>15%</td>
+        <td>15 yr</td>
+        <td>Agricultural, recreational, hunting/camping land</td>
+        <td>No mobile home mention. Requires rural use intent.</td>
+      </tr>
+      <tr>
+        <td><strong>Texas Farm Credit</strong></td>
+        <td>15–20%</td>
+        <td>15–25 yr</td>
+        <td>Recreational, agricultural, rural residential</td>
+        <td>Similar restrictions to Capital Farm Credit on structures.</td>
+      </tr>
+      <tr>
+        <td><strong>Texas VLB</strong></td>
+        <td>5%</td>
+        <td>30 yr</td>
+        <td>Texas veterans, 5+ acres, below-market rate</td>
+        <td>Texas residency required. Must have served in US military.</td>
+      </tr>
+      <tr>
+        <td><strong>Conventional / Bank</strong></td>
+        <td>20–30%</td>
+        <td>10–15 yr</td>
+        <td>Improved lots with utilities, near urban areas</td>
+        <td>Won't finance raw rural land in most cases. Higher rates.</td>
+      </tr>
+      <tr>
+        <td><strong>One-Time Close (FHA/VA)</strong></td>
+        <td>0–3.5%</td>
+        <td>30 yr</td>
+        <td>Buy land + build home in one transaction</td>
+        <td>Must have an approved builder and construction plan upfront.</td>
+      </tr>
+    </table>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <div class="section-label">Cost Reference</div>
+    <h2>Infrastructure Costs — South Texas Market Estimates</h2>
+    <p>These are general estimates for planning purposes. Always get contractor quotes before closing.</p>
+
+    <table class="cost-table">
+      <tr>
+        <th>Item</th>
+        <th>Low Estimate</th>
+        <th>High Estimate</th>
+        <th>Notes</th>
+      </tr>
+      <tr>
+        <td>Water well (new)</td>
+        <td class="lo">$8,000</td>
+        <td class="hi">$25,000+</td>
+        <td>Depends on depth. Get a well report on existing wells.</td>
+      </tr>
+      <tr>
+        <td>Septic system (conventional)</td>
+        <td class="lo">$10,000</td>
+        <td class="hi">$20,000</td>
+        <td>Aerobic system (required in some areas) runs higher.</td>
+      </tr>
+      <tr>
+        <td>Aerobic septic system</td>
+        <td class="lo">$15,000</td>
+        <td class="hi">$30,000</td>
+        <td>Required near creeks, rivers, or certain county regs.</td>
+      </tr>
+      <tr>
+        <td>Electric co-op extension</td>
+        <td class="lo">$3,000</td>
+        <td class="hi">$15,000+</td>
+        <td>$8–$12/ft from nearest transformer. Call co-op first.</td>
+      </tr>
+      <tr>
+        <td>Solar + battery backup</td>
+        <td class="lo">$15,000</td>
+        <td class="hi">$40,000</td>
+        <td>Alternative to electric extension for remote properties.</td>
+      </tr>
+      <tr>
+        <td>Caliche road (per mile)</td>
+        <td class="lo">$8,000</td>
+        <td class="hi">$25,000</td>
+        <td>Highly variable based on terrain and length.</td>
+      </tr>
+      <tr>
+        <td>Fence (per linear foot)</td>
+        <td class="lo">$3</td>
+        <td class="hi">$8+</td>
+        <td>Barbed wire vs. high fence. Corner posts add cost.</td>
+      </tr>
+      <tr>
+        <td>Survey (new boundary)</td>
+        <td class="lo">$1,500</td>
+        <td class="hi">$5,000+</td>
+        <td>Always get a survey. T-47 affidavit is not a substitute.</td>
+      </tr>
+    </table>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <div class="section-label">Before You Make an Offer</div>
+    <h2>Land Buyer Due Diligence Checklist</h2>
+
+    <ul class="checklist">
+      <li>Confirm legal access — deeded road frontage or recorded easement on file</li>
+      <li>Confirm water source — municipal, rural co-op, or well (get well report if existing)</li>
+      <li>Call the electric co-op — ask for an extension estimate to the property</li>
+      <li>Confirm septic requirements with county health department</li>
+      <li>Pull county CAD records — verify acreage, ownership, and tax history</li>
+      <li>Check for easements, pipelines, or utility right-of-ways crossing the property</li>
+      <li>Verify flood zone status (FEMA map) — affects financing and insurance</li>
+      <li>Confirm zoning / ETJ status — what can you legally build or do?</li>
+      <li>Ask about deed restrictions — some rural land has HOA or deed restrictions</li>
+      <li>Order a new survey — do not rely solely on a T-47 affidavit</li>
+      <li>Confirm mineral rights — are they included or severed?</li>
+      <li>Check for agricultural or wildlife exemption — affects taxes significantly</li>
+      <li>Ask if any structures are permitted — unpermitted structures can complicate financing</li>
+      <li>Get a lender pre-approval before going under contract</li>
+    </ul>
+  </div>
+
+  <div class="cta">
+    <h3>Ready to Find Your Land?</h3>
+    <p>I work with buyers across Bexar, Medina, Atascosa, McMullen, and surrounding counties. Whether you're looking for a hunting getaway, a place to build, or land to park a home on — I can help you navigate the financing, the due diligence, and find the right property.</p>
+    <p style="margin-top:8px;color:#B8D0A0">Lender connections: Capital Farm Credit, Texas Farm Credit, Texas VLB, and more.</p>
+    <div class="contact">Chris Drawdy · That Gardening Realtor 🌱<br>210-214-2673 · chris.drawdy@exprealty.com</div>
+  </div>
+
+</div>
+</body>
+</html>
