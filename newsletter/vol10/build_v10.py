@@ -77,13 +77,13 @@ turf=section('MASTER GARDENER INTERN','Master Gardener Intern','Your Lawn Runs o
 
 trees=section('TREES','Planting Season','Plant a Tree That Outlives Your Mortgage',
  img("vol10-fig.jpg","A hand holding a fig branch with young green figs forming",548,253)+
- CAP%"Our young Celeste fig is already setting fruit. Fall is when trees like this one get their roots down."+
+ CAP%"Our young Celeste fig, already setting fruit. Fall is when trees put down roots."+
  P%"October through April is tree planting season here, and the City of San Antonio's urban forestry team walked us through how to do it right. Here's the short version:"+
  card([("Call 811 first","Before you dig, call 811 so the utility lines get marked. It's free."),
        ("Go wide, not deep","Dig the hole 2 to 3 times as wide as the root ball, but no deeper. Roots spread out sideways looking for water, way past the edge of the branches."),
        ("Water slow","A 5 gallon bucket with a small hole in the bottom lets water soak in slowly instead of running off."),
        ("Paint every oak cut","Oak wilt spreads by a little sap beetle drawn to fresh wounds. Paint any cut on an oak right away (cheap flat black spray paint works) and save big oak pruning for winter.")])+
- P%"What to plant? From this week's class: Lacey oak, Mexican white oak, Texas or Mexican redbud, and Barbados cherry if you want something compact the birds will love. The warning I wrote down twice: fast growing trees are often fast dying trees. Pick one that can actually reach maturity here."+
+ P%"What to plant? From this week's class: Lacey oak, Mexican white oak, Texas or Mexican redbud, and Barbados cherry if you want something compact the birds will love. The warning I wrote down twice: <strong><em>fast growing trees are often fast dying trees.</em></strong> Pick one that can actually reach maturity here."+
  P%"And that gray, fuzzy stuff hanging in your oaks? That's ball moss. It's not a parasite. It's a bromeliad, kin to pineapples, and it pulls everything it needs from the air. It will grow on a power line just as happily as a branch. If a tree is loaded with it, that's usually a sign of shady, dead, or stressed limbs, so focus on the tree's health and clear out the dead wood."+
  callout("Free Trees",f"Día del Árbol is <strong>Saturday, November 14, 10 AM to 1 PM at Mission Marquee Plaza</strong>, 3100 Roosevelt Ave. The City is giving away more than 1,000 free shade and ornamental trees, first come, first served. Details at {A('https://www.sa.gov/trees','sa.gov/trees')}."))
 
@@ -107,7 +107,7 @@ mid=f'''  <!-- MID CTA -->
 '''
 re_=section('REAL ESTATE CORNER','Real Estate Corner','What a Yard Tells You Before You Buy',
  img("vol10-devine-yard.jpg","A tan country home behind a front yard full of white wildflowers under a blue sky",548,519)+
- CAP%"Wildflowers out front in Devine. The yard tells you a lot before you ever step inside."+
+ CAP%"Wildflowers out front in Devine. The yard tells you a lot before you step inside."+
  P%"When I walk a property with someone, I look at the house, sure. But I'm also reading the yard, because the yard tells you what living there will actually be like. Here's what I check:"+
  card([("Where the sun goes","Full sun is 6 or more hours of direct light, part sun is 3 to 6, and deep shade is under 3. A backyard that's shady at 2 PM won't grow tomatoes or Bermuda. If you can, visit at different times of day."),
        ("Big trees","Shade trees take decades to grow, so look at them closely. Is the canopy full? Any dead limbs, or ball moss piling up on stressed wood? If there are oaks, ask whether oak wilt has been in the area."),
@@ -160,12 +160,12 @@ stands=f'''  <!-- LRH STANDS -->
 comm=section('COMMUNITY CORNER','Community Corner',"Thanks for Swapping, and the Pumpkins Are Out",
  P%"A big thank you to Ken Wolfgram for hosting our October 17 plant swap, and to everyone who showed up with cuttings, seedlings, and stories to trade. That's what this community is about: plants moving from one yard to the next, and neighbors meeting neighbors along the way. If you missed this one, there will be more, and I'll share the next date here first."+
  img("vol10-pumpkins.jpg","Painted jack o lantern pumpkins lined up on a wooden garden table at the San Antonio Botanical Garden",400,180)+
- CAP%"Pumpkins painted by our Wednesday dementia friendly gardening group at the San Antonio Botanical Garden, where I volunteer."+
+ CAP%"Painted by our Wednesday dementia friendly garden group at the Botanical Garden."+
  PL%f"Mark your calendar: besides Día del Árbol on November 14, the City is also giving away trees at the Farmers and Artisans Holiday Market on <strong>Saturday, November 21, 9 AM to 1 PM</strong>, also at Mission Marquee Plaza. Can't make either one? Send me a photo of what's growing in your yard. The good ones might land in a future issue.")
 
 up=section('COMING UP NEXT WEEK','Coming Up','Copy What Already Works',
  PL%"Next week is Dr. Barron Rector's class on Texas landscapes, and his big idea stuck with me: rip off and duplicate what nature was already doing here. We'll talk about what this land looked like before the lawns, why change is normal, and how to borrow from the prairie in your own yard."+
- PL%"One last thing before next week: <strong><em>add christopher_drawdy@mail.expreach.com to your contacts.</em></strong> That's where the next issue is coming from, and I don't want it stuck in your spam folder.")
+ PL%"One last thing before next week: add <strong>christopher_drawdy@mail.expreach.com</strong> to your contacts. That's where the next issue is coming from, and I don't want it stuck in your spam folder.")
 
 heads='''  <!-- HEADS UP: NEW SENDER -->
   <tr>
@@ -173,7 +173,7 @@ heads='''  <!-- HEADS UP: NEW SENDER -->
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
         <td bgcolor="#f3f7ea" style="padding:16px 20px;border-left:4px solid #8ab840;font-family:Georgia,serif;">
           <p style="font-family:Arial,sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#4a7a1e;font-weight:700;margin:0 0 6px 0;">&#128680; Quick heads up</p>
-          <p style="font-size:15px;line-height:1.6;color:#4a4a44;margin:0;">Starting next week, this newsletter will come from a new address: <strong>christopher_drawdy@mail.expreach.com</strong>. <strong><em>Add it to your contacts so the next issue doesn't land in spam.</em></strong> I'd hate for you to miss any of <span style="background:#fff3b0;padding:0 3px;">these awesome tips and tricks</span>.</p>
+          <p style="font-size:15px;line-height:1.6;color:#4a4a44;margin:0;">Starting next week, this newsletter will come from a new address: <strong>christopher_drawdy@mail.expreach.com</strong>. Add it to your contacts so the next issue doesn't land in spam.</p>
         </td>
       </tr></table>
     </td>
@@ -186,6 +186,9 @@ out=_re.sub(r'<img src="[^"]*vol8/tgr-front-logo.png" width="340"', '<a href="ht
 import os
 if os.environ.get('LOGO_OPT')=='B':
     out=out.replace('RIGHT PLANT, RIGHT PLACE.</span></p>','RIGHT PLANT, RIGHT PLACE.</span></p><img src="@@IMGB@@tgr-strip.png" width="300" alt="Buy, Sell, Invest, Grow. #Community" style="display:block;width:300px;max-width:100%;height:auto;margin:16px 0 0 0;">',1)
+out=out.replace('eXp Realty &nbsp;|&nbsp; Green Thumb Realty Co.<','eXp Realty &nbsp;|&nbsp; Green Thumb Realty Co. LLC<')
+out=out.replace("Know a neighbor who'd love this? Forward it their way, or send them to <a ","Know a neighbor who'd love this? Forward it their way.<br><a ").replace('>past issues and sign up here</a>.</p>','>Read past issues and sign up here</a></p>')
+out=out.replace('<p style="font-size:14px;line-height:1.7;color:#888888;margin:0 0 14px 0;font-style:italic;text-align:center;">','<p style="font-size:13px;line-height:1.6;color:#7a7a72;margin:4px auto 18px auto;max-width:520px;font-style:italic;text-align:center;">')
 out=out.replace('>(210) 214-2673<','>(210) 214 2673<').replace(R+'chris-passafire-shirt.png','@@IMGB@@chris-signoff.png')
 open('TGR-Garden-Edition-Vol10.html','w').write(out.replace('@@IMGB@@',R+'vol10/'))
 open('preview-local.html','w').write(out.replace('@@IMGB@@','img/'))
