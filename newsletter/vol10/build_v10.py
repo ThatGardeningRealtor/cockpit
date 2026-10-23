@@ -66,7 +66,7 @@ hero=f'''  <!-- HERO IMAGE -->
 '''
 turf=section('MASTER GARDENER INTERN','Master Gardener Intern','Your Lawn Runs on More Than Water',
  img("vol10-rain-gauge.jpg","A dry rain gauge standing in a bare garden bed",300,503)+
- CAP%"Bare beds and a dry rain gauge at Greenies. We need the rain, but water is only part of what feeds a lawn."+
+ CAP%"We need the rain, but water is only part of what feeds a lawn or garden."+
  P%"Dr. Emanuel Chavarria with Texas A&amp;M AgriLife taught our turfgrass class, and the line I keep repeating is this one: grass doesn't eat fertilizer. Its real food is sunlight. Fertilizer is more like vitamins. So the first question for any lawn is how much sun it actually gets."+
  card([("St. Augustine","Handles some shade better than Bermuda and roots deep. Watch out for cold snaps and chinch bugs. Fun fact: there's no St. Augustine seed for sale, so it always starts from sod or plugs."),
        ("Bermuda","Tough, fast, and handles heat, drought, and foot traffic. It wants more than 8 hours of sun, or it thins out and fades in the shade."),
@@ -157,15 +157,15 @@ stands=f'''  <!-- LRH STANDS -->
   </tr>
 
 '''
-comm=section('COMMUNITY CORNER','Community Corner',"Thanks for Swapping, and Pumpkins Are Up",
+comm=section('COMMUNITY CORNER','Community Corner',"Thanks for Swapping, and the Pumpkins Are Out",
  P%"A big thank you to Ken Wolfgram for hosting our October 17 plant swap, and to everyone who showed up with cuttings, seedlings, and stories to trade. That's what this community is about: plants moving from one yard to the next, and neighbors meeting neighbors along the way. If you missed this one, there will be more, and I'll share the next date here first."+
- img("vol10-pumpkins.jpg","Rows of orange pumpkins under white tents at a church pumpkin patch",400,150)+
- CAP%"The pumpkin patch is up at a church in Windcrest, like it is every fall."+
+ img("vol10-pumpkins.jpg","Painted jack o lantern pumpkins lined up on a wooden garden table at the San Antonio Botanical Garden",400,180)+
+ CAP%"Pumpkins painted by our Wednesday dementia friendly gardening group at the San Antonio Botanical Garden, where I volunteer."+
  PL%f"Mark your calendar: besides Día del Árbol on November 14, the City is also giving away trees at the Farmers and Artisans Holiday Market on <strong>Saturday, November 21, 9 AM to 1 PM</strong>, also at Mission Marquee Plaza. Can't make either one? Send me a photo of what's growing in your yard. The good ones might land in a future issue.")
 
 up=section('COMING UP NEXT WEEK','Coming Up','Copy What Already Works',
  PL%"Next week is Dr. Barron Rector's class on Texas landscapes, and his big idea stuck with me: rip off and duplicate what nature was already doing here. We'll talk about what this land looked like before the lawns, why change is normal, and how to borrow from the prairie in your own yard."+
- PL%"One last thing before next week: add <strong>christopher_drawdy@mail.expreach.com</strong> to your contacts. That's where the next issue is coming from, and I don't want it stuck in your spam folder.")
+ PL%"One last thing before next week: <strong><em>add christopher_drawdy@mail.expreach.com to your contacts.</em></strong> That's where the next issue is coming from, and I don't want it stuck in your spam folder.")
 
 heads='''  <!-- HEADS UP: NEW SENDER -->
   <tr>
@@ -173,7 +173,7 @@ heads='''  <!-- HEADS UP: NEW SENDER -->
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
         <td bgcolor="#f3f7ea" style="padding:16px 20px;border-left:4px solid #8ab840;font-family:Georgia,serif;">
           <p style="font-family:Arial,sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#4a7a1e;font-weight:700;margin:0 0 6px 0;">&#128680; Quick heads up</p>
-          <p style="font-size:15px;line-height:1.6;color:#4a4a44;margin:0;">Starting next week, this newsletter will come from a new address: <strong>christopher_drawdy@mail.expreach.com</strong>. Add it to your contacts so the next issue doesn't land in spam. I'd hate for you to miss the good stuff.</p>
+          <p style="font-size:15px;line-height:1.6;color:#4a4a44;margin:0;">Starting next week, this newsletter will come from a new address: <strong>christopher_drawdy@mail.expreach.com</strong>. <strong><em>Add it to your contacts so the next issue doesn't land in spam.</em></strong> I'd hate for you to miss any of <span style="background:#fff3b0;padding:0 3px;">these awesome tips and tricks</span>.</p>
         </td>
       </tr></table>
     </td>
@@ -181,7 +181,12 @@ heads='''  <!-- HEADS UP: NEW SENDER -->
 '''
 body=hero+heads+DIV+turf+DIV+trees+DIV+mid+DIV+re_+DIV+light+DIV+chk+DIV+stands+DIV+comm+DIV+up+DIV
 out=head+body+tail
-out=out.replace('>(210) 214-2673<','>(210) 214 2673<')
+import re as _re
+out=_re.sub(r'<img src="[^"]*vol8/tgr-front-logo.png" width="340"', '<a href="https://thatgardeningrealtor.github.io/" target="_blank" rel="noopener" style="display:block;width:200px;margin:4px auto 14px auto;"><img src="@@IMGB@@tgr-letsgrow.png" width="200" height="200" alt="Lets Grow. Scan to follow @ThatGardeningRealtor" style="display:block;width:200px;height:200px;border:0;"></a><img src="@@IMGB@@tgr-strip.png" width="340"', out, count=1)
+import os
+if os.environ.get('LOGO_OPT')=='B':
+    out=out.replace('RIGHT PLANT, RIGHT PLACE.</span></p>','RIGHT PLANT, RIGHT PLACE.</span></p><img src="@@IMGB@@tgr-strip.png" width="300" alt="Buy, Sell, Invest, Grow. #Community" style="display:block;width:300px;max-width:100%;height:auto;margin:16px 0 0 0;">',1)
+out=out.replace('>(210) 214-2673<','>(210) 214 2673<').replace(R+'chris-passafire-shirt.png','@@IMGB@@chris-signoff.png')
 open('TGR-Garden-Edition-Vol10.html','w').write(out.replace('@@IMGB@@',R+'vol10/'))
 open('preview-local.html','w').write(out.replace('@@IMGB@@','img/'))
 print('placeholders',PH_N[0])
