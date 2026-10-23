@@ -29,12 +29,12 @@ A=lambda href,t:f'<a href="{href}" target="_blank" rel="noopener" {LINK}>{t}</a>
 hero=f'''  <!-- HERO IMAGE -->
   <tr>
     <td style="padding:0;">
-      {img("vol10-hero.jpg","A honeybee in flight over a yellow cosmos bloom, with another bee on the flower",620,413,True)}
+      {img("vol10-hero.jpg","A honeybee in flight over a yellow cosmos bloom, with another bee on the flower",620,426,True)}
     </td>
   </tr>
   <tr>
     <td bgcolor="#1a2e10" style="padding:8px 32px 0 32px;">
-      <p style="font-size:12px;line-height:1.5;color:#8ab840;margin:0;font-style:italic;text-align:center;">A honeybee coming in for a landing on the cosmos this week.</p>
+      <p style="font-size:12px;line-height:1.5;color:#8ab840;margin:0;font-style:italic;text-align:center;">Caught one mid flight. Fall cosmos are the busiest stop in the yard right now.</p>
     </td>
   </tr>
 
@@ -65,8 +65,8 @@ hero=f'''  <!-- HERO IMAGE -->
 
 '''
 turf=section('MASTER GARDENER INTERN','Master Gardener Intern','Your Lawn Runs on More Than Water',
- img("vol10-rain-gauge.jpg","A rain gauge in a freshly mulched garden bed after a storm",300,552)+
- CAP%"The rain gauge at Greenies. Rain helps, but water alone won't grow a great lawn."+
+ img("vol10-rain-gauge.jpg","A dry rain gauge standing in a bare garden bed",300,503)+
+ CAP%"Bare beds and a dry rain gauge at Greenies. We need the rain, but water is only part of what feeds a lawn."+
  P%"Dr. Emanuel Chavarria with Texas A&amp;M AgriLife taught our turfgrass class, and the line I keep repeating is this one: grass doesn't eat fertilizer. Its real food is sunlight. Fertilizer is more like vitamins. So the first question for any lawn is how much sun it actually gets."+
  card([("St. Augustine","Handles some shade better than Bermuda and roots deep. Watch out for cold snaps and chinch bugs. Fun fact: there's no St. Augustine seed for sale, so it always starts from sod or plugs."),
        ("Bermuda","Tough, fast, and handles heat, drought, and foot traffic. It wants more than 8 hours of sun, or it thins out and fades in the shade."),
@@ -125,7 +125,7 @@ re_=section('REAL ESTATE CORNER','Real Estate Corner','What a Yard Tells You Bef
       </table>''')
 
 light=section('RIGHT PLANT RIGHT PLACE','Right Plant, Right Place','Do the Sun Walk This Weekend',
- img("vol10-bees-cosmos.jpg","A honeybee working an orange cosmos bloom in full sun",280,606)+
+ img("vol10-bees-cosmos.jpg","A honeybee working an orange cosmos bloom in full sun",320,400)+
  CAP%"Cosmos love full sun, and so do the bees. Right plant, right place."+
  P%"Lynn Cox taught our perennials class, and her homework is something anyone can do. On a sunny day, check your yard every hour or so from 10 AM to 5 PM and jot down where the light lands. That's your real map for what to plant where. Do it again in spring, because the sun angle changes and leaves come and go."+
  P%"Turk's cap is a good example. In full sun it blooms like crazy but droops in the afternoon heat. In shade the leaves look great but the flowers slow down. Lynn's answer: morning sun, afternoon shade."+
@@ -164,7 +164,8 @@ comm=section('COMMUNITY CORNER','Community Corner',"Thanks for Swapping, and Pum
  PL%f"Mark your calendar: besides Día del Árbol on November 14, the City is also giving away trees at the Farmers and Artisans Holiday Market on <strong>Saturday, November 21, 9 AM to 1 PM</strong>, also at Mission Marquee Plaza. Can't make either one? Send me a photo of what's growing in your yard. The good ones might land in a future issue.")
 
 up=section('COMING UP NEXT WEEK','Coming Up','Copy What Already Works',
- PL%"Next week is Dr. Barron Rector's class on Texas landscapes, and his big idea stuck with me: rip off and duplicate what nature was already doing here. We'll talk about what this land looked like before the lawns, why change is normal, and how to borrow from the prairie in your own yard.")
+ PL%"Next week is Dr. Barron Rector's class on Texas landscapes, and his big idea stuck with me: rip off and duplicate what nature was already doing here. We'll talk about what this land looked like before the lawns, why change is normal, and how to borrow from the prairie in your own yard."+
+ PL%"One last thing before next week: add <strong>christopher_drawdy@mail.expreach.com</strong> to your contacts. That's where the next issue is coming from, and I don't want it stuck in your spam folder.")
 
 heads='''  <!-- HEADS UP: NEW SENDER -->
   <tr>
