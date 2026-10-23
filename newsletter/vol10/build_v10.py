@@ -56,7 +56,7 @@ hero=f'''  <!-- HERO IMAGE -->
           </td>
           <td valign="top" class="intro-text">
             <p style="font-family:Arial,sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#8ab840;font-weight:700;margin:0 0 8px 0;">Hey neighbors</p>
-            <p style="font-size:15px;line-height:1.75;color:#4a4a44;margin:0;">The heat finally broke, and that means one thing around here: it's planting season. I promised you lawns last week, so we're starting there. Then trees, because the City's urban forestry crew and this week's class gave me a whole notebook on them. And since a lot of you have been asking me about homes over the fence lately, there's a little more real estate in this one too. Plants first, though. Always.</p>
+            <p style="font-size:15px;line-height:1.75;color:#4a4a44;margin:0;">The heat finally broke, and that means one thing around here: it's planting season. I promised you lawns last week, so we're starting there. Then trees, because the City's urban forestry crew and this week's class gave me a whole notebook on them. And since a lot of you have been asking me about homes over the fence lately, there's a little more real estate in this one too. Don't worry, the plants are still the main event.</p>
           </td>
         </tr>
       </table>
@@ -64,9 +64,9 @@ hero=f'''  <!-- HERO IMAGE -->
   </tr>
 
 '''
-turf=section('MASTER GARDENER INTERN','Master Gardener Intern','Your Lawn Runs on Sunshine',
+turf=section('MASTER GARDENER INTERN','Master Gardener Intern','Your Lawn Runs on More Than Water',
  img("vol10-rain-gauge.jpg","A rain gauge in a freshly mulched garden bed after a storm",300,552)+
- CAP%"The rain gauge at Greenies after our last good storm, about an inch and a half."+
+ CAP%"The rain gauge at Greenies. Rain helps, but water alone won't grow a great lawn."+
  P%"Dr. Emanuel Chavarria with Texas A&amp;M AgriLife taught our turfgrass class, and the line I keep repeating is this one: grass doesn't eat fertilizer. Its real food is sunlight. Fertilizer is more like vitamins. So the first question for any lawn is how much sun it actually gets."+
  card([("St. Augustine","Handles some shade better than Bermuda and roots deep. Watch out for cold snaps and chinch bugs. Fun fact: there's no St. Augustine seed for sale, so it always starts from sod or plugs."),
        ("Bermuda","Tough, fast, and handles heat, drought, and foot traffic. It wants more than 8 hours of sun, or it thins out and fades in the shade."),
@@ -171,7 +171,7 @@ heads='''  <!-- HEADS UP: NEW SENDER -->
     <td bgcolor="#ffffff" style="padding:4px 36px 20px 36px;">
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
         <td bgcolor="#f3f7ea" style="padding:16px 20px;border-left:4px solid #8ab840;font-family:Georgia,serif;">
-          <p style="font-family:Arial,sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#4a7a1e;font-weight:700;margin:0 0 6px 0;">Quick heads up</p>
+          <p style="font-family:Arial,sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#4a7a1e;font-weight:700;margin:0 0 6px 0;">&#128680; Quick heads up</p>
           <p style="font-size:15px;line-height:1.6;color:#4a4a44;margin:0;">Starting next week, this newsletter will come from a new address: <strong>christopher_drawdy@mail.expreach.com</strong>. Add it to your contacts so the next issue doesn't land in spam. I'd hate for you to miss the good stuff.</p>
         </td>
       </tr></table>
