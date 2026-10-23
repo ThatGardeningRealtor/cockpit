@@ -166,7 +166,19 @@ comm=section('COMMUNITY CORNER','Community Corner',"Thanks for Swapping, and Pum
 up=section('COMING UP NEXT WEEK','Coming Up','Copy What Already Works',
  PL%"Next week is Dr. Barron Rector's class on Texas landscapes, and his big idea stuck with me: rip off and duplicate what nature was already doing here. We'll talk about what this land looked like before the lawns, why change is normal, and how to borrow from the prairie in your own yard.")
 
-body=hero+DIV+turf+DIV+trees+DIV+mid+DIV+re_+DIV+light+DIV+chk+DIV+stands+DIV+comm+DIV+up+DIV
+heads='''  <!-- HEADS UP: NEW SENDER -->
+  <tr>
+    <td bgcolor="#ffffff" style="padding:4px 36px 20px 36px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+        <td bgcolor="#f3f7ea" style="padding:16px 20px;border-left:4px solid #8ab840;font-family:Georgia,serif;">
+          <p style="font-family:Arial,sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#4a7a1e;font-weight:700;margin:0 0 6px 0;">Quick heads up</p>
+          <p style="font-size:15px;line-height:1.6;color:#4a4a44;margin:0;">Starting next week, this newsletter will come from a new address: <strong>christopher_drawdy@mail.expreach.com</strong>. Add it to your contacts so the next issue doesn't land in spam. I'd hate for you to miss the good stuff.</p>
+        </td>
+      </tr></table>
+    </td>
+  </tr>
+'''
+body=hero+heads+DIV+turf+DIV+trees+DIV+mid+DIV+re_+DIV+light+DIV+chk+DIV+stands+DIV+comm+DIV+up+DIV
 out=head+body+tail
 out=out.replace('>(210) 214-2673<','>(210) 214 2673<')
 open('TGR-Garden-Edition-Vol10.html','w').write(out.replace('@@IMGB@@',R+'vol10/'))
