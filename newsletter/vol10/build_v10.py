@@ -29,12 +29,12 @@ A=lambda href,t:f'<a href="{href}" target="_blank" rel="noopener" {LINK}>{t}</a>
 hero=f'''  <!-- HERO IMAGE -->
   <tr>
     <td style="padding:0;">
-      {img("vol10-hero.jpg","Yellow and orange cosmos blooming against a blue sky in a San Antonio garden",620,286,True)}
+      {img("vol10-hero.jpg","A honeybee in flight over a yellow cosmos bloom, with another bee on the flower",620,413,True)}
     </td>
   </tr>
   <tr>
     <td bgcolor="#1a2e10" style="padding:8px 32px 0 32px;">
-      <p style="font-size:12px;line-height:1.5;color:#8ab840;margin:0;font-style:italic;text-align:center;">Cosmos running wild under the trees this week.</p>
+      <p style="font-size:12px;line-height:1.5;color:#8ab840;margin:0;font-style:italic;text-align:center;">A honeybee coming in for a landing on the cosmos this week.</p>
     </td>
   </tr>
 
@@ -65,8 +65,8 @@ hero=f'''  <!-- HERO IMAGE -->
 
 '''
 turf=section('MASTER GARDENER INTERN','Master Gardener Intern','Your Lawn Runs on Sunshine',
- img("vol10-rain-gauge.jpg","A rain gauge in the garden after a storm",300,649)+
- CAP%"My rain gauge after our last good storm, about an inch and a half."+
+ img("vol10-rain-gauge.jpg","A rain gauge in a freshly mulched garden bed after a storm",300,552)+
+ CAP%"The rain gauge at Greenies after our last good storm, about an inch and a half."+
  P%"Dr. Emanuel Chavarria with Texas A&amp;M AgriLife taught our turfgrass class, and the line I keep repeating is this one: grass doesn't eat fertilizer. Its real food is sunlight. Fertilizer is more like vitamins. So the first question for any lawn is how much sun it actually gets."+
  card([("St. Augustine","Handles some shade better than Bermuda and roots deep. Watch out for cold snaps and chinch bugs. Fun fact: there's no St. Augustine seed for sale, so it always starts from sod or plugs."),
        ("Bermuda","Tough, fast, and handles heat, drought, and foot traffic. It wants more than 8 hours of sun, or it thins out and fades in the shade."),
@@ -106,8 +106,8 @@ mid=f'''  <!-- MID CTA -->
 
 '''
 re_=section('REAL ESTATE CORNER','Real Estate Corner','What a Yard Tells You Before You Buy',
- img("vol10-shade-yard.jpg","A small brick home under a big mature shade tree, with a full garden out front",548,253)+
- CAP%"A mature shade tree like this one can change how a whole house lives."+
+ img("vol10-devine-yard.jpg","A tan country home behind a front yard full of white wildflowers under a blue sky",548,519)+
+ CAP%"Wildflowers out front in Devine. The yard tells you a lot before you ever step inside."+
  P%"When I walk a property with someone, I look at the house, sure. But I'm also reading the yard, because the yard tells you what living there will actually be like. Here's what I check:"+
  card([("Where the sun goes","Full sun is 6 or more hours of direct light, part sun is 3 to 6, and deep shade is under 3. A backyard that's shady at 2 PM won't grow tomatoes or Bermuda. If you can, visit at different times of day."),
        ("Big trees","Shade trees take decades to grow, so look at them closely. Is the canopy full? Any dead limbs, or ball moss piling up on stressed wood? If there are oaks, ask whether oak wilt has been in the area."),
@@ -125,7 +125,7 @@ re_=section('REAL ESTATE CORNER','Real Estate Corner','What a Yard Tells You Bef
       </table>''')
 
 light=section('RIGHT PLANT RIGHT PLACE','Right Plant, Right Place','Do the Sun Walk This Weekend',
- img("vol10-bees-cosmos.jpg","Two honeybees working a yellow cosmos bloom in full sun",280,606)+
+ img("vol10-bees-cosmos.jpg","A honeybee working an orange cosmos bloom in full sun",280,606)+
  CAP%"Cosmos love full sun, and so do the bees. Right plant, right place."+
  P%"Lynn Cox taught our perennials class, and her homework is something anyone can do. On a sunny day, check your yard every hour or so from 10 AM to 5 PM and jot down where the light lands. That's your real map for what to plant where. Do it again in spring, because the sun angle changes and leaves come and go."+
  P%"Turk's cap is a good example. In full sun it blooms like crazy but droops in the afternoon heat. In shade the leaves look great but the flowers slow down. Lynn's answer: morning sun, afternoon shade."+
@@ -159,7 +159,7 @@ stands=f'''  <!-- LRH STANDS -->
 '''
 comm=section('COMMUNITY CORNER','Community Corner',"Thanks for Swapping, and Pumpkins Are Up",
  P%"A big thank you to Ken Wolfgram for hosting our October 17 plant swap, and to everyone who showed up with cuttings, seedlings, and stories to trade. That's what this community is about: plants moving from one yard to the next, and neighbors meeting neighbors along the way. If you missed this one, there will be more, and I'll share the next date here first."+
- img("vol10-pumpkins.jpg","Pumpkins lined up at a fall church pumpkin patch",400,185)+
+ img("vol10-pumpkins.jpg","Rows of orange pumpkins under white tents at a church pumpkin patch",400,150)+
  CAP%"The pumpkin patch is up at a church in Windcrest, like it is every fall."+
  PL%f"Mark your calendar: besides Día del Árbol on November 14, the City is also giving away trees at the Farmers and Artisans Holiday Market on <strong>Saturday, November 21, 9 AM to 1 PM</strong>, also at Mission Marquee Plaza. Can't make either one? Send me a photo of what's growing in your yard. The good ones might land in a future issue.")
 
