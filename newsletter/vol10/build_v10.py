@@ -157,9 +157,9 @@ stands=f'''  <!-- LRH STANDS -->
   </tr>
 
 '''
-comm=section('COMMUNITY CORNER','Community Corner',"Thanks for Swapping, and the Pumpkins Are Out",
+comm=section('COMMUNITY CORNER','Community Corner',"Swapping Plants and Painting Pumpkins",
  P%"A big thank you to Ken Wolfgram for hosting our October 17 plant swap, and to everyone who showed up with cuttings, seedlings, and stories to trade. That's what this community is about: plants moving from one yard to the next, and neighbors meeting neighbors along the way. If you missed this one, there will be more, and I'll share the next date here first."+
- img("vol10-pumpkins.jpg","Painted jack o lantern pumpkins lined up on a wooden garden table at the San Antonio Botanical Garden",400,180)+
+ img("vol10-pumpkins.jpg","Painted jack o lantern pumpkins lined up on a wooden garden table at the San Antonio Botanical Garden",548,246)+
  CAP%"Painted by our Wednesday dementia friendly garden group at the Botanical Garden."+
  PL%f"Mark your calendar: besides Día del Árbol on November 14, the City is also giving away trees at the Farmers and Artisans Holiday Market on <strong>Saturday, November 21, 9 AM to 1 PM</strong>, also at Mission Marquee Plaza. Can't make either one? Send me a photo of what's growing in your yard. The good ones might land in a future issue.")
 
